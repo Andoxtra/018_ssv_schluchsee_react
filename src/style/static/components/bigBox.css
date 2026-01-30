@@ -1,0 +1,5 @@
+div.bigBox{
+    min-width: 80vw;
+    min-height: 30vh;
+    border: 1px solid black;
+}
