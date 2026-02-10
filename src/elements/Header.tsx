@@ -16,6 +16,7 @@ const Header = (): ReactNode => {
                 <LargeIcon linkToIcon={imagePaths.ssvLogo} linkTo={webPaths.homeSite}></LargeIcon>
                 <SmallLinkButton textContent={textList.about} linkTo={webPaths.aboutSite} ></SmallLinkButton>
                 <SmallLinkButton textContent={textList.faq} linkTo={webPaths.faqSite} ></SmallLinkButton>
+                <SmallLinkButton textContent={textList.testingSite} linkTo={webPaths.testingSite}></SmallLinkButton>
             </Toolbar>
         </>
     );

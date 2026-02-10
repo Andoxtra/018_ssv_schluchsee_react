@@ -15,7 +15,8 @@ const textList = {
     law : "Gesetz",
     faq : "FAQ",
     info : "Informationen",
-    trainingTime : "Trainingszeiten"
+    trainingTime : "Trainingszeiten",
+    testingSite: "Test-Seite",
 };
 
 export default textList;

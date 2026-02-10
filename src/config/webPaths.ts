@@ -15,7 +15,8 @@ const webPaths = {
     faqSite: "/faq",
     contactFormSite: "/kontaktformular",
     lawSite: "/gesetz",
-    shootingLocation: "schiessstaende"
+    shootingLocation: "schiessstaende",
+    testingSite: "/testing",
 };
 
 export default webPaths;
