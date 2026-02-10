@@ -5,7 +5,7 @@ import colorConfig from "../../../config/colorConfig.ts";
 const PrimaryButtonStyle: CSSProperties = {
     ...GeneralButtonStyle,
     backgroundColor: colorConfig.primary,
-    color: colorConfig.secondary
+    color: colorConfig.secondary,
 };
 
 

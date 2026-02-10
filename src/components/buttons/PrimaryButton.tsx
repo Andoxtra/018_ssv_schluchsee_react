@@ -1,5 +1,6 @@
-import {Button} from 'antd'
+import {Button, ConfigProvider} from "antd";
 import PrimaryButtonStyle from "../../style/components/buttons/PrimaryButtonStyle.ts";
+import PrimaryButtonTheme from "../../style/components/buttons/PrimaryButtonTheme.ts";
 
 type PrimaryButtonProps = {
     linkTo?: string;
@@ -8,9 +9,11 @@ type PrimaryButtonProps = {
 
 const PrimaryButton = ({linkTo, text}: PrimaryButtonProps) => {
     return (
-        <Button style={PrimaryButtonStyle} href={linkTo} type="primary">
-            {text}
-        </Button>
+        <ConfigProvider theme={PrimaryButtonTheme}>
+            <Button style={PrimaryButtonStyle} href={linkTo} type="primary">
+                {text}
+            </Button>
+        </ConfigProvider>
     );
 };
 

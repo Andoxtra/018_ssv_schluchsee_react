@@ -1,5 +1,6 @@
-import {Button} from 'antd'
+import {Button, ConfigProvider} from 'antd'
  import SecondaryButtonStyle from "../../style/components/buttons/SecondaryButtonStyle.ts";
+import SecondaryButtonTheme from "../../style/components/buttons/SecondaryButtonTheme.ts";
 
 type SecondaryButtonProps = {
     linkTo?: string;
@@ -8,9 +9,11 @@ type SecondaryButtonProps = {
 
 const SecondaryButton = ({linkTo, text}: SecondaryButtonProps) => {
     return (
-        <Button style={SecondaryButtonStyle} href={linkTo} type="default">
-            {text}
-        </Button>
+        <ConfigProvider theme={SecondaryButtonTheme}>
+            <Button style={SecondaryButtonStyle} href={linkTo} type="default">
+                {text}
+            </Button>
+        </ConfigProvider>
     );
 };
 
