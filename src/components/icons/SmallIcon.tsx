@@ -1,6 +1,7 @@
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
-import SmallIconStyle from "../../style/components/SmallIconStyle.ts";
 import BaseIcon from "./BaseIcon.tsx";
+
+import SmallIconStyle from "../../style/components/icons/SmallIconStyle.ts";
 
 type SmallIconProps = {
     linkToIcon: string;
@@ -9,17 +10,17 @@ type SmallIconProps = {
 }
 
 const {
-    smallIconS,
-    smallIconM,
-    smallIconL,
-    smallIconE
+    SmallIconS,
+    SmallIconM,
+    SmallIconL,
+    SmallIconE
 } = SmallIconStyle;
 
 const SmallIcon = ({linkToIcon, alternativeText, linkTo}: SmallIconProps) => {
 
     return (
         <BaseIcon
-            sizeStyling={getDynamicStyle(smallIconS, smallIconM, smallIconL, smallIconE)}
+            sizeStyling={getDynamicStyle(SmallIconS, SmallIconM, SmallIconL, SmallIconE)}
             linkToIcon={linkToIcon}
             linkTo={linkTo}
             alternativeText={alternativeText}>

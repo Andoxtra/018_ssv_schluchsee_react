@@ -9,17 +9,17 @@ type LargeIconProps = {
 }
 
 const {
-    largeIconS,
-    largeIconM,
-    largeIconL,
-    largeIconE
+    LargeIconS,
+    LargeIconM,
+    LargeIconL,
+    LargeIconE
 } = LargeIconStyle;
 
 const LargeIcon = ({linkToIcon, alternativeText, linkTo}: LargeIconProps) => {
 
     return (
         <BaseIcon
-            sizeStyling={getDynamicStyle(largeIconS, largeIconM, largeIconL, largeIconE)}
+            sizeStyling={getDynamicStyle(LargeIconS, LargeIconM, LargeIconL, LargeIconE)}
             linkToIcon={linkToIcon}
             linkTo={linkTo}
             alternativeText={alternativeText}>

@@ -1,30 +1,30 @@
 import type {CSSProperties} from "react";
 import GeneralIconStyle from "./GeneralIconStyle.ts";
 
-const mediumIconS: CSSProperties = {
+const MediumIconS: CSSProperties = {
     ...GeneralIconStyle,
     width: "24px",
     height: "24px"
 };
 
-const mediumIconM: CSSProperties = {
+const MediumIconM: CSSProperties = {
     ...GeneralIconStyle,
     width: "28px",
     height: "28px"
 }
 
-const mediumIconL: CSSProperties = {
+const MediumIconL: CSSProperties = {
     ...GeneralIconStyle,
     width: "32px",
     height: "32px",
 }
 
-const mediumIconE: CSSProperties = {
+const MediumIconE: CSSProperties = {
     ...GeneralIconStyle,
     width: "36px",
     height: "36px"
 }
 
-const MediumIconStyle = {mediumIconS, mediumIconM, mediumIconL, mediumIconE};
+const MediumIconStyle = {MediumIconS, MediumIconM, MediumIconL, MediumIconE};
 
 export default MediumIconStyle;
