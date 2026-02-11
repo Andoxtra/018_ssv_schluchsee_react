@@ -8,6 +8,9 @@ import SecondaryButton from "../../components/buttons/SecondaryButton.tsx";
 
 import imagePaths from "../../config/imagePaths.ts";
 import webPaths from "../../config/webPaths.ts";
+import SmallImage from "../../components/images/SmallImage.tsx";
+import MediumImage from "../../components/images/MediumImage.tsx";
+import LargeImage from "../../components/images/LargeImage.tsx";
 
 const Test = (): ReactNode => {
     return (
@@ -17,6 +20,9 @@ const Test = (): ReactNode => {
             <LargeIcon linkToIcon={imagePaths.ssvLogo} linkTo={webPaths.testingSite}></LargeIcon>
             <PrimaryButton text="Primary Button" linkTo={webPaths.testingSite}></PrimaryButton>
             <SecondaryButton text="Secondary Button" linkTo={webPaths.testingSite}></SecondaryButton>
+            <SmallImage linkToImage={imagePaths.ssvLogo} alternativeText="Small Image"></SmallImage>
+            <MediumImage linkToImage={imagePaths.ssvLogo} alternativeText="Medium Image"></MediumImage>
+            <LargeImage linkToImage={imagePaths.ssvLogo} alternativeText="Large Image"></LargeImage>
         </>
     )
 };
