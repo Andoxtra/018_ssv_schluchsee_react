@@ -1,5 +1,7 @@
 import type {CSSProperties} from "react";
+
 import GeneralImageStyle from "./GeneralImageStyle.ts";
+
 
 const LargeImageS: CSSProperties = {
     ...GeneralImageStyle,

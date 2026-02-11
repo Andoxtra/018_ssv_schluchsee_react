@@ -2,11 +2,11 @@ import type {ReactNode} from "react";
 
 import Toolbar from "../components/boxes/Toolbar.tsx";
 import LargeIcon from "../components/icons/LargeIcon.tsx";
+import SecondaryButton from "../components/buttons/SecondaryButton.tsx";
 
 import imagePaths from "../config/imagePaths.ts";
 import webPaths from "../config/webPaths.ts";
 import textList from "../config/textList.ts";
-import SecondaryButton from "../components/buttons/SecondaryButton.tsx";
 
 
 const Header = (): ReactNode => {

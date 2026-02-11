@@ -18,7 +18,7 @@ const {
 const PrimaryButton = ({linkTo, text}: PrimaryButtonProps) => {
     return (
         <ConfigProvider theme={PrimaryButtonTheme}>
-            <Button style={getDynamicStyle(PrimaryButtonStyleS, PrimaryButtonStyleM, PrimaryButtonStyleL, PrimaryButtonStyleE)} href={linkTo} type="primary">
+            <Button style={getDynamicStyle(PrimaryButtonStyleS, PrimaryButtonStyleM, PrimaryButtonStyleL, PrimaryButtonStyleE)} href={linkTo}>
                 {text}
             </Button>
         </ConfigProvider>
