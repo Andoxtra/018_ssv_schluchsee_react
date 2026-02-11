@@ -20,7 +20,7 @@ const SmallIcon = ({linkToIcon, alternativeText, linkTo}: SmallIconProps) => {
 
     return (
         <BaseIcon
-            sizeStyling={getDynamicStyle(SmallIconS, SmallIconM, SmallIconL, SmallIconE)}
+            style={getDynamicStyle(SmallIconS, SmallIconM, SmallIconL, SmallIconE)}
             linkToIcon={linkToIcon}
             linkTo={linkTo}
             alternativeText={alternativeText}>

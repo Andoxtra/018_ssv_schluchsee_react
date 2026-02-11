@@ -19,7 +19,7 @@ const MediumIcon = ({linkToIcon, alternativeText, linkTo}: MediumIconProps) => {
 
     return (
         <BaseIcon
-            sizeStyling={getDynamicStyle(MediumIconS, MediumIconM, MediumIconL, MediumIconE)}
+            style={getDynamicStyle(MediumIconS, MediumIconM, MediumIconL, MediumIconE)}
             linkToIcon={linkToIcon}
             linkTo={linkTo}
             alternativeText={alternativeText}>

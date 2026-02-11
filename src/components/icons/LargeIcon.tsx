@@ -19,7 +19,7 @@ const LargeIcon = ({linkToIcon, alternativeText, linkTo}: LargeIconProps) => {
 
     return (
         <BaseIcon
-            sizeStyling={getDynamicStyle(LargeIconS, LargeIconM, LargeIconL, LargeIconE)}
+            style={getDynamicStyle(LargeIconS, LargeIconM, LargeIconL, LargeIconE)}
             linkToIcon={linkToIcon}
             linkTo={linkTo}
             alternativeText={alternativeText}>
