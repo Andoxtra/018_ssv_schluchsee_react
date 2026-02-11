@@ -15,14 +15,14 @@ import LargeImage from "../../components/images/LargeImage.tsx";
 const Test = (): ReactNode => {
     return (
         <>
-            <SmallIcon linkToIcon={imagePaths.ssvLogo} linkTo={webPaths.testingSite} ></SmallIcon>
-            <MediumIcon linkToIcon={imagePaths.ssvLogo} linkTo={webPaths.testingSite}></MediumIcon>
-            <LargeIcon linkToIcon={imagePaths.ssvLogo} linkTo={webPaths.testingSite}></LargeIcon>
+            <SmallIcon linkToIcon={imagePaths.ssvLogoFull} linkTo={webPaths.testingSite} ></SmallIcon>
+            <MediumIcon linkToIcon={imagePaths.ssvLogoFull} linkTo={webPaths.testingSite}></MediumIcon>
+            <LargeIcon linkToIcon={imagePaths.ssvLogoFull} linkTo={webPaths.testingSite}></LargeIcon>
             <PrimaryButton text="Primary Button" linkTo={webPaths.testingSite}></PrimaryButton>
             <SecondaryButton text="Secondary Button" linkTo={webPaths.testingSite}></SecondaryButton>
-            <SmallImage linkToImage={imagePaths.ssvLogo} alternativeText="Small Image"></SmallImage>
-            <MediumImage linkToImage={imagePaths.ssvLogo} alternativeText="Medium Image"></MediumImage>
-            <LargeImage linkToImage={imagePaths.ssvLogo} alternativeText="Large Image"></LargeImage>
+            <SmallImage linkToImage={imagePaths.ssvLogoFull}></SmallImage>
+            <MediumImage linkToImage={imagePaths.ssvLogoFull}></MediumImage>
+            <LargeImage linkToImage={imagePaths.ssvLogoFull}></LargeImage>
         </>
     )
 };
