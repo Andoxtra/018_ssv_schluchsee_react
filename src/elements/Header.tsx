@@ -11,14 +11,12 @@ import textList from "../config/textList.ts";
 
 const Header = (): ReactNode => {
     return (
-        <>
-            <Toolbar>
-                <LargeIcon linkToIcon={imagePaths.ssvLogo} linkTo={webPaths.homeSite}></LargeIcon>
-                <SecondaryButton linkTo={webPaths.aboutSite} text={textList.about}></SecondaryButton>
-                <SecondaryButton linkTo={webPaths.faqSite} text={textList.faq}></SecondaryButton>
-                <SecondaryButton linkTo={webPaths.testingSite} text={textList.testingSite}></SecondaryButton>
-            </Toolbar>
-        </>
+        <Toolbar>
+            <LargeIcon linkToIcon={imagePaths.ssvLogo} linkTo={webPaths.homeSite}></LargeIcon>
+            <SecondaryButton linkTo={webPaths.aboutSite} text={textList.about}></SecondaryButton>
+            <SecondaryButton linkTo={webPaths.faqSite} text={textList.faq}></SecondaryButton>
+            <SecondaryButton linkTo={webPaths.testingSite} text={textList.testingSite}></SecondaryButton>
+        </Toolbar>
     );
 };
 
