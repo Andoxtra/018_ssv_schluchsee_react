@@ -10,18 +10,26 @@ const GeneralSecondaryButtonStyle: CSSProperties = {
 
 const SecondaryButtonStyleS: CSSProperties = {
     ...GeneralSecondaryButtonStyle,
+    height: 40,
+    paddingInline: 14
 };
 
 const SecondaryButtonStyleM: CSSProperties = {
     ...GeneralSecondaryButtonStyle,
+    height: 44,
+    paddingInline: 18
 };
 
 const SecondaryButtonStyleL: CSSProperties = {
     ...GeneralSecondaryButtonStyle,
+    height: 48,
+    paddingInline: 22
 };
 
 const SecondaryButtonStyleE: CSSProperties = {
     ...GeneralSecondaryButtonStyle,
+    height: 52,
+    paddingInline: 26
 };
 
 const SecondaryButtonStyle = {SecondaryButtonStyleS, SecondaryButtonStyleM, SecondaryButtonStyleL, SecondaryButtonStyleE};
