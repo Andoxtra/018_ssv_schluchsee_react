@@ -4,7 +4,7 @@ import type {ThemeConfig} from "antd";
 const BaseInputTheme: ThemeConfig = {
     token: {
         colorPrimary: colorConfig.primary,
-        colorBorder: colorConfig.tertiary,
+        colorBorder: colorConfig.primary,
         borderRadius: 6,
     },
     components: {

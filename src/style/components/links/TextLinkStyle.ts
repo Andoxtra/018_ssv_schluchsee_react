@@ -3,7 +3,7 @@ import colorConfig from "../../../config/colorConfig.ts";
 
 const TextLinkGeneralStyle: CSSProperties = {
     fontSize: 14,
-    color: colorConfig.primary,
+    color: colorConfig.secondary,
     textDecoration: "none",
     fontWeight: 500,
     transition: "all 0.3s ease",

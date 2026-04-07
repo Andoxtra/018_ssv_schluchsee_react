@@ -1,6 +1,7 @@
 import type {ReactNode} from "react";
 import TextLinkStyle from "../../style/components/links/TextLinkStyle.ts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
+import ColorConfig from "../../config/colorConfig.ts";
 
 type TextLinkProps = {
     href: string;
@@ -26,12 +27,11 @@ const TextLink = ({href, children, target = "_self", title, className}: TextLink
             className={className}
             style={getDynamicStyle(TextLinkStyleS, TextLinkStyleM, TextLinkStyleL, TextLinkStyleE)}
             onMouseOver={(e) => {
-                e.currentTarget.style.color = "rgba(233,220,104,0.75)";
-                e.currentTarget.style.borderBottomColor = "rgba(233,220,104,0.75)";
+                e.currentTarget.style.color = ColorConfig.secondaryActive;
+                e.currentTarget.style.borderBottomColor = ColorConfig.secondaryActive;
             }}
             onMouseOut={(e) => {
-                const style = getDynamicStyle(TextLinkStyleS, TextLinkStyleM, TextLinkStyleL, TextLinkStyleE);
-                e.currentTarget.style.color = style.color as string;
+                e.currentTarget.style.color = ColorConfig.secondary;
                 e.currentTarget.style.borderBottomColor = "transparent";
             }}
         >

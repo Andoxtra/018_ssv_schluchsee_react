@@ -5,7 +5,7 @@ const DropdownGeneralStyle: CSSProperties = {
     fontSize: 14,
     color: colorConfig.primary,
     borderRadius: 6,
-    border: `2px solid ${colorConfig.tertiary}`,
+    border: `2px solid ${colorConfig.primary}`,
     transition: "all 0.3s ease",
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
 };
