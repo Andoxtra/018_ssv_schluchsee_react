@@ -1,5 +1,5 @@
 import {Input, ConfigProvider} from "antd";
-import type {ReactNode} from "react";
+import React, {type ReactNode} from "react";
 import BaseInputStyle from "../../style/components/inputs/BaseInputStyle.ts";
 import BaseInputTheme from "../../style/components/inputs/BaseInputTheme.ts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
