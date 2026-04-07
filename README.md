@@ -12,13 +12,13 @@
 ### Components
 
 - Tables `<table>`
-- Input Fields `<input>`
-- Text Blocks `<p>`
-- Radio Button
-- Check Box
-- Dropdown `<dropdown>`
-- Headers `<h1>`-`<h6>`
-- Text-Links `<a>`
+- Input Fields `<input>` &#9745;
+- Text Blocks `<p>` &#9745;
+- Radio Button &#9745;
+- Check Box &#9745;
+- Dropdown `<dropdown>` &#9745;
+- Headers `<h1>`-`<h6>` &#9745;
+- Text-Links `<a>` &#9745;
 - Sizing Box `<div>`
 
 ### Organisation
