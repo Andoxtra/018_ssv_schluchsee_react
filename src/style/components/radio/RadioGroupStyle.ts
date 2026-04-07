@@ -2,7 +2,6 @@ import type {CSSProperties} from "react";
 import colorConfig from "../../../config/colorConfig.ts";
 
 const RadioGroupGeneralStyle: CSSProperties = {
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     fontSize: 14,
     color: colorConfig.primary,
     display: "flex",

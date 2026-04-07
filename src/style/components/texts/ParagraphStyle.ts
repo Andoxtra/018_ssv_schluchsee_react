@@ -2,7 +2,6 @@ import type {CSSProperties} from "react";
 import colorConfig from "../../../config/colorConfig.ts";
 
 const ParagraphGeneralStyle: CSSProperties = {
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     fontSize: 14,
     color: colorConfig.primary,
     lineHeight: 1.6,

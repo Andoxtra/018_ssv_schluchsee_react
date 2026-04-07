@@ -2,7 +2,6 @@ import type {CSSProperties} from "react";
 import colorConfig from "../../../config/colorConfig.ts";
 
 const HeadingGeneralStyle: CSSProperties = {
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     color: colorConfig.primary,
     fontWeight: 600,
     marginTop: 16,

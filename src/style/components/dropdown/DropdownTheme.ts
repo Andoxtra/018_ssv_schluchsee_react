@@ -6,7 +6,6 @@ const DropdownTheme: ThemeConfig = {
         colorPrimary: colorConfig.primary,
         colorBorder: colorConfig.tertiary,
         borderRadius: 6,
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     },
     components: {
         Select: {

@@ -2,7 +2,6 @@ import type {CSSProperties} from "react";
 import colorConfig from "../../../config/colorConfig.ts";
 
 const GeneralInputStyle: CSSProperties = {
-    fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
     fontSize: 14,
     borderRadius: 6,
     border: `2px solid ${colorConfig.tertiary}`,

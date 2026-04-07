@@ -3,8 +3,7 @@ import type {ThemeConfig} from "antd";
 
 const RadioGroupTheme: ThemeConfig = {
     token: {
-        colorPrimary: colorConfig.primary,
-        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        colorPrimary: colorConfig.primary
     },
     components: {
         Radio: {
