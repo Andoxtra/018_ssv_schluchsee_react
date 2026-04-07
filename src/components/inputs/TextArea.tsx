@@ -37,7 +37,7 @@ const TextArea = ({
                 disabled={disabled}
                 rows={rows}
                 maxLength={maxLength}
-                style={getDynamicStyle(BaseInputStyleS, BaseInputStyleM, BaseInputStyleL, BaseInputStyleE)}
+                styles={getDynamicStyle(BaseInputStyleS, BaseInputStyleM, BaseInputStyleL, BaseInputStyleE)}
             />
         </ConfigProvider>
     );
