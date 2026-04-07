@@ -22,6 +22,7 @@ import RadioGroup from "../../components/radio/RadioGroup.tsx";
 import CheckBox from "../../components/checkbox/CheckBox.tsx";
 import CheckBoxGroup from "../../components/checkbox/CheckBoxGroup.tsx";
 import Dropdown from "../../components/dropdown/Dropdown.tsx";
+import BaseTable from "../../components/table/BaseTable.tsx";
 
 const Test = (): ReactNode => {
     const [inputValue, setInputValue] = useState("");
@@ -32,29 +33,70 @@ const Test = (): ReactNode => {
     const [selectedDropdown, setSelectedDropdown] = useState<string | number>("option1");
 
     const radioOptions = [
-        { label: "Option 1", value: "option1" },
-        { label: "Option 2", value: "option2" },
-        { label: "Option 3", value: "option3" }
+        {label: "Option 1", value: "option1"},
+        {label: "Option 2", value: "option2"},
+        {label: "Option 3", value: "option3"}
     ];
 
     const checkboxOptions = [
-        { label: "Checkbox 1", value: "check1" },
-        { label: "Checkbox 2", value: "check2" },
-        { label: "Checkbox 3", value: "check3" }
+        {label: "Checkbox 1", value: "check1"},
+        {label: "Checkbox 2", value: "check2"},
+        {label: "Checkbox 3", value: "check3"}
     ];
 
     const dropdownOptions = [
-        { label: "Option 1", value: "option1" },
-        { label: "Option 2", value: "option2" },
-        { label: "Option 3", value: "option3" },
-        { label: "Option 4", value: "option4" }
+        {label: "Option 1", value: "option1"},
+        {label: "Option 2", value: "option2"},
+        {label: "Option 3", value: "option3"},
+        {label: "Option 4", value: "option4"}
     ];
 
     return (
         <>
+            {/* Heading Section */}
+            <Heading level={1}>Test Page</Heading>
+            <Heading level={2}>This is a Heading Level 2</Heading>
+            <Heading level={3}>This is a Heading Level 3</Heading>
+            <Heading level={4}>This is a Heading Level 4</Heading>
+            <Heading level={5}>This is a Heading Level 5</Heading>
+            <Heading level={6}>This is a Heading Level 6</Heading>
+
+            {/* Table Section*/}
+
+            <BaseTable tableData={[
+                {
+                    key: '1',
+                    name: 'Mike',
+                    age: 32,
+                    address: '10 Downing Street',
+                },
+                {
+                    key: '2',
+                    name: 'John',
+                    age: 42,
+                    address: '10 Downing Street',
+                },
+            ]} columnData={[
+                {
+                    title: 'Name',
+                    dataIndex: 'name',
+                    key: 'name',
+                },
+                {
+                    title: 'Age',
+                    dataIndex: 'age',
+                    key: 'age',
+                },
+                {
+                    title: 'Address',
+                    dataIndex: 'address',
+                    key: 'address',
+                },
+            ]}></BaseTable>
+
             {/* Icons Section */}
             <Heading level={1}>Icons</Heading>
-            <SmallIcon linkToIcon={imagePaths.ssvLogoFull} linkTo={webPaths.testingSite} ></SmallIcon>
+            <SmallIcon linkToIcon={imagePaths.ssvLogoFull} linkTo={webPaths.testingSite}></SmallIcon>
             <MediumIcon linkToIcon={imagePaths.ssvLogoFull} linkTo={webPaths.testingSite}></MediumIcon>
             <LargeIcon linkToIcon={imagePaths.ssvLogoFull} linkTo={webPaths.testingSite}></LargeIcon>
 
@@ -73,7 +115,8 @@ const Test = (): ReactNode => {
             <Heading level={1}>Text Components</Heading>
             <Heading level={2}>Heading Level 2</Heading>
             <Heading level={3}>Heading Level 3</Heading>
-            <Paragraph>This is a sample paragraph. You can use this component for displaying text content throughout the application.</Paragraph>
+            <Paragraph>This is a sample paragraph. You can use this component for displaying text content throughout the
+                application.</Paragraph>
             <TextLink href={webPaths.testingSite} target="_self">This is a text link</TextLink>
 
             {/* Input Components Section */}
