@@ -15,68 +15,79 @@ Aktuelle Seite: [Home](https://www.ssv-schluchsee.de/index.php)  »  Vereinsge
 
 Suchen ...
 
-[Vereinsgeschichte](https://www.ssv-schluchsee.de/index.php/vereinsgeschichte)
--------------------------------------------------
+# Vereinsgeschichte
 
-Andreas Isele Zugriffe: 15825
+## Bis zum Jahr 1945
 
-[Drucken](https://www.ssv-schluchsee.de/index.php/vereinsgeschichte?tmpl=component&print=1 "Eintrag ausdrucken < Vereinsgeschichte >")
+Im Jahr 1926 wurde in Schluchsee während des Aufschwungs nach dem 1. Weltkrieg von sportbegeisterten Schützen ein Kleinkaliber-Schützenverein gegründet. Die Gründungsversammlung fand im Hotel Sternen statt, Oberforstrat Walli übernahm die Führung und der junge Verein zählte bereits im ersten Jahr 90 Mitglieder.
 
+Kurz darauf begannen viele freiwillige Helfer, besonders Holzhauer, einen KK-Stand auf dem Gelände des heutigen Sportplatzes zu errichten. Im Juni 1927 wurde die Schießanlage (acht Stände) mit einem Preisschießen eingeweiht. Die Anlage wurde danach kontinuierlich ausgebaut. Förster Büche war die treibende Kraft im Verein und sorgte dafür, dass die Anlage nach der Inflation schuldenfrei wurde.
 
+Die Machtergreifung der Nationalsozialisten 1933 nahm dem Verein seine Unabhängigkeit und integrierten ihn in die NS-Sportorganisation.
 
-* Bis zum Jahre 1945:: Im Jahre 1926, während der Zeit des Aufschwungs nach dem 1. Weltkrieg und vor der bald hereinbrechenden Weltwirtschaftskrise, wurde auch in Schluchsee von sportbegeisterten Schützen ein Kleinkaliber - Schützenverein aus der Taufe gehoben.
-* Bis zum Jahre 1945:: Aus einem glücklicherweise noch vorhandenen alten Klassenbuch geht hervor, dass damals die Gründungsversammlung im Hotel Sternen erfolgte, Oberforstrat Walli die Führung übernahm und der junge Verein schon im ersten Jahr 90 Mitglieder zählte.
-* Bis zum Jahre 1945:: Schon kurze Zeit danach begannen viele freiwillige Helfer, besonders Holzhauer, eine KK Stand auf dem Gelände des heutigen Sportplatzes zu errichten. Im Juni 1927 wurde die Schiessanlage (acht Stände) mit einem Preisschiessen eingeweiht. In der Folgezeit wurde weiter ausgebaut, Förster Büche war nun die treibende Kraft im Verein und nach der Inflation war die Anlage sogar schuldenfrei.
-* Bis zum Jahre 1945:: Die Machtergreifung der Nationalsozialisten 1933 nahm dem Verein seine Unabhängigkeit, er wurde in die NS - Sportorganisation eingegliedert, die das KK-Schiessen immer mehr als Waffenübung für den Ernstfall ansah.
-* Bis zum Jahre 1945:: Das 10 jährige Jubiläum im Olympiajahr 1936 wurde in Schluchsee mit einem grossen Fest gefeiert. Viele Schützen beteiligten sich am Manschaftspreisschiessen und am Schiessen um den begehrten Schluchseetaler auf 12 Bahnen. Der Kriegsausbruch 1939 unterbrach jäh die Aufwärtsentwicklung des Vereines. Die meisten Schützen mussten in den Krieg ziehen. Regelmässige Schiessübungen hielten nun SA-Abteilung und Kriegerverein ab. Laut Kassenbuch wurde die Einnahme an den jährlich bis 1943 veranstalteten Schützenfesten immer bescheidener und kam 1944 zum Stillstand.
-* Bis zum Jahre 1945:: Nach 1945 riss die Besatzungsmacht Stände und Hütte ab und zündete die Reste an. Etwas später errichtete der Sportverein Schluchsee auf diesem nicht mehr genutzten Gelände ihren Fussballplatz.
-* Bis zum Jahre 1945:: Der Besitz von Jagd- und Sportwaffen war zunächst verboten, und die glücklich auf dem Krieg heimgekehrten Schluchseer verspürten zunächst wenig Neigung, eine Waffe in die Hand zu nehmen, selbst wenn es nur noch für den sportlichen Wettkampf gedacht war.
-* Bis zum Jahre 1945::  
+Das 10-jährige Jubiläum 1936 im Olympiajahr wurde in Schluchsee mit einem großen Fest gefeiert. Viele Schützen beteiligten sich am Mannschaftspreisschießen und am Schießen um den begehrten Schluchseetaler auf 12 Bahnen.
 
+Der Kriegsausbruch 1939 unterbrach die Aufwärtsentwicklung des Vereines jäh. Die meisten Schützen mussten in den Krieg ziehen.
 
-* * *
+Nach 1945 riss die Besatzungsmacht Stände und Hütte ab. Der Besitz von Jagd- und Sportwaffen war zunächst verboten.
 
+## Ab dem Jahr 1969
 
+Nach dem Ende des KK-Schützenvereins 1945 beschlossen am 18. Januar 1969 im Gasthaus zum "Schwörer" 13 Personen die Neugründung des Sportschützenvereins Schluchsee e.V.:
 
-* Ab dem Jahre 1969:: Nach dem Ende des KK-Schützenvereins 1945 beschlossen am 18 Januar 1969 im Gasthaus zum "Schwörer" folgende 13 Personen den Sportschützenverein Schluchsee e.V. zu gründen.
-* Ab dem Jahre 1969:: 1 Hermann Booz2 Oskar Booz3 Paul Braun4 Klaus Dilger5 Otto Eckert6 Egon Härtenstein7 Arnold Keller
-  * 8 Paul Keller9 August Kiefer10 Rudolf Kiefer11 Peter Schwörer12 Bertold Siegel13 Hans Wolf
-* Ab dem Jahre 1969:: Eine ganze Generation dauerte es, bis sich in Schluchsee junge Sportschützen zusammen mit älteren ehemaligen KK-Schützen für das sportliche Schiessen besonders in den Wettbewerben Luftgewehr und Luftpistole, begeistern. Bald war man sich einig, wieder einen Schützenverein zu gründen und eine Wettkampfstätte in der Gemeinde zu finden.
-* Ab dem Jahre 1969:: So trafen sich am 18. Januar 1969 im Gasthaus zum Schwörer 13 Interessenten, um zusammen mit Berater Stefan Hauser, Sportschützenverein Kappel, den Verein zu gründen, eine Vorstandschaft zu wählen und die Aufnahme in den Südbadischen Sportschützenverband zu beantragen. Die durchgeführten Wahlen ergaben: OSM Klaus Dilger - SM Hermann Booz - Schriftführer Paul Keller - Kassierer August Kiefer. Am wichtigsten für den Verein war die Beschaffung guter Schusswaffen und die Suche nach einem geeigneten Schiessstand.>
-* Ab dem Jahre 1969:: Zunächst wurde das Tarining im Winter in den leeren Sälen des Gasthauses Schwörer und des Hotels Sternen durchgeführt, später im Speicher des Rathauses. An einen sofortigen Bau eines Schützenhauses war beim damaligen Kassenstand natürlich nicht zu denken, obwohl das Interesse am sportlichen Schiessen und damit auch die Mitglieder ständig zunahmen. Als jedoch im Frühjahr 1969 die Bundespost in Donaueschingen gut erhaltene RAD Baracken zum Kauf anbot, schien die Gelegenheit günstig, in eigenen Räumen den Schiesssport auszuüben. Der Standort hinter dem Fussbalplatz wurde mit der Gemeinde festgelegt und, nach der Begutachtung der in der Grösse passenden Baracke, ein Angebot von 1000,- DM (ca. 500,-- Euro) abgegeben.
-* Ab dem Jahre 1969:: Der Verein erhielt den Zuschlag, und am 12 Juli rollte ein Lastzug der Brauerei Rothaus nach Donaueschingen. Zimmerleute, unterstützt von vielen Helfern, zerlegten die Baracke, luden sie auf und am Waldsportplatz wieder ab. Weit schwieriger und zeitaufwändiger gestaltete sich der Zusammenbau. Er dauerte viele Monate, bis im November zunächst der Schiessstand und im Januar 1970 der Aufenthaltsraum in Betrieb genommen werden konnte.
-* Ab dem Jahre 1969:: Damit hatten die Sportschützen schon 1 Jahr nach der Wiedergründung ihr ersehntes, geregeltes Zuhause. Noch heute denken ältere Schützen gerne an die Schiessabende zurück, an denen zwar auch um jeden Ring gekämpft wurde, aber die anschliessenden gemütlichen Stunden unvergessen sind. Da wurde diskutiert, gelacht, gespielt, gesungen und für das leibliche Wohl sorgte mit Liebe Schützenwirtin "Liesel". Besonders im Winter rückte man am warmen Ofen enger zusammen, und die Nächte wurden lang.
-* Ab dem Jahre 1969:: Neben den sich bald einstellenden sportlichen Erfolgen auf Krei-, Bezirks-, und Landesebene beteiligten sich die Schützen auch in der Öffentlichkeit am kulturellen Leben. An Jedermanns- und Gästeschiessen erfreuten sich Einheimische und Gäste gleichermassen. Hammeltanz und Volkswanderung bereicherten den örtlichen Veranstaltungskalender. Beim Seenachtsfest, an Fastnacht und an Jubiläen engagierte sich der Verein ebenfalls.
-* Ab dem Jahre 1969:: Unvergesslich bleibt auch 1976 das 50 jährige Jubiläum mit seinen Veranstaltungen im Festzelt auf dem Waldsportplatz. Es demonstrierte auch in der Öffentlichkeit die Stärke und den Zusammenhalt im Schützenverein, der schon 7 Jahre nach der Neugründung zu den stärksten im Hochschwarzwald zählte.
+1. Hermann Booz
+2. Oskar Booz
+3. Paul Braun
+4. Klaus Dilger
+5. Otto Eckert
+6. Egon Härtenstein
+7. Arnold Keller
+8. Paul Keller
+9. August Kiefer
+10. Rudolf Kiefer
+11. Peter Schwörer
+12. Bertold Siegel
+13. Hans Wolf
 
+Eine ganze Generation verging, bis sich in Schluchsee junge Sportschützen zusammen mit älteren ehemaligen KK-Schützen für den sportlichen Schießsport begeisterten, besonders in den Wettbewerben Luftgewehr und Luftpistole.
 
-* * *
+Die durchgeführten Wahlen ergaben:
+- **OSM Klaus Dilger**
+- **SM Hermann Booz**
+- **Schriftführer Paul Keller**
+- **Kassierer August Kiefer**
 
+Zunächst wurde das Training im Winter in den leeren Sälen des Gasthauses Schwörer und des Hotels Sternen durchgeführt, später im Speicher des Rathauses. Im Frühjahr 1969 kaufte die Bundespost in Donaueschingen gut erhaltene RAD-Baracken an. Der Standort hinter dem Fußballplatz wurde mit der Gemeinde festgelegt. Nach Begutachtung der Baracke wurde ein Angebot von 1.000 DM (ca. 500 Euro) abgegeben.
 
+Der Verein erhielt den Zuschlag. Am 12. Juli rollte ein Lastzug der Brauerei Rothaus nach Donaueschingen. Zimmerleute, unterstützt von vielen Helfern, zerlegten die Baracke und transportierten sie nach Schluchsee. Der Zusammenbau dauerte viele Monate, bis im November der Schießstand und im Januar 1970 der Aufenthaltsraum in Betrieb genommen werden konnten.
 
-* Neubau des Schützenhauses am Faulenfürster Eck:: Schon beim Einzug in das alte Schützenhaus am Waldsportplatz war der Vorstandschaft bewusst, dass in absehbarer Zeit ein Neubau notwendig werden würde. Die Zahl der aktiven Schützen stieg weiter an, KK - Disziplinien mussten auf fremden Ständen geschossen werden.
-* Neubau des Schützenhauses am Faulenfürster Eck:: Erste Neubaupläne steltte der Bauausschuss schon im Jubiläumsjahr vor. Trotzdem dauerte es noch weitere 5 Jahre, bis im Frühhjahr 1981 mit dem Bau begonnen werden konnte. Geänderte Pläne, viele einzuholende Genehmigungen bei den Behörden, Finanzierungspläne, um Toto-Lotte Mittel zu erhalten, sorgten immer wieder für Verzögerungen. Andererseits konnte während dieser Zeit weiter Kapital angespart und die Finanzierung verbessert werden. So war die Freude unter den Anwesenden gross, als OSM Karl Rosski bei der Generalversammlungendlich den "Roten Punkt" verkündete.
-* Neubau des Schützenhauses am Faulenfürster Eck:: Es ist erstaunlich, mit welchem Schwung und Eifer die Mitglieder und Helfer sich nach der Schneeschmelze an die Arbeit machten. Obwohl die meisten Bauaktuvitäten nur am Wochenende erfolgften, konnte das neue Schützenhaus schon nach einjähriger Bauzeit bezogen werden. Damit hatte nach 12 Jahren die gute alte RAD - Baracke als Schützenhaus ausgedient.
-* Neubau des Schützenhauses am Faulenfürster Eck:: In den Jahren 1982 / 83 bauten Helfer den Aufenthaltsraum und darüber die LG / LP - Stände aus und schützten die Aussenwände mit einem optisch attraktiven, aber aufwendigen Schindelmantel.
-* Neubau des Schützenhauses am Faulenfürster Eck::
+Damit hatten die Sportschützen bereits 1 Jahr nach der Wiedergründung ihr ersehntes, geregeltes Zuhause.
 
+Neben den sich bald einstellenden sportlichen Erfolgen beteiligten sich die Schützen auch am kulturellen Leben. Beim Seenachtsfest, an Fastnacht und an Jubiläen engagierte sich der Verein ebenfalls. 1976 wurde das 50-jährige Jubiläum mit Veranstaltungen im Festzelt auf dem Waldsportplatz gefeiert.
 
-* * *
+## Neubau des Schützenhauses am Faulenfürster Eck
 
+Schon beim Einzug in das alte Schützenhaus am Waldsportplatz war der Vorstandschaft bewusst, dass ein Neubau notwendig würde. Die Zahl der aktiven Schützen stieg kontinuierlich an, und KK-Disziplinen mussten auf fremden Ständen geschossen werden.
 
+Erste Neubaupläne stellte der Bauausschuss schon im Jubiläumsjahr vor. Trotzdem dauerte es noch weitere 5 Jahre, bis im Frühjahr 1981 mit dem Bau begonnen werden konnte. Nach Schneeschmelze begannen die Mitglieder und Helfer mit großem Schwung die Arbeiten. Obwohl die meisten Bauaktivitäten nur am Wochenende stattfanden, konnte das neue Schützenhaus nach einjähriger Bauzeit bezogen werden.
 
-* Einrichtung der Schiessanlage:: Nach Genehmigung der Toto-Lotto Mittel für den 2. Bauabschnitt im Frühjahr 1983 errichteten die Helfer in der Verlängerung zum Schützenhaus die beiden Pistolenstände. Doch erst im darauffolgenden Frühjahr machte der Ausbau Fortschritte: Tiefbau Wehrle baggerte die beiden langen Schiessbahnen aus und formte die seitlichen Schutzwälle. Die stabile Trennwand zwischen Pistolen- und KK - Stand wurde aufgemauert, Träger und Schutzblenden aus Beton in Eigenarbeit gegossen und mit Hilfe eines Krans zusammengefügt.
-* Einrichtung der Schiessanlage:: 1985 waren die Sicherheitsvorkehrungen soweit gediehen, dass der Sportpistolestand vom Sicherheitsbeauftragten freigegeben wurde. Weitere 2 Jahre gingen ins Land, ehe auch die KK - Stände fertiggestellt und sicherheitstechnisch abgenommen wurden. Ein vom Landratsamt angefordertes Schallmessgutachten gab die Schiessstände für KK - Waffen frei. Somit konnte das Schützenhaus mit Schiessanlagen nach rund sechjähriger Bauzeit der Öffentlichkeit vorgestellt werden. Nach Erhalt der Abschlussrate an Toto-Lotto Geldern war der Verein nicht nur schuldenfrei, es blieb sogar eine Rücklage für künftige Reparaturen übrig.
-* Einrichtung der Schiessanlage::
+In den Jahren 1982/1983 bauten Helfer den Aufenthaltsraum und die LG/LP-Stände aus und schützten die Außenwände mit einem Schindelmantel.
 
+## Einrichtung der Schießanlage
 
-* * *
+Nach Genehmigung der Toto-Lotto-Mittel für den 2. Bauabschnitt im Frühjahr 1983 errichteten die Helfer in der Verlängerung zum Schützenhaus die beiden Pistolenstände. Im Frühjahr 1984 machte der Ausbau Fortschritte: Tiefbau Wehrle baggerte die beiden langen Schießbahnen aus und formte die seitlichen Schutzwälle. Die stabile Trennwand zwischen Pistolen- und KK-Stand wurde aufgemauert, Träger und Schutzblenden aus Beton wurden in Eigenarbeit gegossen und mit Hilfe eines Krans zusammengefügt.
 
+1985 wurden die Sicherheitsvorkehrungen abgenommen und der Sportpistolestand vom Sicherheitsbeauftragten freigegeben. Weitere 2 Jahre verging, bis auch die KK-Stände fertiggestellt und sicherheitstechnisch abgenommen wurden. Ein Schallmessgutachten gab die Schießstände für KK-Waffen frei.
 
+Im Juni 1988 veranstalteten die Schützen ein großes Fest mit Preisschießen, um die Anlagen offiziell einzuweihen.
 
-* Erhalt der Anlage:: Auf diese beispiellose Leistung können die Helfer, Spender und Mitglieder des Sportschützenvereins mit Recht stolz sein, haben sie doch in der Gemeinde Schluchsee Wettkampf- und Freizeitanlage imWert von über einer viertel Million Euro geschaffen. Im Juni 1988 veranstalteten die Schützen ein grosses Fest mit Preisschiessen, um die Anlagen offiziell einzuweihen. Am Festbankett waren die Gäste aus nah und fern voll des Lobes über die geleistete Arbeit.
-* Erhalt der Anlage:: Auch in den folgenden Jahren waren ständig Arbeitseinsätze notwendig, um Haus und Anlagen zu verbessern und funktionstüchtig zu erhalten. So erhielt das Schützenhaus an der Ostseite einen kleinen Anbau. Dort konnte nun Baumaterialien und die Stände für das Seenachtsfest untergebracht werden. Die teure und schwerfällige Elektroheizung musste einer effekiveren Gasheizung weichen. Der Sturm Lothar richtete glücklicherweise keine erheblichen Schäden an, lediglich die Umzäunung wurde repariert. Weiter Investitionen standen an, um den Boden vor Geschossemission zu schützen, d.h. die Geschossfänge am ende der Schiessbahne mussten versiegelt werden.
-* Erhalt der Anlage:: "was du ererbt hast vondeinen Vätern, erwirb es, um es zu erhalten!" Es ist zu hoffen, dass dieser Wahlspruch von den Sportschützen, die künftig den Schiesssport am Faulenfürster Eck ausüben, ernst genommen wird, damit eine einzigartige gemeinschaftsfördernde Einrichtung in unserer Gemeinde erhalten bleibt.
+## Erhalt der Anlage
+
+Auf diese beispiellose Leistung können die Helfer, Spender und Mitglieder mit Recht stolz sein. Sie haben in der Gemeinde Schluchsee eine Wettkampf- und Freizeitanlage im Wert von über einer Viertelmillion Euro geschaffen.
+
+Auch in den folgenden Jahren waren ständig Arbeitseinsätze notwendig, um Haus und Anlagen zu verbessern und funktionstüchtig zu erhalten. Das Schützenhaus erhielt an der Ostseite einen kleinen Anbau und eine effektivere Gasheizung ersetzte die teure Elektroheizung. Weitere Investitionen standen an, um die Böden vor Geschossemissionen zu schützen.
+
+*"Was du ererbt hast von deinen Vätern, erwirb es, um es zu erhalten!"* Es ist zu hoffen, dass dieser Wahlspruch von den Sportschützen, die künftig den Schießsport am Faulenfürster Eck ausüben, ernst genommen wird, damit diese einzigartige gemeinschaftsfördernde Einrichtung in unserer Gemeinde erhalten bleibt.
 
 
 *   [Zurück](https://www.ssv-schluchsee.de/index.php/impressum "Impressum")
