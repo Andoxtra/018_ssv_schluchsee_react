@@ -38,6 +38,6 @@ Tel.: [auf Anfrage]
 E-Mail: [auf Anfrage]
 
 **Vertretungsberechtigter:**  
-Wolfgang Faller
+Volker Matthews
 
-Copyright 2017 - alle Rechte vorbehalten – Schützenverein Schluchsee e. V.
+Copyright 2026 - alle Rechte vorbehalten – Schützenverein Schluchsee e. V.
