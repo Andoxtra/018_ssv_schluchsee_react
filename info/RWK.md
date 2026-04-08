@@ -1,6 +1,6 @@
 # Rundenwettkämpfe (RWK)
 
-Hier finden Sie Informationen zu unseren aktuellen Rundenwettkämpfe und Ergebnisse:
+Hier finden Sie Informationen zu unseren aktuellen Rundenwettkämpfen und Ergebnissen:
 
 ## RWK LP und LG 2016/2017
 

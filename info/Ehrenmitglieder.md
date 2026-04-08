@@ -14,7 +14,7 @@ Hier würdigen wir die besonderen Verdienste unserer Ehrenmitglieder für den Ve
 **langjähriges Mitglied im Verein**
 
 ### Daniel Khan-Leonhard
-1996 wurde Daniel Khan-Leonhard zum Ehrenmitglied ernannt. Durch seine herausragenden sportlichen Leistungen, besonders mit der Olympischen Schnellfeuerpistole, hat er für den Schießsport im Allgemeinen und für unseren Sportverein im Besonderen geworben.
+1996 wurde Daniel Khan-Leonhard zum Ehrenmitglied ernannt. Durch seine herausragenden sportlichen Leistungen, besonders mit der olympischen Schnellfeuerpistole, hat er für den Schießsport im Allgemeinen und für unseren Sportverein im Besonderen geworben.
 
 ### Gerhard Brugger
 1987 erhielt Gerhard Brugger die Ehrenmitgliedschaft, um seine besonderen Verdienste beim Bau des Schützenhauses und der Schießanlage zu würdigen.

@@ -14,8 +14,8 @@ Der Bewerber muss die erforderliche körperliche Eignung besitzen. Dies bedeutet
 
 Dies ist wohl der häufigste Ablehnungsgrund überhaupt. Der Nachweis der Zuverlässigkeit ist nicht erbracht, wenn der Bewerber:
 
-- offensichtlich Schusswaffen und Munition missbräuchlich verwenden will
-- Straftaten gegen die öffentliche Sicherheit und Ordnung (z.B. Landesverrat, Landfriedensbruch) begangen hat
+- Offensichtliche Schusswaffen und Munition missbräuchlich verwenden will
+- Straftaten gegen die öffentliche Sicherheit und Ordnung (z. B. Landesverrat, Landfriedensbruch) begangen hat
 - mindestens 2-mal wegen einer Straftat in Zusammenhang mit Trunkenheit rechtskräftig verurteilt wurde
 - innerhalb der letzten 5 Jahre rechtskräftig wegen Körperverletzung, Vergewaltigung, Hausfriedensbruch, Widerstand gegen die Staatsgewalt, Angriff auf Leib und Leben eines Anderen oder einer anderen gemeingefährlichen Straftat verurteilt wurde
 - geschäftsunfähig oder in seiner Geschäftsfähigkeit beschränkt ist
@@ -40,6 +40,6 @@ Der angehende Schütze muss ein Bedürfnis nachweisen. Dies geschieht durch erns
 
 ---
 
-Das erste halbe Jahr ist also nicht nur mit viel Spaß, sondern auch mit viel Arbeit verbunden. Diesen Weg musste jeder von uns gehen. Nehmen Sie das bitte nicht auf die leichte Schulter, aber lassen Sie sich dadurch die Freude am Schießsport nicht verderben. Ein wenig Ehrgeiz wird hinterher durch ein sehr schönes Hobby belohnt!
+Das erste halbe Jahr ist also nicht nur mit viel Spaß, sondern auch mit viel Arbeit verbunden. Diesen Weg musste jeder von uns gehen. Nehmen Sie das bitte nicht auf die leichte Schulter, aber lassen Sie sich dadurch die Freude am Schießsport nicht verderben. Ein wenig Ehrgeiz wird hinterher durch ein wunderschönes Hobby belohnt.
 
 Der SSV Schluchsee wird hier alle Mitglieder nach bestem Wissen und entsprechend seinen Möglichkeiten unterstützen.

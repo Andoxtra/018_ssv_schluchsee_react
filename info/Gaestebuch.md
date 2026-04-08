@@ -4,12 +4,12 @@ Lesen Sie hier die Einträge unserer Besucher:
 
 ## Neueste Einträge
 
-### Stefan Einsiedler - Todtnau
+### Stefan Einsiedler – Todtnau
 **Dienstag, 14. September 2021** ⭐⭐⭐⭐⭐
 
 **Schwarzpulver schießen**
 
-Bin neu in Todtnau zugezogen. Möchte fragen ob es möglich wäre bei Ihnen Vorderladerschießen. Waffen und WBK, Sprengstofferlaubnis vorhanden. MFG
+Bin neu in Todtnau zugezogen. Möchte fragen, ob es möglich wäre bei Ihnen Vorderladerschießen zu. Waffen und WBK, Sprengstofferlaubnis vorhanden. MFG
 
 **Admin-Antwort:** Ja, das ist möglich. Einfach zu den Trainingszeiten vorbeikommen.
 
@@ -20,16 +20,16 @@ Bin neu in Todtnau zugezogen. Möchte fragen ob es möglich wäre bei Ihnen Vord
 
 **Westernschießen**
 
-Hallo Indy, wollte mal fragen ob Ihr dieses Jahr ein Westernschießen oder ein Westerncamp veranstaltet. Nenzingen und Talheim gibt es leider nicht mehr. LG Karsten.
+Hallo Indy, wollte mal fragen, ob Ihr dieses Jahr ein Westernschießen oder ein Westerncamp veranstaltet. Nenzingen und Talheim gibt es leider nicht mehr. LG Karsten.
 
 ---
 
 ### Thomas - Schwepnitz
 **Freitag, 12. August 2016** ⭐⭐⭐⭐⭐
 
-**Wann ist es wieder soweit?**
+**Wann ist es wieder so weit?**
 
-Hallo, wollte nachfragen, wann es wieder zum WT Wettbewerb geht. Wollte dieses Jahr ernster an die Sache herangehen. Hoffe es gelingt mir ein Platz in den vorderen Reihen. Bis dahin!
+Hallo, wollte nachfragen, wann es wieder zum WT Wettbewerb geht. Wollte dieses Jahr ernster an die Sache herangehen? Hoffe, es gelingt mir ein Platz in den vorderen Reihen. Bis dahin.
 
 ---
 
@@ -40,7 +40,7 @@ Hallo, wollte nachfragen, wann es wieder zum WT Wettbewerb geht. Wollte dieses J
 
 Hallo, finden Trainings auch zwischen Montag und Donnerstag statt? Vielen Dank für Ihre Antwort. Viele Grüße Martin
 
-**Admin-Antwort:** Hallo Martin, nein nur zu den angegebenen Trainingszeiten.
+**Admin-Antwort:** Hallo Martin, nein, nur zu den angegebenen Trainingszeiten.
 
 ---
 
@@ -49,4 +49,4 @@ Hallo, finden Trainings auch zwischen Montag und Donnerstag statt? Vielen Dank f
 
 **Lob**
 
-Moin Moin lasse mal ein Gruß da! Toller Verein weiter so! Gut Schuss & Liebe Grüße Silke
+Moin Moin lasse mal ein Gruß da. Toller Verein weiter so. Guter Schuss & Liebe Grüße Silke

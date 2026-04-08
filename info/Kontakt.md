@@ -1,6 +1,6 @@
 # Kontakt
 
-## Vorstand des SSV Schluchsee e.V.
+## Vorstand des SSV Schluchsee e. V.
 
 ![SSV Wappen](https://www.ssv-schluchsee.de/images/SSV_Wappen_klein.gif)
 
@@ -11,5 +11,5 @@
 - **Daniel Khan-Leonhard** - Jugendtrainer
 - **Timo Matthews** - Sportwart
 - **Phillip Laaß** - Beisitzer
-- **Albert Götte** - Beisitzer
+- **Albert Götte** – Beisitzer
 - **Richard Lorenz** - Jugendvertreter

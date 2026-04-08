@@ -1,4 +1,4 @@
-# SSV Schluchsee e.V. - Vereinsgeschichte
+# SSV Schluchsee e. V. - Vereinsgeschichte
     SSV Schluchsee e.V. - Vereinsgeschichte            
 
 [](https://www.ssv-schluchsee.de/)
@@ -21,9 +21,9 @@ Suchen ...
 
 Im Jahr 1926 wurde in Schluchsee während des Aufschwungs nach dem 1. Weltkrieg von sportbegeisterten Schützen ein Kleinkaliber-Schützenverein gegründet. Die Gründungsversammlung fand im Hotel Sternen statt, Oberforstrat Walli übernahm die Führung und der junge Verein zählte bereits im ersten Jahr 90 Mitglieder.
 
-Kurz darauf begannen viele freiwillige Helfer, besonders Holzhauer, einen KK-Stand auf dem Gelände des heutigen Sportplatzes zu errichten. Im Juni 1927 wurde die Schießanlage (acht Stände) mit einem Preisschießen eingeweiht. Die Anlage wurde danach kontinuierlich ausgebaut. Förster Büche war die treibende Kraft im Verein und sorgte dafür, dass die Anlage nach der Inflation schuldenfrei wurde.
+Kurz darauf begannen viele freiwillige Helfer, besonders Holzhauer, einen KK-Stand auf dem Gelände des heutigen Sportplatzes zu errichten. Im Juni 1927 wurde die Schießanlage (acht Stände) mit einem Preisschießen eingeweiht. Die Anlage wurde danach kontinuierlich ausgebaut. Förster Büche war treibende Kraft im Verein und sorgte dafür, dass die Anlage nach der Inflation schuldenfrei wurde.
 
-Die Machtergreifung der Nationalsozialisten 1933 nahm dem Verein seine Unabhängigkeit und integrierten ihn in die NS-Sportorganisation.
+Die Machtergreifung der Nationalsozialisten 1933 nahm dem Verein seine Unabhängigkeit und integrierte ihn in die NS-Sportorganisation.
 
 Das 10-jährige Jubiläum 1936 im Olympiajahr wurde in Schluchsee mit einem großen Fest gefeiert. Viele Schützen beteiligten sich am Mannschaftspreisschießen und am Schießen um den begehrten Schluchseetaler auf 12 Bahnen.
 
@@ -33,7 +33,7 @@ Nach 1945 riss die Besatzungsmacht Stände und Hütte ab. Der Besitz von Jagd- u
 
 ## Ab dem Jahr 1969
 
-Nach dem Ende des KK-Schützenvereins 1945 beschlossen am 18. Januar 1969 im Gasthaus zum "Schwörer" 13 Personen die Neugründung des Sportschützenvereins Schluchsee e.V.:
+Nach dem Ende des KK-Schützenvereins 1945 beschlossen am 18. Januar 1969 im Gasthaus zum "Schwörer" 13 Personen die Neugründung des Sportschützenvereins Schluchsee e. V.:
 
 1. Hermann Booz
 2. Oskar Booz
@@ -57,9 +57,9 @@ Die durchgeführten Wahlen ergaben:
 - **Schriftführer Paul Keller**
 - **Kassierer August Kiefer**
 
-Zunächst wurde das Training im Winter in den leeren Sälen des Gasthauses Schwörer und des Hotels Sternen durchgeführt, später im Speicher des Rathauses. Im Frühjahr 1969 kaufte die Bundespost in Donaueschingen gut erhaltene RAD-Baracken an. Der Standort hinter dem Fußballplatz wurde mit der Gemeinde festgelegt. Nach Begutachtung der Baracke wurde ein Angebot von 1.000 DM (ca. 500 Euro) abgegeben.
+Zunächst wurde das Training im Winter in den leeren Sälen des Gasthauses Schwörer und des Hotels Sternen durchgeführt, später im Speicher des Rathauses. Im Frühjahr 1969 kaufte die Bundespost in Donaueschingen gut erhaltene RAD-Baracken an. Der Standort hinter dem Fußballplatz wurde mit der Gemeinde festgelegt. Nach Begutachtung der Baracke wurde ein Angebot von 1000 DM (ca. 500 Euro) abgegeben.
 
-Der Verein erhielt den Zuschlag. Am 12. Juli rollte ein Lastzug der Brauerei Rothaus nach Donaueschingen. Zimmerleute, unterstützt von vielen Helfern, zerlegten die Baracke und transportierten sie nach Schluchsee. Der Zusammenbau dauerte viele Monate, bis im November der Schießstand und im Januar 1970 der Aufenthaltsraum in Betrieb genommen werden konnten.
+Der Verein erhielt den Zuschlag. Am 12. Juli rollte ein Lastzug der Brauerei Rothaus nach Donaueschingen. Zimmerleute, unterstützt von vielen Helfern, zerlegten die Baracke und transportierten sie nach Schluchsee. Der Zusammenbau dauerte viele Monate, bis im November der Schießstand und im Januar 1970 der Aufenthaltsraum in Betrieb genommen werden konnten.
 
 Damit hatten die Sportschützen bereits 1 Jahr nach der Wiedergründung ihr ersehntes, geregeltes Zuhause.
 
@@ -69,15 +69,15 @@ Neben den sich bald einstellenden sportlichen Erfolgen beteiligten sich die Sch�
 
 Schon beim Einzug in das alte Schützenhaus am Waldsportplatz war der Vorstandschaft bewusst, dass ein Neubau notwendig würde. Die Zahl der aktiven Schützen stieg kontinuierlich an, und KK-Disziplinen mussten auf fremden Ständen geschossen werden.
 
-Erste Neubaupläne stellte der Bauausschuss schon im Jubiläumsjahr vor. Trotzdem dauerte es noch weitere 5 Jahre, bis im Frühjahr 1981 mit dem Bau begonnen werden konnte. Nach Schneeschmelze begannen die Mitglieder und Helfer mit großem Schwung die Arbeiten. Obwohl die meisten Bauaktivitäten nur am Wochenende stattfanden, konnte das neue Schützenhaus nach einjähriger Bauzeit bezogen werden.
+Erste Neubaupläne stellte der Bauausschuss schon im Jubiläumsjahr vor. Trotzdem dauerte es noch weitere 5 Jahre, bis im Frühjahr 1981 mit dem Bau begonnen werden konnte. Nach der Schneeschmelze begannen die Mitglieder und Helfer mit großem Schwung die Arbeiten. Obwohl die meisten Bauaktivitäten nur am Wochenende stattfanden, konnte das neue Schützenhaus nach einjähriger Bauzeit bezogen werden.
 
 In den Jahren 1982/1983 bauten Helfer den Aufenthaltsraum und die LG/LP-Stände aus und schützten die Außenwände mit einem Schindelmantel.
 
 ## Einrichtung der Schießanlage
 
-Nach Genehmigung der Toto-Lotto-Mittel für den 2. Bauabschnitt im Frühjahr 1983 errichteten die Helfer in der Verlängerung zum Schützenhaus die beiden Pistolenstände. Im Frühjahr 1984 machte der Ausbau Fortschritte: Tiefbau Wehrle baggerte die beiden langen Schießbahnen aus und formte die seitlichen Schutzwälle. Die stabile Trennwand zwischen Pistolen- und KK-Stand wurde aufgemauert, Träger und Schutzblenden aus Beton wurden in Eigenarbeit gegossen und mit Hilfe eines Krans zusammengefügt.
+Nach Genehmigung der Toto-Lotto-Mittel für den 2. Bauabschnitt im Frühjahr 1983 errichteten die Helfer in der Verlängerung zum Schützenhaus die beiden Pistolenstände. Im Frühjahr 1984 machte der Ausbau Fortschritte: Tiefbau Wehrle baggerte die beiden langen Schießbahnen aus und formte die seitlichen Schutzwälle. Die stabile Trennwand zwischen Pistolen- und KK-Stand wurde aufgemauert, Träger und Schutzblenden aus Beton wurden in Eigenarbeit gegossen und mithilfe eines Krans zusammengefügt.
 
-1985 wurden die Sicherheitsvorkehrungen abgenommen und der Sportpistolestand vom Sicherheitsbeauftragten freigegeben. Weitere 2 Jahre verging, bis auch die KK-Stände fertiggestellt und sicherheitstechnisch abgenommen wurden. Ein Schallmessgutachten gab die Schießstände für KK-Waffen frei.
+1985 wurden die Sicherheitsvorkehrungen abgenommen und der Sportpistolenstand vom Sicherheitsbeauftragten freigegeben. Weitere 2 Jahre verging, bis auch die KK-Stände fertiggestellt und sicherheitstechnisch abgenommen wurden. Ein Schallmessgutachten gab die Schießstände für KK-Waffen frei.
 
 Im Juni 1988 veranstalteten die Schützen ein großes Fest mit Preisschießen, um die Anlagen offiziell einzuweihen.
 
@@ -116,16 +116,16 @@ Bereiche
 Neue Beiträge
 -------------
 
-*   [Info Generalversammlung 2026](https://www.ssv-schluchsee.de/index.php/aktuelles/172-info-generalversammlung-2026)
+*   [Information Generalversammlung 2026](https://www.ssv-schluchsee.de/index.php/aktuelles/172-info-generalversammlung-2026)
 *   [Einladung Generalversammlung](https://www.ssv-schluchsee.de/index.php/aktuelles/171-einladung-generalversammlung-2)
 *   [Jubiläumsfeier/Westernfest 2026](https://www.ssv-schluchsee.de/index.php/aktuelles/170-jubilaeumsfeier-westernfest-2026)
 *   [Generalversammlung 2026](https://www.ssv-schluchsee.de/index.php/aktuelles/169-generalversammlung-2026)
 *   [Ergebnisse CAS 5.01.2026](https://www.ssv-schluchsee.de/index.php/aktuelles/168-ergebnisse-cas-5-01-2026)
 
-Meist gelesen
+Meistgelesen
 -------------
 
-*   [Willkommen beim SSV Schuchee e.V.](https://www.ssv-schluchsee.de/index.php)
+*   [Willkommen beim SSV Schluchsee e. V.](https://www.ssv-schluchsee.de/index.php)
 *   [Impressum](https://www.ssv-schluchsee.de/index.php/impressum)
 *   [Erfolgsbilanz](https://www.ssv-schluchsee.de/index.php/erfolgsbilanz)
 *   [Mitglied im SSV](https://www.ssv-schluchsee.de/index.php/mitglied-im-ssv)
@@ -146,6 +146,6 @@ Insgesamt 113708
 
 Aktuell sind 16 Gäste und keine Mitglieder online
 
-Copyright 2017 - Alle Rechte vorbehalten - Schützenverein Schluchsee e.V.
+Copyright 2017 - alle Rechte vorbehalten – Schützenverein Schluchsee e. V.
 
 [Scroll To Top](https://www.ssv-schluchsee.de/index.php/vereinsgeschichte#top "Scroll To Top")

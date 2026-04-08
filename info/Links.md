@@ -16,7 +16,7 @@ Hier finden Sie eine Übersicht von wichtigen Schützenorganisationen und Verbä
 
 ### Weitere Landesverbände
 
-- **Brandenburgischer Schützenbund e.V.**
+- **Brandenburgischer Schützenbund e. V.**
 - **Hessischer Schützenverband**
 - **Landesschützenverband Mecklenburg-Vorpommern**
 - **Landesschützenverband Sachsen-Anhalt**

@@ -4,7 +4,7 @@ Seit der Neugründung des Vereins sucht und fördert der Sportschützenverein in
 
 ## Trainingszeiten
 
-Jeden Freitagabend von 19:00 Uhr bis etwa 21:00 Uhr halten sich unsere Jungschützen im Schützenhaus auf. Die Übungsleiter versuchen der Jugend ein abwechslungsreiches und dem Leistungsvermögen angepasstes Schießtraining zunächst mit dem Luftgewehr anzubieten.
+Jeden Freitagabend von 19:00 Uhr bis etwa 21:00 Uhr halten sich unsere Jungschützen im Schützenhaus auf. Die Übungsleiter versuchten der Jugend ein abwechslungsreiches und dem Leistungsvermögen angepasstes Schießtraining zunächst mit dem Luftgewehr anzubieten.
 
 Nach der Konzentration folgt dann die unterhaltsame Entspannung bei verschiedenen Spielen im Aufenthaltsraum.
 

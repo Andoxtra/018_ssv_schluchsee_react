@@ -1,12 +1,12 @@
 # Impressum
 
-## Willkommen beim SSV Schluchsee e.V.
+## Willkommen beim SSV Schluchsee e. V.
 
 Auf unserer Website finden Sie Informationen zu folgenden Themen:
 
 - Aktuelles aus dem Verein und aus aller Welt zum Thema Schießsport
-- Links zu anderen Websites zum Thema Sportschießen (Organisationen, etc.)
-- Downloads: Vorlagen, Anträge vom Verband, Gesetztexte, etc.
+- Links zu anderen Websites zum Thema Sportschießen (Organisationen etc.)
+- Downloads: Vorlagen, Anträge vom Verband, Gesetztexte etc.
 - Veranstaltungen innerhalb des Vereines für Gäste und die ganze Familie
 - Kontakte zum Verein
 
@@ -30,8 +30,7 @@ Der Verein verfügt über folgende Schießstände:
 
 **Verantwortlich für den Inhalt (gemäß TMG):**
 
-SSV Schluchsee e.V.  
-Faulenfürster Eck  
+SSV Schluchsee e. V. Faulenfürster Eck  
 D-79859 Schluchsee
 
 **Kontakt:**  
@@ -41,4 +40,4 @@ E-Mail: [auf Anfrage]
 **Vertretungsberechtigter:**  
 Wolfgang Faller
 
-Copyright 2017 - Alle Rechte vorbehalten - Schützenverein Schluchsee e.V.
+Copyright 2017 - alle Rechte vorbehalten – Schützenverein Schluchsee e. V.

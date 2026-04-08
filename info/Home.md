@@ -1,10 +1,10 @@
-# Willkommen beim SSV Schluchsee e.V.
+# Willkommen beim SSV Schluchsee e. V.
 
 Auf unserer Website finden Sie Informationen zu folgenden Themen:
 
 - Aktuelles aus dem Verein und aus aller Welt zum Thema Schießsport
-- Links zu anderen Websites zum Thema Sportschießen (Organisationen, etc.)
-- Downloads: Vorlagen, Anträge vom Verband, Gesetztexte, etc.
+- Links zu anderen Websites zum Thema Sportschießen (Organisationen etc.)
+- Downloads: Vorlagen, Anträge vom Verband, Gesetztexte etc.
 - Veranstaltungen innerhalb des Vereines für Gäste und die ganze Familie
 - Kontakte zum Verein
 - **Anmeldeformular für Gastschützen**: Gastschützen können nur nach vorheriger Anmeldung und deren Bestätigung durch den SSV Schluchsee (per E-Mail oder telefonisch) am Schießtraining teilnehmen. [Anmeldeformular](https://www.ssv-schluchsee.de/images/uploads/Anmeldung%20f%C3%BCr%20Gastsch%C3%BCtzen%2004.04.26.pdf)
