@@ -6,6 +6,7 @@
 - Add possibility to add a news article, make it so straight forward that no technical know how is needed
 - Add an admin-center in which a news article can be created, and images can be uploaded
 - Think about where to host the server
+- For Data Scraping using https://urltomarkdown.com/ for https://www.ssv-schluchsee.de
 
 ## Todo
 
