@@ -3,7 +3,7 @@
 
 [](https://www.ssv-schluchsee.de/)
 
-[![Ssv3](/images/slides/ssv3.png)](/images/slides/ssv3.png "Ssv3")
+[![Ssv3](https://www.ssv-schluchsee.de/images/slides/ssv3.png)](https://www.ssv-schluchsee.de/images/slides/ssv3.png "Ssv3")
 
 [](https://www.ssv-schluchsee.de/images/slides/ssv4.png "Ssv4")
 [](https://www.ssv-schluchsee.de/images/slides/ssv1.png "Ssv1")
@@ -122,4 +122,4 @@ Aktuell sind 18 Gäste und keine Mitglieder online
 
 Copyright 2017 - Alle Rechte vorbehalten - Schützenverein Schluchsee e.V.
 
-[Scroll To Top](#)
+[Scroll To Top](https://www.ssv-schluchsee.de/index.php/mitglied-im-ssv#top "Scroll To Top")
