@@ -1,4 +1,4 @@
-import type {ReactNode} from "react";
+import type {JSX, ReactNode} from "react";
 import HeadingStyle from "../../style/components/texts/HeadingStyle.ts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
 
@@ -19,7 +19,7 @@ const {
 
 const Heading = ({level, children, className}: HeadingProps): ReactNode => {
     const HeadingTag = `h${level}` as keyof JSX.IntrinsicElements;
-
+    //Todo: Overhaul Heading to use dynamic styling get rid of the weird creation
     const getStyleForLevel = (lvl: number) => {
         switch(lvl) {
             case 1: return getDynamicStyle(H1Style, H1Style, H1Style, H1Style);
