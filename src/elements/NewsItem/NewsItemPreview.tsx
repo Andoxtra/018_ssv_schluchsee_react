@@ -7,7 +7,7 @@ const NewsItemPreview = ({title, creationDate, author, previewText}: NewsItemPro
     return (
         <MediumBox>
             <Heading level={2}>{title}</Heading>
-            <Heading level={3}>{creationDate}</Heading>
+            <Heading level={3}>{creationDate.getGermanDate()}</Heading>
             <Heading level={3}>{author}</Heading>
             <Paragraph>{previewText}</Paragraph>
         </MediumBox>
