@@ -24,6 +24,7 @@ export type RecordTableProps = {
     tableData: RecordTableData[];
 }
 
+//Todo: Move Texts to json file for easier translation
 const columnData: ColumnsType<RecordTableDataFormatted> = [
     {title: 'Disziplin', dataIndex: 'discipline', key: 'discipline'},
     {title: 'Ringe', dataIndex: 'points', key: 'points'},
