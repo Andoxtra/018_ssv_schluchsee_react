@@ -22,7 +22,9 @@ import RadioGroup from "../../components/radio/RadioGroup.tsx";
 import CheckBox from "../../components/checkbox/CheckBox.tsx";
 import CheckBoxGroup from "../../components/checkbox/CheckBoxGroup.tsx";
 import Dropdown from "../../components/dropdown/Dropdown.tsx";
-import BaseTable from "../../components/table/BaseTable.tsx";
+import RecordTable from "../../components/table/RecordTable.tsx";
+import NewsItemFullView from "../../elements/NewsItem/NewsItemFullView.tsx";
+import {DateClass} from "../../logic/date/DateClass.ts";
 
 const Test = (): ReactNode => {
     const [inputValue, setInputValue] = useState("");
@@ -63,36 +65,13 @@ const Test = (): ReactNode => {
 
             {/* Table Section*/}
 
-            <BaseTable tableData={[
-                {
-                    key: '1',
-                    name: 'Mike',
-                    age: 32,
-                    address: '10 Downing Street',
-                },
-                {
-                    key: '2',
-                    name: 'John',
-                    age: 42,
-                    address: '10 Downing Street',
-                },
-            ]} columnData={[
-                {
-                    title: 'Name',
-                    dataIndex: 'name',
-                    key: 'name',
-                },
-                {
-                    title: 'Age',
-                    dataIndex: 'age',
-                    key: 'age',
-                },
-                {
-                    title: 'Address',
-                    dataIndex: 'address',
-                    key: 'address',
-                },
-            ]}></BaseTable>
+            <RecordTable tableData={[{
+                key: 0,
+                discipline: "Pistole",
+                points: 255,
+                date: new DateClass("2022-09-23"),
+                shooter: "Daniel"
+            }, {key: 1, discipline: "Pistole", points: 255, date: new DateClass("2022-09-23"), shooter: "Daniel"}]}/>
 
             {/* Icons Section */}
             <Heading level={1}>Icons</Heading>
@@ -174,6 +153,15 @@ const Test = (): ReactNode => {
                 onChange={(value) => setSelectedDropdown(value)}
             />
             <Paragraph>Selected dropdown option: {selectedDropdown}</Paragraph>
+
+            <Heading level={1}>News Item</Heading>
+            <NewsItemFullView
+                title="Sample Title"
+                creationDate={new DateClass("2023-09-10")}
+                author="John Doe"
+                contentAsMarkdown="# Sample Content  ## This is a sample news item."
+                uuid={""}
+                previewText={""}/>
         </>
     )
 };
