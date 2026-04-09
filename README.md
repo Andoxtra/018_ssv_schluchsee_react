@@ -7,6 +7,7 @@
 - Add an admin-center in which a news article can be created, and images can be uploaded
 - Think about where to host the server
 - For Data Scraping using https://urltomarkdown.com/ for https://www.ssv-schluchsee.de
+- Use Markdown to contain newItems using this Markdown Renderer https://www.npmjs.com/package/marked, add a preview for when writing the article
 
 ## Todo
 
@@ -39,7 +40,7 @@
 - About
 - Kontakt
 - Standort
-- Neugikeiten
+- Neuigkeiten
 - Download
 - Impressum
 - Datenschutz
@@ -51,5 +52,5 @@
 - FAQ
 - Kontaktformular
 - Gesetz
-- Schiessstände
+- Schießstände
 - Testing (Enthält jede Komponente)
