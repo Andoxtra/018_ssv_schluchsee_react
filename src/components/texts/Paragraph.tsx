@@ -3,8 +3,7 @@ import ParagraphStyle from "../../style/components/texts/ParagraphStyle.ts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
 
 type ParagraphProps = {
-    children: ReactNode;
-    className?: string;
+    children: string | ReactNode;
 };
 
 const {
@@ -14,9 +13,9 @@ const {
     ParagraphStyleE
 } = ParagraphStyle;
 
-const Paragraph = ({children, className}: ParagraphProps): ReactNode => {
+const Paragraph = ({children}: ParagraphProps): ReactNode => {
     return (
-        <p className={className} style={getDynamicStyle(ParagraphStyleS, ParagraphStyleM, ParagraphStyleL, ParagraphStyleE)}>
+        <p style={getDynamicStyle(ParagraphStyleS, ParagraphStyleM, ParagraphStyleL, ParagraphStyleE)}>
             {children}
         </p>
     );
