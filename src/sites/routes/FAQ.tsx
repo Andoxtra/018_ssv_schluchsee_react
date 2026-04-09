@@ -53,7 +53,7 @@ const FAQ = (): ReactNode => {
                         <Heading level={3}>{item.question}</Heading>
                     </div>
                     {expanded === index && (
-                        <Paragraph style={{marginTop: "12px", paddingLeft: "16px", borderLeft: "3px solid rgba(233,220,104,0.75)"}}>
+                        <Paragraph>
                             {item.answer}
                         </Paragraph>
                     )}
