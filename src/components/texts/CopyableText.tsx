@@ -1,5 +1,5 @@
 import type {ReactNode} from "react";
-import { Typography } from "antd";
+import {Typography} from "antd";
 import TextStyle from "../../style/components/texts/TextStyle";
 
 type ParagraphProps = {

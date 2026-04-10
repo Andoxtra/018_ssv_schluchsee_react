@@ -1,12 +1,11 @@
 // Documentation https://ant.design/components/table
 
-import {ConfigProvider, Table} from 'antd';
+import {Table} from 'antd';
 import type {ReactNode} from "react";
 import type {DateClass} from "../../logic/date/DateClass.ts";
 import type {ColumnsType} from "antd/es/table";
 import tableTexts from "../../config/translations/tableTexts.ts";
 import TableStyle from "../../style/components/table/TableStyle";
-import TableTheme from "../../style/components/table/TableTheme";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
 
 const {
@@ -99,18 +98,16 @@ const RecordTable = ({tableData}: RecordTableProps): ReactNode => {
     ];
 
     return (
-        <ConfigProvider theme={TableTheme}>
-            <Table<RecordTableDataFormatted>
-                style={getDynamicStyle(
-                    TableStyleS,
-                    TableStyleM,
-                    TableStyleL,
-                    TableStyleE
-                )}
-                columns={columns}
-                dataSource={formattedTableData}
-            />
-        </ConfigProvider>
+        <Table<RecordTableDataFormatted>
+            style={getDynamicStyle(
+                TableStyleS,
+                TableStyleM,
+                TableStyleL,
+                TableStyleE
+            )}
+            columns={columns}
+            dataSource={formattedTableData}
+        />
     );
 };
 

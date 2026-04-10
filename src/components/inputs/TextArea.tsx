@@ -1,7 +1,6 @@
-import {Input, ConfigProvider} from "antd";
+import {Input} from "antd";
 import React, {type ReactNode} from "react";
 import BaseInputStyle from "../../style/components/inputs/BaseInputStyle.ts";
-import BaseInputTheme from "../../style/components/inputs/BaseInputTheme.ts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
 
 type TextAreaProps = {
@@ -20,26 +19,25 @@ const {
     BaseInputStyleE
 } = BaseInputStyle;
 
-const TextArea = ({
-    placeholder,
-    value,
-    onChange,
-    disabled,
-    rows = 4,
-    maxLength
-}: TextAreaProps): ReactNode => {
+const TextArea = (
+    {
+        placeholder,
+        value,
+        onChange,
+        disabled,
+        rows = 4,
+        maxLength
+    }: TextAreaProps): ReactNode => {
     return (
-        <ConfigProvider theme={BaseInputTheme}>
-            <Input.TextArea
-                placeholder={placeholder}
-                value={value}
-                onChange={onChange}
-                disabled={disabled}
-                rows={rows}
-                maxLength={maxLength}
-                styles={getDynamicStyle(BaseInputStyleS, BaseInputStyleM, BaseInputStyleL, BaseInputStyleE)}
-            />
-        </ConfigProvider>
+        <Input.TextArea
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            disabled={disabled}
+            rows={rows}
+            maxLength={maxLength}
+            styles={getDynamicStyle(BaseInputStyleS, BaseInputStyleM, BaseInputStyleL, BaseInputStyleE)}
+        />
     );
 };
 

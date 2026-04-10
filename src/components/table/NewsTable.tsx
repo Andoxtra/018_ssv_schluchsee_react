@@ -1,4 +1,4 @@
-import {Table, ConfigProvider, type TableColumnsType} from "antd";
+import {Table, type TableColumnsType} from "antd";
 import type {ReactNode} from "react";
 
 import type {DateClass} from "../../logic/date/DateClass";
@@ -6,7 +6,6 @@ import tableTexts from "../../config/translations/tableTexts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle";
 
 import TableStyle from "../../style/components/table/TableStyle";
-import TableTheme from "../../style/components/table/TableTheme";
 
 const {newsTable} = tableTexts;
 
@@ -46,7 +45,7 @@ const NewsTable = ({tableData}: NewsTableProps): ReactNode => {
         author: entry.author,
         timestamp: entry.date.getUnixTimestamp()
     }));
-    const uniqueAuthors = formattedTableData.map((formattedData)=>{
+    const uniqueAuthors = formattedTableData.map((formattedData) => {
         return formattedData.author;
     }).filter((author, index, self) => {
         return self.indexOf(author) === index;
@@ -76,18 +75,16 @@ const NewsTable = ({tableData}: NewsTableProps): ReactNode => {
     ];
 
     return (
-        <ConfigProvider theme={TableTheme}>
-            <Table<NewsTableDataFormatted>
-                style={getDynamicStyle(
-                    TableStyleS,
-                    TableStyleM,
-                    TableStyleL,
-                    TableStyleE
-                )}
-                columns={columns}
-                dataSource={formattedTableData}
-            />
-        </ConfigProvider>
+        <Table<NewsTableDataFormatted>
+            style={getDynamicStyle(
+                TableStyleS,
+                TableStyleM,
+                TableStyleL,
+                TableStyleE
+            )}
+            columns={columns}
+            dataSource={formattedTableData}
+        />
     );
 };
 

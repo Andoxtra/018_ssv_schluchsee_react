@@ -1,7 +1,6 @@
-import {Select, ConfigProvider} from "antd";
+import {Select} from "antd";
 import type {ReactNode} from "react";
 import DropdownStyle from "../../style/components/dropdown/DropdownStyle.ts";
-import DropdownTheme from "../../style/components/dropdown/DropdownTheme.ts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
 
 type DropdownOption = {
@@ -27,30 +26,29 @@ const {
     DropdownStyleE
 } = DropdownStyle;
 
-const Dropdown = ({
-    options,
-    placeholder = "Select an option",
-    value,
-    onChange,
-    disabled,
-    multiple = false,
-    clearable = true,
-    searchable = true
-}: DropdownProps): ReactNode => {
+const Dropdown = (
+    {
+        options,
+        placeholder = "Select an option",
+        value,
+        onChange,
+        disabled,
+        multiple = false,
+        clearable = true,
+        searchable = true
+    }: DropdownProps): ReactNode => {
     return (
-        <ConfigProvider theme={DropdownTheme}>
-            <Select
-                options={options}
-                placeholder={placeholder}
-                value={value}
-                onChange={onChange}
-                disabled={disabled}
-                mode={multiple ? "multiple" : undefined}
-                allowClear={clearable}
-                showSearch={searchable}
-                style={getDynamicStyle(DropdownStyleS, DropdownStyleM, DropdownStyleL, DropdownStyleE)}
-            />
-        </ConfigProvider>
+        <Select
+            options={options}
+            placeholder={placeholder}
+            value={value}
+            onChange={onChange}
+            disabled={disabled}
+            mode={multiple ? "multiple" : undefined}
+            allowClear={clearable}
+            showSearch={searchable}
+            style={getDynamicStyle(DropdownStyleS, DropdownStyleM, DropdownStyleL, DropdownStyleE)}
+        />
     );
 };
 

@@ -1,6 +1,8 @@
-import colorConfig from "../../../config/colorConfig";
+import colorConfig from "../../config/colorConfig.ts";
+import type {ThemeConfig} from "antd";
 
-const TableTheme = {
+
+const TableTheme : ThemeConfig = {
     token: {
         colorPrimary: colorConfig.primary,
         colorInfo: colorConfig.primary,
@@ -20,7 +22,7 @@ const TableTheme = {
             rowHoverBg: colorConfig.quaternary,
             borderColor: colorConfig.primaryHover,
             headerSplitColor: colorConfig.primaryHover,
-            colorIcon: colorConfig.primary,       // <-- sorter & filter icons
+            colorIcon: colorConfig.primary,
             colorIconHover: colorConfig.primaryActive,
             colorTextSecondary: colorConfig.primary,
         },
@@ -29,6 +31,18 @@ const TableTheme = {
             colorBgElevated: colorConfig.backgroundLight,
             controlItemBgHover: colorConfig.quaternaryHover,
             colorText: colorConfig.primary,
+        },
+        Select: {
+            colorPrimaryBorder: colorConfig.primary,
+        },
+        Checkbox: {
+            colorPrimary: colorConfig.primary,
+        },
+        Radio: {
+            colorPrimary: colorConfig.primary,
+        },
+        Input: {
+            colorPrimaryBorder: colorConfig.primary,
         }
     }
 };
