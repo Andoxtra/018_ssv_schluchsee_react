@@ -25,6 +25,7 @@ import Dropdown from "../../components/dropdown/Dropdown.tsx";
 import RecordTable from "../../components/table/RecordTable.tsx";
 import NewsItemFullView from "../../elements/NewsItem/NewsItemFullView.tsx";
 import {DateClass} from "../../logic/date/DateClass.ts";
+import NewsTable from "../../components/table/NewsTable.tsx";
 
 const Test = (): ReactNode => {
     const [inputValue, setInputValue] = useState("");
@@ -72,6 +73,15 @@ const Test = (): ReactNode => {
                 date: new DateClass("2022-09-23"),
                 shooter: "Daniel"
             }, {key: 1, discipline: "Pistole", points: 255, date: new DateClass("2022-09-23"), shooter: "Daniel"}]}/>
+
+            <NewsTable tableData={[{
+                key: 0,
+                title: "News Item 1",
+                date: new DateClass("2023-09-10"),
+                author: "John Doe"
+            }, {key: 1, title: "News Item 2", date: new DateClass("2024-09-10"), author: "John Doe"},
+                {key: 0, title: "News Item 1", date: new DateClass("2023-09-10"), author: "Not John Doe"}
+            ]}/>
 
             {/* Icons Section */}
             <Heading level={1}>Icons</Heading>

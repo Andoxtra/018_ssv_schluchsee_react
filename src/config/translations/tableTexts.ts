@@ -4,6 +4,11 @@ const tableTexts = {
         points: "Ringe",
         date: "Datum",
         shooter: "Schütze"
+    },
+    newsTable : {
+        title: "Titel",
+        date: "Datum",
+        author: "Autor"
     }
 };
 
