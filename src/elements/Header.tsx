@@ -6,7 +6,7 @@ import SecondaryButton from "../components/buttons/SecondaryButton.tsx";
 
 import imagePaths from "../config/imagePaths.ts";
 import webPaths from "../config/webPaths.ts";
-import textList from "../config/textList.ts";
+import textList from "../config/translations/textList.ts";
 
 
 const Header = (): ReactNode => {

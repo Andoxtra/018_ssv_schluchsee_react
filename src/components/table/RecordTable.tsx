@@ -4,6 +4,11 @@ import {Table} from 'antd';
 import type {ReactNode} from "react";
 import type {DateClass} from "../../logic/date/DateClass.ts";
 import type {ColumnsType} from "antd/es/table";
+import tableTexts from "../../config/translations/tableTexts.ts";
+
+const {
+    recordTable
+} = tableTexts;
 
 type RecordTableData = {
     key: number;
@@ -24,12 +29,11 @@ export type RecordTableProps = {
     tableData: RecordTableData[];
 }
 
-//Todo: Move Texts to json file for easier translation
 const columnData: ColumnsType<RecordTableDataFormatted> = [
-    {title: 'Disziplin', dataIndex: 'discipline', key: 'discipline'},
-    {title: 'Ringe', dataIndex: 'points', key: 'points'},
-    {title: 'Datum', dataIndex: 'date', key: 'date'},
-    {title: 'Schütze', dataIndex: 'shooter', key: 'shooter'}
+    {title: recordTable.discipline, dataIndex: 'discipline', key: 'discipline'},
+    {title: recordTable.points, dataIndex: 'points', key: 'points'},
+    {title: recordTable.date, dataIndex: 'date', key: 'date'},
+    {title: recordTable.shooter, dataIndex: 'shooter', key: 'shooter'}
 ];
 
 //ToDo: Add all possible tables which are needed so that the props can be defined and only data has to be added
