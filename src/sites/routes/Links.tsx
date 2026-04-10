@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 import Heading from "../../components/texts/Heading.tsx";
-import Paragraph from "../../components/texts/Paragraph.tsx";
+import NormalText from "../../components/texts/NormalText.tsx";
 import TextLink from "../../components/links/TextLink.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
@@ -22,25 +22,25 @@ const Links = (): ReactNode => {
 
             <MediumBox>
                 <Heading level={2}>Nützliche Webseiten</Heading>
-                <Paragraph>
+                <NormalText>
                     Hier finden Sie Links zu wichtigen Verbänden und Organisationen im Schießsport:
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Schießsport Verbände</Heading>
                 {linksData.map((link, index) => (
-                    <Paragraph key={index}>
+                    <NormalText key={index}>
                         🔗 <TextLink href={link.url} target="_blank">{link.title}</TextLink>
-                    </Paragraph>
+                    </NormalText>
                 ))}
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Andere lokale Vereine</Heading>
-                <Paragraph>
+                <NormalText>
                     Kontaktieren Sie uns, wenn Sie Links zu befreundeten Vereinen hinzufügen möchten!
-                </Paragraph>
+                </NormalText>
             </MediumBox>
         </>
     )

@@ -1,6 +1,6 @@
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
-import Paragraph from "../../components/texts/Paragraph.tsx";
+import NormalText from "../../components/texts/NormalText.tsx";
 import type {NewsItemProps} from "./props/NewsItemProps.ts";
 
 const NewsItemPreview = ({title, creationDate, author, previewText}: NewsItemProps) => {
@@ -9,7 +9,7 @@ const NewsItemPreview = ({title, creationDate, author, previewText}: NewsItemPro
             <Heading level={2}>{title}</Heading>
             <Heading level={3}>{creationDate.getGermanDate()}</Heading>
             <Heading level={3}>{author}</Heading>
-            <Paragraph>{previewText}</Paragraph>
+            <NormalText>{previewText}</NormalText>
         </MediumBox>
     )
 }

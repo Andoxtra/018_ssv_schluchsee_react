@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 import Heading from "../../components/texts/Heading.tsx";
-import Paragraph from "../../components/texts/Paragraph.tsx";
+import NormalText from "../../components/texts/NormalText.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 
@@ -37,27 +37,27 @@ export const Achievements = (): ReactNode => {
 
             <MediumBox>
                 <Heading level={2}>Unsere Erfolge</Heading>
-                <Paragraph>
+                <NormalText>
                     Der SSV Schluchsee kann auf eine beeindruckende Bilanz von Erfolgen und Auszeichnungen verweisen.
                     Unsere Schützen haben zahlreiche Titel und Medaillen auf regionaler, überregionaler und
                     internationaler Ebene gewonnen.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             {achievementsData.map((achievement: Achievement, index: number) => (
                 <MediumBox key={index}>
                     <Heading level={3}>{achievement.title}</Heading>
-                    <Paragraph>{achievement.description}</Paragraph>
+                    <NormalText>{achievement.description}</NormalText>
                 </MediumBox>
             ))}
 
             <MediumBox>
                 <Heading level={2}>Stolz auf unsere Mitglieder</Heading>
-                <Paragraph>
+                <NormalText>
                     Wir sind unglaublich stolz auf die Leistungen unserer Mitglieder.
                     Ihre Disziplin, ihr Einsatz und ihre Leidenschaft für den Sport sind inspirierend
                     und machen unser Training und unsere Wettkämpfe zu etwas Besonderem.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
         </>
     );

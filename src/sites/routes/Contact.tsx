@@ -1,7 +1,7 @@
 import type {ReactNode} from "react";
 import {useState} from "react";
 import Heading from "../../components/texts/Heading.tsx";
-import Paragraph from "../../components/texts/Paragraph.tsx";
+import NormalText from "../../components/texts/NormalText.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import BaseInput from "../../components/inputs/BaseInput.tsx";
@@ -33,7 +33,7 @@ const Contact = (): ReactNode => {
 
             <MediumBox>
                 <Heading level={2}>Kontaktinformationen</Heading>
-                <Paragraph>
+                <NormalText>
                     <strong>SSV Schluchsee</strong><br/>
                     <br/>
                     <strong>Adresse:</strong><br/>
@@ -49,28 +49,28 @@ const Contact = (): ReactNode => {
                     <br/>
                     <strong>Website:</strong><br/>
                     www.ssv-schluchsee.de
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Öffnungszeiten Vereinsheim</Heading>
-                <Paragraph>
+                <NormalText>
                     <strong>Montag - Freitag:</strong> 17:00 - 22:00 Uhr<br/>
                     <strong>Samstag:</strong> 13:00 - 22:00 Uhr<br/>
                     <strong>Sonntag:</strong> 10:00 - 18:00 Uhr<br/>
                     <br/>
                     An Feiertagen können abweichende Öffnungszeiten gelten.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Kontaktformular</Heading>
-                <Paragraph>
+                <NormalText>
                     Senden Sie uns eine Nachricht und wir werden uns schnellstmöglich bei Ihnen melden.
-                </Paragraph>
+                </NormalText>
 
                 <div style={{marginTop: 20, marginBottom: 10}}>
-                    <Paragraph><strong>Name:</strong></Paragraph>
+                    <NormalText><strong>Name:</strong></NormalText>
                     <BaseInput
                         placeholder="Ihr Name"
                         value={name}
@@ -79,7 +79,7 @@ const Contact = (): ReactNode => {
                 </div>
 
                 <div style={{marginBottom: 10}}>
-                    <Paragraph><strong>E-Mail:</strong></Paragraph>
+                    <NormalText><strong>E-Mail:</strong></NormalText>
                     <BaseInput
                         placeholder="Ihre E-Mail-Adresse"
                         type="email"
@@ -89,7 +89,7 @@ const Contact = (): ReactNode => {
                 </div>
 
                 <div style={{marginBottom: 10}}>
-                    <Paragraph><strong>Nachricht:</strong></Paragraph>
+                    <NormalText><strong>Nachricht:</strong></NormalText>
                     <TextArea
                         placeholder="Ihre Nachricht..."
                         value={message}

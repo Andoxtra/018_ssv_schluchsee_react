@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 import Heading from "../../components/texts/Heading.tsx";
-import Paragraph from "../../components/texts/Paragraph.tsx";
+import NormalText from "../../components/texts/NormalText.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 
@@ -45,11 +45,11 @@ const News = (): ReactNode => {
             {newsItems.map((item) => (
                 <MediumBox key={item.id}>
                     <Heading level={3}>{item.title}</Heading>
-                    <Paragraph>
+                    <NormalText>
                         <em>{item.date}</em><br/>
                         <br/>
                         {item.content}
-                    </Paragraph>
+                    </NormalText>
                 </MediumBox>
             ))}
         </>

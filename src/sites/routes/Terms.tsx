@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 import Heading from "../../components/texts/Heading.tsx";
-import Paragraph from "../../components/texts/Paragraph.tsx";
+import NormalText from "../../components/texts/NormalText.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 
@@ -13,42 +13,42 @@ const Terms = (): ReactNode => {
 
             <MediumBox>
                 <Heading level={2}>Geltungsbereich</Heading>
-                <Paragraph>
+                <NormalText>
                     Diese Nutzungsbedingungen regeln die Nutzung unserer Website und aller angebotenen Dienste.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Nutzungsrecht</Heading>
-                <Paragraph>
+                <NormalText>
                     Die Inhalte der Website dürfen nur für persönliche Zwecke genutzt werden. 
                     Eine kommerzielle Nutzung ohne ausdrückliche Genehmigung ist nicht gestattet.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Haftung</Heading>
-                <Paragraph>
+                <NormalText>
                     Wir bemühen uns, die Richtigkeit und Aktualität aller Informationen auf unserer Website zu gewährleisten. 
                     Wir übernehmen jedoch keine Gewähr für Vollständigkeit oder Richtigkeit der Inhalte.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Links zu externen Websites</Heading>
-                <Paragraph>
+                <NormalText>
                     Unsere Website enthält möglicherweise Links zu externen Websites. 
                     Wir sind nicht verantwortlich für den Inhalt dieser Websites und machen 
                     keine Aussagen über deren Gültigkeit oder Sicherheit.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Änderungen dieser Bedingungen</Heading>
-                <Paragraph>
+                <NormalText>
                     Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu ändern. 
                     Die Änderungen werden auf dieser Seite veröffentlicht.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
         </>
     )

@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 import Heading from "../../components/texts/Heading.tsx";
-import Paragraph from "../../components/texts/Paragraph.tsx";
+import NormalText from "../../components/texts/NormalText.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 
@@ -13,7 +13,7 @@ const Location = (): ReactNode => {
 
             <MediumBox>
                 <Heading level={2}>Anfahrt zum Vereinsheim</Heading>
-                <Paragraph>
+                <NormalText>
                     <strong>SSV Schluchsee</strong><br/>
                     Schluchseeweg 25<br/>
                     78136 Schonachbach<br/>
@@ -22,36 +22,36 @@ const Location = (): ReactNode => {
                     <strong>GPS Koordinaten:</strong><br/>
                     Breitengrad: 47.8234°<br/>
                     Längengrad: 8.0567°
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Öffentliche Verkehrsmittel</Heading>
-                <Paragraph>
+                <NormalText>
                     Das Vereinsheim ist gut mit öffentlichen Verkehrsmitteln erreichbar:<br/>
                     <br/>
                     <strong>Bahn:</strong> Bahnhof Schonachbach, ca. 15 Minuten Fußweg<br/>
                     <strong>Bus:</strong> Buslinien 35 und 42, Haltestelle "Schützenheim"<br/>
                     <br/>
                     Für detaillierte Fahrplananschlüsse nutzen Sie bitte die ÖPNV-Webseite.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Parkmöglichkeiten</Heading>
-                <Paragraph>
+                <NormalText>
                     Direkt neben unserem Vereinsheim stehen kostenlose Parkplätze zur Verfügung. 
                     Bei Großveranstaltungen stehen zusätzliche Parkflächen auf dem benachbarten 
                     Gelände zur Verfügung.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Barrierefreiheit</Heading>
-                <Paragraph>
+                <NormalText>
                     Unser Vereinsheim ist teilweise barrierefrei zugänglich. Aufzüge befinden sich 
                     im Hauptgebäude. Bei Fragen zur Barrierefreiheit kontaktieren Sie uns bitte vorab.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
         </>
     )

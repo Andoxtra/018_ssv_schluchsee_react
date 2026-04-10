@@ -1,7 +1,7 @@
 import type {ReactNode} from "react";
 import {useState} from "react";
 import Heading from "../../components/texts/Heading.tsx";
-import Paragraph from "../../components/texts/Paragraph.tsx";
+import NormalText from "../../components/texts/NormalText.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 
@@ -39,9 +39,9 @@ const FAQ = (): ReactNode => {
 
             <MediumBox>
                 <Heading level={2}>FAQ</Heading>
-                <Paragraph>
+                <NormalText>
                     Hier finden Sie Antworten auf häufig gestellte Fragen zum SSV Schluchsee:
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             {faqData.map((item, index) => (
@@ -53,9 +53,9 @@ const FAQ = (): ReactNode => {
                         <Heading level={3}>{item.question}</Heading>
                     </div>
                     {expanded === index && (
-                        <Paragraph>
+                        <NormalText>
                             {item.answer}
-                        </Paragraph>
+                        </NormalText>
                     )}
                 </MediumBox>
             ))}

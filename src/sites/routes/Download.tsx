@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 import Heading from "../../components/texts/Heading.tsx";
-import Paragraph from "../../components/texts/Paragraph.tsx";
+import NormalText from "../../components/texts/NormalText.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import TextLink from "../../components/links/TextLink.tsx";
@@ -22,26 +22,26 @@ const Download = (): ReactNode => {
 
             <MediumBox>
                 <Heading level={2}>Wichtige Dokumente</Heading>
-                <Paragraph>
+                <NormalText>
                     Hier können Sie wichtige Dokumente und Formulare herunterladen:
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             <MediumBox>
                 <Heading level={3}>Vereinsdokumente</Heading>
                 {downloads.map((item, index) => (
-                    <Paragraph key={index}>
+                    <NormalText key={index}>
                         📄 <TextLink href={`/downloads/${item.file}`}>{item.name}</TextLink>
-                    </Paragraph>
+                    </NormalText>
                 ))}
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>Trainingsmaterialien</Heading>
-                <Paragraph>
+                <NormalText>
                     Weitere Trainingsmaterialien und Richtlinien finden Sie auf der Webseite 
                     des Deutschen Schützenverbandes.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
         </>
     )

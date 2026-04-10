@@ -1,6 +1,6 @@
 import type {ReactNode} from "react";
 import Heading from "../../components/texts/Heading.tsx";
-import Paragraph from "../../components/texts/Paragraph.tsx";
+import NormalText from "../../components/texts/NormalText.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 
@@ -20,29 +20,29 @@ const Competitions = (): ReactNode => {
 
             <MediumBox>
                 <Heading level={2}>Anstehende Wettkämpfe</Heading>
-                <Paragraph>
+                <NormalText>
                     Hier finden Sie eine Übersicht der geplanten Rundenwettkämpfe für das Jahr 2026:
-                </Paragraph>
+                </NormalText>
             </MediumBox>
 
             {competitionsData.map((comp, index) => (
                 <MediumBox key={index}>
                     <Heading level={3}>{comp.name}</Heading>
-                    <Paragraph>
+                    <NormalText>
                         <strong>Datum:</strong> {comp.date}<br/>
                         <strong>Ort:</strong> {comp.location}<br/>
                         <br/>
                         Weitere Informationen und Anmeldung: Kontaktieren Sie uns via E-Mail oder Telefon.
-                    </Paragraph>
+                    </NormalText>
                 </MediumBox>
             ))}
 
             <MediumBox>
                 <Heading level={2}>Registrierung</Heading>
-                <Paragraph>
+                <NormalText>
                     Interessiert an der Teilnahme? Kontaktieren Sie unser Vorstandsteam für 
                     Anmeldung und weitere Details.
-                </Paragraph>
+                </NormalText>
             </MediumBox>
         </>
     )

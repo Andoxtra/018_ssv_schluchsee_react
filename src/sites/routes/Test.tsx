@@ -16,7 +16,7 @@ import LargeImage from "../../components/images/LargeImage.tsx";
 import BaseInput from "../../components/inputs/BaseInput.tsx";
 import TextArea from "../../components/inputs/TextArea.tsx";
 import Heading from "../../components/texts/Heading.tsx";
-import Paragraph from "../../components/texts/Paragraph.tsx";
+import NormalText from "../../components/texts/NormalText.tsx";
 import TextLink from "../../components/links/TextLink.tsx";
 import RadioGroup from "../../components/radio/RadioGroup.tsx";
 import CheckBox from "../../components/checkbox/CheckBox.tsx";
@@ -62,7 +62,6 @@ const Test = (): ReactNode => {
             <Heading level={3}>This is a Heading Level 3</Heading>
             <Heading level={4}>This is a Heading Level 4</Heading>
             <Heading level={5}>This is a Heading Level 5</Heading>
-            <Heading level={6}>This is a Heading Level 6</Heading>
 
             {/* Table Section*/}
 
@@ -98,8 +97,8 @@ const Test = (): ReactNode => {
             <Heading level={1}>Text Components</Heading>
             <Heading level={2}>Heading Level 2</Heading>
             <Heading level={3}>Heading Level 3</Heading>
-            <Paragraph>This is a sample paragraph. You can use this component for displaying text content throughout the
-                application.</Paragraph>
+            <NormalText>This is a sample paragraph. You can use this component for displaying text content throughout the
+                application.</NormalText>
             <TextLink href={webPaths.testingSite} target="_self">This is a text link</TextLink>
 
             {/* Input Components Section */}
@@ -110,7 +109,7 @@ const Test = (): ReactNode => {
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
             />
-            <Paragraph>Current input value: {inputValue}</Paragraph>
+            <NormalText>Current input value: {inputValue}</NormalText>
 
             <Heading level={2}>Text Area</Heading>
             <TextArea
@@ -119,7 +118,7 @@ const Test = (): ReactNode => {
                 onChange={(e) => setTextAreaValue(e.target.value)}
                 rows={5}
             />
-            <Paragraph>Current textarea value: {textAreaValue}</Paragraph>
+            <NormalText>Current textarea value: {textAreaValue}</NormalText>
 
             {/* Radio Button Section */}
             <Heading level={1}>Radio Buttons</Heading>
@@ -128,7 +127,7 @@ const Test = (): ReactNode => {
                 value={selectedRadio}
                 onChange={(e) => setSelectedRadio(e.target.value)}
             />
-            <Paragraph>Selected radio option: {selectedRadio}</Paragraph>
+            <NormalText>Selected radio option: {selectedRadio}</NormalText>
 
             {/* Checkbox Section */}
             <Heading level={1}>Checkboxes</Heading>
@@ -138,7 +137,7 @@ const Test = (): ReactNode => {
                 checked={checkboxChecked}
                 onChange={(e) => setCheckboxChecked(e.target.checked)}
             />
-            <Paragraph>Checkbox checked: {checkboxChecked ? "Yes" : "No"}</Paragraph>
+            <NormalText>Checkbox checked: {checkboxChecked ? "Yes" : "No"}</NormalText>
 
             <Heading level={2}>Checkbox Group</Heading>
             <CheckBoxGroup
@@ -146,7 +145,7 @@ const Test = (): ReactNode => {
                 value={selectedCheckboxes}
                 onChange={(checkedValues) => setSelectedCheckboxes(checkedValues)}
             />
-            <Paragraph>Selected checkboxes: {selectedCheckboxes.join(", ") || "None"}</Paragraph>
+            <NormalText>Selected checkboxes: {selectedCheckboxes.join(", ") || "None"}</NormalText>
 
             {/* Dropdown Section */}
             <Heading level={1}>Dropdown</Heading>
@@ -156,7 +155,7 @@ const Test = (): ReactNode => {
                 value={selectedDropdown}
                 onChange={(value) => setSelectedDropdown(value)}
             />
-            <Paragraph>Selected dropdown option: {selectedDropdown}</Paragraph>
+            <NormalText>Selected dropdown option: {selectedDropdown}</NormalText>
 
             <Heading level={1}>News Item</Heading>
             <NewsItemFullView
