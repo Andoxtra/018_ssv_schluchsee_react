@@ -26,6 +26,10 @@ import RecordTable from "../../components/table/RecordTable.tsx";
 import NewsItemFullView from "../../elements/NewsItem/NewsItemFullView.tsx";
 import {DateClass} from "../../logic/date/DateClass.ts";
 import NewsTable from "../../components/table/NewsTable.tsx";
+import KeyboardText from "../../components/texts/KeyboardText.tsx";
+import ItalicText from "../../components/texts/ItalicText.tsx";
+import StrongText from "../../components/texts/StrongText.tsx";
+import CopyableText from "../../components/texts/CopyableText.tsx";
 
 const Test = (): ReactNode => {
     const [inputValue, setInputValue] = useState("");
@@ -94,11 +98,14 @@ const Test = (): ReactNode => {
             <LargeImage linkToImage={imagePaths.ssvLogoFull}></LargeImage>
 
             {/* Text Components Section */}
-            <Heading level={1}>Text Components</Heading>
-            <Heading level={2}>Heading Level 2</Heading>
-            <Heading level={3}>Heading Level 3</Heading>
-            <NormalText>This is a sample paragraph. You can use this component for displaying text content throughout the
-                application.</NormalText>
+            <NormalText>
+                This is a sample paragraph. You can use this component for displaying text content throughout the
+                application.
+            </NormalText>
+            <KeyboardText>Keyboard Text</KeyboardText>
+            <ItalicText>Italic Text</ItalicText>
+            <StrongText>Strong Text</StrongText>
+            <CopyableText>Copyable Text</CopyableText>
             <TextLink href={webPaths.testingSite} target="_self">This is a text link</TextLink>
 
             {/* Input Components Section */}
