@@ -1,10 +1,22 @@
-import { Table } from 'antd';
-import type { ReactNode } from "react";
-import type { DateClass } from "../../logic/date/DateClass.ts";
-import type { ColumnsType } from "antd/es/table";
-import tableTexts from "../../config/translations/tableTexts.ts";
+import {Table, ConfigProvider, type TableColumnsType} from "antd";
+import type {TableProps} from "antd/es/table";
+import type {ReactNode} from "react";
 
-const { newsTable } = tableTexts;
+import type {DateClass} from "../../logic/date/DateClass";
+import tableTexts from "../../config/translations/tableTexts";
+import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle";
+
+import TableStyle from "../../style/components/table/TableStyle";
+import TableTheme from "../../style/components/table/TableTheme";
+
+const {newsTable} = tableTexts;
+
+const {
+    TableStyleS,
+    TableStyleM,
+    TableStyleL,
+    TableStyleE
+} = TableStyle;
 
 type NewsTableData = {
     key: number;
@@ -25,7 +37,9 @@ export type NewsTableProps = {
     tableData: NewsTableData[];
 };
 
-const NewsTable = ({ tableData }: NewsTableProps): ReactNode => {
+//Todo: Make that all texts from table are german and coming from a translation file
+
+const NewsTable = ({tableData}: NewsTableProps): ReactNode => {
 
     const formattedTableData: NewsTableDataFormatted[] = tableData.map(entry => ({
         key: entry.key,
@@ -34,10 +48,12 @@ const NewsTable = ({ tableData }: NewsTableProps): ReactNode => {
         author: entry.author,
         timestamp: entry.date.getUnixTimestamp()
     }));
-
-    const uniqueAuthors = [...new Set(tableData.map(entry => entry.author))];
-
-    const columns: ColumnsType<NewsTableDataFormatted> = [
+    const uniqueAuthors = formattedTableData.map((formattedData)=>{
+        return formattedData.author;
+    }).filter((author, index, self) => {
+        return self.indexOf(author) === index;
+    });
+    const columns: TableColumnsType<NewsTableDataFormatted> = [
         {
             title: newsTable.title,
             dataIndex: 'title',
@@ -46,14 +62,13 @@ const NewsTable = ({ tableData }: NewsTableProps): ReactNode => {
         {
             title: newsTable.date,
             dataIndex: 'date',
-            key: 'date',
-            sorter: (a, b) => a.timestamp - b.timestamp,
-            sortDirections: ['ascend', 'descend'],
+            sorter: (a, b) => a.timestamp - b.timestamp
         },
         {
             title: newsTable.author,
             dataIndex: 'author',
-            key: 'author',
+            filterMode: 'tree',
+            filterSearch: true,
             filters: uniqueAuthors.map(author => ({
                 text: author,
                 value: author
@@ -62,11 +77,23 @@ const NewsTable = ({ tableData }: NewsTableProps): ReactNode => {
         }
     ];
 
+    const onChange: TableProps<NewsTableDataFormatted>['onChange'] = (pagination, filters, sorter, extra) => {
+        console.log('params', pagination, filters, sorter, extra);
+    };
     return (
-        <Table
-            dataSource={formattedTableData}
-            columns={columns}
-        />
+        <ConfigProvider theme={TableTheme}>
+            <Table<NewsTableDataFormatted>
+                style={getDynamicStyle(
+                    TableStyleS,
+                    TableStyleM,
+                    TableStyleL,
+                    TableStyleE
+                )}
+                columns={columns}
+                dataSource={formattedTableData}
+                onChange={onChange}
+            />
+        </ConfigProvider>
     );
 };
 
