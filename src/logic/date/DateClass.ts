@@ -9,4 +9,7 @@ export class DateClass {
         const year = this.m_date.getFullYear();
         return `${day}.${month}.${year}`;
     }
+    public getUnixTimestamp(): number {
+        return this.m_date.getTime();
+    }
 }
