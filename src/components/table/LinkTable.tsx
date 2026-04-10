@@ -44,7 +44,6 @@ const LinkTable = ({tableData}: LinkTableProps): ReactNode => {
             )}
             columns={columns}
             dataSource={tableData}
-            locale={tableTexts.tableLocale}
         />
     );
 };
