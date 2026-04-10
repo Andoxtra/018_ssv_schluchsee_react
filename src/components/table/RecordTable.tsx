@@ -30,12 +30,12 @@ export type RecordTableProps = {
 }
 
 const columnData: ColumnsType<RecordTableDataFormatted> = [
-    {title: recordTable.discipline, dataIndex: 'discipline', key: 'discipline'},
-    {title: recordTable.points, dataIndex: 'points', key: 'points'},
-    {title: recordTable.date, dataIndex: 'date', key: 'date'},
-    {title: recordTable.shooter, dataIndex: 'shooter', key: 'shooter'}
+    {title: recordTable.discipline, dataIndex: 'discipline'},
+    {title: recordTable.points, dataIndex: 'points'},
+    {title: recordTable.date, dataIndex: 'date'},
+    {title: recordTable.shooter, dataIndex: 'shooter'}
 ];
-
+//ToDo: Update Table
 //ToDo: Add all possible tables which are needed so that the props can be defined and only data has to be added
 const RecordTable = ({tableData}: RecordTableProps): ReactNode => {
     const formattedTableData: RecordTableDataFormatted[] = tableData.map(record => ({
