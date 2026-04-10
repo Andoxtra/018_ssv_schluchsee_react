@@ -12,9 +12,12 @@ const {
 
 const CopyableText = ({children}: ParagraphProps): ReactNode => {
     return (
-        <Typography.Text copyable={true} style={TextGeneralStyle}>
-            {children}
-        </Typography.Text>
+        <>
+            <Typography.Text copyable={true} style={TextGeneralStyle}>
+                {children}
+            </Typography.Text>
+            <br/>
+        </>
     );
 };
 

@@ -14,9 +14,12 @@ const {
 const Heading = ({level, children}: HeadingProps): ReactNode => {
 
     return (
-        <Typography.Title level={level} style={TextGeneralStyle}>
-            {children}
-        </Typography.Title>
+        <>
+            <Typography.Title level={level} style={TextGeneralStyle}>
+                {children}
+            </Typography.Title>
+            <br/>
+        </>
     );
 };
 

@@ -1,5 +1,5 @@
 import type {ReactNode} from "react";
-import { Typography } from "antd";
+import {Typography} from "antd";
 import TextStyle from "../../style/components/texts/TextStyle";
 
 type ParagraphProps = {
@@ -12,9 +12,12 @@ const {
 
 const KeyboardText = ({children}: ParagraphProps): ReactNode => {
     return (
-        <Typography.Text style={TextGeneralStyle} keyboard>
-            {children}
-        </Typography.Text>
+        <>
+            <Typography.Text style={TextGeneralStyle} keyboard>
+                {children}
+            </Typography.Text>
+            <br/>
+        </>
     );
 };
 
