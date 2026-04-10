@@ -84,6 +84,7 @@ const NewsTable = ({tableData}: NewsTableProps): ReactNode => {
             )}
             columns={columns}
             dataSource={formattedTableData}
+            locale={tableTexts.tableLocale}
         />
     );
 };

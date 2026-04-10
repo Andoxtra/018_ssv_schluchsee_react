@@ -106,6 +106,7 @@ const RecordTable = ({tableData}: RecordTableProps): ReactNode => {
             )}
             columns={columns}
             dataSource={formattedTableData}
+            locale={tableTexts.tableLocale}
         />
     );
 };
