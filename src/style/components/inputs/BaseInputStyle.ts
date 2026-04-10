@@ -4,7 +4,7 @@ import colorConfig from "../../../config/colorConfig.ts";
 const GeneralInputStyle: CSSProperties = {
     fontSize: 14,
     borderRadius: 6,
-    border: `2px solid ${colorConfig.primary}`,
+    border: `1px solid ${colorConfig.primary}`,
     padding: "8px 12px",
     transition: "all 0.3s ease",
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
