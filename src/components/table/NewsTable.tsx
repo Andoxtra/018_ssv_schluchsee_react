@@ -1,5 +1,4 @@
 import {Table, ConfigProvider, type TableColumnsType} from "antd";
-import type {TableProps} from "antd/es/table";
 import type {ReactNode} from "react";
 
 import type {DateClass} from "../../logic/date/DateClass";
@@ -77,9 +76,6 @@ const NewsTable = ({tableData}: NewsTableProps): ReactNode => {
         }
     ];
 
-    const onChange: TableProps<NewsTableDataFormatted>['onChange'] = (pagination, filters, sorter, extra) => {
-        console.log('params', pagination, filters, sorter, extra);
-    };
     return (
         <ConfigProvider theme={TableTheme}>
             <Table<NewsTableDataFormatted>
@@ -91,7 +87,6 @@ const NewsTable = ({tableData}: NewsTableProps): ReactNode => {
                 )}
                 columns={columns}
                 dataSource={formattedTableData}
-                onChange={onChange}
             />
         </ConfigProvider>
     );
