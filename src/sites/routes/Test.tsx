@@ -66,21 +66,15 @@ const Test = (): ReactNode => {
 
             {/* Table Section*/}
 
-            <RecordTable tableData={[{
-                key: 0,
-                discipline: "Pistole",
-                points: 255,
-                date: new DateClass("2022-09-23"),
-                shooter: "Daniel"
-            }, {key: 1, discipline: "Pistole", points: 255, date: new DateClass("2022-09-23"), shooter: "Daniel"}]}/>
+            <RecordTable tableData={[
+                {key: 0, discipline: "Pistole", points: 255, date: new DateClass("2022-09-23"), shooter: "Daniel"},
+                {key: 1, discipline: "Pistole", points: 255, date: new DateClass("2022-09-23"), shooter: "Daniel"}
+            ]}/>
 
-            <NewsTable tableData={[{
-                key: 0,
-                title: "News Item 1",
-                date: new DateClass("2023-09-10"),
-                author: "John Doe"
-            }, {key: 1, title: "News Item 2", date: new DateClass("2024-09-10"), author: "John Doe"},
-                {key: 0, title: "News Item 1", date: new DateClass("2023-09-10"), author: "Not John Doe"}
+            <NewsTable tableData={[
+                {key: 0, title: "News Item 1", date: new DateClass("2023-09-10"), author: "John Doe"},
+                {key: 1, title: "News Item 2", date: new DateClass("2024-09-10"), author: "John Doe"},
+                {key: 2, title: "News Item 1", date: new DateClass("2023-09-10"), author: "Not John Doe"}
             ]}/>
 
             {/* Icons Section */}
