@@ -1,5 +1,6 @@
 import type {CSSProperties} from "react";
 
+//Todo: Add styling for elements like h1, *, body etc.
 const GeneralBaseStyle: CSSProperties = {
     fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"
 };
