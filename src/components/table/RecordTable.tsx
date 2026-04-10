@@ -39,7 +39,6 @@ type RecordTableDataFormatted = {
 export type RecordTableProps = {
     tableData: RecordTableData[];
 }
-//ToDo: Update Table
 //ToDo: Add all possible tables which are needed so that the props can be defined and only data has to be added
 const RecordTable = ({tableData}: RecordTableProps): ReactNode => {
     const formattedTableData: RecordTableDataFormatted[] = tableData.map(record => ({

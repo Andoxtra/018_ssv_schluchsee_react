@@ -9,7 +9,11 @@ const tableTexts = {
         title: "Titel",
         date: "Datum",
         author: "Autor"
+    },
+    linkTable : {
+        title: "Links",
     }
+
 };
 
 export default tableTexts;

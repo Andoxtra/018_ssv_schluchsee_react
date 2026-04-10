@@ -30,6 +30,7 @@ import KeyboardText from "../../components/texts/KeyboardText.tsx";
 import ItalicText from "../../components/texts/ItalicText.tsx";
 import StrongText from "../../components/texts/StrongText.tsx";
 import CopyableText from "../../components/texts/CopyableText.tsx";
+import LinkTable from "../../components/table/LinkTable.tsx";
 
 const Test = (): ReactNode => {
     const [inputValue, setInputValue] = useState("");
@@ -78,6 +79,12 @@ const Test = (): ReactNode => {
                 {key: 0, title: "News Item 1", date: new DateClass("2023-09-10"), author: "John Doe"},
                 {key: 1, title: "News Item 2", date: new DateClass("2024-09-10"), author: "John Doe"},
                 {key: 2, title: "News Item 1", date: new DateClass("2023-09-10"), author: "Not John Doe"}
+            ]}/>
+
+            <LinkTable tableData={[
+                {key:0, title:"Sportordnung", link:"#"},
+                {key:1, title:"Wechsel der Wettkampfklasse", link:"#"},
+                {key:2, title:"Sportordnung", link:"#"}
             ]}/>
 
             {/* Icons Section */}
