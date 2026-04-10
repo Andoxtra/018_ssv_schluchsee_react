@@ -1,18 +1,18 @@
 import type {ReactNode} from "react";
-import ParagraphStyle from "../../style/components/texts/ParagraphStyle.ts";
 import { Typography } from "antd";
+import TextStyle from "../../style/components/texts/TextStyle";
 
 type ParagraphProps = {
     children: string | ReactNode;
 };
 
 const {
-    ParagraphGeneralStyle
-} = ParagraphStyle;
+    TextGeneralStyle
+} = TextStyle;
 
 const NormalText = ({children}: ParagraphProps): ReactNode => {
     return (
-        <Typography.Text style={ParagraphGeneralStyle}>
+        <Typography.Text style={TextGeneralStyle}>
             {children}
         </Typography.Text>
     );

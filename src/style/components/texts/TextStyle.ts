@@ -1,11 +1,11 @@
 import type {CSSProperties} from "react";
 import colorConfig from "../../../config/colorConfig.ts";
 
-const ParagraphGeneralStyle: CSSProperties = {
+const TextGeneralStyle: CSSProperties = {
     color: colorConfig.primary,
 };
 
-const ParagraphStyle = {ParagraphGeneralStyle};
+const TextStyle = {TextGeneralStyle};
 
-export default ParagraphStyle;
+export default TextStyle;
 
