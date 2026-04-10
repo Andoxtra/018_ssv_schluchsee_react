@@ -35,8 +35,6 @@ export type NewsTableProps = {
     tableData: NewsTableData[];
 };
 
-//Todo: Make that all texts from table are german and coming from a translation file
-
 const NewsTable = ({tableData}: NewsTableProps): ReactNode => {
     const formattedTableData: NewsTableDataFormatted[] = tableData.map(entry => ({
         key: entry.key,
