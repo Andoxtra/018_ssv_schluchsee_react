@@ -21,6 +21,8 @@ const {
     BaseInputStyleE
 } = BaseInputStyle;
 
+
+//ToDo: Styling doesnt work correctly
 const BaseInput = ({
     placeholder,
     value,
