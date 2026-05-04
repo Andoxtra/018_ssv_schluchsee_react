@@ -4,31 +4,35 @@ import colorConfig from "../../../config/colorConfig.ts";
 
 const GeneralSecondaryButtonStyle: CSSProperties = {
     ...GeneralButtonStyle,
-    backgroundColor: colorConfig.tertiary,
-    color: colorConfig.primary
+    backgroundColor: "transparent",
+    color: colorConfig.primary,
+    border: `1px solid ${colorConfig.border}`,
+    borderRadius: 6,
+    fontWeight: 500,
+    transition: "all 0.3s ease",
 };
 
 const SecondaryButtonStyleS: CSSProperties = {
     ...GeneralSecondaryButtonStyle,
-    height: 40,
+    height: 36,
     paddingInline: 14
 };
 
 const SecondaryButtonStyleM: CSSProperties = {
     ...GeneralSecondaryButtonStyle,
-    height: 44,
+    height: 40,
     paddingInline: 18
 };
 
 const SecondaryButtonStyleL: CSSProperties = {
     ...GeneralSecondaryButtonStyle,
-    height: 48,
+    height: 44,
     paddingInline: 22
 };
 
 const SecondaryButtonStyleE: CSSProperties = {
     ...GeneralSecondaryButtonStyle,
-    height: 52,
+    height: 48,
     paddingInline: 26
 };
 
