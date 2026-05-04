@@ -1,21 +1,37 @@
 import type {CSSProperties} from "react";
-import BaseStyle from "../../general/BaseStyle.ts";
 
+const BodyGeneral: CSSProperties = {
+    paddingTop: 92,
+    minHeight: "80vh",
+};
 
 const BodyS: CSSProperties = {
-    ...BaseStyle.BaseStyleS
+    ...BodyGeneral,
+    padding: "76px 12px 32px",
 };
 
 const BodyM: CSSProperties = {
-    ...BaseStyle.BaseStyleM
+    ...BodyGeneral,
+    padding: "80px 16px 36px",
+    maxWidth: 720,
+    marginLeft: "auto",
+    marginRight: "auto",
 }
 
 const BodyL: CSSProperties = {
-    ...BaseStyle.BaseStyleL
+    ...BodyGeneral,
+    padding: "84px 24px 40px",
+    maxWidth: 960,
+    marginLeft: "auto",
+    marginRight: "auto",
 }
 
 const BodyE: CSSProperties = {
-    ...BaseStyle.BaseStyleE
+    ...BodyGeneral,
+    padding: "92px 32px 48px",
+    maxWidth: 1200,
+    marginLeft: "auto",
+    marginRight: "auto",
 }
 
 const BodyStyle = {BodyS, BodyM, BodyL, BodyE};

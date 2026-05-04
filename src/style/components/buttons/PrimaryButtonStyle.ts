@@ -14,25 +14,29 @@ const GeneralPrimaryButtonStyle: CSSProperties = {
 const PrimaryButtonStyleS: CSSProperties = {
     ...GeneralPrimaryButtonStyle,
     height: 36,
-    paddingInline: 14
+    paddingInline: 14,
+    fontSize: 12,
 };
 
 const PrimaryButtonStyleM: CSSProperties = {
     ...GeneralPrimaryButtonStyle,
     height: 40,
-    paddingInline: 18
+    paddingInline: 18,
+    fontSize: 13,
 };
 
 const PrimaryButtonStyleL: CSSProperties = {
     ...GeneralPrimaryButtonStyle,
     height: 44,
-    paddingInline: 22
+    paddingInline: 22,
+    fontSize: 14,
 };
 
 const PrimaryButtonStyleE: CSSProperties = {
     ...GeneralPrimaryButtonStyle,
     height: 48,
-    paddingInline: 26
+    paddingInline: 26,
+    fontSize: 15,
 };
 
 const PrimaryButtonStyle = {PrimaryButtonStyleS, PrimaryButtonStyleM, PrimaryButtonStyleL, PrimaryButtonStyleE};
