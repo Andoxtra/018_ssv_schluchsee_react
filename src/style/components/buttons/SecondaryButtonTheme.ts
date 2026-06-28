@@ -3,7 +3,7 @@ import type {ThemeConfig} from "antd";
 
 const SecondaryButtonTheme: ThemeConfig = {
     token : {
-        colorPrimary : colorConfig.tertiary,
+        colorPrimary : colorConfig.primary,
     }
 };
 

@@ -5,31 +5,38 @@ import colorConfig from "../../../config/colorConfig.ts";
 const GeneralPrimaryButtonStyle: CSSProperties = {
     ...GeneralButtonStyle,
     backgroundColor: colorConfig.primary,
-    color: colorConfig.backgroundLight,
+    color: colorConfig.white,
+    borderRadius: 6,
+    fontWeight: 600,
+    transition: "all 0.3s ease",
 };
 
 const PrimaryButtonStyleS: CSSProperties = {
     ...GeneralPrimaryButtonStyle,
-    height: 40,
-    paddingInline: 14
+    height: 36,
+    paddingInline: 14,
+    fontSize: 12,
 };
 
 const PrimaryButtonStyleM: CSSProperties = {
     ...GeneralPrimaryButtonStyle,
-    height: 44,
-    paddingInline: 18
+    height: 40,
+    paddingInline: 18,
+    fontSize: 13,
 };
 
 const PrimaryButtonStyleL: CSSProperties = {
     ...GeneralPrimaryButtonStyle,
-    height: 48,
-    paddingInline: 22
+    height: 44,
+    paddingInline: 22,
+    fontSize: 14,
 };
 
 const PrimaryButtonStyleE: CSSProperties = {
     ...GeneralPrimaryButtonStyle,
-    height: 52,
-    paddingInline: 26
+    height: 48,
+    paddingInline: 26,
+    fontSize: 15,
 };
 
 const PrimaryButtonStyle = {PrimaryButtonStyleS, PrimaryButtonStyleM, PrimaryButtonStyleL, PrimaryButtonStyleE};

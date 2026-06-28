@@ -6,7 +6,7 @@ const TextLinkGeneralStyle: CSSProperties = {
     color: colorConfig.secondary,
     textDecoration: "none",
     fontWeight: 500,
-    transition: "all 0.3s ease",
+    transition: "all 0.2s ease",
     cursor: "pointer",
     borderBottom: `2px solid transparent`,
     paddingBottom: 2,
@@ -35,4 +35,3 @@ const TextLinkStyleE: CSSProperties = {
 const TextLinkStyle = {TextLinkStyleS, TextLinkStyleM, TextLinkStyleL, TextLinkStyleE};
 
 export default TextLinkStyle;
-

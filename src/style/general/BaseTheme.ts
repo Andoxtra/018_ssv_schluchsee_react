@@ -6,10 +6,13 @@ const TableTheme : ThemeConfig = {
     token: {
         colorPrimary: colorConfig.primary,
         colorInfo: colorConfig.primary,
+        fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        borderRadius: 8,
+        fontSize: 14,
 
-        colorLink: colorConfig.primary,
-        colorLinkHover: colorConfig.primaryHover,
-        colorLinkActive: colorConfig.primaryActive,
+        colorLink: colorConfig.secondary,
+        colorLinkHover: colorConfig.secondaryHover,
+        colorLinkActive: colorConfig.secondaryActive,
 
         controlOutline: colorConfig.primary,
         controlItemBgActive: colorConfig.primaryHover,
@@ -18,19 +21,21 @@ const TableTheme : ThemeConfig = {
     components: {
         Table: {
             headerColor: colorConfig.primary,
-            headerBg: colorConfig.quaternaryHover,
-            rowHoverBg: colorConfig.quaternary,
-            borderColor: colorConfig.primaryHover,
-            headerSplitColor: colorConfig.primaryHover,
+            headerBg: colorConfig.backgroundAlt,
+            rowHoverBg: colorConfig.backgroundAlt,
+            borderColor: colorConfig.border,
+            headerSplitColor: colorConfig.border,
             colorIcon: colorConfig.primary,
             colorIconHover: colorConfig.primaryActive,
-            colorTextSecondary: colorConfig.primary,
+            colorTextSecondary: colorConfig.textSecondary,
+            borderRadius: 8,
+            fontSize: 14,
         },
 
         Dropdown: {
-            colorBgElevated: colorConfig.backgroundLight,
-            controlItemBgHover: colorConfig.quaternaryHover,
-            colorText: colorConfig.primary,
+            colorBgElevated: colorConfig.white,
+            controlItemBgHover: colorConfig.backgroundAlt,
+            colorText: colorConfig.textPrimary,
         },
         Select: {
             colorPrimaryBorder: colorConfig.primary,
@@ -43,6 +48,13 @@ const TableTheme : ThemeConfig = {
         },
         Input: {
             colorPrimaryBorder: colorConfig.primary,
+        },
+        Button: {
+            colorPrimary: colorConfig.primary,
+            primaryColor: colorConfig.white,
+            defaultBg: colorConfig.white,
+            defaultColor: colorConfig.primary,
+            borderRadius: 6,
         }
     }
 };
