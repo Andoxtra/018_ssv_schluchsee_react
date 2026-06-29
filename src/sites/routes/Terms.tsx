@@ -21,7 +21,7 @@ const Terms = (): ReactNode => {
             <MediumBox>
                 <Heading level={2}>Nutzungsrecht</Heading>
                 <NormalText>
-                    Die Inhalte der Website dürfen nur für persönliche Zwecke genutzt werden. 
+                    Die Inhalte der Website dürfen nur für persönliche Zwecke genutzt werden.
                     Eine kommerzielle Nutzung ohne ausdrückliche Genehmigung ist nicht gestattet.
                 </NormalText>
             </MediumBox>
@@ -29,7 +29,7 @@ const Terms = (): ReactNode => {
             <MediumBox>
                 <Heading level={2}>Haftung</Heading>
                 <NormalText>
-                    Wir bemühen uns, die Richtigkeit und Aktualität aller Informationen auf unserer Website zu gewährleisten. 
+                    Wir bemühen uns, die Richtigkeit und Aktualität aller Informationen auf unserer Website zu gewährleisten.
                     Wir übernehmen jedoch keine Gewähr für Vollständigkeit oder Richtigkeit der Inhalte.
                 </NormalText>
             </MediumBox>
@@ -37,8 +37,8 @@ const Terms = (): ReactNode => {
             <MediumBox>
                 <Heading level={2}>Links zu externen Websites</Heading>
                 <NormalText>
-                    Unsere Website enthält möglicherweise Links zu externen Websites. 
-                    Wir sind nicht verantwortlich für den Inhalt dieser Websites und machen 
+                    Unsere Website enthält möglicherweise Links zu externen Websites.
+                    Wir sind nicht verantwortlich für den Inhalt dieser Websites und machen
                     keine Aussagen über deren Gültigkeit oder Sicherheit.
                 </NormalText>
             </MediumBox>
@@ -46,7 +46,7 @@ const Terms = (): ReactNode => {
             <MediumBox>
                 <Heading level={2}>Änderungen dieser Bedingungen</Heading>
                 <NormalText>
-                    Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu ändern. 
+                    Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu ändern.
                     Die Änderungen werden auf dieser Seite veröffentlicht.
                 </NormalText>
             </MediumBox>
@@ -55,4 +55,3 @@ const Terms = (): ReactNode => {
 };
 
 export default Terms;
-

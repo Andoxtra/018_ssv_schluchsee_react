@@ -1,67 +1,102 @@
 import type {ReactNode} from "react";
 import {useState} from "react";
-import Heading from "../../components/texts/Heading.tsx";
-import NormalText from "../../components/texts/NormalText.tsx";
-import MediumBox from "../../components/boxes/MediumBox.tsx";
+
 import BigBox from "../../components/boxes/BigBox.tsx";
+import MediumBox from "../../components/boxes/MediumBox.tsx";
+import Heading from "../../components/texts/Heading.tsx";
 
 const faqData = [
     {
         question: "Wie kann ich Mitglied werden?",
-        answer: "Kontaktieren Sie uns über das Kontaktformular oder besuchen Sie uns direkt im Vereinsheim. Der Aufnahmeprozess ist einfach und unkompliziert."
+        answer: `Prinzipiell können alle Mitglied werden, die das 12. Lebensjahr vollendet haben. Für Kinder unter 12 Jahren steht ein Lasergewehr zur Verfügung. Üblicherweise wird mit dem Luftgewehr begonnen, um den Umgang mit einer Waffe zu erlernen.`
     },
     {
-        question: "Welche Altersgruppen können trainieren?",
-        answer: "Wir bieten Training für alle Altersgruppen an - von Kindern bis zu Senioren. Jede Gruppe hat ihren eigenen Trainingsplan."
+        question: "Welche Altersklassen gibt es?",
+        answer: `Schüler: bis 14 Jahre
+Jugend: 15–17 Jahre
+Junior: 18–20 Jahre
+Schützenklasse: 21–44 Jahre
+Altersklasse: 45–55 Jahre
+Seniorenklasse 1: 56–66 Jahre
+Seniorenklasse 2: ab 67 Jahre`
     },
     {
-        question: "Wie hoch sind die Mitgliedsbeiträge?",
-        answer: "Die Beitragssätze richten sich nach Alter und Trainingsintensität. Details finden Sie in unserer Beitragsordnung oder fragen Sie unser Vorstandsteam."
+        question: "Welche Verpflichtungen habe ich als Mitglied?",
+        answer: `All diese Einrichtungen wurden von unseren Vorgängern in ehrenamtlicher Eigenarbeit aufgebaut. Bei Eintritt in den Verein verpflichtest du dich zu folgenden Arbeiten:
+
+• Arbeitseinsätze dienstags abends je nach Aushang
+• Helfen bei Veranstaltungen
+• Standaufsicht
+• Regelmäßiges Training und Teilnahme an Meisterschaften`
     },
     {
-        question: "Brauche ich vorherige Erfahrung?",
-        answer: "Nein! Wir nehmen auch Anfänger an. Unsere erfahrenen Trainer werden Sie durch alle Schritte führen."
+        question: "Wie sicher ist der Schießsport?",
+        answer: `Die Schützen sind dankbar dafür, dass bei dem Umgang mit Sportwaffen noch niemals ein Unfall zu verzeichnen war. Dies ist ein Verdienst unserer umsichtigen Übungsleiter und Standaufsichten, die streng auf Einhaltung der Regeln am Schießstand achten.
+
+Jedes neue Mitglied muss zunächst beim Schießen mit der Luftdruckwaffe zeigen, ob er verantwortungsvoll damit umgehen kann. Die spätere Anschaffung von klein- und großkalibrigen Sportwaffen braucht die Genehmigung der Vorstandschaft.`
+    },
+    {
+        question: "Brauche ich eine Waffenbesitzkarte (WBK)?",
+        answer: `Eine WBK ist Voraussetzung für den Erwerb einer Kleinkaliber- oder Großkaliber-Waffe. Dafür müssen mehrere Hürden bewältigt werden: Mindestalter (18 Jahre, Ausnahmen auf Antrag), körperliche Eignung, Zuverlässigkeit, Sachkunde und ein Bedürfnisnachweis durch ernsthaftes Training im Verein.`
+    },
+    {
+        question: "Was ist der Sachkundenachweis?",
+        answer: `Der Nachweis der Sachkunde gemäß § 31 des Waffengesetzes wird im SSV mittels einer Prüfung erbracht. Inhalte sind: Waffengesetz, Umgang mit Schusswaffen, Ballistik, Notwehrparagraphen und Notstand. Weitere Informationen erhalten Sie auf Anfrage in unserem Verein.`
+    },
+    {
+        question: "Wie können Gastschützen teilnehmen?",
+        answer: `Gastschützen können nur nach vorheriger Anmeldung und deren Bestätigung durch den SSV Schluchsee (per E-Mail oder telefonisch) am Schießtraining teilnehmen. Das Anmeldeformular steht auf der Download-Seite bereit.`
     },
     {
         question: "Welche Disziplinen können trainiert werden?",
-        answer: "Wir bieten verschiedene Disziplinen an: 10m Luftgewehr, 25m Standardpistole, 300m Gewehr und 50m Freipistole."
-    }
+        answer: `Zum Ausüben unseres Schießsports stehen folgende Einrichtungen zur Verfügung:
+• 10 Meter Luft-Gewehr-Pistolenstand
+• 25 Meter Großkaliberstände
+• 50 Meter Stände
+• 100 Meter Stände
+• Vereinsheim mit Küche und Getränkekeller`
+    },
 ];
 
 const FAQ = (): ReactNode => {
     const [expanded, setExpanded] = useState<number | null>(null);
 
     return (
-        <>
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             <BigBox>
-                <Heading level={1}>Häufig gestellte Fragen</Heading>
+                <div style={{ textAlign: "center", padding: "24px 0" }}>
+                    <Heading level={1}>Häufig gestellte Fragen</Heading>
+                    <p style={{ fontSize: "1rem", lineHeight: 1.7, maxWidth: 600, margin: "8px auto 0", color: "#5a5a5a" }}>
+                        Mitglied im SSV – Aufnahmekriterien und mehr
+                    </p>
+                </div>
             </BigBox>
-
-            <MediumBox>
-                <Heading level={2}>FAQ</Heading>
-                <NormalText>
-                    Hier finden Sie Antworten auf häufig gestellte Fragen zum SSV Schluchsee:
-                </NormalText>
-            </MediumBox>
 
             {faqData.map((item, index) => (
                 <MediumBox key={index}>
-                    <div 
+                    <div
                         onClick={() => setExpanded(expanded === index ? null : index)}
-                        style={{cursor: "pointer", padding: "8px", backgroundColor: expanded === index ? "rgba(233,220,104,0.1)" : "transparent", borderRadius: "4px"}}
+                        style={{
+                            cursor: "pointer",
+                            padding: "8px",
+                            borderRadius: 4,
+                        }}
                     >
                         <Heading level={3}>{item.question}</Heading>
                     </div>
                     {expanded === index && (
-                        <NormalText>
+                        <div style={{
+                            padding: "12px 8px",
+                            lineHeight: 1.8,
+                            whiteSpace: "pre-line",
+                        }}>
                             {item.answer}
-                        </NormalText>
+                        </div>
                     )}
                 </MediumBox>
             ))}
-        </>
-    )
+        </div>
+    );
 };
 
 export default FAQ;
-

@@ -1,58 +1,98 @@
 import type {ReactNode} from "react";
-import Heading from "../../components/texts/Heading.tsx";
-import NormalText from "../../components/texts/NormalText.tsx";
-import MediumBox from "../../components/boxes/MediumBox.tsx";
+
 import BigBox from "../../components/boxes/BigBox.tsx";
+import MediumBox from "../../components/boxes/MediumBox.tsx";
+import Heading from "../../components/texts/Heading.tsx";
 
 const Law = (): ReactNode => {
     return (
-        <>
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             <BigBox>
-                <Heading level={1}>Satzung und Regelwerk</Heading>
+                <div style={{ textAlign: "center", padding: "24px 0" }}>
+                    <Heading level={1}>Gesetze und Anforderungen</Heading>
+                    <p style={{ fontSize: "1rem", lineHeight: 1.7, maxWidth: 600, margin: "8px auto 0", color: "#5a5a5a" }}>
+                        Voraussetzungen für den Erwerb einer Waffenbesitzkarte (WBK)
+                    </p>
+                </div>
             </BigBox>
 
             <MediumBox>
-                <Heading level={2}>Vereinssatzung</Heading>
-                <NormalText>
-                    Die vollständige Satzung des SSV Schluchsee regelt die Struktur und den Betrieb unseres Vereins. 
-                    Sie können die Satzung in unserem Downloadbereich einsehen oder von unserem Vorstand anfordern.
-                </NormalText>
+                <Heading level={2}>
+                    Mindestalter
+                </Heading>
+                <div style={{ lineHeight: 1.8 }}>
+                    <p>Der Bewerber muss das 18. Lebensjahr vollendet haben. Ausnahmen sind auf Antrag möglich, wenn öffentliche Interessen nicht entgegenstehen.</p>
+                </div>
             </MediumBox>
 
             <MediumBox>
-                <Heading level={2}>Hausregeln</Heading>
-                <NormalText>
-                    <strong>1. Sicherheit:</strong><br/>
-                    Die Einhaltung aller Sicherheitsrichtlinien ist obligatorisch. Jedes Fehlverhalten wird geahndet.<br/>
-                    <br/>
-                    <strong>2. Respekt und Verhalten:</strong><br/>
-                    Respekt und Fairness gegenüber anderen Mitgliedern ist erforderlich. Belästigung oder 
-                    aggressive Verhalten sind nicht toleriert.<br/>
-                    <br/>
-                    <strong>3. Vereinsvermögen:</strong><br/>
-                    Alle Geräte und Einrichtungen müssen mit Sorgfalt behandelt werden. 
-                    Beschädigungen müssen dem Vorstand gemeldet werden.
-                </NormalText>
+                <Heading level={2}>
+                    Körperliche Eignung
+                </Heading>
+                <div style={{ lineHeight: 1.8 }}>
+                    <p>Der Bewerber muss die erforderliche körperliche Eignung besitzen. Dies bedeutet unter anderem, dass die geistige Eignung zur Ausübung des Schießsports vorhanden sein muss.</p>
+                </div>
             </MediumBox>
 
             <MediumBox>
-                <Heading level={2}>Disziplinarbestimmungen</Heading>
-                <NormalText>
-                    Verstöße gegen diese Regeln können zu Verwarnungen, Geldstrafen oder im schlimmsten Fall 
-                    zum Ausschluss aus dem Verein führen. Der Vorstand entscheidet im Einzelfall.
-                </NormalText>
+                <Heading level={2}>
+                    Zuverlässigkeit
+                </Heading>
+                <div style={{ lineHeight: 1.8 }}>
+                    <p style={{ marginBottom: 12 }}>Dies ist wohl der häufigste Ablehnungsgrund überhaupt. Der Nachweis der Zuverlässigkeit ist nicht erbracht, wenn der Bewerber:</p>
+                    <ul style={{ paddingLeft: 20, marginBottom: 0 }}>
+                        <li style={{ marginBottom: 6 }}>Offensichtlich Schusswaffen und Munition missbräuchlich verwenden will</li>
+                        <li style={{ marginBottom: 6 }}>Straftaten gegen die öffentliche Sicherheit und Ordnung (z. B. Landesverrat, Landfriedensbruch) begangen hat</li>
+                        <li style={{ marginBottom: 6 }}>Mindestens 2-mal wegen einer Straftat in Zusammenhang mit Trunkenheit rechtskräftig verurteilt wurde</li>
+                        <li style={{ marginBottom: 6 }}>Innerhalb der letzten 5 Jahre rechtskräftig wegen Körperverletzung, Vergewaltigung, Hausfriedensbruch, Widerstand gegen die Staatsgewalt, Angriff auf Leib und Leben eines Anderen oder einer anderen gemeingefährlichen Straftat verurteilt wurde</li>
+                        <li style={{ marginBottom: 6 }}>Geschäftsunfähig oder in seiner Geschäftsfähigkeit beschränkt ist</li>
+                        <li style={{ marginBottom: 6 }}>Trunksüchtig oder rauschmittelsüchtig ist</li>
+                        <li style={{ marginBottom: 6 }}>Geisteskrank oder geistesschwach ist</li>
+                    </ul>
+                </div>
             </MediumBox>
 
             <MediumBox>
-                <Heading level={2}>Kontakt bei Fragen</Heading>
-                <NormalText>
-                    Bei Fragen zu unseren Regeln oder der Satzung können Sie sich jederzeit an 
-                    unseren Vorstand wenden.
-                </NormalText>
+                <Heading level={2}>
+                    Sachkunde
+                </Heading>
+                <div style={{ lineHeight: 1.8 }}>
+                    <p style={{ marginBottom: 12 }}>Der Bewerber muss einen Nachweis der Sachkunde gemäß § 31 des Waffengesetzes erbringen. Dieser Nachweis wird im SSV mittels einer Prüfung erbracht. Inhalte dieser Prüfung sind:</p>
+                    <ul style={{ paddingLeft: 20, marginBottom: 12 }}>
+                        <li style={{ marginBottom: 6 }}>Waffengesetz</li>
+                        <li style={{ marginBottom: 6 }}>Umgang mit Schusswaffen</li>
+                        <li style={{ marginBottom: 6 }}>Ballistik</li>
+                        <li style={{ marginBottom: 6 }}>Notwehrparagraphen</li>
+                        <li style={{ marginBottom: 6 }}>Notstand</li>
+                    </ul>
+                    <p>Weitere Informationen erhalten Sie auf Anfrage in unserem Verein.</p>
+                </div>
             </MediumBox>
-        </>
-    )
+
+            <MediumBox>
+                <Heading level={2}>
+                    Bedürfnis
+                </Heading>
+                <div style={{ lineHeight: 1.8 }}>
+                    <p>Der angehende Schütze muss ein Bedürfnis nachweisen. Dies geschieht durch ernsthaftes und leistungssteigerndes Schießen innerhalb eines Vereins. Die jeweilige Überprüfung durch den Verein wird unterschiedlich gehandhabt.</p>
+                </div>
+            </MediumBox>
+
+            <BigBox>
+                <div style={{ textAlign: "center", lineHeight: 1.8 }}>
+                    <p style={{ marginBottom: 12 }}>
+                        Das erste halbe Jahr ist also nicht nur mit viel Spaß, sondern auch mit viel Arbeit verbunden.
+                        Diesen Weg musste jeder von uns gehen. Nehmen Sie das bitte nicht auf die leichte Schulter,
+                        aber lassen Sie sich dadurch die Freude am Schießsport nicht verderben.
+                    </p>
+                    <p>
+                        Ein wenig Ehrgeiz wird hinterher durch ein wunderschönes Hobby belohnt.
+                        Der SSV Schluchsee wird hier alle Mitglieder nach bestem Wissen und entsprechend seinen Möglichkeiten unterstützen.
+                    </p>
+                </div>
+            </BigBox>
+        </div>
+    );
 };
 
 export default Law;
-

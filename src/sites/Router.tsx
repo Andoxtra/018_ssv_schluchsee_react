@@ -9,6 +9,7 @@ import Contact from "./routes/Contact.tsx";
 import Test from "./routes/Test.tsx";
 import Location from "./routes/Location.tsx";
 import News from "./routes/News.tsx";
+import NewsDetail from "./routes/NewsDetail.tsx";
 import Download from "./routes/Download.tsx";
 import Imprint from "./routes/Imprint.tsx";
 import Privacy from "./routes/Privacy.tsx";
@@ -20,6 +21,8 @@ import Links from "./routes/Links.tsx";
 import FAQ from "./routes/FAQ.tsx";
 import Law from "./routes/Law.tsx";
 import ShootingRanges from "./routes/ShootingRanges.tsx";
+import Youth from "./routes/Youth.tsx";
+import DanielKhanLeonhard from "./routes/DanielKhanLeonhard.tsx";
 import Body from "../elements/Body.tsx";
 
 import webPaths from "../config/webPaths.ts";
@@ -37,6 +40,7 @@ const Router = (): ReactNode => {
                     <Route path={webPaths.contactSite} element={<Contact/>}/>
                     <Route path={webPaths.locationSite} element={<Location/>}/>
                     <Route path={webPaths.newsSite} element={<News/>}/>
+                    <Route path={`${webPaths.newsDetailSite}/:id`} element={<NewsDetail/>}/>
                     <Route path={webPaths.downloadSite} element={<Download/>}/>
                     <Route path={webPaths.imprintSite} element={<Imprint/>}/>
                     <Route path={webPaths.privacySite} element={<Privacy/>}/>
@@ -48,6 +52,8 @@ const Router = (): ReactNode => {
                     <Route path={webPaths.faqSite} element={<FAQ/>}/>
                     <Route path={webPaths.lawSite} element={<Law/>}/>
                     <Route path={webPaths.shootingLocation} element={<ShootingRanges/>}/>
+                    <Route path={webPaths.youthSite} element={<Youth/>}/>
+                    <Route path={webPaths.danielKhanLeonhard} element={<DanielKhanLeonhard/>}/>
                 </Routes>
             </Body>
             <Footer/>

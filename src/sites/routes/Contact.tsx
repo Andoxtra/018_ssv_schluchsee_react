@@ -1,109 +1,120 @@
 import type {ReactNode} from "react";
-import {useState} from "react";
-import Heading from "../../components/texts/Heading.tsx";
-import NormalText from "../../components/texts/NormalText.tsx";
-import MediumBox from "../../components/boxes/MediumBox.tsx";
+
 import BigBox from "../../components/boxes/BigBox.tsx";
-import BaseInput from "../../components/inputs/BaseInput.tsx";
-import TextArea from "../../components/inputs/TextArea.tsx";
-import PrimaryButton from "../../components/buttons/PrimaryButton.tsx";
+import MediumBox from "../../components/boxes/MediumBox.tsx";
+import Heading from "../../components/texts/Heading.tsx";
+
+const boardMembers = [
+    { name: "Volker Matthews", role: "Oberschützenmeister" },
+    { name: "Wolfgang Faller (Indi)", role: "Schützenmeister" },
+    { name: "Julian Booz", role: "Schatzwart" },
+    { name: "Ursula Robens", role: "Schriftführerin" },
+    { name: "Daniel Khan-Leonhard", role: "Jugendtrainer" },
+    { name: "Timo Matthews", role: "Sportwart" },
+    { name: "Phillip Laaß", role: "Beisitzer" },
+    { name: "Albert Götte", role: "Beisitzer" },
+    { name: "Richard Lorenz", role: "Jugendvertreter" },
+];
 
 const Contact = (): ReactNode => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
-
-    const handleSubmit = () => {
-        if (name && email && message) {
-            console.log("Message sent:", {name, email, message});
-            alert("Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.");
-            setName("");
-            setEmail("");
-            setMessage("");
-        } else {
-            alert("Bitte füllen Sie alle Felder aus.");
-        }
-    };
-
     return (
-        <>
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             <BigBox>
-                <Heading level={1}>Kontakt</Heading>
+                <div style={{ textAlign: "center", padding: "24px 0" }}>
+                    <Heading level={1}>Kontakt</Heading>
+                    <p style={{ fontSize: "1rem", lineHeight: 1.7, maxWidth: 600, margin: "8px auto 0", color: "#5a5a5a" }}>
+                        Vorstand des SSV Schluchsee e. V.
+                    </p>
+                </div>
             </BigBox>
 
             <MediumBox>
-                <Heading level={2}>Kontaktinformationen</Heading>
-                <NormalText>
-                    <strong>SSV Schluchsee</strong><br/>
-                    <br/>
-                    <strong>Adresse:</strong><br/>
-                    Schluchsee<br/>
-                    78136 Schonachbach<br/>
-                    Deutschland<br/>
-                    <br/>
-                    <strong>Telefon:</strong><br/>
-                    +49 (0) 7656 123456<br/>
-                    <br/>
-                    <strong>E-Mail:</strong><br/>
-                    info@ssv-schluchsee.de<br/>
-                    <br/>
-                    <strong>Website:</strong><br/>
-                    www.ssv-schluchsee.de
-                </NormalText>
+                <Heading level={2}>
+                    Vereinsvorstand
+                </Heading>
+                <div style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+                    gap: 12,
+                }}>
+                    {boardMembers.map((member, index) => (
+                        <div key={index} style={{
+                            display: "flex",
+                            alignItems: "center",
+                            gap: 12,
+                            padding: "12px 14px",
+                            background: "#F8F8F4",
+                            borderRadius: 8,
+                            border: "1px solid #EDECE4",
+                        }}>
+                            <div style={{
+                                width: 42,
+                                height: 42,
+                                borderRadius: "50%",
+                                background: "#143620",
+                                color: "#FFFFFF",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                fontWeight: 700,
+                                fontSize: "0.8125rem",
+                                flexShrink: 0,
+                            }}>
+                                {member.name.split(" ").filter(n => !n.includes("(")).map(n => n[0]).join("").slice(0, 2)}
+                            </div>
+                            <div>
+                                <div style={{ fontWeight: 600, color: "#1a1a1a", fontSize: "0.9375rem" }}>{member.name}</div>
+                                <div style={{ color: "#5a5a5a", fontSize: "0.8125rem" }}>{member.role}</div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
             </MediumBox>
 
             <MediumBox>
-                <Heading level={2}>Öffnungszeiten Vereinsheim</Heading>
-                <NormalText>
-                    <strong>Montag - Freitag:</strong> 17:00 - 22:00 Uhr<br/>
-                    <strong>Samstag:</strong> 13:00 - 22:00 Uhr<br/>
-                    <strong>Sonntag:</strong> 10:00 - 18:00 Uhr<br/>
-                    <br/>
-                    An Feiertagen können abweichende Öffnungszeiten gelten.
-                </NormalText>
+                <Heading level={2}>
+                    Adresse
+                </Heading>
+                <div style={{ lineHeight: 1.8 }}>
+                    <p><strong>SSV Schluchsee e. V.</strong></p>
+                    <p>Faulenfürster Eck</p>
+                    <p>D-79859 Schluchsee</p>
+                </div>
             </MediumBox>
 
             <MediumBox>
-                <Heading level={2}>Kontaktformular</Heading>
-                <NormalText>
-                    Senden Sie uns eine Nachricht und wir werden uns schnellstmöglich bei Ihnen melden.
-                </NormalText>
-
-                <div style={{marginTop: 20, marginBottom: 10}}>
-                    <NormalText><strong>Name:</strong></NormalText>
-                    <BaseInput
-                        placeholder="Ihr Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                </div>
-
-                <div style={{marginBottom: 10}}>
-                    <NormalText><strong>E-Mail:</strong></NormalText>
-                    <BaseInput
-                        placeholder="Ihre E-Mail-Adresse"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </div>
-
-                <div style={{marginBottom: 10}}>
-                    <NormalText><strong>Nachricht:</strong></NormalText>
-                    <TextArea
-                        placeholder="Ihre Nachricht..."
-                        value={message}
-                        onChange={(e) => setMessage(e.target.value)}
-                        rows={5}
-                    />
-                </div>
-
-                <div style={{marginTop: 20}} onClick={handleSubmit}>
-                    <PrimaryButton text="Nachricht senden" linkTo="#" />
-                </div>
+                <Heading level={2}>
+                    Gastschützen
+                </Heading>
+                <p style={{ lineHeight: 1.7, marginBottom: 12 }}>
+                    Gastschützen können nur nach vorheriger Anmeldung und deren Bestätigung durch den SSV Schluchsee
+                    (per E-Mail oder telefonisch) am Schießtraining teilnehmen.
+                </p>
+                <a
+                    href="https://www.ssv-schluchsee.de/images/uploads/Anmeldung%20f%C3%BCr%20Gastsch%C3%BCtzen%2004.04.26.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#9a6508", fontWeight: 600, textDecoration: "underline" }}
+                >
+                    Anmeldeformular herunterladen →
+                </a>
             </MediumBox>
-        </>
-    )
+
+            <MediumBox>
+                <Heading level={2}>
+                    Öffnungszeiten
+                </Heading>
+                <a
+                    href="https://www.ssv-schluchsee.de/images/uploads/Öffnungszeiten.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ color: "#9a6508", fontWeight: 600, textDecoration: "underline" }}
+                >
+                    Öffnungszeiten PDF →
+                </a>
+            </MediumBox>
+        </div>
+    );
 };
 
 export default Contact;
