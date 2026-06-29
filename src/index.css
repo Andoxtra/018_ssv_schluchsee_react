@@ -1,0 +1,394 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #F8F8F4;
+  color: #1a1a1a;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ========== Box Components ========== */
+.bigBox {
+  background: linear-gradient(135deg, #0d2215 0%, #143620 50%, #1a4a2e 100%);
+  border-radius: 12px;
+  padding: 48px 32px;
+  margin-bottom: 24px;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.bigBox h1,
+.bigBox h2,
+.bigBox h3,
+.bigBox h4,
+.bigBox h5 {
+  color: #FFFFFF !important;
+}
+
+.bigBox p,
+.bigBox .ant-typography {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.mediumBox {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 28px 24px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid #E8E6DC;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.mediumBox:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.smallBox {
+  background: #EDECE4;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid #D5D2C8;
+}
+
+/* ========== Typography ========== */
+.ant-typography h1,
+.ant-typography h2,
+.ant-typography h3,
+.ant-typography h4,
+.ant-typography h5 {
+  color: #143620 !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.5em !important;
+}
+
+.ant-typography h1 { font-size: 2.25rem !important; }
+.ant-typography h2 { font-size: 1.625rem !important; }
+.ant-typography h3 { font-size: 1.125rem !important; }
+
+.ant-typography {
+  color: #1a1a1a !important;
+}
+
+/* ========== Tables ========== */
+.ant-table {
+  background: #FFFFFF !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+}
+
+.ant-table-thead > tr > th {
+  background: #EDECE4 !important;
+  color: #143620 !important;
+  font-weight: 600 !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: #EDECE4 !important;
+}
+
+/* ========== Buttons ========== */
+.ant-btn-primary {
+  background: #143620 !important;
+  border-color: #143620 !important;
+  color: #FFFFFF !important;
+  border-radius: 6px !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-btn-primary:hover {
+  background: #1a4a2e !important;
+  border-color: #1a4a2e !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+.ant-btn-default {
+  background: transparent !important;
+  border: 1px solid #D5D2C8 !important;
+  color: #143620 !important;
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-btn-default:hover {
+  background: #143620 !important;
+  border-color: #143620 !important;
+  color: #FFFFFF !important;
+}
+
+/* ========== Inputs ========== */
+.ant-input,
+.ant-input-textarea textarea {
+  border-radius: 6px !important;
+  border: 1px solid #D5D2C8 !important;
+  transition: all 0.3s ease !important;
+  color: #1a1a1a !important;
+}
+
+.ant-input:focus,
+.ant-input-textarea textarea:focus {
+  border-color: #143620 !important;
+  box-shadow: 0 0 0 2px rgba(20,54,32,0.1) !important;
+}
+
+/* ========== Markdown Content ========== */
+.mediumBox .interweave h1,
+.mediumBox .interweave h2,
+.mediumBox .interweave h3,
+.mediumBox .interweave h4,
+.mediumBox .interweave h5,
+.mediumBox .interweave h6 {
+  color: #143620 !important;
+  font-weight: 700 !important;
+  margin-top: 1.25em !important;
+  margin-bottom: 0.5em !important;
+}
+
+.mediumBox .interweave h1 { font-size: 1.75rem !important; }
+.mediumBox .interweave h2 { font-size: 1.375rem !important; }
+.mediumBox .interweave h3 { font-size: 1.125rem !important; }
+
+.mediumBox .interweave p {
+  color: #1a1a1a !important;
+  margin-bottom: 1em !important;
+  line-height: 1.7 !important;
+}
+
+.mediumBox .interweave ul,
+.mediumBox .interweave ol {
+  margin-bottom: 1em !important;
+  padding-left: 1.5em !important;
+}
+
+.mediumBox .interweave li {
+  color: #1a1a1a !important;
+  margin-bottom: 0.375em !important;
+}
+
+.mediumBox .interweave strong {
+  color: #143620 !important;
+}
+
+.mediumBox .interweave a {
+  color: #9a6508 !important;
+  text-decoration: underline !important;
+}
+
+.mediumBox .interweave a:hover {
+  color: #143620 !important;
+}
+
+.mediumBox .interweave blockquote {
+  border-left: 4px solid #143620 !important;
+  padding: 0.5em 1em !important;
+  margin: 1em 0 !important;
+  background: #F8F8F4 !important;
+  border-radius: 0 6px 6px 0 !important;
+  color: #5a5a5a !important;
+}
+
+.mediumBox .interweave table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 1em 0 !important;
+  border-radius: 6px !important;
+  overflow: hidden !important;
+}
+
+.mediumBox .interweave th {
+  background: #EDECE4 !important;
+  color: #143620 !important;
+  font-weight: 600 !important;
+  padding: 10px 14px !important;
+  text-align: left !important;
+}
+
+.mediumBox .interweave td {
+  padding: 10px 14px !important;
+  border-top: 1px solid #EDECE4 !important;
+  color: #1a1a1a !important;
+}
+
+.mediumBox .interweave tr:hover td {
+  background: #F8F8F4 !important;
+}
+
+.mediumBox .interweave code {
+  background: #EDECE4 !important;
+  padding: 2px 6px !important;
+  border-radius: 4px !important;
+  font-size: 0.875em !important;
+  color: #143620 !important;
+}
+
+.mediumBox .interweave pre {
+  background: #143620 !important;
+  color: #F8F8F4 !important;
+  padding: 16px !important;
+  border-radius: 8px !important;
+  overflow-x: auto !important;
+  margin: 1em 0 !important;
+}
+
+.mediumBox .interweave pre code {
+  background: transparent !important;
+  color: inherit !important;
+  padding: 0 !important;
+}
+
+.mediumBox .interweave hr {
+  border: none !important;
+  border-top: 1px solid #EDECE4 !important;
+  margin: 2em 0 !important;
+}
+
+.mediumBox .interweave img {
+  max-width: 100% !important;
+  border-radius: 8px !important;
+  margin: 1em 0 !important;
+}
+
+/* ========== Links ========== */
+a {
+  color: #9a6508;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #143620;
+}
+
+/* ========== Footer ========== */
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  margin-top: 16px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #FFFFFF;
+}
+
+/* ========== Mobile Responsive ========== */
+@media (max-width: 900px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .hamburger-btn {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 901px) {
+  .hamburger-btn {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Body padding */
+  .bigBox {
+    padding: 28px 16px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+  }
+
+  .mediumBox {
+    padding: 20px 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+  }
+
+  .smallBox {
+    padding: 16px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+  }
+
+  /* Typography */
+  .ant-typography h1 { font-size: 1.625rem !important; }
+  .ant-typography h2 { font-size: 1.25rem !important; }
+  .ant-typography h3 { font-size: 1rem !important; }
+
+  /* Tables */
+  .ant-table {
+    font-size: 0.8125rem !important;
+  }
+
+  .ant-table-thead > tr > th,
+  .ant-table-tbody > tr > td {
+    padding: 8px 6px !important;
+  }
+
+  /* Buttons */
+  .ant-btn {
+    padding: 6px 12px !important;
+    font-size: 0.8125rem !important;
+  }
+
+  /* Footer grid */
+  footer > div > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* Images */
+  .ant-image {
+    width: 100% !important;
+  }
+
+  /* Mobile menu overlay fix */
+  .mobile-menu {
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+  }
+
+  body.menu-open {
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .bigBox {
+    padding: 24px 12px;
+  }
+
+  .mediumBox {
+    padding: 16px 12px;
+  }
+
+  .ant-typography h1 { font-size: 1.375rem !important; }
+  .ant-typography h2 { font-size: 1.125rem !important; }
+}
