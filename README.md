@@ -54,3 +54,7 @@
 - Gesetz
 - Schießstände
 - Testing (Enthält jede Komponente)
+
+- Fix Secondary Buttons color
+- Add Links to link table
+- Remove duplicate information on website
