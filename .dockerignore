@@ -1,0 +1,10 @@
+.git
+node_modules
+dist
+coverage
+var
+.env
+.env.*
+test-results
+playwright-report
+package-lock.json
