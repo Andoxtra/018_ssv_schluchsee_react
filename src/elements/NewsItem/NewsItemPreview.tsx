@@ -5,13 +5,14 @@ import type {NewsItemProps} from "./props/NewsItemProps.ts";
 import {Link} from "react-router-dom";
 import webPaths from "../../config/webPaths.ts";
 
-const NewsItemPreview = ({title, creationDate, author, previewText, uuid}: NewsItemProps) => {
+const NewsItemPreview = ({title, creationDate, author, previewText, uuid, reviewNote}: NewsItemProps) => {
     return (
         <MediumBox>
             <div style={{display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8}}>
                 <Heading level={3}>{title}</Heading>
                 <Link
                     to={`${webPaths.newsSite}/${uuid}`}
+                    aria-label={`Beitrag lesen: ${title}`}
                     style={{
                         color: "#143620",
                         fontWeight: 500,
@@ -23,7 +24,7 @@ const NewsItemPreview = ({title, creationDate, author, previewText, uuid}: NewsI
                         flexShrink: 0,
                     }}
                 >
-                    Weiterlesen →
+                    Beitrag lesen →
                 </Link>
             </div>
             <div style={{display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 12, fontSize: "0.875rem", color: "#5a5a5a"}}>
@@ -31,6 +32,7 @@ const NewsItemPreview = ({title, creationDate, author, previewText, uuid}: NewsI
                 <span>von {author}</span>
             </div>
             <NormalText>{previewText}</NormalText>
+            {reviewNote && <p className="review-note">Redaktioneller Hinweis: {reviewNote}</p>}
         </MediumBox>
     )
 }

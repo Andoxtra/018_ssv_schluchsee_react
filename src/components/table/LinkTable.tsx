@@ -1,3 +1,4 @@
+import AppLink from "../links/AppLink.tsx";
 import {Table, type TableColumnsType} from "antd";
 import type {ReactNode} from "react";
 
@@ -30,7 +31,8 @@ const LinkTable = ({tableData}: LinkTableProps): ReactNode => {
         {
             title: linkTable.title,
             dataIndex: 'title',
-            key: 'title'
+            key: 'title',
+            render: (title: string, row: LinkTableData) => <AppLink href={row.link}>{title}</AppLink>
         }
     ];
 

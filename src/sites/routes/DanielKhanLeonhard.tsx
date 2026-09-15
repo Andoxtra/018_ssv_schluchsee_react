@@ -79,7 +79,7 @@ const DanielKhanLeonhard = (): ReactNode => {
                         machen Daniel sympathisch – er bleibt in unserer Region ein Vorzeigeathlet und
                         ein Vorbild besonders für junge Sportler.
                     </p>
-                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 10 }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", gap: 10 }}>
                         {strengths.map((s, i) => (
                             <div key={i} style={{
                                 padding: "10px 14px",

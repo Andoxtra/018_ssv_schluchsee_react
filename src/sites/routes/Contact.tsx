@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+import GuestRegistration from "../../elements/club/GuestRegistration.tsx";
 import type {ReactNode} from "react";
 
 import BigBox from "../../components/boxes/BigBox.tsx";
@@ -34,7 +36,7 @@ const Contact = (): ReactNode => {
                 </Heading>
                 <div style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+                    gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 250px), 1fr))",
                     gap: 12,
                 }}>
                     {boardMembers.map((member, index) => (
@@ -71,50 +73,10 @@ const Contact = (): ReactNode => {
                 </div>
             </MediumBox>
 
-            <MediumBox>
-                <Heading level={2}>
-                    Adresse
-                </Heading>
-                <div style={{ lineHeight: 1.8 }}>
-                    <p><strong>SSV Schluchsee e. V.</strong></p>
-                    <p>Faulenfürster Eck</p>
-                    <p>D-79859 Schluchsee</p>
-                </div>
-            </MediumBox>
-
-            <MediumBox>
-                <Heading level={2}>
-                    Gastschützen
-                </Heading>
-                <p style={{ lineHeight: 1.7, marginBottom: 12 }}>
-                    Gastschützen können nur nach vorheriger Anmeldung und deren Bestätigung durch den SSV Schluchsee
-                    (per E-Mail oder telefonisch) am Schießtraining teilnehmen.
-                </p>
-                <a
-                    href="https://www.ssv-schluchsee.de/images/uploads/Anmeldung%20f%C3%BCr%20Gastsch%C3%BCtzen%2004.04.26.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "#9a6508", fontWeight: 600, textDecoration: "underline" }}
-                >
-                    Anmeldeformular herunterladen →
-                </a>
-            </MediumBox>
-
-            <MediumBox>
-                <Heading level={2}>
-                    Öffnungszeiten
-                </Heading>
-                <a
-                    href="https://www.ssv-schluchsee.de/images/uploads/Öffnungszeiten.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "#9a6508", fontWeight: 600, textDecoration: "underline" }}
-                >
-                    Öffnungszeiten PDF →
-                </a>
-            </MediumBox>
+            <MediumBox><GuestRegistration/></MediumBox>
+            <MediumBox><Heading level={2}>Kontakt aufnehmen</Heading><p>Schreiben Sie dem Verein über unser Kontaktformular. Ihre Nachricht wird für die Vereinsverwaltung gespeichert.</p><Link to="/kontaktformular">Nachricht schreiben →</Link></MediumBox>
+            <MediumBox><Heading level={2}>Besuch planen</Heading><p><Link to="/schiessstaende">Trainingszeiten →</Link></p><Link to="/standort">Adresse & Anfahrt →</Link></MediumBox>
         </div>
     );
 };
-
 export default Contact;

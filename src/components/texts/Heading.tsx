@@ -1,28 +1,7 @@
 import type {ReactNode} from "react";
-import TextStyle from "../../style/components/texts/TextStyle.ts";
-import {Typography} from "antd";
-
-type HeadingProps = {
-    level: 1 | 2 | 3 | 4 | 5;
-    children: ReactNode;
-};
-
-const {
-    TextGeneralStyle
-} = TextStyle;
-
+type HeadingProps = {level: 1 | 2 | 3 | 4 | 5 | 6; children: ReactNode};
 const Heading = ({level, children}: HeadingProps): ReactNode => {
-
-    return (
-        <>
-            <Typography.Title level={level} style={TextGeneralStyle}>
-                {children}
-            </Typography.Title>
-            <br/>
-        </>
-    );
+    const Tag = `h${level}` as const;
+    return <Tag className="site-heading">{children}</Tag>;
 };
-
 export default Heading;
-
-

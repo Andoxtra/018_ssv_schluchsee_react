@@ -1,26 +1,14 @@
-import type {ReactNode} from "react";
 import {useParams} from "react-router-dom";
 import NewsItemFullView from "../../elements/NewsItem/NewsItemFullView.tsx";
-import {newsItems} from "../../data/newsData.ts";
-import Heading from "../../components/texts/Heading.tsx";
-import BigBox from "../../components/boxes/BigBox.tsx";
-
-const NewsDetail = (): ReactNode => {
-    const {id} = useParams<{id: string}>();
-
-    const newsItem = newsItems.find((item) => item.uuid === id);
-
-    if (!newsItem) {
-        return (
-            <>
-                <BigBox>
-                    <Heading level={1}>Beitrag nicht gefunden</Heading>
-                </BigBox>
-            </>
-        );
-    }
-
-    return <NewsItemFullView {...newsItem} />;
+import {toNewsItem} from "../../data/newsData.ts";
+import {useNews} from "../../logic/news/useNews.ts";
+import NotFound from "./NotFound.tsx";
+const NewsDetail = () => {
+    const {id} = useParams();
+    const {articles, loading, error} = useNews();
+    if (loading) return <p role="status">Beitrag wird geladen …</p>;
+    if (error) return <p role="alert">{error}</p>;
+    const article = articles.find(item => item.id === id);
+    return article ? <NewsItemFullView {...toNewsItem(article)}/> : <NotFound article/>;
 };
-
 export default NewsDetail;

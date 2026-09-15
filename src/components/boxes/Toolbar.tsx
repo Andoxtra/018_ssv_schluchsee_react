@@ -18,9 +18,9 @@ const {
 
 export const Toolbar = ({ children } : ToolbarProps) : ReactNode => {
     return (
-        <div style={getDynamicStyle(ToolbarS, ToolbarM, ToolbarL, ToolbarE)}>
+        <header style={getDynamicStyle(ToolbarS, ToolbarM, ToolbarL, ToolbarE)}>
             { children }
-        </div>
+        </header>
     );
 };
 

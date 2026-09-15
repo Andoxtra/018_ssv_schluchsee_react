@@ -3,6 +3,7 @@
 ---
 author: Wolfgang Faller
 date: 2026-04-10
+eventDates: 2026-07-03, 2026-07-04
 preview: 100 Jahre SSV Schluchsee e.V. - Jubiläumsfeier am 3. Juli 2026, Westernfest am 4. Juli 2026.
 ---
 

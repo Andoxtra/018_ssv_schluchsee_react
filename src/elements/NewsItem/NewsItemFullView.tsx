@@ -1,52 +1,14 @@
+import {localDate} from "../../logic/news/newsSource.ts";
+import {Link} from "react-router-dom";
 import Heading from "../../components/texts/Heading.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
+import Markdown from "../../components/boxes/Markdown.tsx";
 import type {NewsItemProps} from "./props/NewsItemProps.ts";
-import markdownit from "markdown-it";
-import HtmlRenderer from "../../components/boxes/HtmlRenderer.tsx";
-import {Link} from "react-router-dom";
-import webPaths from "../../config/webPaths.ts";
-
-const NewsItemFullView = ({title, creationDate, author, contentAsMarkdown}: NewsItemProps) => {
-    return (
-        <>
-            <BigBox>
-                <div style={{maxWidth: 800, margin: "0 auto"}}>
-                    <Heading level={1}>{title}</Heading>
-                    <div style={{display: "flex", gap: 20, flexWrap: "wrap", marginBottom: 20, color: "rgba(255,255,255,0.8)", fontSize: "0.9375rem"}}>
-                        <span>{creationDate.getGermanDate()}</span>
-                        <span>von {author}</span>
-                    </div>
-                </div>
-            </BigBox>
-
-            <MediumBox>
-                <div style={{maxWidth: 800}}>
-                    <HtmlRenderer htmlAsString={markdownit({
-                        html: true,
-                        linkify: true,
-                        typographer: true
-                    }).render(contentAsMarkdown)}/>
-                </div>
-            </MediumBox>
-
-            <div style={{marginTop: 16}}>
-                <Link
-                    to={webPaths.newsSite}
-                    style={{
-                        color: "#143620",
-                        fontWeight: 500,
-                        fontSize: "0.9375rem",
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: 6,
-                    }}
-                >
-                    ← Zurück zu den Neuigkeiten
-                </Link>
-            </div>
-        </>
-    )
-}
-
+const NewsItemFullView = ({title, creationDate, author, contentAsMarkdown, reviewNote, eventDates = []}: NewsItemProps) => {
+    const archived = eventDates.length > 0 && eventDates.every(date => date < localDate());
+    return <><BigBox><Heading level={1}>{title}</Heading><p>{creationDate.getGermanDate()} · {author}</p>{archived && <p>Veranstaltungsarchiv · Dieser Termin liegt in der Vergangenheit.</p>}</BigBox>
+        <MediumBox>{reviewNote && <p className="review-note">Redaktioneller Hinweis: {reviewNote}</p>}<Markdown>{contentAsMarkdown}</Markdown></MediumBox>
+        <Link to="/neuigkeiten">← Zu allen Neuigkeiten</Link></>;
+};
 export default NewsItemFullView;

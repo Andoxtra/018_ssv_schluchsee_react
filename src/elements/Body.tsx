@@ -18,9 +18,9 @@ const {
 
 const Body = ({children} : BodyProps) : ReactNode => {
     return (
-        <div style={getDynamicStyle(BodyS, BodyM, BodyL, BodyE)}>
+        <main id="main-content" tabIndex={-1} style={getDynamicStyle(BodyS, BodyM, BodyL, BodyE)}>
             {children}
-        </div>
+        </main>
     );
 };
 

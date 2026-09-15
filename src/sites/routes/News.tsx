@@ -1,37 +1,13 @@
-import type {ReactNode} from "react";
 import Heading from "../../components/texts/Heading.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
-import MediumBox from "../../components/boxes/MediumBox.tsx";
 import NewsItemPreview from "../../elements/NewsItem/NewsItemPreview.tsx";
-import {newsItems} from "../../data/newsData.ts";
-
-const News = (): ReactNode => {
-    return (
-        <>
-            <BigBox>
-                <Heading level={1}>Aktuelles</Heading>
-                <div style={{color: "rgba(255,255,255,0.85)", fontSize: "1rem", marginTop: 8}}>
-                    Neuigkeiten und Updates aus dem Vereinsleben
-                </div>
-            </BigBox>
-
-            <MediumBox>
-                <Heading level={2}>Neueste Beiträge</Heading>
-            </MediumBox>
-
-            {newsItems.map((item) => (
-                <NewsItemPreview
-                    key={item.uuid}
-                    uuid={item.uuid}
-                    title={item.title}
-                    creationDate={item.creationDate}
-                    author={item.author}
-                    previewText={item.previewText}
-                    contentAsMarkdown={item.contentAsMarkdown}
-                />
-            ))}
-        </>
-    )
+import {toNewsItem} from "../../data/newsData.ts";
+import {useNews} from "../../logic/news/useNews.ts";
+const News = () => {
+    const {articles, loading, error} = useNews();
+    return <><BigBox><Heading level={1}>Aktuelles & Vereinsarchiv</Heading><p>Neuigkeiten und Berichte, nach Veröffentlichungsdatum sortiert.</p></BigBox>
+        {loading && <p role="status">Beiträge werden geladen …</p>}{error && <p role="alert">{error} Bitte versuchen Sie es später erneut.</p>}
+        {!loading && !error && !articles.length && <p>Zurzeit sind keine Beiträge veröffentlicht.</p>}
+        {articles.map(article => <NewsItemPreview key={article.id} {...toNewsItem(article)}/>)}</>;
 };
-
 export default News;

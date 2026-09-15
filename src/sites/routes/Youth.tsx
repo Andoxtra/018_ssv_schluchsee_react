@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom";
 import type {ReactNode} from "react";
 
 import BigBox from "../../components/boxes/BigBox.tsx";
@@ -36,12 +37,8 @@ const Youth = (): ReactNode => {
                     Trainingszeiten
                 </Heading>
                 <div style={{ lineHeight: 1.8 }}>
-                    <p style={{ marginBottom: 12 }}>
-                        Jeden Freitagabend von <strong>19:00 Uhr bis etwa 21:00 Uhr</strong> halten sich
-                        unsere Jungschützen im Schützenhaus auf. Die Übungsleiter versuchen der Jugend
-                        ein abwechslungsreiches und dem Leistungsvermögen angepasstes Schießtraining
-                        zunächst mit dem Luftgewehr anzubieten.
-                    </p>
+                    <p>Unser Jugendtraining findet freitags statt. Bitte stimmen Sie den ersten Besuch und die Abholzeit mit dem Verein ab.</p>
+                    <p><Link to="/schiessstaende">Aktuelle Trainingszeiten →</Link></p>
                     <p>
                         Nach der Konzentration folgt dann die unterhaltsame Entspannung bei verschiedenen
                         Spielen im Aufenthaltsraum.

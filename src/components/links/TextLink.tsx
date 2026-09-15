@@ -1,3 +1,4 @@
+import AppLink from "./AppLink.tsx";
 import type {ReactNode} from "react";
 import TextLinkStyle from "../../style/components/links/TextLinkStyle.ts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
@@ -20,7 +21,7 @@ const {
 
 const TextLink = ({href, children, target = "_self", title, className}: TextLinkProps): ReactNode => {
     return (
-        <a
+        <AppLink
             href={href}
             target={target}
             title={title}
@@ -36,7 +37,7 @@ const TextLink = ({href, children, target = "_self", title, className}: TextLink
             }}
         >
             {children}
-        </a>
+        </AppLink>
     );
 };
 

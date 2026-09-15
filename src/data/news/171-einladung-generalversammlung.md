@@ -1,6 +1,7 @@
 # Einladung Generalversammlung
 
 ---
+reviewNote: Datum und Ort der Versammlung sind noch zu ergänzen.
 author: Wolfgang Faller
 date: 2026-03-15
 preview: Einladung zur Generalversammlung des SSV Schluchsee e.V.

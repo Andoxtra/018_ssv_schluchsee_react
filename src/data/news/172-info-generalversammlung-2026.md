@@ -1,6 +1,7 @@
 # Info Generalversammlung 2026
 
 ---
+reviewNote: Diese Information wird noch mit der Einladung abgeglichen.
 author: Wolfgang Faller
 date: 2026-03-20
 preview: Informationen zur diesjährigen Generalversammlung.

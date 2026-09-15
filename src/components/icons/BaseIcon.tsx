@@ -16,7 +16,7 @@ const BaseIcon = ({style, linkToIcon, alternativeText, linkTo}: BaseIconProps) =
 
     return (
         <LinkBox linkTo={linkTo} style={style}>
-            <img src={linkToIcon} alt={alternativeText} style={fillParent}/>
+            <img src={linkToIcon} alt={alternativeText ?? "SSV Schluchsee"} style={fillParent}/>
         </LinkBox>
     );
 };

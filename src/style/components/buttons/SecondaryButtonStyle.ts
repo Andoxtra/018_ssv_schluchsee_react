@@ -1,12 +1,8 @@
 import type {CSSProperties} from "react";
 import GeneralButtonStyle from "./GeneralButtonStyle.ts";
-import colorConfig from "../../../config/colorConfig.ts";
 
 const GeneralSecondaryButtonStyle: CSSProperties = {
     ...GeneralButtonStyle,
-    backgroundColor: "transparent",
-    color: colorConfig.primary,
-    border: `1px solid ${colorConfig.border}`,
     borderRadius: 6,
     fontWeight: 500,
     transition: "all 0.3s ease",

@@ -1,3 +1,4 @@
+import Markdown from "../../components/boxes/Markdown.tsx";
 import type {ReactNode} from "react";
 
 import BigBox from "../../components/boxes/BigBox.tsx";
@@ -86,50 +87,6 @@ const ehrenmitglieder = [
     { name: "Karl Roski", note: "Langjähriger 1. Vorsitzender († Mai 2015)" },
 ];
 
-const renderMarkdown = (text: string): ReactNode => {
-    const lines = text.split("\n");
-    const result: ReactNode[] = [];
-    let listItems: string[] = [];
-
-    const flushList = () => {
-        if (listItems.length > 0) {
-            result.push(
-                <ul key={`list-${result.length}`} style={{ paddingLeft: 20, marginBottom: 16 }}>
-                    {listItems.map((item, i) => <li key={i} style={{ marginBottom: 6, lineHeight: 1.7 }}>{item}</li>)}
-                </ul>
-            );
-            listItems = [];
-        }
-    };
-
-    lines.forEach((line) => {
-        if (line.startsWith("- **")) {
-            const boldMatch = line.match(/^- \*\*(.*?)\*\*(.*)/);
-            if (boldMatch) {
-                listItems.push(<><strong>{boldMatch[1]}</strong>{boldMatch[2].replace(/^:\s*/, "")}</> as unknown as string);
-            } else {
-                listItems.push(line.replace(/^- /, ""));
-            }
-        } else if (line.startsWith("- ")) {
-            listItems.push(line.replace(/^- /, ""));
-        } else if (line.match(/^\d+\./)) {
-            listItems.push(line);
-        } else {
-            flushList();
-            if (line.trim() === "") {
-                return;
-            }
-            const processed = line.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>").replace(/\*(.*?)\*/g, "<em>$1</em>");
-            result.push(
-                <p key={`p-${result.length}`} style={{ marginBottom: 12, lineHeight: 1.8, whiteSpace: "pre-line" }} dangerouslySetInnerHTML={{ __html: processed }} />
-            );
-        }
-    });
-
-    flushList();
-    return result;
-};
-
 const About = (): ReactNode => {
     return (
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
@@ -147,7 +104,7 @@ const About = (): ReactNode => {
                     <Heading level={2}>
                         {section.title}
                     </Heading>
-                    {renderMarkdown(section.content)}
+                    <Markdown>{section.content}</Markdown>
                 </MediumBox>
             ))}
 
@@ -160,7 +117,7 @@ const About = (): ReactNode => {
                 </p>
                 <div style={{
                     display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+                    gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
                     gap: 16
                 }}>
                     {ehrenmitglieder.map((mitglied, i) => (
