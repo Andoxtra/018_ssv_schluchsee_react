@@ -2,7 +2,7 @@ import  {type ReactNode} from "react";
 
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
 
-import ToolbarStyle from "../../style/elements/toolbar/ToolbarStyle.ts";
+import ToolbarStyle from "../../style/components/boxes/ToolbarStyle.ts";
 
 
 type ToolbarProps = {

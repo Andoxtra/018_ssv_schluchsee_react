@@ -1,10 +1,10 @@
-import {Checkbox} from "antd";
+import {Checkbox as AntdCheckbox} from "antd";
 import type {CheckboxChangeEvent} from "antd";
 import type {ReactNode} from "react";
 import CheckBoxStyle from "../../style/components/checkbox/CheckBoxStyle.ts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
 
-type CheckBoxProps = {
+type CheckboxProps = {
     label?: string;
     checked?: boolean;
     onChange?: (e: CheckboxChangeEvent) => void;
@@ -19,16 +19,16 @@ const {
     CheckBoxStyleE
 } = CheckBoxStyle;
 
-const CheckBox = (
+const Checkbox = (
     {
         label,
         checked,
         onChange,
         disabled,
         indeterminate
-    }: CheckBoxProps): ReactNode => {
+    }: CheckboxProps): ReactNode => {
     return (
-        <Checkbox
+        <AntdCheckbox
             checked={checked}
             onChange={onChange}
             disabled={disabled}
@@ -36,10 +36,10 @@ const CheckBox = (
             style={getDynamicStyle(CheckBoxStyleS, CheckBoxStyleM, CheckBoxStyleL, CheckBoxStyleE)}
         >
             {label}
-        </Checkbox>
+        </AntdCheckbox>
     );
 };
 
-export default CheckBox;
+export default Checkbox;
 
 

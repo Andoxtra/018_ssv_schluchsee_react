@@ -1,4 +1,4 @@
-export const antdLocals = {
+export const antdLocales = {
     locale: 'deDe',
     global: {
         placeholder: 'Bitte auswählen',

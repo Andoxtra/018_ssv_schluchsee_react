@@ -23,8 +23,8 @@ import Heading from "../../components/texts/Heading.tsx";
 import NormalText from "../../components/texts/NormalText.tsx";
 import TextLink from "../../components/links/TextLink.tsx";
 import RadioGroup from "../../components/radio/RadioGroup.tsx";
-import CheckBox from "../../components/checkbox/CheckBox.tsx";
-import CheckBoxGroup from "../../components/checkbox/CheckBoxGroup.tsx";
+import Checkbox from "../../components/checkbox/Checkbox.tsx";
+import CheckboxGroup from "../../components/checkbox/CheckboxGroup.tsx";
 import Dropdown from "../../components/dropdown/Dropdown.tsx";
 import RecordTable from "../../components/table/RecordTable.tsx";
 import NewsItemFullView from "../../elements/NewsItem/NewsItemFullView.tsx";
@@ -160,7 +160,7 @@ const Test = (): ReactNode => {
             {/* Checkbox Section */}
             <Heading level={1}>Checkboxes</Heading>
             <Heading level={2}>Single Checkbox</Heading>
-            <CheckBox
+            <Checkbox
                 label="Accept terms and conditions"
                 checked={checkboxChecked}
                 onChange={(e) => setCheckboxChecked(e.target.checked)}
@@ -168,7 +168,7 @@ const Test = (): ReactNode => {
             <NormalText>Checkbox checked: {checkboxChecked ? "Yes" : "No"}</NormalText>
 
             <Heading level={2}>Checkbox Group</Heading>
-            <CheckBoxGroup
+            <CheckboxGroup
                 options={checkboxOptions}
                 value={selectedCheckboxes}
                 onChange={(checkedValues) => setSelectedCheckboxes(checkedValues)}

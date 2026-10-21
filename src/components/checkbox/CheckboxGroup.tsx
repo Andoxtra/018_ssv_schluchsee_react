@@ -3,13 +3,13 @@ import type {ReactNode} from "react";
 import CheckBoxStyle from "../../style/components/checkbox/CheckBoxStyle.ts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
 
-type CheckBoxOption = {
+type CheckboxOption = {
     label: string;
     value: string | number;
 };
 
-type CheckBoxGroupProps = {
-    options: CheckBoxOption[];
+type CheckboxGroupProps = {
+    options: CheckboxOption[];
     value?: (string | number)[];
     onChange?: (checkedValues: (string | number)[]) => void;
     disabled?: boolean;
@@ -22,13 +22,13 @@ const {
     CheckBoxStyleE
 } = CheckBoxStyle;
 
-const CheckBoxGroup = (
+const CheckboxGroup = (
     {
         options,
         value,
         onChange,
         disabled
-    }: CheckBoxGroupProps): ReactNode => {
+    }: CheckboxGroupProps): ReactNode => {
     return (
         <div style={getDynamicStyle(CheckBoxStyleS, CheckBoxStyleM, CheckBoxStyleL, CheckBoxStyleE)}>
             <Checkbox.Group
@@ -42,5 +42,5 @@ const CheckBoxGroup = (
     );
 };
 
-export default CheckBoxGroup;
+export default CheckboxGroup;
 
