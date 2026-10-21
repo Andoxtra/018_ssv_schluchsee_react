@@ -28,7 +28,14 @@ export function parseNewsFile(path: string, source: string): Article {
         reviewNote: metadata.reviewNote ?? '', eventDates: metadata.eventDates?.split(',').map(value => value.trim()) ?? [], version: 1};
 }
 
-export const sortArticles = (articles: Article[]): Article[] => [...articles].sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id));
+const compareIds = (a: string, b: string): number => {
+    const numA = Number(a);
+    const numB = Number(b);
+    if (Number.isInteger(numA) && Number.isInteger(numB)) return numB - numA;
+    return b.localeCompare(a);
+};
+
+export const sortArticles = (articles: Article[]): Article[] => [...articles].sort((a, b) => b.date.localeCompare(a.date) || compareIds(a.id, b.id));
 export const isPastEvent = (article: Article, today: string): boolean => article.eventDates.length > 0 && article.eventDates.every(date => date < today);
 
 export const localDate = (date = new Date()): string => `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
