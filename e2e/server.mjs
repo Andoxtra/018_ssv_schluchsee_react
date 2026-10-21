@@ -1,7 +1,8 @@
 import {mkdtempSync, rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join, resolve} from 'node:path';
-import {createApp, passwordRecord} from '../server/app.mjs';
+import {createApp} from '../server/app.ts';
+import {passwordRecord} from '../server/lib/auth.ts';
 const dataDir=mkdtempSync(join(tmpdir(),'ssv-browser-test-'));
 const server=createApp({dataDir,origin:'http://127.0.0.1:3002',distDir:resolve('dist'),seedDir:resolve('src/data/news'),credentials:{username:'browser-test',...passwordRecord('browser-test-password-only')}});
 server.listen(3002,'127.0.0.1');

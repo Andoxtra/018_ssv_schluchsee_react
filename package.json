@@ -10,9 +10,9 @@
     "preview": "vite preview",
     "test": "vitest",
     "coverage": "vitest run --coverage",
-    "server": "node --env-file-if-exists=.env server/index.mjs",
-    "setup:admin": "node --env-file-if-exists=.env server/setup.mjs",
-    "start": "node --env-file-if-exists=.env server/index.mjs",
+    "server": "node --env-file-if-exists=.env server/index.ts",
+    "setup:admin": "node --env-file-if-exists=.env server/setup.ts",
+    "start": "node --env-file-if-exists=.env server/index.ts",
     "test:browser": "VITE_ENABLE_SHOWCASE=true npm run build && playwright test"
   },
   "dependencies": {
@@ -22,7 +22,6 @@
     "markdown-it": "^14.1.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
-    "react-native": "^0.86.0",
     "react-router-dom": "^7.9.3"
   },
   "devDependencies": {

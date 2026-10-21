@@ -3,7 +3,8 @@ import {mkdtempSync, rmSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join, resolve} from 'node:path';
 import type {Server} from 'node:http';
-import {createApp, passwordRecord} from '../../server/app.mjs';
+import {createApp} from '../../server/app.ts';
+import {passwordRecord} from '../../server/lib/auth.ts';
 
 let server: Server;
 let dataDir: string;

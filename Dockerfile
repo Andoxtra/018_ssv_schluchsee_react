@@ -16,4 +16,4 @@ COPY src/data/news ./src/data/news
 RUN mkdir /app/var && chown node:node /app/var
 USER node
 EXPOSE 3001
-CMD ["node", "server/index.mjs"]
+CMD ["node", "server/index.ts"]
