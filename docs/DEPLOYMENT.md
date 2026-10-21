@@ -35,7 +35,7 @@ Use at least 12 characters. Restart the backend after setup. Passwords are store
 as salted scrypt hashes in `var/admin.json`. The setup command refuses to replace
 an existing account. To reset an account, stop the server, preserve a backup,
 move `admin.json` aside, run setup again, and invalidate all sessions with
-`node server/revoke-sessions.mjs` before restarting.
+`node server/revoke-sessions.ts` before restarting.
 
 ## Content and messages
 
@@ -72,7 +72,7 @@ The supplied Docker Compose setup runs Node behind Caddy with HTTPS.
 ```sh
 read -rsp 'Production administrator password: ' ADMIN_PASSWORD
 export ADMIN_PASSWORD
-docker compose run --rm -e ADMIN_USERNAME=admin -e ADMIN_PASSWORD app node server/setup.mjs
+docker compose run --rm -e ADMIN_USERNAME=admin -e ADMIN_PASSWORD app node server/setup.ts
 unset ADMIN_PASSWORD
 ```
 

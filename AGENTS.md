@@ -24,9 +24,10 @@ the expensive model keeps its budget for the decisions.
 German-language club website (SSV Schluchsee e. V.) with two parts:
 
 - **Frontend** — React 19, TypeScript, Vite, Ant Design 6, React Router 7.
-- **Backend** — Node 24 (`server/`), SQLite via the built-in `node:sqlite`
-  module, session cookie authentication, image uploads, contact inbox.
-  No third-party backend runtime packages.
+- **Backend** — Node 24 (`server/`, TypeScript run natively via Node type
+  stripping), SQLite via the built-in `node:sqlite` module, session cookie
+  authentication, image uploads, contact inbox. No third-party backend runtime
+  packages.
 
 `/admin` is a real admin center: articles, drafts, review notes, event dates,
 image uploads, and the private contact inbox. Do not describe the site as a
@@ -46,7 +47,8 @@ These are pointers, not a reading list — jump to the part you need with
 2. `src/elements/` — page shell (`Header`, `Body`, `Footer`) and news views; `src/components/` — reusable controls.
 3. `src/logic/` — data flow: `api/client.ts` (fetch wrapper), `news/*` (articles, Markdown), `date/DateClass.ts`, `dynamicStyling/*` (responsive style selection).
 4. `src/style/` — React style objects and the Ant Design theme; `src/config/colorConfig.ts` — shared colors; `src/index.css` — global CSS.
-5. `server/app.mjs` — every HTTP endpoint lives in this one file.
+5. `server/` — the TypeScript backend: `app.ts` (composition), `routes/*` (handlers),
+   `lib/` (db, http, validation, auth, static), `router.ts`, `config.ts`, `types.ts`.
 6. `src/data/clubData.ts` — shared club facts (address, training times, ranges, documents).
 
 ## Commands
@@ -195,11 +197,14 @@ Full guide, including costs and alternatives: [docs/MODELS.md](docs/MODELS.md).
 
 ### Backend
 
-- `server/app.mjs` — request handling, validation, rate limits, session checks,
-  static file serving, and the SQLite schema (`articles`, `sessions`,
-  `messages`, `metadata`).
-- `server/index.mjs` — entry point; `server/setup.mjs` — administrator setup;
-  `server/revoke-sessions.mjs` — session invalidation.
+- `server/app.ts` — composes the HTTP server, security headers, origin/rate-limit
+  and admin guards, route dispatch, and static file serving; `server/routes/*` —
+  one module per resource; `server/lib/` — `db.ts` (SQLite repository), `http.ts`
+  (`HttpError`, `jsonBody`, `sendJson`), `validation.ts`, `auth.ts`, `static.ts`;
+  `server/router.ts` — route table with `:id` params; `server/config.ts` — typed
+  env parsing; `server/types.ts` — domain and infrastructure types.
+- `server/index.ts` — entry point; `server/setup.ts` — administrator setup;
+  `server/revoke-sessions.ts` — session invalidation.
 - Data lives under `DATA_DIR` (default `var/`): `club.sqlite`, `admin.json`,
   `uploads/`. Never commit that directory.
 
