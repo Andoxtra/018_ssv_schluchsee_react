@@ -36,7 +36,7 @@ const DanielKhanLeonhard = (): ReactNode => {
             <BigBox>
                 <div style={{ textAlign: "center", padding: "24px 0" }}>
                     <Heading level={1}>Daniel Khan-Leonhard</Heading>
-                    <p style={{ fontSize: "1rem", lineHeight: 1.7, maxWidth: 600, margin: "8px auto 0", color: "#5a5a5a" }}>
+                    <p style={{ fontSize: "1rem", lineHeight: 1.7, maxWidth: 600, margin: "8px auto 0", color: "rgba(255, 255, 255, 0.8)" }}>
                         Olympiateilnehmer und Ehrenmitglied des SSV Schluchsee
                     </p>
                 </div>
@@ -106,18 +106,18 @@ const DanielKhanLeonhard = (): ReactNode => {
                         fontSize: "0.875rem",
                     }}>
                         <thead>
-                            <tr style={{ borderBottom: "2px solid #143620" }}>
-                                <th style={{ textAlign: "left", padding: "10px 12px", color: "#143620", fontWeight: 700, minWidth: 60 }}>Jahr</th>
-                                <th style={{ textAlign: "left", padding: "10px 12px", color: "#143620", fontWeight: 700 }}>Erfolg</th>
+                            <tr style={{ borderBottom: "2px solid #d48a0b" }}>
+                                <th style={{ textAlign: "left", padding: "10px 12px", color: "#FFFFFF", fontWeight: 700, minWidth: 60 }}>Jahr</th>
+                                <th style={{ textAlign: "left", padding: "10px 12px", color: "#FFFFFF", fontWeight: 700 }}>Erfolg</th>
                             </tr>
                         </thead>
                         <tbody>
                             {careerStations.map((station, i) => (
                                 <tr key={i} style={{
-                                    borderBottom: "1px solid #EDECE4",
-                                    background: i % 2 === 0 ? "#F8F8F4" : "transparent",
+                                    borderBottom: "1px solid rgba(255, 255, 255, 0.12)",
+                                    background: i % 2 === 0 ? "rgba(255, 255, 255, 0.06)" : "transparent",
                                 }}>
-                                    <td style={{ padding: "10px 12px", fontWeight: 600, color: "#9a6508" }}>{station.year}</td>
+                                    <td style={{ padding: "10px 12px", fontWeight: 600, color: "#d48a0b" }}>{station.year}</td>
                                     <td style={{ padding: "10px 12px", lineHeight: 1.6 }}>{station.achievement}</td>
                                 </tr>
                             ))}

@@ -18,8 +18,8 @@ const Links = (): ReactNode => {
             <BigBox>
                 <div style={{ textAlign: "center", padding: "24px 0" }}>
                     <Heading level={1}>Links</Heading>
-                    <p style={{ fontSize: "1rem", lineHeight: 1.7, maxWidth: 600, margin: "8px auto 0", color: "#5a5a5a" }}>
-                        Übersicht von Schützenorganisationen und Verbänden
+                    <p style={{ fontSize: "1rem", lineHeight: 1.7, maxWidth: 600, margin: "8px auto 0", color: "rgba(255, 255, 255, 0.8)" }}>
+                        Übersicht über Schützenorganisationen und Verbände
                     </p>
                 </div>
             </BigBox>
