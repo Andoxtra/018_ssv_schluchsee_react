@@ -11,3 +11,5 @@ package-lock.json
 skills
 .claude
 .agents
+opencode.jsonc
+.opencode

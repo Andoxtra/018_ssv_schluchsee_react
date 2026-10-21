@@ -1,0 +1,53 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  // Skill playbooks from ./skills — see docs/SKILLS.md
+  "skills": ["./skills"],
+  // DeepSeek with your own paid key: export DEEPSEEK_API_KEY before starting
+  // OpenCode, or run /connect -> deepseek. See docs/MODELS.md
+  // "npm"/"options" (OpenCode V1) and "package"/"settings" (OpenCode V2) are
+  // both listed so this file loads in either version.
+  "providers": {
+    "deepseek": {
+      "name": "DeepSeek",
+      "env": ["DEEPSEEK_API_KEY"],
+      "npm": "@ai-sdk/openai-compatible",
+      "package": "@opencode/ai/providers/openai-compatible",
+      "options": {
+        "baseURL": "https://api.deepseek.com"
+      },
+      "settings": {
+        "baseURL": "https://api.deepseek.com"
+      },
+      "models": {
+        "deepseek-flash": {
+          "name": "DeepSeek Flash (V4.1-Flash)"
+        },
+        "deepseek-v4-pro": {
+          "name": "DeepSeek V4 Pro"
+        }
+      }
+    }
+  },
+  // Two-tier model strategy: cheap models read, the strong model decides.
+  // The main session keeps whatever model you select with /models.
+  // Model ids stay free of the "#low" / "#high" reasoning suffix so OpenCode
+  // V1 can resolve them too; on V2 you may append it, e.g.
+  // "opencode/deepseek-v4.1-flash-free#low".
+  // The reviewer agent lives in .opencode/agents/reviewer.md because its
+  // permission rules use the OpenCode V2 format, which V1 rejects in JSON.
+  "agents": {
+    "explore": {
+      "description": "Read-only reconnaissance: greps, file inventories, call-site searches, \"where is X\". Runs on the free Flash tier on purpose.",
+      "model": "opencode/deepseek-v4.1-flash-free"
+    },
+    "general": {
+      "description": "Self-contained mechanical work with a verifiable deliverable: unit tests, bulk renames, adding strings. Free Flash tier.",
+      "model": "opencode/deepseek-v4.1-flash-free"
+    },
+    "deep-worker": {
+      "mode": "subagent",
+      "description": "Mechanical implementation on the paid DeepSeek model (requires DEEPSEEK_API_KEY). Use for larger bulk work when the free tier is not precise enough.",
+      "model": "deepseek/deepseek-v4-pro"
+    }
+  }
+}
