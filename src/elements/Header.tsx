@@ -57,7 +57,18 @@ const Header = () => {
         }}>
             <div className="dialog-heading"><h2 id="mobile-navigation-title">Navigation</h2><button onClick={() => setOpen(false)} autoFocus>Schließen</button></div>
             <nav aria-label="Mobile Navigation">
-                {[...mainNavigation, ...moreNavigation, ...legalNavigation].map(item => <NavLink end={item.path === "/"} key={item.path} to={item.path} onClick={() => setOpen(false)}>{item.label}</NavLink>)}
+                <div className="mobile-nav-group">
+                    <span className="mobile-nav-heading">Hauptnavigation</span>
+                    {mainNavigation.map(item => <NavLink end={item.path === "/"} key={item.path} to={item.path} onClick={() => setOpen(false)}>{item.label}</NavLink>)}
+                </div>
+                <div className="mobile-nav-group">
+                    <span className="mobile-nav-heading">Verein & mehr</span>
+                    {moreNavigation.map(item => <NavLink end={item.path === "/"} key={item.path} to={item.path} onClick={() => setOpen(false)}>{item.label}</NavLink>)}
+                </div>
+                <div className="mobile-nav-group">
+                    <span className="mobile-nav-heading">Rechtliches</span>
+                    {legalNavigation.map(item => <NavLink end={item.path === "/"} key={item.path} to={item.path} onClick={() => setOpen(false)}>{item.label}</NavLink>)}
+                </div>
             </nav>
         </dialog>
     </Toolbar>;

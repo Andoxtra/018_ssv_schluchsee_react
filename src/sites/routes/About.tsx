@@ -4,10 +4,12 @@ import type {ReactNode} from "react";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
+import ImagePlaceholder from "../../components/images/ImagePlaceholder.tsx";
 
-const historySections = [
+const historySections: {title: string; content: string; imageAlt?: string}[] = [
     {
         title: "Bis zum Jahr 1945",
+        imageAlt: "Die erste Schießanlage am Sportplatz in Schluchsee",
         content: `Im Jahr 1926 wurde in Schluchsee während des Aufschwungs nach dem 1. Weltkrieg von sportbegeisterten Schützen ein Kleinkaliber-Schützenverein gegründet. Die Gründungsversammlung fand im Hotel Sternen statt, Oberforstrat Walli übernahm die Führung und der junge Verein zählte bereits im ersten Jahr 90 Mitglieder.
 
 Kurz darauf begannen viele freiwillige Helfer, besonders Holzhauer, einen KK-Stand auf dem Gelände des heutigen Sportplatzes zu errichten. Im Juni 1927 wurde die Schießanlage (acht Stände) mit einem Preisschießen eingeweiht. Die Anlage wurde danach kontinuierlich ausgebaut. Förster Büche war treibende Kraft im Verein und sorgte dafür, dass die Anlage nach der Inflation schuldenfrei wurde.
@@ -52,6 +54,7 @@ Damit hatten die Sportschützen bereits 1 Jahr nach der Wiedergründung ihr erse
     },
     {
         title: "Neubau am Faulenfürster Eck",
+        imageAlt: "Das Schützenhaus am Faulenfürster Eck",
         content: `Schon beim Einzug in das alte Schützenhaus am Waldsportplatz war der Vorstandschaft bewusst, dass ein Neubau notwendig würde. Die Zahl der aktiven Schützen stieg kontinuierlich an, und KK-Disziplinen mussten auf fremden Ständen geschossen werden.
 
 Erste Neubaupläne stellte der Bauausschuss schon im Jubiläumsjahr vor. Trotzdem dauerte es noch weitere 5 Jahre, bis im Frühjahr 1981 mit dem Bau begonnen werden konnte. Nach der Schneeschmelze begannen die Mitglieder und Helfer mit großem Schwung die Arbeiten. Obwohl die meisten Bauaktivitäten nur am Wochenende stattfanden, konnte das neue Schützenhaus nach einjähriger Bauzeit bezogen werden.
@@ -60,6 +63,7 @@ In den Jahren 1982/1983 bauten Helfer den Aufenthaltsraum und die LG/LP-Stände 
     },
     {
         title: "Einrichtung der Schießanlage",
+        imageAlt: "Die Schießstände des SSV Schluchsee",
         content: `Nach Genehmigung der Toto-Lotto-Mittel für den 2. Bauabschnitt im Frühjahr 1983 errichteten die Helfer in der Verlängerung zum Schützenhaus die beiden Pistolenstände. Im Frühjahr 1984 machte der Ausbau Fortschritte: Tiefbau Wehrle baggerte die beiden langen Schießbahnen aus und formte die seitlichen Schutzwälle. Die stabile Trennwand zwischen Pistolen- und KK-Stand wurde aufgemauert, Träger und Schutzblenden aus Beton wurden in Eigenarbeit gegossen und mithilfe eines Krans zusammengefügt.
 
 1985 wurden die Sicherheitsvorkehrungen abgenommen und der Sportpistolenstand vom Sicherheitsbeauftragten freigegeben. Weitere 2 Jahre vergingen, bis auch die KK-Stände fertiggestellt und sicherheitstechnisch abgenommen wurden. Ein Schallmessgutachten gab die Schießstände für KK-Waffen frei.
@@ -104,6 +108,7 @@ const About = (): ReactNode => {
                     <Heading level={2}>
                         {section.title}
                     </Heading>
+                    {section.imageAlt && <ImagePlaceholder alt={section.imageAlt} aspectRatio="16 / 9"/>}
                     <Markdown>{section.content}</Markdown>
                 </MediumBox>
             ))}

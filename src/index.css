@@ -370,7 +370,7 @@ main { overflow-wrap: anywhere; }
 main > * { min-width: 0; }
 main p { margin-bottom: 1rem; }
 main p:last-child { margin-bottom: 0; }
-main a:not(.site-button):not(.ant-btn) { color: var(--club-gold); text-decoration: underline; text-underline-offset: .2em; }
+main a:not(.site-button):not(.ant-btn):not(.news-preview-link) { color: var(--club-gold); text-decoration: underline; text-underline-offset: .2em; }
 main ul, main ol { padding-left: 1.5rem; }
 .site-heading { color: var(--club-green); line-height: 1.25; margin: 0 0 1rem; font-weight: 700; }
 h1.site-heading { font-size: clamp(1.65rem, 4vw, 2.5rem); letter-spacing: -0.02em; line-height: 1.1; }
@@ -382,9 +382,23 @@ h4.site-heading, h5.site-heading, h6.site-heading { font-size: 1rem; }
 .page-stack > .bigBox, .page-stack > .mediumBox, .card-grid > .mediumBox, .editor-grid > .mediumBox { margin-bottom: 0; }
 .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 20px; }
 .card-grid > *, .editor-grid > * { min-width: 0; }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; }
+.hero-image { display: none; }
+@media (min-width: 768px) { .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 320px); } .hero-image { display: block; } }
+.news-preview-link { display: block; text-decoration: none; color: inherit; margin-bottom: 16px; }
+.news-preview-link .mediumBox { margin-bottom: 0; }
+.news-preview-link .site-heading { transition: color 160ms ease; }
+@media (hover: hover) and (pointer: fine) {
+  .news-preview-link:hover .mediumBox { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12); transform: translateY(-2px); border-color: #cfccc2; }
+  .news-preview-link:hover .site-heading { color: var(--club-gold); }
+}
+.news-preview-link:active .mediumBox { transform: scale(0.99); }
 .fact-list { display: grid; gap: 12px; margin-bottom: 1rem; }
 .fact-list > div { background: var(--club-paper); color: #1a1a1a; border: 1px solid var(--club-border); border-radius: 8px; padding: 12px; }
 .fact-list dt { font-weight: 600; }.fact-list dd { color: #5a5a5a; }
+.range-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 16px; }
+.range-card { margin: 0; }.range-card figcaption { padding-top: 8px; }
+.range-name { font-weight: 600; color: #1a1a1a; }.range-meta { color: #5a5a5a; font-size: 0.875rem; }
 .content-note, .review-note { background: #fff4d6; border-left: 4px solid var(--club-gold); padding: 12px; color: #47320b; }
 .site-button { display: inline-flex; align-items: center; justify-content: center; border-radius: 6px; border: 1px solid transparent; text-decoration: none; transition: background .2s ease, transform 160ms var(--ease-out), box-shadow 160ms ease; }
 .site-button:active { transform: scale(0.97); }
@@ -416,8 +430,10 @@ dialog[open] { animation: dialog-in 200ms var(--ease-out); }
 dialog::backdrop { background: #0008; }
 dialog[open]::backdrop { animation: fade-in 200ms ease; }
 .mobile-dialog { width: 440px; }.dialog-heading { display: flex; gap: 12px; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.mobile-dialog nav { display: grid; gap: 4px; }.mobile-dialog nav a { padding: 10px 12px; border-radius: 6px; color: var(--club-green); }
+.mobile-dialog nav { display: flex; flex-direction: column; }.mobile-dialog nav a { padding: 10px 12px; border-radius: 6px; color: var(--club-green); }
 .mobile-dialog nav a.active { background: #edece4; }
+.mobile-nav-group { display: grid; gap: 2px; }.mobile-nav-group + .mobile-nav-group { margin-top: 12px; }
+.mobile-nav-heading { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #7a7a75; padding: 0 12px 4px; }
 .faq-item { background: white; border: 1px solid var(--club-border); border-radius: 8px; margin-bottom: 12px; }
 .faq-item summary { padding: 18px; cursor: pointer; color: var(--club-green); font-weight: 600; }.faq-item > div { padding: 0 18px 18px; animation: fade-in 160ms var(--ease-out); }
 .site-footer { background: #0d2215; color: white; padding: 40px 24px 24px; }

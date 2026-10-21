@@ -7,33 +7,17 @@ import webPaths from "../../config/webPaths.ts";
 
 const NewsItemPreview = ({title, creationDate, author, previewText, uuid, reviewNote}: NewsItemProps) => {
     return (
-        <MediumBox>
-            <div style={{display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 8}}>
+        <Link to={`${webPaths.newsSite}/${uuid}`} className="news-preview-link">
+            <MediumBox>
                 <Heading level={3}>{title}</Heading>
-                <Link
-                    to={`${webPaths.newsSite}/${uuid}`}
-                    aria-label={`Beitrag lesen: ${title}`}
-                    style={{
-                        color: "#143620",
-                        fontWeight: 500,
-                        fontSize: "0.875rem",
-                        padding: "4px 12px",
-                        border: "1px solid #D5D2C8",
-                        borderRadius: 4,
-                        transition: "all 0.2s ease",
-                        flexShrink: 0,
-                    }}
-                >
-                    Beitrag lesen →
-                </Link>
-            </div>
-            <div style={{display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 12, fontSize: "0.875rem", color: "#5a5a5a"}}>
-                <span>{creationDate.getGermanDate()}</span>
-                <span>von {author}</span>
-            </div>
-            <NormalText>{previewText}</NormalText>
-            {reviewNote && <p className="review-note">Redaktioneller Hinweis: {reviewNote}</p>}
-        </MediumBox>
+                <div style={{display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 12, fontSize: "0.875rem", color: "#5a5a5a"}}>
+                    <span>{creationDate.getGermanDate()}</span>
+                    <span>von {author}</span>
+                </div>
+                <NormalText>{previewText}</NormalText>
+                {reviewNote && <p className="review-note">Redaktioneller Hinweis: {reviewNote}</p>}
+            </MediumBox>
+        </Link>
     )
 }
 

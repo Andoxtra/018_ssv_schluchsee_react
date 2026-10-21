@@ -6,13 +6,15 @@ import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
 
-const boardMembers = [
-    { name: "Volker Matthews", role: "Oberschützenmeister" },
-    { name: "Wolfgang Faller (Indi)", role: "Schützenmeister" },
-    { name: "Julian Booz", role: "Schatzwart" },
-    { name: "Ursula Robens", role: "Schriftführerin" },
-    { name: "Daniel Khan-Leonhard", role: "Jugendtrainer" },
-    { name: "Timo Matthews", role: "Sportwart" },
+type BoardMember = {name: string; role: string; email?: string; phone?: string};
+
+const boardMembers: BoardMember[] = [
+    { name: "Volker Matthews", role: "Oberschützenmeister", email: "osm@ssv-schluchsee.de", phone: "+49 152 5420 1351" },
+    { name: "Wolfgang Faller (Indi)", role: "Schützenmeister", email: "sm@ssv-schluchsee.de" },
+    { name: "Julian Booz", role: "Schatzwart", email: "kassierer@ssv-schluchsee.de" },
+    { name: "Ursula Robens", role: "Schriftführerin", email: "info@ssv-schluchsee.de" },
+    { name: "Daniel Khan-Leonhard", role: "Jugendtrainer", email: "jugend@ssv-schluchsee.de" },
+    { name: "Timo Matthews", role: "Sportwart", email: "sportwart@ssv-schluchsee.de" },
     { name: "Phillip Laaß", role: "Beisitzer" },
     { name: "Albert Götte", role: "Beisitzer" },
     { name: "Richard Lorenz", role: "Jugendvertreter" },
@@ -67,6 +69,8 @@ const Contact = (): ReactNode => {
                             <div>
                                 <div style={{ fontWeight: 600, color: "#1a1a1a", fontSize: "0.9375rem" }}>{member.name}</div>
                                 <div style={{ color: "#5a5a5a", fontSize: "0.8125rem" }}>{member.role}</div>
+                                {member.email && <a href={`mailto:${member.email}`} style={{ fontSize: "0.8125rem" }}>{member.email}</a>}
+                                {member.phone && <a href={`tel:${member.phone.replace(/\s/g, "")}`} style={{ fontSize: "0.8125rem" }}>{member.phone}</a>}
                             </div>
                         </div>
                     ))}
@@ -74,7 +78,6 @@ const Contact = (): ReactNode => {
             </MediumBox>
 
             <MediumBox><GuestRegistration/></MediumBox>
-            <MediumBox><Heading level={2}>Kontakt aufnehmen</Heading><p>Schreiben Sie dem Verein über unser Kontaktformular. Ihre Nachricht wird für die Vereinsverwaltung gespeichert.</p><Link to="/kontaktformular">Nachricht schreiben →</Link></MediumBox>
             <MediumBox><Heading level={2}>Besuch planen</Heading><p><Link to="/schiessstaende">Trainingszeiten →</Link></p><Link to="/standort">Adresse & Anfahrt →</Link></MediumBox>
         </div>
     );

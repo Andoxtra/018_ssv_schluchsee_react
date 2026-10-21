@@ -3,6 +3,7 @@ import type {ReactNode} from "react";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
+import ImagePlaceholder from "../../components/images/ImagePlaceholder.tsx";
 
 const careerStations = [
     { year: "1985", achievement: "Schüler Vereinsmeister in Luftpistole; Schüler Bezirksmeister mit Luftpistole" },
@@ -46,6 +47,9 @@ const DanielKhanLeonhard = (): ReactNode => {
                 <Heading level={2}>
                     Jugendliche Jahre und Karrierebeginn
                 </Heading>
+                <div style={{maxWidth: 320, margin: "0 auto 20px"}}>
+                    <ImagePlaceholder alt="Porträt von Daniel Khan-Leonhard" aspectRatio="3 / 4"/>
+                </div>
                 <div style={{ lineHeight: 1.8 }}>
                     <p style={{ marginBottom: 12 }}>
                         Zu einer beispiellosen sportlichen Karriere gehören günstige Rahmenbedingungen.
