@@ -21,7 +21,7 @@ const ToolbarGeneral: CSSProperties = {
 const ToolbarS: CSSProperties = {
     ...ToolbarGeneral,
     padding: "0 16px",
-    height: 60,
+    height: 64,
 };
 
 const ToolbarM: CSSProperties = {

@@ -1,3 +1,4 @@
+import AppLink from "../links/AppLink.tsx";
 import type {CSSProperties, ReactNode} from "react";
 
 type LinkIconProps = {
@@ -9,9 +10,9 @@ type LinkIconProps = {
 const LinkBox = ({children, style, linkTo}: LinkIconProps) => {
 
     return (
-        <a  href={linkTo} style={style}>
+        <AppLink href={linkTo} style={style}>
             {children}
-        </a>
+        </AppLink>
     );
 };
 

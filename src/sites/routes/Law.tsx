@@ -1,58 +1,12 @@
-import type {ReactNode} from "react";
-import Heading from "../../components/texts/Heading.tsx";
-import NormalText from "../../components/texts/NormalText.tsx";
-import MediumBox from "../../components/boxes/MediumBox.tsx";
+import {Link} from "react-router-dom";
 import BigBox from "../../components/boxes/BigBox.tsx";
-
-const Law = (): ReactNode => {
-    return (
-        <>
-            <BigBox>
-                <Heading level={1}>Satzung und Regelwerk</Heading>
-            </BigBox>
-
-            <MediumBox>
-                <Heading level={2}>Vereinssatzung</Heading>
-                <NormalText>
-                    Die vollständige Satzung des SSV Schluchsee regelt die Struktur und den Betrieb unseres Vereins. 
-                    Sie können die Satzung in unserem Downloadbereich einsehen oder von unserem Vorstand anfordern.
-                </NormalText>
-            </MediumBox>
-
-            <MediumBox>
-                <Heading level={2}>Hausregeln</Heading>
-                <NormalText>
-                    <strong>1. Sicherheit:</strong><br/>
-                    Die Einhaltung aller Sicherheitsrichtlinien ist obligatorisch. Jedes Fehlverhalten wird geahndet.<br/>
-                    <br/>
-                    <strong>2. Respekt und Verhalten:</strong><br/>
-                    Respekt und Fairness gegenüber anderen Mitgliedern ist erforderlich. Belästigung oder 
-                    aggressive Verhalten sind nicht toleriert.<br/>
-                    <br/>
-                    <strong>3. Vereinsvermögen:</strong><br/>
-                    Alle Geräte und Einrichtungen müssen mit Sorgfalt behandelt werden. 
-                    Beschädigungen müssen dem Vorstand gemeldet werden.
-                </NormalText>
-            </MediumBox>
-
-            <MediumBox>
-                <Heading level={2}>Disziplinarbestimmungen</Heading>
-                <NormalText>
-                    Verstöße gegen diese Regeln können zu Verwarnungen, Geldstrafen oder im schlimmsten Fall 
-                    zum Ausschluss aus dem Verein führen. Der Vorstand entscheidet im Einzelfall.
-                </NormalText>
-            </MediumBox>
-
-            <MediumBox>
-                <Heading level={2}>Kontakt bei Fragen</Heading>
-                <NormalText>
-                    Bei Fragen zu unseren Regeln oder der Satzung können Sie sich jederzeit an 
-                    unseren Vorstand wenden.
-                </NormalText>
-            </MediumBox>
-        </>
-    )
-};
-
+import MediumBox from "../../components/boxes/MediumBox.tsx";
+import Heading from "../../components/texts/Heading.tsx";
+const Law = () => <div className="page-stack"><BigBox><Heading level={1}>Waffenrecht & Sachkunde</Heading><p>Weiterführende Informationen aus offiziellen Quellen.</p></BigBox>
+    <MediumBox><Heading level={2}>Gesetzliche Grundlagen</Heading><p>Die Voraussetzungen hängen unter anderem von Alter, Sportgerät und Vorhaben ab. Bitte klären Sie Ihre persönliche Situation mit der zuständigen Waffenbehörde.</p><ul>
+        <li><a href="https://www.gesetze-im-internet.de/waffg_2002/" target="_blank" rel="noopener noreferrer">Waffengesetz – vollständiger Gesetzestext</a></li>
+        <li><a href="https://www.gesetze-im-internet.de/waffg_2002/__7.html" target="_blank" rel="noopener noreferrer">§ 7 WaffG – Sachkunde</a></li>
+        <li><a href="https://www.gesetze-im-internet.de/waffg_2002/__14.html" target="_blank" rel="noopener noreferrer">§ 14 WaffG – Erwerb und Besitz durch Sportschützen</a></li>
+        <li><a href="https://www.gesetze-im-internet.de/waffg_2002/__27.html" target="_blank" rel="noopener noreferrer">§ 27 WaffG – Schießstätten</a></li>
+    </ul></MediumBox><MediumBox><Heading level={2}>Einstieg im Verein</Heading><p>Fragen zum Training und zu möglichen Sachkundeangeboten beantwortet die Vereinsverwaltung.</p><Link to="/kontaktformular">Frage an den Verein senden →</Link></MediumBox></div>;
 export default Law;
-

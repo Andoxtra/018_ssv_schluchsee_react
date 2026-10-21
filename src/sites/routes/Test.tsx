@@ -1,3 +1,7 @@
+import SmallBox from "../../components/boxes/SmallBox.tsx";
+import MediumBox from "../../components/boxes/MediumBox.tsx";
+import BigBox from "../../components/boxes/BigBox.tsx";
+import SizingBox from "../../components/boxes/SizingBox.tsx";
 import type {ReactNode} from "react";
 import {useState} from "react";
 
@@ -67,6 +71,16 @@ const Test = (): ReactNode => {
             <Heading level={3}>This is a Heading Level 3</Heading>
             <Heading level={4}>This is a Heading Level 4</Heading>
             <Heading level={5}>This is a Heading Level 5</Heading>
+            <Heading level={6}>Überschrift der Ebene 6</Heading>
+            <BigBox><Heading level={2}>Große Box</Heading></BigBox>
+            <MediumBox><Heading level={2}>Mittlere Box</Heading></MediumBox>
+            <SmallBox>Kleine Box</SmallBox>
+            <Heading level={2}>Breiten und Höhen</Heading>
+            {([1, 2, 4, 8, 16] as const).map(fraction => <div key={fraction} style={{marginBottom: 12}}>
+                <p>Breite und Höhe: 1/{fraction}</p>
+                <SizingBox width={fraction} style={{background: "#9a6508", minHeight: 12}}><span className="sr-only">Breite 1/{fraction}</span></SizingBox>
+                <div style={{height: 80, marginTop: 8}}><SizingBox height={fraction} style={{background: "#143620"}}><span className="sr-only">Höhe 1/{fraction}</span></SizingBox></div>
+            </div>)}
 
             {/* Table Section*/}
 
@@ -82,9 +96,9 @@ const Test = (): ReactNode => {
             ]}/>
 
             <LinkTable tableData={[
-                {key:0, title:"Sportordnung", link:"#"},
-                {key:1, title:"Wechsel der Wettkampfklasse", link:"#"},
-                {key:2, title:"Sportordnung", link:"#"}
+                {key:0, title:"Sportordnung", link:"/download"},
+                {key:1, title:"Wechsel der Wettkampfklasse", link:"/download"},
+                {key:2, title:"Sportordnung", link:"/download"}
             ]}/>
 
             {/* Icons Section */}

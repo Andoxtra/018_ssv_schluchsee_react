@@ -3,3 +3,12 @@ package-lock.json
 /dist
 /node_modules
 /.idea
+/coverage
+
+/var
+.env
+.env.*
+!.env.example
+
+/test-results
+/playwright-report

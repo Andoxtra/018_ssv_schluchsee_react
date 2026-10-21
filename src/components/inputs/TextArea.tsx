@@ -36,7 +36,7 @@ const TextArea = (
             disabled={disabled}
             rows={rows}
             maxLength={maxLength}
-            styles={getDynamicStyle(BaseInputStyleS, BaseInputStyleM, BaseInputStyleL, BaseInputStyleE)}
+            style={getDynamicStyle(BaseInputStyleS, BaseInputStyleM, BaseInputStyleL, BaseInputStyleE)}
         />
     );
 };

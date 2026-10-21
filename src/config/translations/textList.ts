@@ -9,14 +9,18 @@ const textList = {
     terms : "Nutzungsbedingungen",
     records : "Standrekorde",
     shootingRanges : "Schießstände",
-    rwk : "Rundenwettkämpfe",
+    rwk : "Veranstaltungen",
     achievements : "Erfolgsbilanz",
     links : "Links",
-    law : "Satzung",
+    law : "Gesetze",
     faq : "FAQ",
     info : "Informationen",
     trainingTime : "Trainingszeiten",
     testingSite: "Test-Seite",
+    youth: "Jugend",
+    daniel: "Daniel Khan-Leonhard",
+    events: "Veranstaltungen",
+    home: "Startseite",
 };
 
 export default textList;
