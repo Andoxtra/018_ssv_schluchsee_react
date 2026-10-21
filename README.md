@@ -53,6 +53,79 @@ configured, are in the ignored private file `var/local-admin.txt`.
 - [info](info/) contains imported reference material, not live page content.
   Keep changes to reviewed runtime content explicit.
 
+## Agent skills
+
+The [skills](skills/) directory holds fifteen optional design-engineering
+playbooks for UI, motion, and mobile work: Emil Kowalski's animation and design
+philosophy (`animate`, `review-animations`, `improve-animations`,
+`find-animation-opportunities`, `animation-performance`, `animation-vocabulary`,
+`apple-design`, `mobile-native`, `break-ui`, `prototype`, `pick-ui-library`,
+`ask-sonner`, `emil-design-eng`) plus `animate-expo` and `write-swift`, which do
+not apply to this React web project.
+
+They are advisory material for agents, not project conventions.
+[docs/SKILLS.md](docs/SKILLS.md) is the index with one-line descriptions for
+every skill — that is the entry point for any agent, regardless of tooling.
+
+The skills follow the standard `SKILL.md` layout, so most harnesses find them
+automatically:
+
+| Harness | Path |
+| --- | --- |
+| OpenCode | [opencode.jsonc](opencode.jsonc) → `"skills": ["./skills"]` |
+| Claude Code | `.claude/skills` (symlink to `skills/`) |
+| Agents.md / generic | `.agents/skills` (symlink to `skills/`) |
+| Any other agent | `skills/<id>/SKILL.md` |
+
+Each skill lives in `skills/<id>/SKILL.md` with YAML frontmatter (`name`,
+`description`) and optional companion files such as `RECIPES.md` or
+`STANDARDS.md`. The skill ID is the directory name. Agents load one skill at a
+time; `prototype`, `pick-ui-library`, and `review-animations` set
+`disable-model-invocation: true` and are used only on explicit request.
+
+The skills assume Tailwind and sometimes Framer Motion. This project uses
+Ant Design and inline style objects instead, so translate their advice rather
+than copying their code samples or adding dependencies. Task-to-skill routing
+and the full caveats are documented in [AGENTS.md](AGENTS.md).
+
+## Agent models
+
+Agents here work in two tiers: a strong model for decisions and code, a free
+model for reading and mechanical work. The setup is configured in
+[opencode.jsonc](opencode.jsonc) — `explore` and `general` run on the free
+DeepSeek Flash tier, `reviewer` (defined in
+[.opencode/agents/reviewer.md](.opencode/agents/reviewer.md)) inherits the
+strong session model, and `deep-worker` uses your own paid DeepSeek key.
+
+Connect the key with one export before starting OpenCode:
+
+```bash
+export DEEPSEEK_API_KEY=sk-...   # https://platform.deepseek.com/api_keys
+```
+
+`/connect` → `deepseek` works as well. Everything except `deep-worker` runs
+without a key. Costs, model IDs, escalation rules and IDE setups are in
+[docs/MODELS.md](docs/MODELS.md).
+
+## Contribution standards
+
+Human contributors and agents work to the same rules, which are spelled out in
+[AGENTS.md](AGENTS.md):
+
+- **SOLID** principles and **Clean Code** conventions — one concern per module,
+  configuration over shared edits, pure and testable functions, German
+  user-facing copy, no duplicated club facts.
+- **Tests for everything that can regress.** A new feature gets a unit test
+  where possible, a bug fix gets a regression test, and backend or visible UI
+  behavior is covered in `test/integration/` or `e2e/`.
+- **Pathfinder principle.** Findings that surface while working are fixed in the
+  same pass when they are small and verifiable; larger ones are described and
+  approved first.
+- **Token discipline for agents.** Search with `grep`/`glob` before reading
+  files, read ranges instead of whole files, and hand broad reconnaissance to a
+  cheaper subagent so the stronger model spends its budget on the decisions.
+  See "Working efficiently" in [AGENTS.md](AGENTS.md).
+
 ## Completion checklist
 
 Updated on 2026-09-15. Checked tasks are implemented; unchecked tasks need external
