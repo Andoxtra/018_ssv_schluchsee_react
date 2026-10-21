@@ -54,6 +54,7 @@ export interface Database {
     getArticle(id: string): Article | undefined;
     createArticle(article: Article): void;
     updateArticle(article: Article): void;
+    deleteArticle(id: string): boolean;
     listMessages(): Message[];
     getMessage(id: string): Message | undefined;
     createMessage(message: Message): void;

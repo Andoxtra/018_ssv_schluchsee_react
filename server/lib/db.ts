@@ -39,6 +39,7 @@ export const createDatabase = (dataDir: string, seedDir?: string): Database => {
         },
         createArticle: article => db.prepare("INSERT INTO articles VALUES (?, ?)").run(article.id, JSON.stringify(article)),
         updateArticle: article => db.prepare("UPDATE articles SET data=? WHERE id=?").run(JSON.stringify(article), article.id),
+        deleteArticle: id => Number(db.prepare("DELETE FROM articles WHERE id=?").run(id).changes) > 0,
         listMessages: () => db.prepare("SELECT data FROM messages").all().map(row => parseRow<Message>(row)),
         getMessage: id => {
             const row = db.prepare("SELECT data FROM messages WHERE id=?").get(id);

@@ -11,6 +11,10 @@ export const useAdminArticles = () => {
         `/api/admin/news${article.id ? `/${article.id}` : ""}`,
         {method: article.id ? "PUT" : "POST", body: JSON.stringify(article)},
     );
+    const remove = async (id: string) => {
+        await api(`/api/admin/news/${id}`, {method: "DELETE"});
+        await load();
+    };
     const clear = useCallback(() => setArticles([]), []);
-    return {articles, load, save, clear};
+    return {articles, load, save, remove, clear};
 };

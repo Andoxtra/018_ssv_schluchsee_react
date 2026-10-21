@@ -81,6 +81,13 @@ describe('persistent club API', () => {
         await request(`/api/admin/news/${created.id}`,'PUT',{...current,published:false});
         expect((await (await request('/api/news')).json()).some((item: {id:string})=>item.id===created.id)).toBe(false);
     });
+    test('deletes articles and rejects unknown ids', async () => {
+        await login();
+        const created = await (await request('/api/admin/news','POST',draft)).json();
+        expect((await request(`/api/admin/news/${created.id}`,'DELETE')).status).toBe(200);
+        expect((await request(`/api/admin/news/${created.id}`,'DELETE')).status).toBe(404);
+        expect((await (await request('/api/admin/news')).json()).some((item: {id:string})=>item.id===created.id)).toBe(false);
+    });
     test('validates article dates, body sizes, and malformed input', async () => {
         await login();
         expect((await request('/api/admin/news','POST',{...draft,date:'2026-02-30'})).status).toBe(400);

@@ -9,7 +9,7 @@ import {serveStatic} from "./lib/static.ts";
 import {matchRoute} from "./router.ts";
 import type {Route} from "./router.ts";
 import type {CreateAppOptions, RequestContext, SessionRecord} from "./types.ts";
-import {listArticles, createArticle, updateArticle, listMessages, setMessageRead, deleteMessage, uploadImage} from "./routes/admin.ts";
+import {listArticles, createArticle, updateArticle, deleteArticle, listMessages, setMessageRead, deleteMessage, uploadImage} from "./routes/admin.ts";
 import {login, logout} from "./routes/auth.ts";
 import {submitContact} from "./routes/contact.ts";
 import {getPublicNews} from "./routes/news.ts";
@@ -24,6 +24,7 @@ const routes: Route[] = [
     {method: "GET", pattern: "/api/admin/news", handler: listArticles},
     {method: "POST", pattern: "/api/admin/news", handler: createArticle},
     {method: "PUT", pattern: "/api/admin/news/:id", handler: updateArticle},
+    {method: "DELETE", pattern: "/api/admin/news/:id", handler: deleteArticle},
     {method: "GET", pattern: "/api/admin/messages", handler: listMessages},
     {method: "PATCH", pattern: "/api/admin/messages/:id", handler: setMessageRead},
     {method: "DELETE", pattern: "/api/admin/messages/:id", handler: deleteMessage},

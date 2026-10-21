@@ -32,6 +32,10 @@ export const useArticleEditor = ({setError, setStatus}: EditorFeedback) => {
         setArticle(saved);
         setDirty(false);
     };
+    const reset = () => {
+        setArticle(emptyArticle());
+        setDirty(false);
+    };
     const format = (before: string, after = "") => {
         const input = textEditor.current;
         if (!input) return;
@@ -68,5 +72,5 @@ export const useArticleEditor = ({setError, setStatus}: EditorFeedback) => {
             setUploading(false);
         }
     };
-    return {article, dirty, uploading, textEditor, update, select, discard, markSaved, format, insertImage};
+    return {article, dirty, uploading, textEditor, update, select, discard, markSaved, reset, format, insertImage};
 };

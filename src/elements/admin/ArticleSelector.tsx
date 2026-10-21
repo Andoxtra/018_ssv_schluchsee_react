@@ -11,9 +11,10 @@ type ArticleSelectorProps = {
     uploading: boolean;
     onSelect: (article: Article) => void;
     onDiscard: () => void;
+    onDelete: () => void;
 };
 
-const ArticleSelector = ({articles, selectedId, dirty, busy, uploading, onSelect, onDiscard}: ArticleSelectorProps) => (
+const ArticleSelector = ({articles, selectedId, dirty, busy, uploading, onSelect, onDiscard, onDelete}: ArticleSelectorProps) => (
     <MediumBox>
         <Heading level={2}>Beiträge</Heading>
         <label>Beitrag auswählen
@@ -22,7 +23,10 @@ const ArticleSelector = ({articles, selectedId, dirty, busy, uploading, onSelect
                 {articles.map(item => <option key={item.id} value={item.id}>{item.title} {item.published ? "(veröffentlicht)" : "(Entwurf)"}</option>)}
             </select>
         </label>
-        {dirty && <button disabled={busy || uploading} onClick={onDiscard}>Änderungen verwerfen</button>}
+        <div className="action-row">
+            {dirty && <button disabled={busy || uploading} onClick={onDiscard}>Änderungen verwerfen</button>}
+            {selectedId && <button disabled={busy || uploading} onClick={onDelete}>Beitrag löschen …</button>}
+        </div>
     </MediumBox>
 );
 

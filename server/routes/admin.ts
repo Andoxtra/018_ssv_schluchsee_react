@@ -54,6 +54,11 @@ export const deleteMessage: Handler = ({db, send, params}) => {
     send(200, {deleted: true});
 };
 
+export const deleteArticle: Handler = ({db, send, params}) => {
+    if (!db.deleteArticle(params.id)) throw new HttpError(404, "Beitrag nicht gefunden.");
+    send(200, {deleted: true});
+};
+
 export const uploadImage: Handler = async ({req, send, uploads}) => {
     const body = await jsonBody(req, MAX_UPLOAD_JSON_BYTES);
     const data = text(body.data, MAX_UPLOAD_BASE64_LENGTH);

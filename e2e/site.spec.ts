@@ -51,7 +51,7 @@ test('contact submissions reach the authenticated inbox and articles publish wit
     await page.goto('/admin');await page.getByLabel('Benutzername').fill('browser-test');await page.getByLabel('Passwort',{exact:true}).fill('browser-test-password-only');await page.getByRole('button',{name:'Anmelden',exact:true}).click();
     await expect(page.getByRole('heading',{name:'Posteingang (1 ungelesen)'})).toBeVisible();
     expect(await page.evaluate(()=>document.documentElement.scrollWidth > window.innerWidth)).toBe(false);
-    await page.getByLabel('Titel',{exact:true}).fill('Browser Test Beitrag');await page.getByLabel('Autor/in',{exact:true}).fill('Testredaktion');await page.getByLabel('Kurzbeschreibung').fill('Ein Test der Veröffentlichung.');
+    await page.getByLabel('Titel',{exact:true}).fill('Browser Test Beitrag');await page.getByLabel('Autor/in',{exact:true}).selectOption({label:'Neuer Autor …'});await page.getByLabel('Neuer Autor').fill('Testredaktion');await page.getByLabel('Kurzbeschreibung').fill('Ein Test der Veröffentlichung.');
     await page.getByLabel('Text',{exact:true}).fill('## Vorschau\n\n**Formatierter Text**\n\n| A | B |\n|---|---|\n| 1 | 2 |');
     await expect(page.getByRole('heading',{name:'Vorschau',exact:true})).toBeVisible();
     await page.getByLabel('Bild hinzufügen',{exact:false}).setInputFiles({name:'test.png',mimeType:'image/png',buffer:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jB1kAAAAASUVORK5CYII=','base64')});
