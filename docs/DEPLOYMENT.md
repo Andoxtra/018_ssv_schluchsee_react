@@ -182,6 +182,23 @@ DNS; cancel the old webspace, never the domain itself.
 The old `c4.webspace-verkauf.de` subdomain becomes unused once DNS points at the
 VPS; it belongs to the old hosting and disappears when that contract ends.
 
+### Keep email on the old provider
+
+Web and email are independent DNS records; they do not have to be on the same
+server. The domain's mail runs on the old host (`mail.ssv-schluchsee.de`, with
+`MX` → `mail.ssv-schluchsee.de` and `imap`/`smtp`/`pop`/`autodiscover`/`autoconfig`
+hosts, all at the old host's address). So move only the web records:
+
+- **Change:** the `A` record for `ssv-schluchsee.de` and for `www` → the VPS IPv4.
+- **Keep:** the `MX` record, the `mail`/`imap`/`smtp`/`pop`/`autodiscover`/
+  `autoconfig` A records, and the SPF `TXT` record — all still point at the old
+  host's mail server, so mailboxes at `…@ssv-schluchsee.de` keep working.
+- If you move the nameservers to another DNS provider, recreate **all** of those
+  mail records as well, not just the web A record, or email will break.
+
+The application itself never sends email (contact submissions are stored in the
+`/admin` inbox and answered manually), so the VPS needs no mail configuration.
+
 ## Backups and operational limits
 
 Back up the entire data directory/volume, including uploaded images and SQLite's
