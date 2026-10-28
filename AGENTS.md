@@ -228,10 +228,11 @@ absent) matching `SITE_ORIGIN`; otherwise the server answers `403`.
 
 ## Content rules
 
-- `src/data/news/*.md` are **seed files**. The backend imports them once into a
-  fresh SQLite database, preserving the numeric ID from the file name. After
-  that the database is authoritative — editing a Markdown file does not change
-  published content. Content is edited in `/admin`.
+- `src/data/news/*.md` are **seed files**. The backend synchronises them into
+  the SQLite database on every start, preserving the numeric ID from the file
+  name: editing a file updates the article on the next restart, and deleting a
+  file removes it. Articles created in `/admin` use UUID IDs and are not touched
+  by the seeder.
 - `src/data/newsData.ts` is the seed loader and type adapter, not a second copy
   of the article bodies.
 - `src/data/clubData.ts` is the single source for the address, training times,

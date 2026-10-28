@@ -39,9 +39,11 @@ configured, are in the ignored private file `var/local-admin.txt`.
 ## Content maintenance
 
 - Manage articles, drafts, review notes, event dates and images at `/admin`.
-- The backend imports the Markdown files under [news](src/data/news/) **once** into
-  a fresh SQLite database, preserving existing article IDs. After import, the
-  database is authoritative; seed-file edits do not overwrite published content.
+- The backend synchronises the Markdown files under [news](src/data/news/) into
+  the SQLite database on every start, preserving their numeric IDs. Seed files
+  are the source for seeded content (editing/deleting a file changes it on the
+  next restart); articles created in `/admin` use UUID IDs and live only in the
+  database.
 - [newsData.ts](src/data/newsData.ts) contains the seed loader and type adapter,
   not another copy of the article bodies. News uses `markdown-it` and `interweave`.
 - Contact submissions are saved to the private administrator inbox. They do not

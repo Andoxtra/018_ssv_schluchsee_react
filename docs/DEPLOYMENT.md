@@ -39,10 +39,11 @@ move `admin.json` aside, run setup again, and invalidate all sessions with
 
 ## Content and messages
 
-On its first start, the backend imports the eight Markdown files from
-`src/data/news/`, preserving their IDs. The import runs once per database.
-After that, SQLite is the authoritative source and edits belong in `/admin`.
-Changing a seed file does not overwrite existing published content.
+On every start, the backend synchronises the nineteen Markdown files from
+`src/data/news/` into the database, preserving their numeric IDs. Seed files are
+the source for seeded content: editing a file updates the article on the next
+restart, and deleting a file removes it. Articles created in `/admin` use UUID
+IDs and are only changed through `/admin`.
 
 The editor supports formatting controls, live preview, draft/public status,
 review notes, event dates, and PNG/JPEG/WebP images up to 5 MB. Updates detect stale
@@ -61,31 +62,97 @@ uploaded images, never the database or credentials.
 ## Single-server Docker deployment
 
 A VPS or club-operated server with persistent storage is the proposed deployment
-model. No hosting account has been purchased and nothing has been published.
-The supplied Docker Compose setup runs Node behind Caddy with HTTPS.
+model. Shared webhosting and serverless platforms such as Vercel cannot run the
+long-lived Node server or the SQLite database; use a server with root access and a
+persistent volume. The supplied Docker Compose setup runs Node behind Caddy with HTTPS.
 
-1. Point the selected domain at the server and make ports 80/443 reachable.
-2. Set `SITE_HOST` to the public hostname in the server's `.env`.
-3. Build with `docker compose build`.
-4. Configure a fresh production administrator:
+### 1. Prerequisites
+
+- A domain you control, with an A record (and optional AAAA) pointing at the VPS.
+- A VPS with Docker Engine and the Compose plugin (Ubuntu 24.04 LTS is fine).
+  Node runs inside the image; the host only needs Docker.
+- SSH access with key authentication.
+
+### 2. Firewall
+
+Open only SSH, HTTP and HTTPS. Never expose the application port (3001).
 
 ```sh
-read -rsp 'Production administrator password: ' ADMIN_PASSWORD
+ufw allow OpenSSH
+ufw allow 80/tcp
+ufw allow 443/tcp
+ufw enable
+```
+
+### 3. Get the code
+
+```sh
+git clone <repo-url> /opt/ssv
+cd /opt/ssv
+```
+
+### 4. Configure
+
+```sh
+cp .env.example .env
+```
+
+Set `SITE_HOST=your-domain.example` in `.env`. `compose.yaml` fails fast if
+`SITE_HOST` is unset. Never commit `.env`.
+
+### 5. Build
+
+```sh
+docker compose build
+```
+
+This runs `npm install` and `npm run build` inside the image (Node 24.13 pinned).
+
+### 6. Create the production administrator
+
+```sh
+read -rsp 'Admin password: ' ADMIN_PASSWORD
 export ADMIN_PASSWORD
 docker compose run --rm -e ADMIN_USERNAME=admin -e ADMIN_PASSWORD app node server/setup.ts
 unset ADMIN_PASSWORD
 ```
 
-5. Start with `docker compose up -d`. Caddy obtains the HTTPS certificate. This
-   step publishes the site and should be performed only after content approval.
-6. Verify direct visits and refreshes on `/neuigkeiten/168`, `/kontaktformular`,
-   and `/admin`. The backend serves the SPA fallback for page routes and a JSON
-   404 for unknown API endpoints. Missing asset files return 404.
+Use at least twelve characters. The credential hash is written to `admin.json`
+inside the `club-data` volume.
 
-`club-data` is a named persistent volume. Rebuilding/restarting containers does
-not reset articles or uploads. Do not run `docker compose down -v` on a live site.
-The production build excludes `/testing`; it remains available in Vite development
-or when explicitly built with `VITE_ENABLE_SHOWCASE=true`.
+### 7. Start
+
+```sh
+docker compose up -d
+docker compose logs -f
+```
+
+On first start the backend synchronises the seed articles, then Caddy obtains the
+HTTPS certificate (port 80 must be reachable). Perform this step only after content
+approval, as it publishes the site.
+
+### 8. Verify
+
+- The homepage, `/api/news` and the admin login load over HTTPS.
+- Deep links and refreshes work: `/neuigkeiten/168`, `/kontaktformular`, `/admin`.
+- Log in at `/admin` and check the inbox and article editor.
+- Unknown API endpoints return JSON 404; missing asset files return 404.
+
+### 9. Backups
+
+Back up the `club-data` volume (SQLite, `admin.json`, uploads). Stop the app for a
+filesystem copy or use a SQLite-aware tool, test restoration, and store off-server.
+Backups are private: they contain messages and administrator credentials.
+
+### Operations notes
+
+- `club-data` is a named persistent volume; rebuilding/restarting does not reset
+  data. Do not run `docker compose down -v` on a live site.
+- Keep `TRUST_PROXY=1`; only Caddy may reach the application port.
+- Rate limits are held in memory and reset on restart.
+- Updates: `git pull`, `docker compose build`, `docker compose up -d`.
+- The production build excludes `/testing`; it remains available in development or
+  when explicitly built with `VITE_ENABLE_SHOWCASE=true`.
 
 For a non-Docker server, run `npm run build`, set `SITE_ORIGIN` to the public HTTPS
 origin, and run `npm start` behind an HTTPS reverse proxy as an unprivileged user.
