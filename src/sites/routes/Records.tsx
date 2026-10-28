@@ -3,6 +3,8 @@ import type {ReactNode} from "react";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
+import RecordTable from "../../components/table/RecordTable.tsx";
+import {DateClass} from "../../logic/date/DateClass.ts";
 
 const pistolRecords = [
     { discipline: "Freie Pistole", rings: 278, date: "02.07.1995", shooter: "Daniel Khan-Leonhard" },
@@ -33,37 +35,14 @@ const rifleRecords = [
     { discipline: "Unterhebelrepetier", rings: 390, date: "20.12.2015", shooter: "Sigi Knödler" },
 ];
 
-const RecordsTable = ({ data }: { data: { discipline: string; rings: number; date: string; shooter: string }[]; title: string }) => (
-    <div style={{ overflowX: "auto" }}>
-        <table style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            fontSize: "0.875rem",
-        }}>
-            <thead>
-                <tr style={{ borderBottom: "2px solid #143620" }}>
-                    <th style={{ textAlign: "left", padding: "10px 12px", color: "#143620", fontWeight: 700 }}>Disziplin</th>
-                    <th style={{ textAlign: "right", padding: "10px 12px", color: "#143620", fontWeight: 700 }}>Ringe</th>
-                    <th style={{ textAlign: "left", padding: "10px 12px", color: "#143620", fontWeight: 700, minWidth: 100 }}>Datum</th>
-                    <th style={{ textAlign: "left", padding: "10px 12px", color: "#143620", fontWeight: 700 }}>Schütze</th>
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((row, i) => (
-                    <tr key={i} style={{
-                        borderBottom: "1px solid #EDECE4",
-                        background: i % 2 === 0 ? "#F8F8F4" : "transparent",
-                    }}>
-                        <td style={{ padding: "8px 12px", fontWeight: 500 }}>{row.discipline}</td>
-                        <td style={{ padding: "8px 12px", textAlign: "right", fontWeight: 700, color: "#9a6508" }}>{row.rings}</td>
-                        <td style={{ padding: "8px 12px", color: "#6b6b6b" }}>{row.date}</td>
-                        <td style={{ padding: "8px 12px" }}>{row.shooter}</td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-    </div>
-);
+const toRecordTableData = (rows: { discipline: string; rings: number; date: string; shooter: string }[]) =>
+    rows.map((row, index) => ({
+        key: index,
+        discipline: row.discipline,
+        points: row.rings,
+        date: new DateClass(row.date.split(".").reverse().join("-")),
+        shooter: row.shooter,
+    }));
 
 const Records = (): ReactNode => {
     return (
@@ -81,14 +60,14 @@ const Records = (): ReactNode => {
                 <Heading level={2}>
                     Pistolendisziplinen
                 </Heading>
-                <RecordsTable data={pistolRecords} title="Pistole" />
+                <RecordTable tableData={toRecordTableData(pistolRecords)} />
             </MediumBox>
 
             <MediumBox>
                 <Heading level={2}>
                     Gewehrdisziplinen
                 </Heading>
-                <RecordsTable data={rifleRecords} title="Gewehr" />
+                <RecordTable tableData={toRecordTableData(rifleRecords)} />
             </MediumBox>
         </div>
     );

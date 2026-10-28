@@ -78,7 +78,7 @@ const Contact = (): ReactNode => {
             </MediumBox>
 
             <MediumBox><GuestRegistration/></MediumBox>
-            <MediumBox><Heading level={2}>Besuch planen</Heading><p><Link to="/schiessstaende">Trainingszeiten →</Link></p><Link to="/standort">Adresse & Anfahrt →</Link></MediumBox>
+            <MediumBox><Heading level={2}>Besuch planen</Heading><p>Trainingszeiten prüfen und Ihre Anreise vorbereiten.</p><ul className="link-list"><li><Link to="/schiessstaende">Trainingszeiten →</Link></li><li><Link to="/standort">Adresse & Anfahrt →</Link></li></ul></MediumBox>
         </div>
     );
 };

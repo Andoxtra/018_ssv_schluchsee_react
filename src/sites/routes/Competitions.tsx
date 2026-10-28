@@ -7,6 +7,7 @@ import type {ReactNode} from "react";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
+import RWKTable from "../../components/table/RWKTable.tsx";
 
 const rwkData = [
     { wettkampf: "RWK LP und LG – Kreisliga LP", saison: "2016/2017", url: "http://www.sportschuetzenkreis3.de/index.php?site=content&freicontent=Kreisliga_lp1449149865" },
@@ -21,48 +22,8 @@ const rwkData = [
     { wettkampf: "Kreispokal Hüfingen LG", saison: "2013" },
 ];
 
-const RWKTable = ({ data }: { data: { wettkampf: string; saison: string; url?: string }[] }) => (
-    <div style={{ overflowX: "auto" }}>
-        <table style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            fontSize: "0.875rem",
-        }}>
-            <thead>
-                <tr style={{ borderBottom: "2px solid #143620" }}>
-                    <th style={{ textAlign: "left", padding: "10px 12px", color: "#143620", fontWeight: 700 }}>Wettbewerb</th>
-                    <th style={{ textAlign: "center", padding: "10px 12px", color: "#143620", fontWeight: 700, minWidth: 90 }}>Saison</th>
-                    <th style={{ textAlign: "left", padding: "10px 12px", color: "#143620", fontWeight: 700, minWidth: 120 }}>Ergebnisse</th>
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((row, i) => (
-                    <tr key={i} style={{
-                        borderBottom: "1px solid #EDECE4",
-                        background: i % 2 === 0 ? "#F8F8F4" : "transparent",
-                    }}>
-                        <td style={{ padding: "8px 12px", fontWeight: 500 }}>{row.wettkampf}</td>
-                        <td style={{ padding: "8px 12px", textAlign: "center", color: "#6b6b6b", fontWeight: 600 }}>{row.saison}</td>
-                        <td style={{ padding: "8px 12px" }}>
-                            {row.url ? (
-                                <a
-                                    href={row.url}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    style={{ color: "#9a6508", fontWeight: 600, textDecoration: "underline" }}
-                                >
-                                    Ergebnisse →
-                                </a>
-                            ) : (
-                                <span style={{ color: "#6b6b6b" }}>–</span>
-                            )}
-                        </td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-    </div>
-);
+const toTableData = (data: { wettkampf: string; saison: string; url?: string }[]) =>
+    data.map((row, index) => ({key: index, ...row}));
 
 const Competitions = (): ReactNode => {
     const {articles, loading, error} = useNews();
@@ -75,7 +36,7 @@ const Competitions = (): ReactNode => {
         {loading && <p role="status">Termine werden geladen …</p>}{error && <p role="alert">{error}</p>}
         <MediumBox><Heading level={2}>Kommende Veranstaltungen</Heading>{!loading && !error && !upcoming.length && <p>Zurzeit sind keine kommenden Termine veröffentlicht.</p>}{upcoming.map(article => <p key={article.id}><Link to={`/neuigkeiten/${article.id}`}>{article.title} →</Link></p>)}</MediumBox>
         <MediumBox><Heading level={2}>Veranstaltungsarchiv</Heading>{past.map(article => <p key={article.id}><Link to={`/neuigkeiten/${article.id}`}>{article.title} →</Link></p>)}</MediumBox>
-        <MediumBox><Heading level={2}>Rundenwettkämpfe · Archiv 2013–2017</Heading><p>Historische Wettbewerbe. Nicht für jeden Eintrag liegen Ergebnislisten vor.</p><RWKTable data={rwkData}/></MediumBox>
+        <MediumBox><Heading level={2}>Rundenwettkämpfe · Archiv 2013–2017</Heading><p>Historische Wettbewerbe. Nicht für jeden Eintrag liegen Ergebnislisten vor.</p><RWKTable tableData={toTableData(rwkData)}/></MediumBox>
         <p><Link to="/schiessstaende">Regelmäßige Trainingszeiten →</Link></p>
     </div>;
 };

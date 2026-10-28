@@ -396,6 +396,9 @@ h4.site-heading, h5.site-heading, h6.site-heading { font-size: 1rem; }
 .fact-list { display: grid; gap: 12px; margin-bottom: 1rem; }
 .fact-list > div { background: var(--club-paper); color: #1a1a1a; border: 1px solid var(--club-border); border-radius: 8px; padding: 12px; }
 .fact-list dt { font-weight: 600; }.fact-list dd { color: #5a5a5a; }
+.link-list { display: grid; gap: 12px; list-style: none; padding: 0; margin: 0; }
+.link-list > li { background: var(--club-paper); color: #1a1a1a; border: 1px solid var(--club-border); border-radius: 8px; padding: 12px; }
+.link-list a { font-weight: 600; }
 .range-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); gap: 16px; }
 .range-card { margin: 0; }.range-card figcaption { padding-top: 8px; }
 .range-name { font-weight: 600; color: #1a1a1a; }.range-meta { color: #5a5a5a; font-size: 0.875rem; }
@@ -451,7 +454,7 @@ address { font-style: normal; margin-bottom: 16px; }iframe { border: 0; max-widt
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
 
 @media (hover: hover) and (pointer: fine) {
-  .card-grid > .mediumBox:has(a):hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transform: translateY(-2px); }
+  .card-grid > .mediumBox:has(a):not(.besuch-planen):hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transform: translateY(-2px); }
 }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }

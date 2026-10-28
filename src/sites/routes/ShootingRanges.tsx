@@ -20,6 +20,6 @@ const ShootingRanges = () => <div className="page-stack">
             ))}
         </div>
     </MediumBox>
-    <div className="card-grid"><MediumBox><TrainingTimes/></MediumBox><MediumBox><Heading level={2}>Besuch planen</Heading><p><Link to="/kontakt">Anmeldung für Gastschützen →</Link></p><p><Link to="/standort">Adresse, Karte & Anfahrt →</Link></p><Link to="/jugend">Unsere Jugendabteilung →</Link></MediumBox></div>
+    <div className="card-grid"><MediumBox><TrainingTimes/></MediumBox><MediumBox className="besuch-planen"><Heading level={2}>Besuch planen</Heading><p>So bereiten Sie Ihren Besuch vor: Training, Anmeldung und Anfahrt.</p><ul className="link-list"><li><Link to="/kontakt">Anmeldung für Gastschützen →</Link></li><li><Link to="/standort">Adresse, Karte & Anfahrt →</Link></li><li><Link to="/jugend">Unsere Jugendabteilung →</Link></li></ul></MediumBox></div>
 </div>;
 export default ShootingRanges;

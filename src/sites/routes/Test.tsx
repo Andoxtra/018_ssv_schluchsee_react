@@ -35,6 +35,8 @@ import ItalicText from "../../components/texts/ItalicText.tsx";
 import StrongText from "../../components/texts/StrongText.tsx";
 import CopyableText from "../../components/texts/CopyableText.tsx";
 import LinkTable from "../../components/table/LinkTable.tsx";
+import AchievementsTable from "../../components/table/AchievementsTable.tsx";
+import RWKTable from "../../components/table/RWKTable.tsx";
 
 const Test = (): ReactNode => {
     const [inputValue, setInputValue] = useState("");
@@ -99,6 +101,18 @@ const Test = (): ReactNode => {
                 {key:0, title:"Sportordnung", link:"/download"},
                 {key:1, title:"Wechsel der Wettkampfklasse", link:"/download"},
                 {key:2, title:"Sportordnung", link:"/download"}
+            ]}/>
+
+            <AchievementsTable tableData={[
+                {key:0, year:2025, shooter:"Tobias Johe", category:"Jugend", discipline:"Luftpistole", place:"69"},
+                {key:1, year:2000, shooter:"Daniel Khan-Leonhard", category:"Schützenklasse", discipline:"Olymp. Schnellfeuerpistole", place:"1. Platz (Einzel)"},
+                {key:2, year:1993, shooter:"Andreas Isele", category:"Junioren", discipline:"Freie Pistole", place:"-"}
+            ]}/>
+
+            <RWKTable tableData={[
+                {key:0, wettkampf:"RWK LP und LG – Kreisliga LP", saison:"2016/2017", url:"/download"},
+                {key:1, wettkampf:"RWK LG Auflage", saison:"2013/2014"},
+                {key:2, wettkampf:"Kreispokal Hüfingen LG", saison:"2013"}
             ]}/>
 
             {/* Icons Section */}

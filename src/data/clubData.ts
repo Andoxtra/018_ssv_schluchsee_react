@@ -9,7 +9,6 @@ export const club = {
 
 export const documents = {
     guestRegistration: {title: "Anmeldeformular für Gastschützen (PDF)", url: "/documents/gastanmeldung.pdf"},
-    openingHours: {title: "Öffnungszeiten (PDF)", url: "/documents/oeffnungszeiten.pdf"},
     statutes: {title: "Vereinssatzung", url: "/documents/satzung.pdf"},
 };
 

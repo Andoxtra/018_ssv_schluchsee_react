@@ -3,6 +3,7 @@ import type {ReactNode} from "react";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
+import AchievementsTable from "../../components/table/AchievementsTable.tsx";
 
 interface Achievement {
     year: number;
@@ -75,46 +76,8 @@ const achievementsData: Achievement[] = [
     { year: 1984, shooter: "Walter Kaiser", category: "Altersklasse", discipline: "Luftgewehr", place: "-" },
 ];
 
-const AchievementsTable = ({ data }: { data: Achievement[] }) => (
-    <div style={{ overflowX: "auto" }}>
-        <table style={{
-            width: "100%",
-            borderCollapse: "collapse",
-            fontSize: "0.8125rem",
-        }}>
-            <thead>
-                <tr style={{ borderBottom: "2px solid #143620" }}>
-                    <th style={{ textAlign: "left", padding: "10px 12px", color: "#143620", fontWeight: 700 }}>Jahr</th>
-                    <th style={{ textAlign: "left", padding: "10px 12px", color: "#143620", fontWeight: 700 }}>Schütze</th>
-                    <th style={{ textAlign: "left", padding: "10px 12px", color: "#143620", fontWeight: 700, minWidth: 110 }}>Klasse</th>
-                    <th style={{ textAlign: "left", padding: "10px 12px", color: "#143620", fontWeight: 700 }}>Disziplin</th>
-                    <th style={{ textAlign: "right", padding: "10px 12px", color: "#143620", fontWeight: 700 }}>Platz</th>
-                </tr>
-            </thead>
-            <tbody>
-                {data.map((row, i) => (
-                    <tr key={i} style={{
-                        borderBottom: "1px solid #EDECE4",
-                        background: i % 2 === 0 ? "#F8F8F4" : "transparent",
-                    }}>
-                        <td style={{ padding: "8px 12px", fontWeight: 600, color: "#5a5a5a" }}>{row.year}</td>
-                        <td style={{ padding: "8px 12px", fontWeight: 500 }}>{row.shooter}</td>
-                        <td style={{ padding: "8px 12px", color: "#6b6b6b" }}>{row.category}</td>
-                        <td style={{ padding: "8px 12px" }}>{row.discipline}</td>
-                        <td style={{
-                            padding: "8px 12px",
-                            textAlign: "right",
-                            fontWeight: row.place.includes("1.") ? 700 : 500,
-                            color: row.place.includes("1.") ? "#9a6508" : "#5a5a5a",
-                        }}>
-                            {row.place}
-                        </td>
-                    </tr>
-                ))}
-            </tbody>
-        </table>
-    </div>
-);
+const toTableData = (data: Achievement[]) =>
+    data.map((row, index) => ({key: index, ...row}));
 
 export const Achievements = (): ReactNode => {
     return (
@@ -129,7 +92,7 @@ export const Achievements = (): ReactNode => {
             </BigBox>
 
             <MediumBox>
-                <AchievementsTable data={achievementsData} />
+                <AchievementsTable tableData={toTableData(achievementsData)} />
             </MediumBox>
         </div>
     );

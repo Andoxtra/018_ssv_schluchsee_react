@@ -105,6 +105,8 @@ const RecordTable = ({tableData}: RecordTableProps): ReactNode => {
             )}
             columns={columns}
             dataSource={formattedTableData}
+            scroll={{x: "max-content"}}
+            pagination={false}
         />
     );
 };

@@ -13,6 +13,18 @@ const tableTexts = {
     linkTable : {
         title: "Links",
     },
+    achievementsTable : {
+        year: "Jahr",
+        shooter: "Schütze",
+        category: "Klasse",
+        discipline: "Disziplin",
+        place: "Platz",
+    },
+    rwkTable : {
+        competition: "Wettbewerb",
+        season: "Saison",
+        results: "Ergebnisse",
+    },
     tableLocale: {
         filterTitle: "Filtermenü",
         filterConfirm: "Ok",
