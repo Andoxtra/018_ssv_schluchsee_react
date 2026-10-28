@@ -1,5 +1,5 @@
 import {afterEach, beforeEach, describe, expect, test} from 'vitest';
-import {mkdtempSync, rmSync} from 'node:fs';
+import {mkdtempSync, rmSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join, resolve} from 'node:path';
 import type {Server} from 'node:http';
@@ -12,7 +12,7 @@ let base: string;
 let cookie: string;
 const origin = 'http://localhost:5173';
 const credentials = {username: 'test-admin', ...passwordRecord('test-password-only-123')};
-const start = async (options: {localDevelopment?: boolean; origin?: string} = {}) => {
+const start = async (options: {localDevelopment?: boolean; origin?: string; seedDir?: string} = {}) => {
     server = createApp({dataDir, origin, credentials, seedDir: resolve('src/data/news'), ...options});
     await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
     const address = server.address();
@@ -29,11 +29,31 @@ beforeEach(async () => {dataDir=mkdtempSync(join(tmpdir(),'ssv-api-test-')); coo
 afterEach(async () => {await stop(); rmSync(dataDir,{recursive:true,force:true});});
 
 describe('persistent club API', () => {
-    test('imports the eight Markdown articles once and preserves their IDs', async () => {
+    test('imports the nineteen Markdown articles and preserves their IDs', async () => {
         const news = await (await request('/api/news')).json();
-        expect(news).toHaveLength(8); expect(new Set(news.map((item: {id:string})=>item.id)).size).toBe(8);
-        expect(news.find((item: {id:string})=>item.id==='173').eventDates).toEqual(['2026-07-03','2026-07-04']);
-        await stop(); await start(); expect(await (await request('/api/news')).json()).toHaveLength(8);
+        expect(news).toHaveLength(19); expect(new Set(news.map((item: {id:string})=>item.id)).size).toBe(19);
+        expect(news.find((item: {id:string})=>item.id==='176').eventDates).toEqual(['2026-07-03','2026-07-04']);
+        await stop(); await start(); expect(await (await request('/api/news')).json()).toHaveLength(19);
+    });
+    test('re-seeds changed and removed Markdown on restart and preserves admin articles', async () => {
+        const seedDir = mkdtempSync(join(tmpdir(), 'ssv-seed-test-'));
+        const seedFile = (id: number, title: string, body: string) => `# ${title}\n\n---\nauthor: Test\ndate: 2026-01-0${id}\npreview: Vorschau\n---\n\n${body}\n`;
+        writeFileSync(join(seedDir, '1-first.md'), seedFile(1, 'Erster', 'Inhalt Eins'));
+        writeFileSync(join(seedDir, '2-second.md'), seedFile(2, 'Zweiter', 'Inhalt Zwei'));
+        await stop(); await start({seedDir});
+        expect(await (await request('/api/news')).json()).toHaveLength(2);
+        writeFileSync(join(seedDir, '1-first.md'), seedFile(1, 'Erster', 'Geänderter Inhalt'));
+        rmSync(join(seedDir, '2-second.md'));
+        await stop(); await start({seedDir});
+        const news = await (await request('/api/news')).json();
+        expect(news.map((item: {id:string})=>item.id)).toEqual(['1']);
+        expect(news[0].content).toContain('Geänderter Inhalt');
+        await login();
+        const created = await (await request('/api/admin/news','POST',draft)).json();
+        await stop(); await start({seedDir});
+        const adminNews = await (await request('/api/admin/news')).json();
+        expect(adminNews.find((item: {id:string})=>item.id===created.id).content).toBe(draft.content);
+        rmSync(seedDir, {recursive:true, force:true});
     });
     test('requires authentication and same-origin mutations', async () => {
         expect((await request('/api/admin/news')).status).toBe(401);

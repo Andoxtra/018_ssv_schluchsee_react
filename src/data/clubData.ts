@@ -24,9 +24,8 @@ export const shootingRanges = [
 ];
 export const totalLanes = shootingRanges.reduce((sum, range) => sum + range.lanes, 0);
 export const trainingTimes = [
-    {label: "Auflageschießen", day: "Mittwoch", time: "ab 14:00 Uhr"},
-    {label: "Schießbetrieb", day: "Freitag", time: "ab 19:00 Uhr"},
+    {label: "Auflageschießen", day: "Mittwoch", time: "14:00–16:00 Uhr"},
+    {label: "Schießbetrieb", day: "Freitag", time: "19:00–21:00 Uhr"},
     {label: "Schießbetrieb", day: "Sonntag", time: "10:00–12:00 Uhr"},
-    {label: "Jugendtraining", day: "Freitag", time: "ab 19:00 Uhr; Ende bitte erfragen"},
+    {label: "Jugendtraining", day: "Freitag", time: "19:00–20:00 Uhr"},
 ];
-export const trainingNote = "Die Trainingszeiten werden derzeit mit dem Verein abgeglichen. Bitte bestätigen Sie Ihren Termin vor dem Besuch, insbesondere das Ende des Jugendtrainings.";

@@ -9,28 +9,34 @@ type StoredRow = Record<string, unknown>;
 
 const parseRow = <T,>(row: StoredRow): T => JSON.parse(String(row.data)) as T;
 
+const isSeedId = (id: string): boolean => /^\d+$/.test(id);
+
+export const syncSeedArticles = (db: DatabaseSync, seedDir: string): void => {
+    const seedArticles = readdirSync(seedDir)
+        .filter(name => name.endsWith(".md"))
+        .map(name => parseNewsFile(name, readFileSync(resolve(seedDir, name), "utf8")));
+    db.exec("BEGIN");
+    try {
+        const upsert = db.prepare("INSERT OR REPLACE INTO articles VALUES (?, ?)");
+        for (const article of seedArticles) upsert.run(article.id, JSON.stringify(article));
+        const seedIds = new Set(seedArticles.map(article => article.id));
+        const remove = db.prepare("DELETE FROM articles WHERE id=?");
+        const storedIds = db.prepare("SELECT id FROM articles").all().map(row => String((row as StoredRow).id));
+        for (const id of storedIds) if (isSeedId(id) && !seedIds.has(id)) remove.run(id);
+        db.exec("COMMIT");
+    } catch (error) {
+        db.exec("ROLLBACK");
+        throw error;
+    }
+};
+
 export const createDatabase = (dataDir: string, seedDir?: string): Database => {
     mkdirSync(dataDir, {recursive: true, mode: 0o700});
     const db = new DatabaseSync(resolve(dataDir, "club.sqlite"));
     db.exec(`PRAGMA journal_mode=WAL; CREATE TABLE IF NOT EXISTS articles(id TEXT PRIMARY KEY, data TEXT NOT NULL);
         CREATE TABLE IF NOT EXISTS sessions(token TEXT PRIMARY KEY, expires INTEGER NOT NULL);
-        CREATE TABLE IF NOT EXISTS messages(id TEXT PRIMARY KEY, data TEXT NOT NULL);
-        CREATE TABLE IF NOT EXISTS metadata(key TEXT PRIMARY KEY, value TEXT NOT NULL);`);
-    if (seedDir && !db.prepare("SELECT value FROM metadata WHERE key='seeded'").get()) {
-        const insert = db.prepare("INSERT OR IGNORE INTO articles VALUES (?, ?)");
-        db.exec("BEGIN");
-        try {
-            for (const name of readdirSync(seedDir).filter(name => name.endsWith(".md"))) {
-                const article = parseNewsFile(name, readFileSync(resolve(seedDir, name), "utf8"));
-                insert.run(article.id, JSON.stringify(article));
-            }
-            db.prepare("INSERT INTO metadata VALUES ('seeded', '1')").run();
-            db.exec("COMMIT");
-        } catch (error) {
-            db.exec("ROLLBACK");
-            throw error;
-        }
-    }
+        CREATE TABLE IF NOT EXISTS messages(id TEXT PRIMARY KEY, data TEXT NOT NULL);`);
+    if (seedDir) syncSeedArticles(db, seedDir);
     return {
         listArticles: () => db.prepare("SELECT data FROM articles").all().map(row => parseRow<Article>(row)),
         getArticle: id => {
