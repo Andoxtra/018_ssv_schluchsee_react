@@ -2,6 +2,7 @@ export const club = {
     name: "SSV Schluchsee e. V.",
     street: "Faulenfürster Eck",
     city: "79859 Schluchsee",
+    email: "info@ssv-schluchsee.de",
     coordinates: "47.82422, 8.20847",
     mapUrl: "https://www.openstreetmap.org/?mlat=47.82422&mlon=8.20847#map=17/47.82422/8.20847",
     mapEmbed: "https://www.openstreetmap.org/export/embed.html?bbox=8.2050%2C47.8230%2C8.2120%2C47.8260&layer=mapnik&marker=47.82422%2C8.20847",

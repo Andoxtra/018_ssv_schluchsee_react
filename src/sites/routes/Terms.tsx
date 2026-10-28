@@ -1,4 +1,5 @@
 import type {ReactNode} from "react";
+import {Link} from "react-router-dom";
 import Heading from "../../components/texts/Heading.tsx";
 import NormalText from "../../components/texts/NormalText.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
@@ -48,6 +49,24 @@ const Terms = (): ReactNode => {
                 <NormalText>
                     Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu ändern.
                     Die Änderungen werden auf dieser Seite veröffentlicht.
+                </NormalText>
+            </MediumBox>
+
+            <MediumBox>
+                <Heading level={2}>Salvatorische Klausel</Heading>
+                <NormalText>
+                    Sollten einzelne Bestimmungen dieser Nutzungsbedingungen ganz oder teilweise
+                    unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
+                    An die Stelle der unwirksamen Bestimmung tritt eine solche, die dem wirtschaftlichen
+                    Zweck der unwirksamen Bestimmung am nächsten kommt.
+                </NormalText>
+            </MediumBox>
+
+            <MediumBox>
+                <Heading level={2}>Kontakt</Heading>
+                <NormalText>
+                    Bei Fragen zu diesen Nutzungsbedingungen können Sie sich über die im{" "}
+                    <Link to="/impressum">Impressum</Link> genannten Kontaktmöglichkeiten an uns wenden.
                 </NormalText>
             </MediumBox>
         </>
