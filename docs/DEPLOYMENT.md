@@ -158,6 +158,30 @@ For a non-Docker server, run `npm run build`, set `SITE_ORIGIN` to the public HT
 origin, and run `npm start` behind an HTTPS reverse proxy as an unprivileged user.
 Bind to loopback unless the proxy is on a separate private network.
 
+## Domain and DNS
+
+The public domain (e.g. `ssv-schluchsee.de`) is separate from the old shared
+hosting (`c4.webspace-verkauf.de`). Keep the domain registration and only repoint
+DNS; cancel the old webspace, never the domain itself.
+
+1. Find where the domain is managed (the registrar): check the invoice or control
+   panel of the provider that sold the domain, or query the registry
+   (`whois ssv-schluchsee.de`). The registrar is where DNS is edited.
+2. Point the domain at the VPS. Either:
+   - edit the A/AAAA records in the registrar's DNS panel, or
+   - change the domain's nameservers to a DNS provider you control (Cloudflare,
+     Hetzner DNS, or the registrar's own DNS) and create the records there.
+3. Create an A record for the apex (`ssv-schluchsee.de`) and for `www` pointing at
+   the VPS IPv4 address (plus an AAAA record for IPv6 if available). Remove or
+   override any old record that forwards to `c4.webspace-verkauf.de`.
+4. Wait for propagation (usually minutes to a few hours, up to 24 h for some
+   resolvers). Verify with `dig +short ssv-schluchsee.de`.
+5. Once the new site is live, cancel the old hosting/webspace — but keep the domain
+   registration active. Remove the Vercel deployment as well.
+
+The old `c4.webspace-verkauf.de` subdomain becomes unused once DNS points at the
+VPS; it belongs to the old hosting and disappears when that contract ends.
+
 ## Backups and operational limits
 
 Back up the entire data directory/volume, including uploaded images and SQLite's
