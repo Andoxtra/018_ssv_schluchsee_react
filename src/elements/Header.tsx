@@ -58,7 +58,7 @@ const Header = () => {
             <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
             <span className="sr-only">Menü</span>
         </button>
-        <dialog ref={dialog} id="mobile-navigation" className="mobile-dialog" aria-labelledby="mobile-navigation-title" onCancel={event => { event.preventDefault(); requestClose(); }} onKeyDown={event => {
+        <dialog ref={dialog} id="mobile-navigation" className="mobile-dialog" aria-labelledby="mobile-navigation-title" onClick={event => { if (event.target === event.currentTarget) requestClose(); }} onCancel={event => { event.preventDefault(); requestClose(); }} onKeyDown={event => {
             if (event.key !== "Tab") return;
             const controls = [...event.currentTarget.querySelectorAll<HTMLElement>("button, a[href]")];
             const first = controls[0], last = controls[controls.length - 1];

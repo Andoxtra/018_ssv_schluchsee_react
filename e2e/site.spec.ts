@@ -35,6 +35,15 @@ test('FAQ and mobile navigation work with the keyboard, restore focus, and navig
     expect(await page.evaluate(()=>document.documentElement.dataset.navigationTest)).toBe('retained');
 });
 
+test('clicking the backdrop closes the mobile navigation',async({page})=>{
+    await page.setViewportSize({width:375,height:812});await page.goto('/faq');
+    const menu=page.getByRole('button',{name:'Menü',exact:true});await menu.click();
+    await expect(menu).toHaveAttribute('aria-expanded','true');
+    await page.mouse.click(5,5);
+    await expect(page.getByRole('dialog')).not.toBeVisible();
+    await expect(menu).toBeFocused();
+});
+
 test('unknown routes and news IDs offer recovery links',async({page})=>{
     await page.goto('/does-not-exist');await expect(page.getByRole('heading',{name:'Seite nicht gefunden'})).toBeVisible();
     await page.getByRole('link',{name:'Zur Startseite',exact:true}).click();await expect(page).toHaveURL('/');
