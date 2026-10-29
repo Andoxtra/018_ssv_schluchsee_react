@@ -1,5 +1,5 @@
 import {describe, expect, test} from "vitest";
-import {applyMarkdownFormat} from "../../src/logic/admin/markdownFormat.ts";
+import {applyLinkFormat, applyMarkdownFormat} from "../../src/logic/admin/markdownFormat.ts";
 
 describe("applyMarkdownFormat", () => {
     test("wraps a selection with bold markers and keeps the caret inside", () => {
@@ -36,5 +36,28 @@ describe("applyMarkdownFormat", () => {
     test("preserves text before and after the selection", () => {
         const result = applyMarkdownFormat("abc def ghi", {start: 4, end: 7}, "*", "*");
         expect(result.content).toBe("abc *def* ghi");
+    });
+});
+
+describe("applyLinkFormat", () => {
+    test("wraps the selection in brackets and selects the URL placeholder", () => {
+        const result = applyLinkFormat("Beispiel", {start: 0, end: 8});
+        expect(result.content).toBe("[Beispiel](https://)");
+        expect(result.selectionStart).toBe(11);
+        expect(result.selectionEnd).toBe(19);
+    });
+
+    test("uses a default label when nothing is selected", () => {
+        const result = applyLinkFormat("", {start: 0, end: 0});
+        expect(result.content).toBe("[Text](https://)");
+        expect(result.selectionStart).toBe(7);
+        expect(result.selectionEnd).toBe(15);
+    });
+
+    test("preserves surrounding text and selects only the URL", () => {
+        const result = applyLinkFormat("siehe Beispiel hier", {start: 6, end: 14});
+        expect(result.content).toBe("siehe [Beispiel](https://) hier");
+        expect(result.selectionStart).toBe(17);
+        expect(result.selectionEnd).toBe(25);
     });
 });
