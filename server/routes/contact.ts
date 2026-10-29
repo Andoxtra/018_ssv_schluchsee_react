@@ -4,7 +4,7 @@ import {HttpError, jsonBody} from "../lib/http.ts";
 import {text, LIMITS} from "../lib/validation.ts";
 import type {Handler} from "../types.ts";
 
-export const submitContact: Handler = async ({req, db, clientAddress, rateLimit, send}) => {
+export const submitContact: Handler = async ({req, db, clientAddress, rateLimit, send, mail}) => {
     rateLimit(`contact:${clientAddress}`, CONTACT_RATE_LIMIT.count, CONTACT_RATE_LIMIT.windowMs);
     const body = await jsonBody(req, MAX_CONTACT_JSON_BYTES);
     const email = text(body.email, LIMITS.email);
@@ -19,5 +19,6 @@ export const submitContact: Handler = async ({req, db, clientAddress, rateLimit,
         read: false,
     };
     db.createMessage(message);
+    if (mail) void mail.notify(message).catch(error => console.error("E-Mail-Benachrichtigung fehlgeschlagen:", error));
     send(201, {id: message.id});
 };

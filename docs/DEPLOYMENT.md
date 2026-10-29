@@ -50,10 +50,11 @@ review notes, event dates, and PNG/JPEG/WebP images up to 5 MB. Updates detect s
 versions rather than silently overwriting another editor's changes. Mark a
 published article as a draft to withdraw it from the public pages.
 
-Contact submissions are stored privately in the administrator inbox. They do not
-send email notifications. Administrators must check the inbox and reply through
-their own email program. Messages can be marked read and deleted. Define an
-appropriate retention policy with the club before launch.
+Contact submissions are stored privately in the administrator inbox. When the
+optional SMTP settings are configured, the club is additionally notified by email
+(best-effort; a failed notification never loses the stored message). Administrators
+check the inbox and reply through their own email program. Messages can be marked
+read and deleted. Define an appropriate retention policy with the club before launch.
 
 SQLite, administrator configuration, and uploads are stored under `DATA_DIR`
 (default `var`). Keep this directory private and persistent. The server serves only
@@ -99,6 +100,12 @@ cp .env.example .env
 
 Set `SITE_HOST=your-domain.example` in `.env`. `compose.yaml` fails fast if
 `SITE_HOST` is unset. Never commit `.env`.
+
+To enable the optional contact-form email notification, set `SMTP_HOST`,
+`SMTP_USER`, `SMTP_PASS`, and (optionally) `SMTP_PORT`/`SMTP_SECURE`/`MAIL_FROM`/
+`MAIL_TO` in `.env`. Mail is only sent when both `SMTP_HOST` and `SMTP_USER` are
+present; the club must supply the SMTP credentials for `mail.ssv-schluchsee.de`.
+A failed notification is logged and never loses the stored inbox message.
 
 ### 5. Build
 
@@ -196,8 +203,10 @@ hosts, all at the old host's address). So move only the web records:
 - If you move the nameservers to another DNS provider, recreate **all** of those
   mail records as well, not just the web A record, or email will break.
 
-The application itself never sends email (contact submissions are stored in the
-`/admin` inbox and answered manually), so the VPS needs no mail configuration.
+The application itself never sends email unless SMTP is configured (contact
+submissions are stored in the `/admin` inbox, with an optional best-effort email
+notification to the club). Mail itself stays on the old host; the VPS only needs
+SMTP client credentials in the environment if that notification is enabled.
 
 ## Backups and operational limits
 

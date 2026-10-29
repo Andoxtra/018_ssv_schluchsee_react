@@ -217,7 +217,8 @@ approval have been invented.
 - [ ] Verify the general-meeting chronology and fill in missing meeting details/results. Articles 168, 169, 171 and 172 carry review notes until this is done.
 - [ ] Review imported club history, board/record information, expired closure notices and the migrated PDFs.
 - [ ] Approve the final legal/privacy text, hosting information, processing grounds and retention periods.
-- [ ] Assign responsibility for checking the administrator inbox and answering messages; configure email notifications only if the club wants them.
+- [ ] Assign responsibility for checking the administrator inbox and answering messages; supply the SMTP credentials to enable the contact-form email notification.
+- [ ] Approve the updated privacy wording that the club is notified by email about contact submissions (currently edited, awaiting approval).
 - [ ] Select the server/domain, configure production credentials and backups, and validate HTTPS/direct route access on that host.
 - [ ] Consider further route splitting if the remaining Vite bundle-size warning becomes a performance concern. The admin editor and component showcase already load separately.
 - [ ] Approve the "Unsere Haltung" support-statement wording on the `/position` page (currently a marked placeholder).

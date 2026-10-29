@@ -25,6 +25,22 @@ export type Message = {
 
 export type ArticleInput = Omit<Article, "id" | "version">;
 
+export type MailConfig = {
+    from: string;
+    to: string;
+    smtp: {
+        host: string;
+        port: number;
+        secure: boolean;
+        user: string;
+        pass: string;
+    };
+};
+
+export type Mailer = {
+    notify: (message: Message) => Promise<void>;
+};
+
 export type CreateAppOptions = {
     dataDir: string;
     origin?: string;
@@ -34,6 +50,7 @@ export type CreateAppOptions = {
     secureCookies?: boolean;
     trustProxy?: boolean;
     localDevelopment?: boolean;
+    mail?: MailConfig;
 };
 
 export type AppConfig = {
@@ -47,6 +64,7 @@ export type AppConfig = {
     secureCookies: boolean;
     trustProxy: boolean;
     localDevelopment: boolean;
+    mail?: MailConfig;
 };
 
 export interface Database {
@@ -81,6 +99,7 @@ export type RequestContext = {
     credentials: Credentials | undefined;
     secureCookies: boolean;
     uploads: string;
+    mail?: Mailer;
 };
 
 export type Handler = (context: RequestContext) => Promise<void> | void;

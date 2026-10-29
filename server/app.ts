@@ -14,6 +14,7 @@ import {login, logout} from "./routes/auth.ts";
 import {submitContact} from "./routes/contact.ts";
 import {getPublicNews} from "./routes/news.ts";
 import {getSession} from "./routes/session.ts";
+import {createMailer} from "./lib/mail.ts";
 
 const routes: Route[] = [
     {method: "GET", pattern: "/api/news", handler: getPublicNews},
@@ -32,11 +33,12 @@ const routes: Route[] = [
 ];
 
 export function createApp(options: CreateAppOptions) {
-    const {dataDir, origin = "http://localhost:3001", distDir, seedDir, credentials, secureCookies = false, trustProxy = false, localDevelopment = false} = options;
+    const {dataDir, origin = "http://localhost:3001", distDir, seedDir, credentials, secureCookies = false, trustProxy = false, localDevelopment = false, mail} = options;
     mkdirSync(dataDir, {recursive: true, mode: 0o700});
     const uploads = resolve(dataDir, "uploads");
     mkdirSync(uploads, {recursive: true, mode: 0o700});
     const db = createDatabase(dataDir, seedDir);
+    const mailer = createMailer(mail);
 
     const canonicalOrigin = new URL(origin).origin;
     const localHosts = ["localhost", "127.0.0.1", "[::1]"];
@@ -108,6 +110,7 @@ export function createApp(options: CreateAppOptions) {
                     credentials,
                     secureCookies,
                     uploads,
+                    mail: mailer,
                 };
                 await matched.handler(context);
                 return;
