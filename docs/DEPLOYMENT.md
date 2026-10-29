@@ -189,6 +189,12 @@ DNS; cancel the old webspace, never the domain itself.
 The old `c4.webspace-verkauf.de` subdomain becomes unused once DNS points at the
 VPS; it belongs to the old hosting and disappears when that contract ends.
 
+`ssv-schluchsee.de` is the canonical host. The Caddyfile redirects
+`www.ssv-schluchsee.de` permanently to the apex, so both names resolve to the VPS
+and share the same HTTPS origin. Point both the apex and the `www` `A` records at
+the VPS IPv4 (Caddy obtains a certificate for each), and leave `SITE_HOST` set to
+the apex so `SITE_ORIGIN` stays `https://ssv-schluchsee.de`.
+
 ### Keep email on the old provider
 
 Web and email are independent DNS records; they do not have to be on the same

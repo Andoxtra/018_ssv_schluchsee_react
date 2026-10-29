@@ -1,3 +1,7 @@
 {$SITE_HOST} {
     reverse_proxy app:3001
 }
+
+www.{$SITE_HOST} {
+    redir https://{$SITE_HOST}{uri} permanent
+}
