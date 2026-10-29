@@ -37,9 +37,9 @@ test('FAQ and mobile navigation work with the keyboard, restore focus, and navig
 
 test('unknown routes and news IDs offer recovery links',async({page})=>{
     await page.goto('/does-not-exist');await expect(page.getByRole('heading',{name:'Seite nicht gefunden'})).toBeVisible();
-    await page.getByRole('link',{name:'Zur Startseite →',exact:true}).click();await expect(page).toHaveURL('/');
+    await page.getByRole('link',{name:'Zur Startseite',exact:true}).click();await expect(page).toHaveURL('/');
     await page.goto('/neuigkeiten/missing');await expect(page.getByRole('heading',{name:'Beitrag nicht gefunden'})).toBeVisible();
-    await expect(page.getByRole('link',{name:'Zu allen Neuigkeiten →'})).toBeVisible();
+    await expect(page.getByRole('link',{name:'Zu allen Neuigkeiten'})).toBeVisible();
 });
 
 test('contact submissions reach the authenticated inbox and articles publish with images',async({page})=>{
@@ -58,7 +58,7 @@ test('contact submissions reach the authenticated inbox and articles publish wit
     await expect(page.getByRole('img',{name:'Bildbeschreibung ergänzen'})).toBeVisible();
     await page.getByRole('button',{name:'Entwurf speichern'}).click();await expect(page.getByRole('status')).toContainText('Entwurf wurde gespeichert');
     await page.getByLabel('Öffentlich anzeigen').check();await page.getByRole('button',{name:'Speichern & veröffentlichen'}).click();await expect(page.getByRole('status')).toContainText('Beitrag ist veröffentlicht');
-    const articleUrl=await page.getByRole('link',{name:'Veröffentlichten Beitrag öffnen →'}).getAttribute('href');
+    const articleUrl=await page.getByRole('link',{name:'Veröffentlichten Beitrag öffnen'}).getAttribute('href');
     await page.goto(articleUrl!);await expect(page.getByRole('heading',{name:'Browser Test Beitrag'})).toBeVisible();await expect(page.locator('main table')).toBeVisible();await expect(page.getByRole('img',{name:'Bildbeschreibung ergänzen'})).toBeVisible();
     await page.goto('/admin');await page.getByText('Neu: Probetraining Browser Test · Browser Test',{exact:true}).click();await expect(page.getByText('Dies ist eine Testnachricht.',{exact:true})).toBeVisible();
     await page.getByRole('button',{name:'Als gelesen markieren'}).click();await expect(page.getByRole('heading',{name:'Posteingang (0 ungelesen)'})).toBeVisible();

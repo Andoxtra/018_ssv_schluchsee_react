@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import ArrowLink from "../../components/links/ArrowLink.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
@@ -20,6 +20,6 @@ const ShootingRanges = () => <div className="page-stack">
             ))}
         </div>
     </MediumBox>
-    <div className="card-grid"><MediumBox><TrainingTimes/></MediumBox><MediumBox className="besuch-planen"><Heading level={2}>Besuch planen</Heading><p>So bereiten Sie Ihren Besuch vor: Training, Anmeldung und Anfahrt.</p><ul className="link-list"><li><Link to="/kontakt">Anmeldung für Gastschützen →</Link></li><li><Link to="/standort">Adresse, Karte & Anfahrt →</Link></li><li><Link to="/jugend">Unsere Jugendabteilung →</Link></li></ul></MediumBox></div>
+    <div className="card-grid"><MediumBox><TrainingTimes/></MediumBox><MediumBox className="besuch-planen"><Heading level={2}>Besuch planen</Heading><p>So bereiten Sie Ihren Besuch vor: Training, Anmeldung und Anfahrt.</p><ul className="link-list"><li><ArrowLink to="/kontakt">Anmeldung für Gastschützen</ArrowLink></li><li><ArrowLink to="/standort">Adresse, Karte & Anfahrt</ArrowLink></li><li><ArrowLink to="/jugend">Unsere Jugendabteilung</ArrowLink></li></ul></MediumBox></div>
 </div>;
 export default ShootingRanges;

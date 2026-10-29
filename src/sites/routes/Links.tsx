@@ -3,6 +3,7 @@ import type {ReactNode} from "react";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
+import ArrowLink from "../../components/links/ArrowLink.tsx";
 
 const linksGroups = [
     {title: "Sport und Verbände", links: [
@@ -31,11 +32,10 @@ const Links = (): ReactNode => {
                     </Heading>
                     <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
                         {group.links.map((link, j) => (
-                            <a
+                            <ArrowLink
                                 key={j}
                                 href={link.url}
                                 target="_blank"
-                                rel="noopener noreferrer"
                                 style={{
                                     padding: "10px 14px",
                                     background: "#F8F8F4",
@@ -46,8 +46,8 @@ const Links = (): ReactNode => {
                                     textDecoration: "underline",
                                 }}
                             >
-                                {link.name} →
-                            </a>
+                                {link.name}
+                            </ArrowLink>
                         ))}
                     </div>
                 </MediumBox>

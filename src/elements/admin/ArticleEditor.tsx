@@ -1,6 +1,6 @@
 import {useState} from "react";
 import type {ChangeEvent, FormEvent, RefObject} from "react";
-import {Link} from "react-router-dom";
+import ArrowLink from "../../components/links/ArrowLink.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Markdown from "../../components/boxes/Markdown.tsx";
 import Heading from "../../components/texts/Heading.tsx";
@@ -72,7 +72,7 @@ const ArticleEditor = ({article, authors, busy, uploading, textEditor, onUpdate,
                         <label>Redaktioneller Hinweis (optional)<textarea maxLength={600} value={article.reviewNote} onChange={event => onUpdate("reviewNote", event.target.value)}/></label>
                         <label className="checkbox-label"><input type="checkbox" checked={article.published} onChange={event => onUpdate("published", event.target.checked)}/>Öffentlich anzeigen</label>
                         <button disabled={busy || uploading}>{busy ? "Wird gespeichert …" : article.published ? "Speichern & veröffentlichen" : "Entwurf speichern"}</button>
-                        {article.id && article.published && <Link to={`/neuigkeiten/${article.id}`} target="_blank" rel="noopener noreferrer">Veröffentlichten Beitrag öffnen →</Link>}
+                        {article.id && article.published && <ArrowLink to={`/neuigkeiten/${article.id}`} target="_blank" rel="noopener noreferrer">Veröffentlichten Beitrag öffnen</ArrowLink>}
                     </fieldset>
                 </form>
             </MediumBox>

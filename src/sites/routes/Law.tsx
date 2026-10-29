@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import ArrowLink from "../../components/links/ArrowLink.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
@@ -8,5 +8,5 @@ const Law = () => <div className="page-stack"><BigBox><Heading level={1}>Waffenr
         <li><a href="https://www.gesetze-im-internet.de/waffg_2002/__7.html" target="_blank" rel="noopener noreferrer">§ 7 WaffG – Sachkunde</a></li>
         <li><a href="https://www.gesetze-im-internet.de/waffg_2002/__14.html" target="_blank" rel="noopener noreferrer">§ 14 WaffG – Erwerb und Besitz durch Sportschützen</a></li>
         <li><a href="https://www.gesetze-im-internet.de/waffg_2002/__27.html" target="_blank" rel="noopener noreferrer">§ 27 WaffG – Schießstätten</a></li>
-    </ul></MediumBox><MediumBox><Heading level={2}>Einstieg im Verein</Heading><p>Fragen zum Training und zu möglichen Sachkundeangeboten beantwortet die Vereinsverwaltung.</p><Link to="/kontaktformular">Frage an den Verein senden →</Link></MediumBox></div>;
+    </ul></MediumBox><MediumBox><Heading level={2}>Einstieg im Verein</Heading><p>Fragen zum Training und zu möglichen Sachkundeangeboten beantwortet die Vereinsverwaltung.</p><ArrowLink to="/kontaktformular">Frage an den Verein senden</ArrowLink></MediumBox></div>;
 export default Law;

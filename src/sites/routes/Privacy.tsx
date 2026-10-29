@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import ArrowLink from "../../components/links/ArrowLink.tsx";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
@@ -13,7 +13,7 @@ const sections = [
     {title: "Ihre Anliegen zum Datenschutz", content: "Sie können sich mit Fragen zur Verarbeitung Ihrer Daten sowie Anliegen zu Auskunft, Berichtigung oder Löschung an den Verein wenden. Die Bearbeitung erfolgt nach den geltenden Datenschutzvorschriften."},
 ];
 const Privacy = () => <div className="page-stack"><BigBox><Heading level={1}>Datenschutz</Heading><p>Informationen zur Verarbeitung von Daten auf dieser Website.</p></BigBox>
-    <MediumBox><Heading level={2}>Verantwortlicher Verein</Heading><address>{club.name}<br/>{club.street}<br/>{club.city}</address><p>E-Mail: <a href={`mailto:${club.email}`}>{club.email}</a></p><Link to="/kontaktformular">Datenschutzanfrage senden →</Link></MediumBox>
+    <MediumBox><Heading level={2}>Verantwortlicher Verein</Heading><address>{club.name}<br/>{club.street}<br/>{club.city}</address><p>E-Mail: <a href={`mailto:${club.email}`}>{club.email}</a></p><ArrowLink to="/kontaktformular">Datenschutzanfrage senden</ArrowLink></MediumBox>
     {sections.map(section => <MediumBox key={section.title}><Heading level={2}>{section.title}</Heading><Markdown>{section.content}</Markdown></MediumBox>)}
 </div>;
 export default Privacy;

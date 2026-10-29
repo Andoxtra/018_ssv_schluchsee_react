@@ -1,6 +1,6 @@
 import {Table, type TableColumnsType} from "antd";
 import type {ReactNode} from "react";
-import AppLink from "../links/AppLink.tsx";
+import ArrowLink from "../links/ArrowLink.tsx";
 
 import tableTexts from "../../config/translations/tableTexts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle";
@@ -53,7 +53,7 @@ const RWKTable = ({tableData}: RWKTableProps): ReactNode => {
             title: rwkTable.results,
             dataIndex: 'url',
             render: (url?: string) => url
-                ? <AppLink href={url} target="_blank">Ergebnisse →</AppLink>
+                ? <ArrowLink href={url} target="_blank">Ergebnisse</ArrowLink>
                 : <span>–</span>,
         }
     ];

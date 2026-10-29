@@ -1,5 +1,5 @@
 import {localDate} from "../../logic/news/newsSource.ts";
-import {Link} from "react-router-dom";
+import ArrowLink from "../../components/links/ArrowLink.tsx";
 import {useNews} from "../../logic/news/useNews.ts";
 import {isPastEvent} from "../../logic/news/newsSource.ts";
 import type {ReactNode} from "react";
@@ -34,10 +34,10 @@ const Competitions = (): ReactNode => {
     return <div className="page-stack">
         <BigBox><Heading level={1}>Veranstaltungen</Heading><p>Termine, Vereinsfeste und Ergebnisse aus dem Archiv.</p></BigBox>
         {loading && <p role="status">Termine werden geladen …</p>}{error && <p role="alert">{error}</p>}
-        <MediumBox><Heading level={2}>Kommende Veranstaltungen</Heading>{!loading && !error && !upcoming.length && <p>Zurzeit sind keine kommenden Termine veröffentlicht.</p>}{upcoming.map(article => <p key={article.id}><Link to={`/neuigkeiten/${article.id}`}>{article.title} →</Link></p>)}</MediumBox>
-        <MediumBox><Heading level={2}>Veranstaltungsarchiv</Heading>{past.map(article => <p key={article.id}><Link to={`/neuigkeiten/${article.id}`}>{article.title} →</Link></p>)}</MediumBox>
+        <MediumBox><Heading level={2}>Kommende Veranstaltungen</Heading>{!loading && !error && !upcoming.length && <p>Zurzeit sind keine kommenden Termine veröffentlicht.</p>}{upcoming.map(article => <p key={article.id}><ArrowLink to={`/neuigkeiten/${article.id}`}>{article.title}</ArrowLink></p>)}</MediumBox>
+        <MediumBox><Heading level={2}>Veranstaltungsarchiv</Heading>{past.map(article => <p key={article.id}><ArrowLink to={`/neuigkeiten/${article.id}`}>{article.title}</ArrowLink></p>)}</MediumBox>
         <MediumBox><Heading level={2}>Rundenwettkämpfe · Archiv 2013–2017</Heading><p>Historische Wettbewerbe. Nicht für jeden Eintrag liegen Ergebnislisten vor.</p><RWKTable tableData={toTableData(rwkData)}/></MediumBox>
-        <p><Link to="/schiessstaende">Regelmäßige Trainingszeiten →</Link></p>
+        <p><ArrowLink to="/schiessstaende">Regelmäßige Trainingszeiten</ArrowLink></p>
     </div>;
 };
 export default Competitions;

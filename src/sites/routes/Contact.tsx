@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import ArrowLink from "../../components/links/ArrowLink.tsx";
 import GuestRegistration from "../../elements/club/GuestRegistration.tsx";
 import type {ReactNode} from "react";
 
@@ -78,7 +78,7 @@ const Contact = (): ReactNode => {
             </MediumBox>
 
             <MediumBox><GuestRegistration/></MediumBox>
-            <MediumBox><Heading level={2}>Besuch planen</Heading><p>Trainingszeiten prüfen und Ihre Anreise vorbereiten.</p><ul className="link-list"><li><Link to="/schiessstaende">Trainingszeiten →</Link></li><li><Link to="/standort">Adresse & Anfahrt →</Link></li></ul></MediumBox>
+            <MediumBox><Heading level={2}>Besuch planen</Heading><p>Trainingszeiten prüfen und Ihre Anreise vorbereiten.</p><ul className="link-list"><li><ArrowLink to="/schiessstaende">Trainingszeiten</ArrowLink></li><li><ArrowLink to="/standort">Adresse & Anfahrt</ArrowLink></li></ul></MediumBox>
         </div>
     );
 };
