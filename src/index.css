@@ -427,12 +427,19 @@ nav a.active { text-decoration: underline; text-underline-offset: 6px; }
 .more-nav { position: relative; }.more-nav summary { cursor: pointer; }
 .more-nav > div { position: absolute; top: 100%; right: 0; width: 270px; max-height: 75vh; overflow: auto; background: white; padding: 12px; border: 1px solid var(--club-border); box-shadow: 0 6px 20px #0002; transform-origin: top right; animation: dropdown-in 160ms var(--ease-out); }
 .more-nav a { display: block; }
-.hamburger-btn { display: none; }
+.hamburger-btn { display: none; width: 44px; height: 44px; padding: 0; align-items: center; justify-content: center; background: transparent; border-color: transparent; color: var(--club-green); }
+.hamburger-btn svg { transition: transform 200ms var(--ease-out); }
+.hamburger-btn:hover svg { transform: scale(1.08); }
 dialog { border: 1px solid var(--club-border); border-radius: 12px; padding: 24px; margin: auto; max-width: min(560px, calc(100% - 24px)); max-height: calc(100dvh - 24px); color: #1a1a1a; }
 dialog[open] { animation: dialog-in 200ms var(--ease-out); }
 dialog::backdrop { background: #0008; }
 dialog[open]::backdrop { animation: fade-in 200ms ease; }
+dialog.is-closing { animation: dialog-out 180ms var(--ease-in-out) forwards; }
+dialog.is-closing::backdrop { animation: fade-out 180ms var(--ease-in-out) forwards; }
 .mobile-dialog { width: 440px; }.dialog-heading { display: flex; gap: 12px; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.dialog-heading .close-btn { width: 40px; height: 40px; padding: 0; display: inline-flex; align-items: center; justify-content: center; background: transparent; border-color: transparent; color: var(--club-green); }
+.dialog-heading .close-btn svg { transition: transform 200ms var(--ease-out); }
+.dialog-heading .close-btn:hover svg { transform: rotate(90deg); }
 .mobile-dialog nav { display: flex; flex-direction: column; }.mobile-dialog nav a { padding: 10px 12px; border-radius: 6px; color: var(--club-green); }
 .mobile-dialog nav a.active { background: #edece4; }
 .mobile-nav-group { display: grid; gap: 2px; }.mobile-nav-group + .mobile-nav-group { margin-top: 12px; }
@@ -451,7 +458,9 @@ address { font-style: normal; margin-bottom: 16px; }iframe { border: 0; max-widt
 @media (max-width: 900px) { .desktop-nav { display: none; }.hamburger-btn { display: block; }.editor-grid { grid-template-columns: minmax(0, 1fr); } }
 @keyframes dropdown-in { from { opacity: 0; transform: translateY(-4px) scale(0.98); } to { opacity: 1; transform: none; } }
 @keyframes dialog-in { from { opacity: 0; transform: scale(0.98) translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes dialog-out { from { opacity: 1; transform: none; } to { opacity: 0; transform: scale(0.98) translateY(8px); } }
 @keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
 
 @media (hover: hover) and (pointer: fine) {
   .card-grid > .mediumBox:has(a):not(.besuch-planen):hover { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); transform: translateY(-2px); }

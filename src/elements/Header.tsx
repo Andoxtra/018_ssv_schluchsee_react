@@ -10,6 +10,12 @@ const Header = () => {
     const toggle = useRef<HTMLButtonElement>(null);
     const more = useRef<HTMLDetailsElement>(null);
     const location = useLocation();
+    const requestClose = () => {
+        const element = dialog.current;
+        if (!element) { setOpen(false); return; }
+        element.classList.add("is-closing");
+        window.setTimeout(() => setOpen(false), 180);
+    };
     useEffect(() => {
         if (more.current) more.current.open = false;
     }, [location.pathname]);
@@ -19,6 +25,7 @@ const Header = () => {
         const trigger = toggle.current;
         const openedPath = location.pathname;
         const previousOverflow = document.body.style.overflow;
+        element.classList.remove("is-closing");
         element.showModal();
         document.body.style.overflow = "hidden";
         const wideScreen = window.matchMedia("(min-width: 901px)");
@@ -47,15 +54,21 @@ const Header = () => {
                 <div>{moreNavigation.map(item => <NavLink end={item.path === "/"} key={item.path} to={item.path}>{item.label}</NavLink>)}</div>
             </details>
         </nav>
-        <button ref={toggle} className="hamburger-btn" aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(true)}>Menü</button>
-        <dialog ref={dialog} id="mobile-navigation" className="mobile-dialog" aria-labelledby="mobile-navigation-title" onCancel={() => setOpen(false)} onKeyDown={event => {
+        <button ref={toggle} className="hamburger-btn" aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(true)}>
+            <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            <span className="sr-only">Menü</span>
+        </button>
+        <dialog ref={dialog} id="mobile-navigation" className="mobile-dialog" aria-labelledby="mobile-navigation-title" onCancel={event => { event.preventDefault(); requestClose(); }} onKeyDown={event => {
             if (event.key !== "Tab") return;
             const controls = [...event.currentTarget.querySelectorAll<HTMLElement>("button, a[href]")];
             const first = controls[0], last = controls[controls.length - 1];
             if (event.shiftKey && document.activeElement === first) {event.preventDefault(); last?.focus();}
             else if (!event.shiftKey && document.activeElement === last) {event.preventDefault(); first?.focus();}
         }}>
-            <div className="dialog-heading"><h2 id="mobile-navigation-title">Navigation</h2><button onClick={() => setOpen(false)} autoFocus>Schließen</button></div>
+            <div className="dialog-heading"><h2 id="mobile-navigation-title">Navigation</h2><button className="close-btn" onClick={requestClose} autoFocus>
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+                <span className="sr-only">Schließen</span>
+            </button></div>
             <nav aria-label="Mobile Navigation">
                 <div className="mobile-nav-group">
                     <span className="mobile-nav-heading">Hauptnavigation</span>
