@@ -12,7 +12,7 @@ set -euo pipefail
 #  Run:  bash setup-vps.sh
 # =====================================================================
 
-REPO_URL=""                        # e.g. https://github.com/you/ssv.git
+REPO_URL="https://github.com/Andoxtra/018_ssv_schluchsee_react.git"                        # e.g. https://github.com/you/ssv.git
 SITE_HOST="ssv-schluchsee.de"
 APP_DIR="/opt/ssv"
 ADMIN_USERNAME="admin"
