@@ -33,9 +33,10 @@ unset ADMIN_PASSWORD
 
 Use at least 12 characters. Restart the backend after setup. Passwords are stored
 as salted scrypt hashes in `var/admin.json`. The setup command refuses to replace
-an existing account. To reset an account, stop the server, preserve a backup,
-move `admin.json` aside, run setup again, and invalidate all sessions with
-`node server/revoke-sessions.ts` before restarting.
+an existing account. To reset a forgotten password, run `npm run reset:admin` (or,
+in Docker, `docker compose run --rm -e ADMIN_PASSWORD=… app node server/reset-password.ts`);
+it keeps the username, writes a timestamped backup of `admin.json`, updates the
+password hash, and revokes all sessions.
 
 ## Content and messages
 

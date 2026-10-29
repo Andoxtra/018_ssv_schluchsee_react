@@ -12,6 +12,7 @@
     "coverage": "vitest run --coverage",
     "server": "node --env-file-if-exists=.env server/index.ts",
     "setup:admin": "node --env-file-if-exists=.env server/setup.ts",
+    "reset:admin": "node --env-file-if-exists=.env server/reset-password.ts",
     "start": "node --env-file-if-exists=.env server/index.ts",
     "test:browser": "VITE_ENABLE_SHOWCASE=true npm run build && playwright test"
   },

@@ -34,7 +34,8 @@ and is excluded from the default production build.
 
 Setup, administrator credentials, content maintenance, backups and deployment:
 [DEPLOYMENT.md](docs/DEPLOYMENT.md). The local administrator credentials, when
-configured, are in the ignored private file `var/local-admin.txt`.
+configured, are in the ignored private file `var/local-admin.txt`. To reset a
+forgotten administrator password, run `npm run reset:admin`.
 
 ## Content maintenance
 
@@ -46,8 +47,9 @@ configured, are in the ignored private file `var/local-admin.txt`.
   database.
 - [newsData.ts](src/data/newsData.ts) contains the seed loader and type adapter,
   not another copy of the article bodies. News uses `markdown-it` and `interweave`.
-- Contact submissions are saved to the private administrator inbox. They do not
-  send email notifications; the club must assign someone to monitor and answer them.
+- Contact submissions are saved to the private administrator inbox and, when SMTP
+  is configured, the club is notified by email; the club must assign someone to
+  monitor and answer them.
 - Shared range information, training times, addresses and document references are
   maintained in [clubData.ts](src/data/clubData.ts).
 - Club PDFs are bundled under [documents](public/documents/), with their provenance

@@ -1,12 +1,8 @@
-import {existsSync, readFileSync} from "node:fs";
 import {resolve} from "node:path";
-import type {AppConfig, Credentials} from "./types.ts";
+import type {AppConfig} from "./types.ts";
+import {readCredentials} from "./lib/credentials.ts";
 
-export const loadCredentials = (dataDir: string): Credentials | undefined => {
-    const file = resolve(dataDir, "admin.json");
-    if (!existsSync(file)) return undefined;
-    return JSON.parse(readFileSync(file, "utf8")) as Credentials;
-};
+export const loadCredentials = readCredentials;
 
 export const loadConfig = (env: NodeJS.ProcessEnv): AppConfig => {
     const dataDir = resolve(env.DATA_DIR ?? "var");
