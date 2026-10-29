@@ -27,6 +27,12 @@ an archive; availability does not establish completeness or current relevance.
 The OpenStreetMap destination, embedded map and privacy-policy page responded
 successfully. The map is now loaded only after the visitor chooses to load it.
 
+The VDB (Verband Deutscher Büchsenmacher und Waffenfachhändler e.V.) destination
+[`https://www.vdb-waffen.de/`](https://www.vdb-waffen.de/) responded successfully
+(HTTP 200) and shows the expected organization. It is linked from the
+"Unsere Haltung" page (`/position`); the support statement there is a marked
+placeholder awaiting the club's editorial approval.
+
 Official legal destinations checked successfully: [WaffG](https://www.gesetze-im-internet.de/waffg_2002/),
 [§ 7](https://www.gesetze-im-internet.de/waffg_2002/__7.html),
 [§ 14](https://www.gesetze-im-internet.de/waffg_2002/__14.html),

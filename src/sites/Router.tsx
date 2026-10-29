@@ -26,6 +26,7 @@ import Law from "./routes/Law.tsx";
 import ShootingRanges from "./routes/ShootingRanges.tsx";
 import Youth from "./routes/Youth.tsx";
 import DanielKhanLeonhard from "./routes/DanielKhanLeonhard.tsx";
+import Position from "./routes/Position.tsx";
 import Body from "../elements/Body.tsx";
 
 import webPaths from "../config/webPaths.ts";
@@ -62,6 +63,7 @@ const router = createBrowserRouter(createRoutesFromElements(<Route element={<Lay
     <Route path={webPaths.shootingLocation} element={<ShootingRanges/>}/>
     <Route path={webPaths.youthSite} element={<Youth/>}/>
     <Route path={webPaths.danielKhanLeonhard} element={<DanielKhanLeonhard/>}/>
+    <Route path={webPaths.positionSite} element={<Position/>}/>
 
 </Route>));
 const Router = (): ReactNode => <RouterProvider router={router}/>;

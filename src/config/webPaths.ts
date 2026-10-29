@@ -20,6 +20,7 @@ const webPaths = {
     testingSite: "/testing",
     youthSite: "/jugend",
     danielKhanLeonhard: "/daniel-khan-leonhard",
+    positionSite: "/position",
 };
 
 export default webPaths;

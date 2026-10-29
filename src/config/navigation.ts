@@ -17,6 +17,7 @@ export const moreNavigation = [
     {path: webPaths.downloadSite, label: "Downloads"},
     {path: webPaths.links, label: "Verbände & Links"},
     {path: webPaths.lawSite, label: "Gesetze"},
+    {path: webPaths.positionSite, label: "Unsere Haltung"},
 ];
 export const legalNavigation = [
     {path: webPaths.imprintSite, label: "Impressum"},

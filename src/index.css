@@ -399,6 +399,8 @@ h4.site-heading, h5.site-heading, h6.site-heading { font-size: 1rem; }
 .link-list { display: grid; gap: 12px; list-style: none; padding: 0; margin: 0; }
 .link-list > li { background: var(--club-paper); color: #1a1a1a; border: 1px solid var(--club-border); border-radius: 8px; padding: 12px; }
 .link-list a { font-weight: 600; }
+.demand-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 10px; list-style: none; padding: 0; margin: 0; }
+.demand-list li { background: var(--club-paper); color: #1a1a1a; border: 1px solid var(--club-border); border-radius: 8px; padding: 10px 12px; font-size: 0.9375rem; }
 .arrow-link-icon { display: inline-block; margin-left: 0.35em; vertical-align: -0.12em; white-space: nowrap; }
 .arrow-link-icon svg { display: inline-block; transition: transform 180ms var(--ease-out); }
 .arrow-link:hover .arrow-link-icon svg { transform: translateX(3px); }

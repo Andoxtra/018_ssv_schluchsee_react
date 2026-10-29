@@ -6,7 +6,7 @@ for(const width of [320,375,768,1024,1440]) {
         const errors:string[]=[];
         page.on('pageerror',error=>errors.push(error.message));
         page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
-        for(const path of ['/','/about','/daniel-khan-leonhard','/schiessstaende','/standort','/kontakt','/kontaktformular','/faq','/jugend','/veranstaltungen','/neuigkeiten','/neuigkeiten/168','/erfolge','/standrekorde','/download','/links','/gesetz','/impressum','/datenschutz','/terms','/admin']) {
+        for(const path of ['/','/about','/daniel-khan-leonhard','/schiessstaende','/standort','/kontakt','/kontaktformular','/faq','/jugend','/veranstaltungen','/neuigkeiten','/neuigkeiten/168','/erfolge','/standrekorde','/download','/links','/gesetz','/position','/impressum','/datenschutz','/terms','/admin']) {
             await page.goto(path);
             await expect(page.locator('main h1')).toBeVisible();
             const overflow=await page.evaluate(()=>document.documentElement.scrollWidth > window.innerWidth);
@@ -40,6 +40,13 @@ test('unknown routes and news IDs offer recovery links',async({page})=>{
     await page.getByRole('link',{name:'Zur Startseite',exact:true}).click();await expect(page).toHaveURL('/');
     await page.goto('/neuigkeiten/missing');await expect(page.getByRole('heading',{name:'Beitrag nicht gefunden'})).toBeVisible();
     await expect(page.getByRole('link',{name:'Zu allen Neuigkeiten'})).toBeVisible();
+});
+
+test('the guest link moves focus to the guest training heading',async({page})=>{
+    await page.goto('/');
+    await page.getByRole('link',{name:'Informationen für Gastschützen'}).click();
+    await expect(page).toHaveURL('/kontakt');
+    await expect(page.locator('#gast-training')).toBeFocused();
 });
 
 test('contact submissions reach the authenticated inbox and articles publish with images',async({page})=>{

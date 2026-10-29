@@ -220,3 +220,4 @@ approval have been invented.
 - [ ] Assign responsibility for checking the administrator inbox and answering messages; configure email notifications only if the club wants them.
 - [ ] Select the server/domain, configure production credentials and backups, and validate HTTPS/direct route access on that host.
 - [ ] Consider further route splitting if the remaining Vite bundle-size warning becomes a performance concern. The admin editor and component showcase already load separately.
+- [ ] Approve the "Unsere Haltung" support-statement wording on the `/position` page (currently a marked placeholder).
