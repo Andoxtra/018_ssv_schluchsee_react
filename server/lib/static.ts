@@ -16,8 +16,8 @@ const MIME: Record<string, string> = {
     ".woff2": "font/woff2",
 };
 
-export const serveStatic = (req: IncomingMessage, res: ServerResponse, path: string, options: {distDir?: string; uploads: string}): void => {
-    const {distDir, uploads} = options;
+export const serveStatic = (req: IncomingMessage, res: ServerResponse, path: string, options: {distDir?: string; uploads: string; injectHead?: (html: string) => string}): void => {
+    const {distDir, uploads, injectHead} = options;
     let file: string;
     if (path.startsWith("/uploads/")) {
         const name = path.slice(9);
@@ -33,6 +33,10 @@ export const serveStatic = (req: IncomingMessage, res: ServerResponse, path: str
         }
     }
     if (!existsSync(file)) throw new HttpError(404, "Datei nicht gefunden.");
+    let body: Buffer | undefined;
+    if (req.method !== "HEAD") {
+        body = injectHead && file.endsWith(`${sep}index.html`) ? Buffer.from(injectHead(readFileSync(file, "utf8"))) : readFileSync(file);
+    }
     res.writeHead(200, {"Content-Type": MIME[extname(file)] ?? "application/octet-stream"});
-    res.end(req.method === "HEAD" ? undefined : readFileSync(file));
+    res.end(body);
 };

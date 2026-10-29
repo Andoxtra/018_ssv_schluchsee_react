@@ -2,6 +2,7 @@ import {lazy, Suspense} from "react";
 import ContactForm from "./routes/ContactForm.tsx";
 import NotFound from "./routes/NotFound.tsx";
 import RouteFocus from "../elements/RouteFocus.tsx";
+import PageMeta from "../elements/PageMeta.tsx";
 import type {ReactNode} from "react";
 
 import {createBrowserRouter, createRoutesFromElements, RouterProvider, Outlet, Route} from 'react-router-dom';
@@ -36,7 +37,7 @@ const Admin = lazy(() => import("./routes/Admin.tsx"));
 const Test = lazy(() => import("./routes/Test.tsx"));
 
 const Layout = (): ReactNode => <>
-    <RouteFocus/><Header/><Body><Outlet/></Body><Footer/>
+    <RouteFocus/><PageMeta/><Header/><Body><Outlet/></Body><Footer/>
 </>;
 const router = createBrowserRouter(createRoutesFromElements(<Route element={<Layout/>}>
 

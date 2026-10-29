@@ -4,7 +4,11 @@ import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
 import ImagePlaceholder from "../../components/images/ImagePlaceholder.tsx";
 import {totalLanes} from "../../data/clubData.ts";
-const Home = () => <div className="page-stack">
+import {useJsonLd} from "../../logic/seo/useJsonLd.ts";
+import {organizationJsonLd} from "../../logic/seo/jsonLd.ts";
+const Home = () => {
+    useJsonLd("seo-organization", organizationJsonLd(window.location.origin));
+    return <div className="page-stack">
     <BigBox><div className="hero-grid"><div><p className="eyebrow">Seit 1926 im Schwarzwald</p><Heading level={1}>Willkommen beim SSV Schluchsee</Heading><p>Schießsport entdecken, gemeinsam trainieren und Vereinsleben erleben.</p><ArrowLink className="site-button secondarybutton" to="/kontaktformular">Besuch anfragen</ArrowLink></div><div className="hero-image"><ImagePlaceholder alt="Schützen des SSV Schluchsee beim Training" aspectRatio="4 / 3"/></div></div></BigBox>
     <div className="card-grid home-grid">
         <MediumBox><Heading level={2}>Zum ersten Mal hier?</Heading><p>Informationen zur Mitgliedschaft und zum Einstieg in den Schießsport.</p><ArrowLink to="/faq">Mitgliedschaft & häufige Fragen</ArrowLink></MediumBox>
@@ -14,4 +18,5 @@ const Home = () => <div className="page-stack">
     </div>
     <MediumBox><Heading level={2}>Ihr Weg zu uns</Heading><ImagePlaceholder alt="Das Vereinsheim des SSV Schluchsee am Faulenfürster Eck" aspectRatio="16 / 9"/><p>Unser Vereinsheim liegt am Faulenfürster Eck in Schluchsee.</p><ArrowLink to="/standort">Adresse & Anfahrt</ArrowLink></MediumBox>
 </div>;
+};
 export default Home;

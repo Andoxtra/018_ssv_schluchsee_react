@@ -8,12 +8,14 @@ import {passwordRecord} from '../../server/lib/auth.ts';
 
 let server: Server;
 let dataDir: string;
+let distDir: string;
 let base: string;
 let cookie: string;
 const origin = 'http://localhost:5173';
 const credentials = {username: 'test-admin', ...passwordRecord('test-password-only-123')};
+const minimalIndexHtml = '<!doctype html><html lang="de"><head><meta charset="UTF-8"><title>SSV Schluchsee</title></head><body><div id="root"></div></body></html>';
 const start = async (options: {localDevelopment?: boolean; origin?: string; seedDir?: string} = {}) => {
-    server = createApp({dataDir, origin, credentials, seedDir: resolve('src/data/news'), ...options});
+    server = createApp({dataDir, origin, credentials, seedDir: resolve('src/data/news'), distDir, ...options});
     await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
     const address = server.address();
     if (!address || typeof address === 'string') throw new Error('No test port');
@@ -25,8 +27,8 @@ const request = (path: string, method = 'GET', body?: unknown, authenticated = t
 });
 const draft = {title:'Testnachricht', date:'2026-09-15', author:'Test', preview:'Kurzbeschreibung', content:'## Test\n\nInhalt', published:false, reviewNote:'', eventDates:[]};
 const login = async () => {const response = await request('/api/login','POST',{username:credentials.username,password:'test-password-only-123'},false); expect(response.status).toBe(200); cookie=response.headers.get('set-cookie')!.split(';')[0];};
-beforeEach(async () => {dataDir=mkdtempSync(join(tmpdir(),'ssv-api-test-')); cookie=''; await start();});
-afterEach(async () => {await stop(); rmSync(dataDir,{recursive:true,force:true});});
+beforeEach(async () => {dataDir=mkdtempSync(join(tmpdir(),'ssv-api-test-')); distDir=mkdtempSync(join(tmpdir(),'ssv-dist-')); writeFileSync(join(distDir, 'index.html'), minimalIndexHtml); cookie=''; await start();});
+afterEach(async () => {await stop(); rmSync(dataDir,{recursive:true,force:true}); rmSync(distDir,{recursive:true,force:true});});
 
 describe('persistent club API', () => {
     test('imports the nineteen Markdown articles and preserves their IDs', async () => {
@@ -137,5 +139,24 @@ describe('persistent club API', () => {
     test('rate limits repeated login failures', async () => {
         for(let i=0;i<10;i++) await request('/api/login','POST',{username:'test-admin',password:'wrong'},false);
         expect((await request('/api/login','POST',{username:'test-admin',password:'wrong'},false)).status).toBe(429);
+    });
+    test('serves robots.txt and a sitemap with the public routes', async () => {
+        const robotsResponse = await request('/robots.txt','GET',undefined,false);
+        expect(robotsResponse.status).toBe(200);
+        expect(await robotsResponse.text()).toContain('Disallow: /admin');
+        const sitemapResponse = await request('/sitemap.xml','GET',undefined,false);
+        expect(sitemapResponse.status).toBe(200);
+        expect(sitemapResponse.headers.get('content-type')).toContain('xml');
+        const xml = await sitemapResponse.text();
+        expect(xml).toContain('http://localhost:5173/');
+        expect(xml).toContain('/faq');
+    });
+    test('injects route-specific title and meta into served HTML', async () => {
+        const response = await request('/faq','GET',undefined,false);
+        expect(response.status).toBe(200);
+        expect(response.headers.get('content-type')).toContain('text/html');
+        const html = await response.text();
+        expect(html).toContain('<title>Mitglied werden &amp; häufige Fragen – SSV Schluchsee</title>');
+        expect(html).toContain('name="description"');
     });
 });

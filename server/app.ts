@@ -15,6 +15,10 @@ import {submitContact} from "./routes/contact.ts";
 import {getPublicNews} from "./routes/news.ts";
 import {getSession} from "./routes/session.ts";
 import {createMailer} from "./lib/mail.ts";
+import {sitemap} from "./routes/sitemap.ts";
+import {robots} from "./routes/robots.ts";
+import {injectHead} from "./lib/meta.ts";
+import {articleMeta} from "../src/config/seo.ts";
 
 const routes: Route[] = [
     {method: "GET", pattern: "/api/news", handler: getPublicNews},
@@ -22,6 +26,8 @@ const routes: Route[] = [
     {method: "POST", pattern: "/api/login", handler: login},
     {method: "POST", pattern: "/api/logout", handler: logout},
     {method: "POST", pattern: "/api/contact", handler: submitContact},
+    {method: "GET", pattern: "/sitemap.xml", handler: sitemap},
+    {method: "GET", pattern: "/robots.txt", handler: robots},
     {method: "GET", pattern: "/api/admin/news", handler: listArticles},
     {method: "POST", pattern: "/api/admin/news", handler: createArticle},
     {method: "PUT", pattern: "/api/admin/news/:id", handler: updateArticle},
@@ -111,6 +117,7 @@ export function createApp(options: CreateAppOptions) {
                     secureCookies,
                     uploads,
                     mail: mailer,
+                    origin: canonicalOrigin,
                 };
                 await matched.handler(context);
                 return;
@@ -118,7 +125,13 @@ export function createApp(options: CreateAppOptions) {
 
             if (path.startsWith("/api/")) throw new HttpError(404, "Endpunkt nicht gefunden.");
             if (!["GET", "HEAD"].includes(req.method ?? "")) throw new HttpError(405, "Methode nicht erlaubt.");
-            serveStatic(req, res, path, {distDir, uploads});
+            const resolvedMeta = (() => {
+                const match = /^\/neuigkeiten\/([\w-]+)$/.exec(path);
+                if (!match) return undefined;
+                const article = db.getArticle(match[1]);
+                return article?.published ? articleMeta(article.title, article.preview) : undefined;
+            })();
+            serveStatic(req, res, path, {distDir, uploads, injectHead: html => injectHead(html, path, canonicalOrigin, resolvedMeta)});
         } catch (error) {
             if (!res.headersSent) send(error instanceof HttpError ? error.status : 500, {error: error instanceof HttpError ? error.message : "Die Anfrage konnte nicht verarbeitet werden."});
             else res.end();

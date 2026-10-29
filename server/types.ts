@@ -100,6 +100,7 @@ export type RequestContext = {
     secureCookies: boolean;
     uploads: string;
     mail?: Mailer;
+    origin: string;
 };
 
 export type Handler = (context: RequestContext) => Promise<void> | void;
