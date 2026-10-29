@@ -56,8 +56,9 @@ test('contact submissions reach the authenticated inbox and articles publish wit
     await page.getByLabel('Betreff',{exact:true}).fill('Probetraining Browser Test');await page.getByLabel('Nachricht',{exact:true}).fill('Dies ist eine Testnachricht.');
     await page.getByRole('checkbox').check();await page.getByRole('button',{name:'Nachricht senden'}).click();await expect(page.getByRole('heading',{name:'Vielen Dank für Ihre Nachricht'})).toBeVisible();
     await page.goto('/admin');await page.getByLabel('Benutzername').fill('browser-test');await page.getByLabel('Passwort',{exact:true}).fill('browser-test-password-only');await page.getByRole('button',{name:'Anmelden',exact:true}).click();
-    await expect(page.getByRole('heading',{name:'Posteingang (1 ungelesen)'})).toBeVisible();
+    await page.getByRole('tab',{name:'Posteingang'}).click();await expect(page.getByRole('heading',{name:'Posteingang (1 ungelesen)'})).toBeVisible();
     expect(await page.evaluate(()=>document.documentElement.scrollWidth > window.innerWidth)).toBe(false);
+    await page.getByRole('tab',{name:'Beiträge'}).click();
     await page.getByLabel('Titel',{exact:true}).fill('Browser Test Beitrag');await page.getByLabel('Autor/in',{exact:true}).selectOption({label:'Neuer Autor …'});await page.getByLabel('Neuer Autor').fill('Testredaktion');await page.getByLabel('Kurzbeschreibung').fill('Ein Test der Veröffentlichung.');
     await page.getByLabel('Text',{exact:true}).fill('## Vorschau\n\n**Formatierter Text**\n\n| A | B |\n|---|---|\n| 1 | 2 |');
     await expect(page.getByRole('heading',{name:'Vorschau',exact:true})).toBeVisible();
@@ -67,7 +68,7 @@ test('contact submissions reach the authenticated inbox and articles publish wit
     await page.getByLabel('Öffentlich anzeigen').check();await page.getByRole('button',{name:'Speichern & veröffentlichen'}).click();await expect(page.getByRole('status')).toContainText('Beitrag ist veröffentlicht');
     const articleUrl=await page.getByRole('link',{name:'Veröffentlichten Beitrag öffnen'}).getAttribute('href');
     await page.goto(articleUrl!);await expect(page.getByRole('heading',{name:'Browser Test Beitrag'})).toBeVisible();await expect(page.locator('main table')).toBeVisible();await expect(page.getByRole('img',{name:'Bildbeschreibung ergänzen'})).toBeVisible();
-    await page.goto('/admin');await page.getByText('Neu: Probetraining Browser Test · Browser Test',{exact:true}).click();await expect(page.getByText('Dies ist eine Testnachricht.',{exact:true})).toBeVisible();
+    await page.goto('/admin');await page.getByRole('tab',{name:'Posteingang'}).click();await page.getByText('Neu: Probetraining Browser Test · Browser Test',{exact:true}).click();await expect(page.getByText('Dies ist eine Testnachricht.',{exact:true})).toBeVisible();
     await page.getByRole('button',{name:'Als gelesen markieren'}).click();await expect(page.getByRole('heading',{name:'Posteingang (0 ungelesen)'})).toBeVisible();
 });
 

@@ -2,7 +2,7 @@ import {useRef, useState} from "react";
 import {api} from "../api/client.ts";
 import type {Article} from "../news/newsSource.ts";
 import {emptyArticle} from "./article.ts";
-import {applyMarkdownFormat} from "./markdownFormat.ts";
+import {applyLinkFormat, applyMarkdownFormat} from "./markdownFormat.ts";
 
 type EditorFeedback = {
     setError: (message: string) => void;
@@ -47,6 +47,17 @@ export const useArticleEditor = ({setError, setStatus}: EditorFeedback) => {
             input.setSelectionRange(result.selectionStart, result.selectionEnd);
         });
     };
+    const formatLink = () => {
+        const input = textEditor.current;
+        if (!input) return;
+        const result = applyLinkFormat(article.content, {start: input.selectionStart, end: input.selectionEnd});
+        setArticle(current => ({...current, content: result.content}));
+        setDirty(true);
+        requestAnimationFrame(() => {
+            input.focus();
+            input.setSelectionRange(result.selectionStart, result.selectionEnd);
+        });
+    };
     const insertImage = async (file?: File) => {
         if (!file) return;
         if (file.size > 5 * 1024 * 1024 || !["image/png", "image/jpeg", "image/webp"].includes(file.type)) {
@@ -72,5 +83,5 @@ export const useArticleEditor = ({setError, setStatus}: EditorFeedback) => {
             setUploading(false);
         }
     };
-    return {article, dirty, uploading, textEditor, update, select, discard, markSaved, reset, format, insertImage};
+    return {article, dirty, uploading, textEditor, update, select, discard, markSaved, reset, format, formatLink, insertImage};
 };

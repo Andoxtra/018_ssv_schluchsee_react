@@ -1,5 +1,5 @@
 import {useState} from "react";
-import type {ChangeEvent, FormEvent, RefObject} from "react";
+import type {ChangeEvent, FormEvent, KeyboardEvent, RefObject} from "react";
 import ArrowLink from "../../components/links/ArrowLink.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Markdown from "../../components/boxes/Markdown.tsx";
@@ -17,11 +17,12 @@ type ArticleEditorProps = {
     textEditor: RefObject<HTMLTextAreaElement | null>;
     onUpdate: <K extends keyof Article>(key: K, value: Article[K]) => void;
     onFormat: (before: string, after?: string) => void;
+    onFormatLink: () => void;
     onUpload: (file?: File) => void;
     onSave: (event: FormEvent<HTMLFormElement>) => void;
 };
 
-const ArticleEditor = ({article, authors, busy, uploading, textEditor, onUpdate, onFormat, onUpload, onSave}: ArticleEditorProps) => {
+const ArticleEditor = ({article, authors, busy, uploading, textEditor, onUpdate, onFormat, onFormatLink, onUpload, onSave}: ArticleEditorProps) => {
     const [addingAuthor, setAddingAuthor] = useState(false);
     const handleAuthorChange = (event: ChangeEvent<HTMLSelectElement>) => {
         const value = event.target.value;
@@ -32,6 +33,12 @@ const ArticleEditor = ({article, authors, busy, uploading, textEditor, onUpdate,
             setAddingAuthor(false);
             onUpdate("author", value);
         }
+    };
+    const handleKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>) => {
+        if (!(event.ctrlKey || event.metaKey)) return;
+        const key = event.key.toLowerCase();
+        if (key === "b") { event.preventDefault(); onFormat("**", "**"); }
+        else if (key === "k") { event.preventDefault(); onFormatLink(); }
     };
     return (
         <div className="editor-grid">
@@ -50,13 +57,13 @@ const ArticleEditor = ({article, authors, busy, uploading, textEditor, onUpdate,
                         {addingAuthor && <label>Neuer Autor<input required maxLength={100} autoFocus value={article.author} onChange={event => onUpdate("author", event.target.value)}/></label>}
                         <label>Veröffentlichungsdatum<input type="date" required value={article.date} onChange={event => onUpdate("date", event.target.value)}/></label>
                         <label>Kurzbeschreibung<textarea required maxLength={600} value={article.preview} onChange={event => onUpdate("preview", event.target.value)}/></label>
-                        <div className="action-row" role="group" aria-label="Text formatieren">
-                            <button type="button" onClick={() => onFormat("**", "**")}>Fett</button>
-                            <button type="button" onClick={() => onFormat("\n\n## ")}>Überschrift</button>
-                            <button type="button" onClick={() => onFormat("\n- ")}>Liste</button>
-                            <button type="button" onClick={() => onFormat("[", "](https://)")}>Link</button>
+                        <div className="markdown-toolbar" role="group" aria-label="Text formatieren">
+                            <button type="button" className="markdown-btn" title="Fett (Strg+B)" aria-label="Fett" onClick={() => onFormat("**", "**")}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 4h8a4 4 0 0 1 0 8H6z"/><path d="M6 12h9a4 4 0 0 1 0 8H6z"/></svg></button>
+                            <button type="button" className="markdown-btn" title="Überschrift" aria-label="Überschrift" onClick={() => onFormat("\n\n## ")}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 4v16"/><path d="M18 4v16"/><path d="M6 12h12"/></svg></button>
+                            <button type="button" className="markdown-btn" title="Liste" aria-label="Liste" onClick={() => onFormat("\n- ")}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M8 6h13"/><path d="M8 12h13"/><path d="M8 18h13"/><path d="M3 6h.01"/><path d="M3 12h.01"/><path d="M3 18h.01"/></svg></button>
+                            <button type="button" className="markdown-btn" title="Link (Strg+K)" aria-label="Link" onClick={onFormatLink}><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
                         </div>
-                        <label>Text<textarea ref={textEditor} required rows={15} maxLength={100000} value={article.content} onChange={event => onUpdate("content", event.target.value)}/></label>
+                        <label>Text<textarea ref={textEditor} required rows={15} maxLength={100000} value={article.content} onChange={event => onUpdate("content", event.target.value)} onKeyDown={handleKeyDown}/></label>
                         <p>Absätze durch Leerzeilen trennen. Für Überschriften „## Überschrift“, für Listen „- Eintrag“ verwenden. Die Vorschau zeigt das Ergebnis.</p>
                         <label>Bild hinzufügen (PNG, JPEG, WebP, bis 5 MB)<input type="file" accept="image/png,image/jpeg,image/webp" disabled={uploading || busy} onChange={event => { void onUpload(event.target.files?.[0]); event.target.value = ""; }}/></label>
                         <fieldset>

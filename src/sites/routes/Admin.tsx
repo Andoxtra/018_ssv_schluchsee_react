@@ -1,5 +1,6 @@
 import {useCallback, useEffect, useState} from "react";
 import type {FormEvent} from "react";
+import {Badge, Tabs} from "antd";
 import {useBlocker} from "react-router-dom";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
@@ -25,9 +26,11 @@ const Admin = () => {
     const {articles, load: loadArticles, save: saveArticle, remove: removeArticle, clear: clearArticles} = useAdminArticles();
     const {messages, load: loadInbox, markRead, remove: removeMessage, clear: clearInbox} = useAdminInbox();
     const editor = useArticleEditor({setError, setStatus});
+    const [tab, setTab] = useState<"beitraege" | "posteingang">("beitraege");
     const [deleteMessage, setDeleteMessage] = useState<Message | null>(null);
     const [articleToDelete, setArticleToDelete] = useState<Article | null>(null);
     const blocker = useBlocker(editor.dirty);
+    const unread = messages.filter(message => !message.read).length;
 
     const load = useCallback(async () => {
         await Promise.all([loadArticles(), loadInbox()]);
@@ -91,13 +94,25 @@ const Admin = () => {
         {error && <p className="review-note" role="alert">{error}</p>}
         {status && <p role="status">{status}</p>}
         {!authenticated ? <LoginForm busy={busy} onLogin={login}/> : <>
-            <div className="action-row">
-                <button disabled={busy || editor.dirty || editor.uploading} onClick={logout}>Abmelden</button>
-                <span>{editor.dirty ? "Ungespeicherte Änderungen – bitte speichern oder verwerfen." : "Alle Änderungen gespeichert."}</span>
+            <div className="admin-toolbar">
+                <Tabs
+                    className="admin-tabs"
+                    activeKey={tab}
+                    onChange={key => setTab(key as "beitraege" | "posteingang")}
+                    items={[
+                        {key: "beitraege", label: "Beiträge"},
+                        {key: "posteingang", label: <>Posteingang {unread > 0 && <Badge count={unread} size="small"/>}</>},
+                    ]}
+                />
+                <button type="button" className="admin-icon-btn" title="Abmelden" aria-label="Abmelden" disabled={busy} onClick={logout}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                </button>
             </div>
-            <ArticleSelector articles={articles} selectedId={editor.article.id} dirty={editor.dirty} busy={busy} uploading={editor.uploading} onSelect={editor.select} onDiscard={handleDiscard} onDelete={handleDeleteRequest}/>
-            <ArticleEditor article={editor.article} authors={uniqueAuthors(articles)} busy={busy} uploading={editor.uploading} textEditor={editor.textEditor} onUpdate={editor.update} onFormat={editor.format} onUpload={editor.insertImage} onSave={handleSave}/>
-            <Inbox messages={messages} busy={busy} onToggleRead={handleToggleRead} onDeleteRequest={setDeleteMessage}/>
+            {tab === "beitraege" ? <>
+                <p className="admin-statusbar">{editor.dirty ? "Ungespeicherte Änderungen – bitte speichern oder verwerfen." : "Alle Änderungen gespeichert."}</p>
+                <ArticleSelector articles={articles} selectedId={editor.article.id} dirty={editor.dirty} busy={busy} uploading={editor.uploading} onSelect={editor.select} onNew={editor.reset} onDiscard={handleDiscard} onDelete={handleDeleteRequest}/>
+                <ArticleEditor article={editor.article} authors={uniqueAuthors(articles)} busy={busy} uploading={editor.uploading} textEditor={editor.textEditor} onUpdate={editor.update} onFormat={editor.format} onFormatLink={editor.formatLink} onUpload={editor.insertImage} onSave={handleSave}/>
+            </> : <Inbox messages={messages} busy={busy} onToggleRead={handleToggleRead} onDeleteRequest={setDeleteMessage}/>}
             <UnsavedChangesDialog blocker={blocker}/>
             <ConfirmDialog open={deleteMessage !== null} title="Nachricht löschen?" titleId="delete-message-title" message={<>„{deleteMessage?.subject}“ wird dauerhaft aus dem Posteingang entfernt.</>} confirmLabel="Nachricht löschen" busy={busy} onCancel={() => setDeleteMessage(null)} onConfirm={handleConfirmDelete}/>
             <ConfirmDialog open={articleToDelete !== null} title="Beitrag löschen?" titleId="delete-article-title" message={<>„{articleToDelete?.title}“ wird dauerhaft gelöscht.</>} confirmLabel="Beitrag löschen" busy={busy} onCancel={() => setArticleToDelete(null)} onConfirm={handleConfirmDeleteArticle}/>

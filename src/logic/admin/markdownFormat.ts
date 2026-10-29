@@ -23,3 +23,16 @@ export const applyMarkdownFormat = (
         selectionEnd: start + before.length + selected.length,
     };
 };
+
+export const applyLinkFormat = (content: string, selection: TextSelection): MarkdownFormatResult => {
+    const {start, end} = selection;
+    const selected = content.slice(start, end) || "Text";
+    const url = "https://";
+    const prefix = `[${selected}](${url}`;
+    const urlStart = start + selected.length + 3;
+    return {
+        content: content.slice(0, start) + prefix + ")" + content.slice(end),
+        selectionStart: urlStart,
+        selectionEnd: urlStart + url.length,
+    };
+};
