@@ -1,7 +1,8 @@
 import {test, expect} from '@playwright/test';
 
-for(const width of [320,375,768,1024,1440]) {
-    test(`public pages fit a ${width}px viewport without browser errors`,async({page})=>{
+for(const colorScheme of ['light','dark'] as const) for(const width of [320,375,768,1024,1440]) {
+    test(`public pages fit a ${width}px viewport without browser errors (${colorScheme})`,async({page})=>{
+        await page.emulateMedia({colorScheme});
         await page.setViewportSize({width,height:900});
         const errors:string[]=[];
         page.on('pageerror',error=>errors.push(error.message));
@@ -14,7 +15,7 @@ for(const width of [320,375,768,1024,1440]) {
         }
         expect(errors).toEqual([]);
         await page.goto('/');
-        await page.screenshot({path:`/tmp/ssv-home-${width}.png`,fullPage:true});
+        await page.screenshot({path:`/tmp/ssv-home-${width}-${colorScheme}.png`,fullPage:true});
     });
 }
 
@@ -124,7 +125,8 @@ const textContrast=(element: Element, pseudo?: string): number=>{
     return (light+0.05)/(dark+0.05);
 };
 
-test('checked filter entries, input placeholders and image placeholders keep readable contrast',async({page})=>{
+for(const colorScheme of ['light','dark'] as const) test(`checked filter entries, placeholders and card text keep readable contrast (${colorScheme})`,async({page})=>{
+    await page.emulateMedia({colorScheme});
     await page.goto('/standrekorde');
     await page.locator('main table').first().getByRole('columnheader',{name:/Schütze/}).getByRole('button').click();
     const dropdown=page.locator('.ant-table-filter-dropdown:visible');
@@ -134,4 +136,44 @@ test('checked filter entries, input placeholders and image placeholders keep rea
     expect(await dropdown.getByPlaceholder('In Filtern suchen').evaluate(textContrast,'::placeholder')).toBeGreaterThanOrEqual(4.5);
     await page.goto('/');
     expect(await page.getByText('Bild folgt').first().evaluate(textContrast)).toBeGreaterThanOrEqual(4.5);
+    const card=page.locator('main .mediumBox').first();
+    for(const element of [card.locator('.site-heading').first(),card.locator('p').first(),card.locator('a').first()]) {
+        expect(await element.evaluate(textContrast)).toBeGreaterThanOrEqual(4.5);
+    }
+});
+
+test('dark mode follows the browser setting and the header toggle overrides it across reloads',async({page})=>{
+    const toggle=page.locator('header .theme-toggle, .theme-toggle').first();
+    const theme=()=>page.evaluate(()=>document.documentElement.dataset.theme);
+    const pageBackground=()=>page.evaluate(()=>getComputedStyle(document.body).backgroundColor);
+    await page.emulateMedia({colorScheme:'dark'});
+    await page.goto('/');
+    expect(await theme()).toBe('dark');
+    expect(await pageBackground()).toBe('rgb(16, 24, 19)');
+    await page.emulateMedia({colorScheme:'light'});
+    await expect.poll(theme).toBe('light');
+    await expect(toggle).toHaveAccessibleName('Darstellung: Automatisch – wechseln zu Hell');
+    await toggle.click();
+    await expect(toggle).toHaveAccessibleName('Darstellung: Hell – wechseln zu Dunkel');
+    expect(await theme()).toBe('light');
+    await toggle.click();
+    await expect(toggle).toHaveAccessibleName('Darstellung: Dunkel – wechseln zu Automatisch');
+    expect(await theme()).toBe('dark');
+    await page.reload();
+    expect(await theme()).toBe('dark');
+    await expect(toggle).toHaveAccessibleName('Darstellung: Dunkel – wechseln zu Automatisch');
+    await toggle.click();
+    await expect(toggle).toHaveAccessibleName('Darstellung: Automatisch – wechseln zu Hell');
+    expect(await theme()).toBe('light');
+    expect(await page.evaluate(()=>localStorage.getItem('ssv-theme'))).toBeNull();
+    await page.setViewportSize({width:375,height:812});
+    await expect(toggle).toBeVisible();
+});
+
+test('the admin tabs stay readable in dark mode',async({page})=>{
+    await page.emulateMedia({colorScheme:'dark'});
+    await page.goto('/admin');await page.getByLabel('Benutzername').fill('browser-test');await page.getByLabel('Passwort',{exact:true}).fill('browser-test-password-only');await page.getByRole('button',{name:'Anmelden',exact:true}).click();
+    const activeTab=page.getByRole('tab',{name:'Beiträge'});
+    await expect(activeTab).toHaveAttribute('aria-selected','true');
+    expect(await activeTab.evaluate(textContrast)).toBeGreaterThanOrEqual(4.5);
 });

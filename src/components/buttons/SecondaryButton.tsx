@@ -1,6 +1,7 @@
 import {Link} from "react-router-dom";
 import {Button, ConfigProvider} from 'antd'
-import SecondaryButtonTheme from "../../style/components/buttons/SecondaryButtonTheme.ts";
+import {createSecondaryButtonTheme} from "../../style/components/buttons/SecondaryButtonTheme.ts";
+import {useTheme} from "../../logic/theme/themeContext.ts";
 import SecondaryButtonStyle from "../../style/components/buttons/SecondaryButtonStyle.ts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
 
@@ -18,9 +19,10 @@ const {
 
 
 const SecondaryButton = ({linkTo, text}: SecondaryButtonProps) => {
+    const {palette} = useTheme();
     const internal = linkTo?.startsWith("/") && !linkTo.startsWith("//");
     return (
-        <ConfigProvider theme={SecondaryButtonTheme}>
+        <ConfigProvider theme={createSecondaryButtonTheme(palette)}>
             {internal ? <Link to={linkTo!} className="site-button secondarybutton" style={getDynamicStyle(SecondaryButtonStyleS, SecondaryButtonStyleM, SecondaryButtonStyleL, SecondaryButtonStyleE)}>{text}</Link> : (
             <Button style={getDynamicStyle(SecondaryButtonStyleS, SecondaryButtonStyleM, SecondaryButtonStyleL, SecondaryButtonStyleE)} href={linkTo} type="default">
                 {text}

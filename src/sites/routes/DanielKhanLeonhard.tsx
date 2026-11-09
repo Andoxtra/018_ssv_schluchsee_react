@@ -4,6 +4,7 @@ import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
 import ImagePlaceholder from "../../components/images/ImagePlaceholder.tsx";
+import colorConfig from "../../config/colorConfig.ts";
 
 const careerStations = [
     { year: "1985", achievement: "Schüler Vereinsmeister in Luftpistole; Schüler Bezirksmeister mit Luftpistole" },
@@ -87,9 +88,9 @@ const DanielKhanLeonhard = (): ReactNode => {
                         {strengths.map((s, i) => (
                             <div key={i} style={{
                                 padding: "10px 14px",
-                                background: "#F8F8F4",
+                                background: colorConfig.page,
                                 borderRadius: 8,
-                                border: "1px solid #EDECE4",
+                                border: `1px solid ${colorConfig.surfaceAlt}`,
                                 fontWeight: 500,
                             }}>
                                 {s}
@@ -111,8 +112,8 @@ const DanielKhanLeonhard = (): ReactNode => {
                     }}>
                         <thead>
                             <tr style={{ borderBottom: "2px solid #d48a0b" }}>
-                                <th style={{ textAlign: "left", padding: "10px 12px", color: "#FFFFFF", fontWeight: 700, minWidth: 60 }}>Jahr</th>
-                                <th style={{ textAlign: "left", padding: "10px 12px", color: "#FFFFFF", fontWeight: 700 }}>Erfolg</th>
+                                <th style={{ textAlign: "left", padding: "10px 12px", color: colorConfig.onPrimary, fontWeight: 700, minWidth: 60 }}>Jahr</th>
+                                <th style={{ textAlign: "left", padding: "10px 12px", color: colorConfig.onPrimary, fontWeight: 700 }}>Erfolg</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -3,7 +3,7 @@ import colorConfig from "../../../config/colorConfig";
 
 const TableGeneralStyle: CSSProperties = {
     fontSize: 14,
-    color: colorConfig.primary,
+    color: colorConfig.primaryText,
     width: "100%",
     display: "flex",
     flexDirection: "column",

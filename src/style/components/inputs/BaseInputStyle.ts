@@ -7,7 +7,7 @@ const GeneralInputStyle: CSSProperties = {
     border: `1px solid ${colorConfig.border}`,
     padding: "8px 12px",
     transition: "all 0.3s ease",
-    boxShadow: "0 1px 3px rgba(0, 0, 0, 0.04)",
+    boxShadow: colorConfig.shadowSm,
 };
 
 const BaseInputStyleS: CSSProperties = {

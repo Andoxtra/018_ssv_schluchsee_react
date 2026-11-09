@@ -1,66 +1,84 @@
-import colorConfig from "../../config/colorConfig.ts";
+import {theme} from "antd";
 import type {ThemeConfig} from "antd";
+import type {Palette, ThemeMode} from "../../config/palette.ts";
 
-
-const TableTheme : ThemeConfig = {
+export const createBaseTheme = (palette: Palette, mode: ThemeMode): ThemeConfig => ({
+    algorithm: mode === "dark" ? theme.darkAlgorithm : theme.defaultAlgorithm,
     token: {
-        colorPrimary: colorConfig.primary,
-        colorInfo: colorConfig.primary,
+        colorPrimary: palette.primary,
+        colorInfo: palette.primary,
+        colorError: palette.error,
+        colorSuccess: palette.success,
         fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
         borderRadius: 8,
         fontSize: 14,
 
-        colorLink: colorConfig.secondary,
-        colorLinkHover: colorConfig.secondaryHover,
-        colorLinkActive: colorConfig.secondaryActive,
+        colorText: palette.text,
+        colorTextSecondary: palette.textSecondary,
+        colorBgBase: palette.page,
+        colorBgLayout: palette.page,
+        colorBgContainer: palette.surface,
+        colorBgElevated: palette.surface,
+        colorBorder: palette.border,
+        colorBorderSecondary: palette.borderSoft,
 
-        controlOutline: colorConfig.primary,
+        colorLink: palette.link,
+        colorLinkHover: palette.linkHover,
+        colorLinkActive: palette.link,
+
+        controlOutline: palette.focusGlow,
         // Selected items in filters, selects and menus keep dark text, so they need a light background.
-        controlItemBgActive: colorConfig.primaryTint,
-        controlItemBgActiveHover: colorConfig.primaryTintHover,
+        controlItemBgActive: palette.primaryTint,
+        controlItemBgActiveHover: palette.primaryTintHover,
         // antd's default placeholder grey (25% black) is only 1.8:1 on white.
-        colorTextPlaceholder: colorConfig.textMuted,
+        colorTextPlaceholder: palette.textMuted,
     },
 
     components: {
         Table: {
-            headerColor: colorConfig.primary,
-            headerBg: colorConfig.backgroundAlt,
-            rowHoverBg: colorConfig.backgroundAlt,
-            borderColor: colorConfig.border,
-            headerSplitColor: colorConfig.border,
-            colorIcon: colorConfig.primary,
-            colorIconHover: colorConfig.primaryActive,
-            colorTextSecondary: colorConfig.textSecondary,
+            headerColor: palette.primaryText,
+            headerBg: palette.surfaceAlt,
+            rowHoverBg: palette.surfaceAlt,
+            borderColor: palette.border,
+            headerSplitColor: palette.border,
+            colorIcon: palette.primaryText,
+            colorIconHover: palette.linkHover,
+            colorTextSecondary: palette.textSecondary,
             borderRadius: 8,
             fontSize: 14,
         },
 
+        // Tabs colour their active label with colorPrimary, a fill colour; use the text role instead.
+        Tabs: {
+            itemSelectedColor: palette.primaryText,
+            itemHoverColor: palette.linkHover,
+            itemActiveColor: palette.primaryText,
+            inkBarColor: palette.primaryText,
+        },
+
         Dropdown: {
-            colorBgElevated: colorConfig.white,
-            controlItemBgHover: colorConfig.backgroundAlt,
-            colorText: colorConfig.textPrimary,
+            colorBgElevated: palette.surface,
+            controlItemBgHover: palette.surfaceAlt,
+            colorText: palette.text,
         },
         Select: {
-            colorPrimaryBorder: colorConfig.primary,
+            colorPrimaryBorder: palette.primary,
         },
         Checkbox: {
-            colorPrimary: colorConfig.primary,
+            colorPrimary: palette.primary,
         },
         Radio: {
-            colorPrimary: colorConfig.primary,
+            colorPrimary: palette.primary,
         },
         Input: {
-            colorPrimaryBorder: colorConfig.primary,
+            colorPrimaryBorder: palette.primary,
         },
         Button: {
-            colorPrimary: colorConfig.primary,
-            primaryColor: colorConfig.white,
-            defaultBg: colorConfig.white,
-            defaultColor: colorConfig.primary,
+            colorPrimary: palette.primary,
+            primaryColor: palette.onPrimary,
+            defaultBg: palette.surface,
+            defaultColor: palette.primaryText,
             borderRadius: 6,
         }
     }
-};
-
-export default TableTheme;
+});
