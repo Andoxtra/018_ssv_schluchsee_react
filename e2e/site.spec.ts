@@ -177,3 +177,29 @@ test('the admin tabs stay readable in dark mode',async({page})=>{
     await expect(activeTab).toHaveAttribute('aria-selected','true');
     expect(await activeTab.evaluate(textContrast)).toBeGreaterThanOrEqual(4.5);
 });
+
+for(const [colorScheme,green] of [['light','rgb(20, 54, 32)'],['dark','rgb(46, 107, 69)']] as const) test(`form checkboxes use the club green (${colorScheme})`,async({page})=>{
+    await page.emulateMedia({colorScheme});
+    await page.goto('/kontaktformular');
+    const consent=page.locator('input[name="consent"]');
+    await expect(consent).toHaveCSS('accent-color',green);
+});
+
+test('header and footer links show a growing underline and colour change on hover',async({page})=>{
+    await page.setViewportSize({width:1440,height:900});
+    await page.goto('/');
+    const bar=(locator: import('@playwright/test').Locator)=>locator.evaluate(element=>getComputedStyle(element,'::after').transform);
+    const headerLink=page.locator('.desktop-nav').getByRole('link',{name:'Kontakt',exact:true});
+    expect(await bar(headerLink)).toBe('matrix(0, 0, 0, 1, 0, 0)');
+    await headerLink.hover();
+    await expect.poll(()=>bar(headerLink)).toBe('matrix(1, 0, 0, 1, 0, 0)');
+    const footerLink=page.locator('.site-footer nav').getByRole('link',{name:'Impressum'});
+    const before=await footerLink.evaluate(element=>getComputedStyle(element).color);
+    expect(await bar(footerLink)).toBe('matrix(0, 0, 0, 1, 0, 0)');
+    await footerLink.hover();
+    await expect.poll(()=>bar(footerLink)).toBe('matrix(1, 0, 0, 1, 0, 0)');
+    await expect(footerLink).toHaveCSS('color','rgb(255, 255, 255)');
+    expect(before).not.toBe('rgb(255, 255, 255)');
+    await page.goto('/kontakt');
+    expect(await bar(page.locator('.desktop-nav').getByRole('link',{name:'Kontakt',exact:true}))).toBe('matrix(1, 0, 0, 1, 0, 0)');
+});
