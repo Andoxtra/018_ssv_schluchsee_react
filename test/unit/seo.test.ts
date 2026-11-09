@@ -24,6 +24,14 @@ describe("seo metadata", () => {
         expect(out).toContain('property="og:title"');
     });
 
+    test("keeps dollar sequences in paths and titles literal", () => {
+        const html = '<html><head><title>x</title></head><body>BODY</body></html>';
+        const out = injectHead(html, "/x$'$`$&", "https://ssv-schluchsee.de", {title: "Preis $' $&", description: "d"});
+        expect(out).toContain('href="https://ssv-schluchsee.de/x$\'$`$&amp;"');
+        expect(out).toContain("<title>Preis $' $&amp;</title>");
+        expect(out.match(/BODY/g)).toHaveLength(1);
+    });
+
     test("adds noindex for admin and organization JSON-LD on the home page", () => {
         const admin = injectHead('<html><head><title>x</title></head><body></body></html>', "/admin", "https://ssv-schluchsee.de");
         expect(admin).toContain('name="robots" content="noindex, nofollow"');

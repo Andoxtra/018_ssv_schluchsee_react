@@ -158,9 +158,84 @@ Backups are private: they contain messages and administrator credentials.
   data. Do not run `docker compose down -v` on a live site.
 - Keep `TRUST_PROXY=1`; only Caddy may reach the application port.
 - Rate limits are held in memory and reset on restart.
-- Updates: `git pull`, `docker compose build`, `docker compose up -d`.
+- Updates: run the *Deploy* workflow (see "Automatic deployment" below), or by hand: `git pull`, `docker compose build`, `docker compose up -d`.
 - The production build excludes `/testing`; it remains available in development or
   when explicitly built with `VITE_ENABLE_SHOWCASE=true`.
+
+## Automatic deployment (GitHub Actions)
+
+Two workflows live in `.github/workflows/`:
+
+- **CI** (`ci.yml`) runs on every push to `main` and on pull requests: `npm ci`,
+  build, lint, Vitest and the Playwright browser suite.
+- **Deploy** (`deploy.yml`) runs **only when started by hand**: *Actions → Deploy →
+  Run workflow*. It runs the same checks, then connects to the VPS over SSH and
+  deploys exactly the commit that passed. Only `main` or a tag can be deployed.
+
+On the VPS, `/usr/local/bin/ssv-deploy` (installed from `deploy/deploy.sh`):
+
+1. checks out that commit in `/opt/ssv`
+2. builds the image while the site keeps running
+3. stops the app briefly to archive the `club-data` volume to `/opt/ssv-backups`
+   (the last ten archives are kept)
+4. starts the containers and waits until they are healthy
+5. checks `https://$SITE_HOST/api/news` through the local Caddy. This requires DNS
+   and the HTTPS certificate, so the first deployment needs the domain set up first.
+
+Any failure turns the workflow run red.
+
+GitHub's free plan is enough: public repositories have unlimited Actions minutes,
+and private ones get 2,000 minutes a month. One deploy takes about 5–10 minutes.
+
+### One-time setup
+
+1. **Deploy key pair.** Generate it on your own machine; never on the VPS, never committed:
+
+   ```sh
+   ssh-keygen -t ed25519 -N '' -C 'github-actions-deploy' -f ssv_deploy_key
+   ```
+
+2. **VPS.** `deploy/setup-vps.sh` creates the `deploy` user (member of the `docker`
+   group), gives it `/opt/ssv` and `/opt/ssv-backups`, installs `ssv-deploy` and asks
+   for the public key (`ssv_deploy_key.pub`). The key is entered as
+   `restrict,command="/usr/local/bin/ssv-deploy" …` in `authorized_keys`, so it
+   can only start a deployment: no shell, no PTY, no forwarding. On an existing
+   server, run the step "9. Deploy user" from the script by hand.
+3. **Private repository only.** The VPS must be able to `git fetch`. Create a second
+   key pair as the `deploy` user, add its public key under *Repository → Settings →
+   Deploy keys* (read-only), and switch the remote to SSH:
+   `git -C /opt/ssv remote set-url origin git@github.com:Andoxtra/018_ssv_schluchsee_react.git`.
+4. **Repository secrets** (*Settings → Secrets and variables → Actions*):
+
+   | Secret | Value |
+   | --- | --- |
+   | `VPS_HOST` | VPS hostname or IP address |
+   | `VPS_SSH_KEY` | Contents of the private key `ssv_deploy_key` |
+   | `VPS_KNOWN_HOSTS` | Output of `ssh-keyscan -t ed25519 <VPS_HOST>`. Compare its fingerprint with the one `setup-vps.sh` prints, so a spoofed server is rejected. |
+   | `VPS_PORT` | Optional; defaults to 22 |
+
+   Delete the local private key file after saving it as a secret.
+
+### Rolling back
+
+Tag the last good commit (`git tag good-2026-11-09 <sha> && git push origin good-2026-11-09`),
+then run *Deploy* and choose that tag under "Use workflow from". This works only for
+commits that already contain `.github/workflows/deploy.yml`. The data volume
+is not rolled back; restore an archive from `/opt/ssv-backups` only if the data
+itself is damaged. Stop the app, extract the archive into the volume, start it.
+
+### Notes
+
+- `ssv-deploy` refuses to run when tracked files in `/opt/ssv` were edited on the
+  server. Keep configuration in the ignored `.env`.
+- When `deploy/deploy.sh` changes, reinstall it on the VPS:
+  `install -m 755 /opt/ssv/deploy/deploy.sh /usr/local/bin/ssv-deploy`. It lives
+  outside the repository on purpose, so a checkout can never rewrite the running script.
+- Membership in the `docker` group is equivalent to root on that machine. That is why
+  the key is limited to the deploy command and the private key exists only as a GitHub secret.
+- Required reviewers ("environments") are not used, because private repositories
+  on the free plan do not offer them. Only people with write access can start the
+  manual Deploy workflow.
 
 For a non-Docker server, run `npm run build`, set `SITE_ORIGIN` to the public HTTPS
 origin, and run `npm start` behind an HTTPS reverse proxy as an unprivileged user.

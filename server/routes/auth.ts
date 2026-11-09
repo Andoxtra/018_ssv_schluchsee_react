@@ -4,8 +4,8 @@ import {LOGIN_RATE_LIMIT, MAX_LOGIN_JSON_BYTES, SESSION_COOKIE, SESSION_MAX_AGE_
 import {HttpError, jsonBody} from "../lib/http.ts";
 import type {Handler} from "../types.ts";
 
-const setCookie = (res: {setHeader: (name: string, value: string) => void}, value: string, secureCookies: boolean): void => {
-    res.setHeader("Set-Cookie", `${SESSION_COOKIE}=${value}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${SESSION_MAX_AGE_SECONDS}${secureCookies ? "; Secure" : ""}`);
+const setCookie = (res: {setHeader: (name: string, value: string) => void}, value: string, secureCookies: boolean, maxAge = SESSION_MAX_AGE_SECONDS): void => {
+    res.setHeader("Set-Cookie", `${SESSION_COOKIE}=${value}; Path=/; HttpOnly; SameSite=Strict; Max-Age=${maxAge}${secureCookies ? "; Secure" : ""}`);
 };
 
 export const login: Handler = async ({req, res, db, clientAddress, rateLimit, send, credentials, secureCookies}) => {
@@ -23,6 +23,6 @@ export const login: Handler = async ({req, res, db, clientAddress, rateLimit, se
 export const logout: Handler = ({res, db, session, send, secureCookies}) => {
     const current = session();
     if (current) db.deleteSession(current.token);
-    setCookie(res, "", secureCookies);
+    setCookie(res, "", secureCookies, 0);
     send(200, {authenticated: false});
 };

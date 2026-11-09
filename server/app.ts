@@ -28,14 +28,14 @@ const routes: Route[] = [
     {method: "POST", pattern: "/api/contact", handler: submitContact},
     {method: "GET", pattern: "/sitemap.xml", handler: sitemap},
     {method: "GET", pattern: "/robots.txt", handler: robots},
-    {method: "GET", pattern: "/api/admin/news", handler: listArticles},
-    {method: "POST", pattern: "/api/admin/news", handler: createArticle},
-    {method: "PUT", pattern: "/api/admin/news/:id", handler: updateArticle},
-    {method: "DELETE", pattern: "/api/admin/news/:id", handler: deleteArticle},
-    {method: "GET", pattern: "/api/admin/messages", handler: listMessages},
-    {method: "PATCH", pattern: "/api/admin/messages/:id", handler: setMessageRead},
-    {method: "DELETE", pattern: "/api/admin/messages/:id", handler: deleteMessage},
-    {method: "POST", pattern: "/api/admin/uploads", handler: uploadImage},
+    {method: "GET", pattern: "/api/admin/news", handler: listArticles, auth: true},
+    {method: "POST", pattern: "/api/admin/news", handler: createArticle, auth: true},
+    {method: "PUT", pattern: "/api/admin/news/:id", handler: updateArticle, auth: true},
+    {method: "DELETE", pattern: "/api/admin/news/:id", handler: deleteArticle, auth: true},
+    {method: "GET", pattern: "/api/admin/messages", handler: listMessages, auth: true},
+    {method: "PATCH", pattern: "/api/admin/messages/:id", handler: setMessageRead, auth: true},
+    {method: "DELETE", pattern: "/api/admin/messages/:id", handler: deleteMessage, auth: true},
+    {method: "POST", pattern: "/api/admin/uploads", handler: uploadImage, auth: true},
 ];
 
 export function createApp(options: CreateAppOptions) {
@@ -102,6 +102,7 @@ export function createApp(options: CreateAppOptions) {
             if (path.startsWith("/api/admin/") && !session(req)) throw new HttpError(401, "Bitte melden Sie sich an.");
 
             const matched = matchRoute(routes, req.method ?? "GET", path);
+            if (matched?.auth && !session(req)) throw new HttpError(401, "Bitte melden Sie sich an.");
             if (matched) {
                 const context: RequestContext = {
                     req,

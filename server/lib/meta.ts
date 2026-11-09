@@ -39,5 +39,7 @@ export const injectHead = (html: string, path: string, origin: string, article?:
         .replace(/<meta\s+property="og:[^>]*>/g, "")
         .replace(/<meta\s+name="twitter:[^>]*>/g, "")
         .replace(/<script\s+type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/g, "");
-    return stripped.replace("</head>", `${tags.join("\n")}\n</head>`);
+    const head = `${tags.join("\n")}\n</head>`;
+    // A replacer function keeps "$" sequences from the path or title literal.
+    return stripped.replace("</head>", () => head);
 };

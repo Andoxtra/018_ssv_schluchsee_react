@@ -2,6 +2,8 @@ services:
   app:
     build: .
     restart: unless-stopped
+    # Forwards SIGTERM to Node so `docker compose stop` does not wait for the kill timeout.
+    init: true
     environment:
       TRUST_PROXY: "1"
       SITE_ORIGIN: https://${SITE_HOST:?Set SITE_HOST to the public domain}

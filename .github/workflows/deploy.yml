@@ -1,0 +1,46 @@
+name: Deploy
+
+# Manual only: Actions tab → Deploy → Run workflow. Pick `main`, or a tag to roll back.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    if: github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/')
+    uses: ./.github/workflows/ci.yml
+
+  deploy:
+    needs: checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Deploy the tested commit over SSH
+        env:
+          VPS_HOST: ${{ secrets.VPS_HOST }}
+          VPS_PORT: ${{ secrets.VPS_PORT }}
+          VPS_SSH_KEY: ${{ secrets.VPS_SSH_KEY }}
+          VPS_KNOWN_HOSTS: ${{ secrets.VPS_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          for name in VPS_HOST VPS_SSH_KEY VPS_KNOWN_HOSTS; do
+            [ -n "${!name}" ] || { echo "::error::Repository secret $name is not set."; exit 1; }
+          done
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$VPS_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          printf '%s\n' "$VPS_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          # The key is restricted on the server to /usr/local/bin/ssv-deploy;
+          # the only thing sent is the commit SHA that passed the checks.
+          ssh -i ~/.ssh/deploy_key -p "${VPS_PORT:-22}" \
+            -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o BatchMode=yes \
+            deploy@"$VPS_HOST" "$GITHUB_SHA"
+      - name: Remove the SSH key
+        if: always()
+        run: rm -f ~/.ssh/deploy_key

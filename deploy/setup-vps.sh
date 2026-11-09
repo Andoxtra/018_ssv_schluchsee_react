@@ -74,6 +74,25 @@ echo "==> 8. Start the site"
 docker compose up -d
 docker compose ps
 
+echo "==> 9. Deploy user for GitHub Actions"
+id deploy >/dev/null 2>&1 || useradd --create-home --shell /bin/bash deploy
+usermod -aG docker deploy
+chown -R deploy:deploy "$APP_DIR"
+install -d -o deploy -g deploy -m 700 /opt/ssv-backups
+# Installed outside the repository so a checkout can never change the script while it runs.
+install -o root -g root -m 755 "$APP_DIR/deploy/deploy.sh" /usr/local/bin/ssv-deploy
+install -d -o deploy -g deploy -m 700 /home/deploy/.ssh
+echo "Paste the PUBLIC key of the GitHub Actions deploy key (ssh-ed25519 …), or leave empty to skip:"
+read -r DEPLOY_PUBKEY
+if [ -n "$DEPLOY_PUBKEY" ]; then
+    # restrict: no shell, PTY or forwarding; the key can only run ssv-deploy.
+    echo "restrict,command=\"/usr/local/bin/ssv-deploy\" $DEPLOY_PUBKEY" > /home/deploy/.ssh/authorized_keys
+    chown deploy:deploy /home/deploy/.ssh/authorized_keys
+    chmod 600 /home/deploy/.ssh/authorized_keys
+fi
+
 echo
 echo "Done. Check https://$SITE_HOST and log in at https://$SITE_HOST/admin"
+echo "GitHub secret VPS_KNOWN_HOSTS: run 'ssh-keyscan -t ed25519 <this server>' from a trusted machine and compare it with:"
+ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub
 echo "Follow the logs with: cd $APP_DIR && docker compose logs -f"

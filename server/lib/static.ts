@@ -16,6 +16,14 @@ const MIME: Record<string, string> = {
     ".woff2": "font/woff2",
 };
 
+const decodePath = (path: string): string => {
+    try {
+        return decodeURIComponent(path);
+    } catch {
+        throw new HttpError(404, "Datei nicht gefunden.");
+    }
+};
+
 export const serveStatic = (req: IncomingMessage, res: ServerResponse, path: string, options: {distDir?: string; uploads: string; injectHead?: (html: string) => string}): void => {
     const {distDir, uploads, injectHead} = options;
     let file: string;
@@ -25,7 +33,7 @@ export const serveStatic = (req: IncomingMessage, res: ServerResponse, path: str
         file = resolve(uploads, name);
     } else {
         if (!distDir) throw new HttpError(404, "Seite nicht gefunden.");
-        file = resolve(distDir, "." + decodeURIComponent(path));
+        file = resolve(distDir, "." + decodePath(path));
         if (!file.startsWith(resolve(distDir) + sep) && file !== resolve(distDir)) throw new HttpError(404, "Datei nicht gefunden.");
         if (!existsSync(file) || !statSync(file).isFile()) {
             if (extname(path)) throw new HttpError(404, "Datei nicht gefunden.");
