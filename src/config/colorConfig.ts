@@ -1,35 +1,10 @@
-const colorConfig = {
-    primary: "rgba(20,54,32,1)",
-    primaryActive: "rgba(20,54,32,0.85)",
-    primaryHover: "rgba(32,80,48,0.85)",
-    secondary: "rgba(154,101,8,1)",
-    secondaryActive: "rgba(130,85,6,0.9)",
-    secondaryHover: "rgba(180,120,10,0.85)",
-    tertiary: "rgb(90,130,60,1)",
-    tertiaryActive: "rgba(90,130,60,0.8)",
-    tertiaryHover: "rgba(90,130,60,0.6)",
-    quaternary: "rgba(148,160,156,0.75)",
-    quaternaryActive: "rgba(148,160,156,0.75)",
-    quaternaryHover: "rgba(148,160,156,0.5)",
-    backgroundLight: "#F8F8F4",
-    backgroundAlt: "#EDECE4",
-    // Light club green for selected list items; dark text on it stays above 12:1.
-    primaryTint: "#E3ECE5",
-    primaryTintHover: "#D3E1D6",
-    border: "#D5D2C8",
-    error: "#d43030",
-    success:"#3abf3a",
-    textPrimary: "#1a1a1a",
-    textSecondary: "#5a5a5a",
-    // Quietest text colour that still reaches 4.5:1 on white and backgroundAlt.
-    textMuted: "#66665f",
-    white: "#FFFFFF",
-    darkBg: "#0d2215",
-    darkBgLight: "#143620",
-    accentWarm: "#d48a0b",
-    shadowSm: "0 1px 3px rgba(0, 0, 0, 0.08)",
-    shadowMd: "0 4px 12px rgba(0, 0, 0, 0.1)",
-    shadowLg: "0 8px 30px rgba(0, 0, 0, 0.12)",
-};
+import {cssVariableName, lightPalette} from "./palette.ts";
+import type {Palette} from "./palette.ts";
+
+// CSS custom-property references for inline style objects: they follow the active
+// light/dark mode automatically. Raw values for Ant Design live in palette.ts.
+const colorConfig = Object.fromEntries(
+    (Object.keys(lightPalette) as (keyof Palette)[]).map(role => [role, `var(${cssVariableName(role)})`]),
+) as Record<keyof Palette, string>;
 
 export default colorConfig;

@@ -3,11 +3,11 @@ import colorConfig from "../../../config/colorConfig.ts";
 
 const DropdownGeneralStyle: CSSProperties = {
     fontSize: 14,
-    color: colorConfig.textPrimary,
+    color: colorConfig.text,
     borderRadius: 6,
     border: `1px solid ${colorConfig.border}`,
     transition: "all 0.3s ease",
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.05)",
+    boxShadow: colorConfig.shadowSm,
 };
 
 const DropdownStyleS: CSSProperties = {

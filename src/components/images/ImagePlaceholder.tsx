@@ -14,8 +14,8 @@ const ImagePlaceholder = ({src, alt, label = "Bild folgt", aspectRatio = "4 / 3"
     return (
         <div role="img" aria-label={`${alt} (${label})`} style={{
             ...base,
-            background: "#EDECE4",
-            border: "1px dashed #c8c5bb",
+            background: colorConfig.surfaceAlt,
+            border: `1px dashed ${colorConfig.borderStrong}`,
             display: "flex",
             alignItems: "center",
             justifyContent: "center",

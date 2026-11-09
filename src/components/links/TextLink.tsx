@@ -28,11 +28,11 @@ const TextLink = ({href, children, target = "_self", title, className}: TextLink
             className={className}
             style={getDynamicStyle(TextLinkStyleS, TextLinkStyleM, TextLinkStyleL, TextLinkStyleE)}
             onMouseOver={(e) => {
-                e.currentTarget.style.color = ColorConfig.secondaryActive;
-                e.currentTarget.style.borderBottomColor = ColorConfig.secondaryActive;
+                e.currentTarget.style.color = ColorConfig.linkHover;
+                e.currentTarget.style.borderBottomColor = ColorConfig.linkHover;
             }}
             onMouseOut={(e) => {
-                e.currentTarget.style.color = ColorConfig.secondary;
+                e.currentTarget.style.color = ColorConfig.link;
                 e.currentTarget.style.borderBottomColor = "transparent";
             }}
         >

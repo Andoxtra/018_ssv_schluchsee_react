@@ -23,9 +23,18 @@ export function parseNewsFile(path: string, source: string): Article {
     if (!metadata.author || !metadata.preview || !/^\d{4}-\d{2}-\d{2}$/.test(metadata.date) || Number.isNaN(Date.parse(metadata.date))) {
         throw new Error(`Missing news metadata: ${path}`);
     }
-    return {id, title: match[1], date: metadata.date, author: metadata.author,
-        preview: metadata.preview, content: match[3].trim(), published: true,
-        reviewNote: metadata.reviewNote ?? '', eventDates: metadata.eventDates?.split(',').map(value => value.trim()) ?? [], version: 1};
+    return {
+        id,
+        title: match[1],
+        date: metadata.date,
+        author: metadata.author,
+        preview: metadata.preview,
+        content: match[3].trim(),
+        published: true,
+        reviewNote: metadata.reviewNote ?? '',
+        eventDates: metadata.eventDates?.split(',').map(value => value.trim()) ?? [],
+        version: 1
+    };
 }
 
 const compareIds = (a: string, b: string): number => {

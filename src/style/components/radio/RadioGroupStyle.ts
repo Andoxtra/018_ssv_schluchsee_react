@@ -3,7 +3,7 @@ import colorConfig from "../../../config/colorConfig.ts";
 
 const RadioGroupGeneralStyle: CSSProperties = {
     fontSize: 14,
-    color: colorConfig.primary,
+    color: colorConfig.primaryText,
     display: "flex",
     gap: 16,
     flexWrap: "wrap",

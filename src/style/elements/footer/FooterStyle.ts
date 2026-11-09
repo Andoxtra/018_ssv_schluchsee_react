@@ -2,8 +2,8 @@ import type {CSSProperties} from "react";
 import colorConfig from "../../../config/colorConfig.ts";
 
 const FooterGeneral: CSSProperties = {
-    background: "linear-gradient(180deg, #0d2215 0%, #143620 100%)",
-    color: colorConfig.white,
+    background: `linear-gradient(180deg, ${colorConfig.footerBg} 0%, ${colorConfig.heroMid} 100%)`,
+    color: colorConfig.onPrimary,
     padding: "48px 24px 24px",
     marginTop: 60,
 };

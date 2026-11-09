@@ -5,6 +5,7 @@ import type {ReactNode} from "react";
 import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
+import colorConfig from "../../config/colorConfig.ts";
 
 type BoardMember = {name: string; role: string; email?: string; phone?: string};
 
@@ -47,16 +48,16 @@ const Contact = (): ReactNode => {
                             alignItems: "center",
                             gap: 12,
                             padding: "12px 14px",
-                            background: "#F8F8F4",
+                            background: colorConfig.page,
                             borderRadius: 8,
-                            border: "1px solid #EDECE4",
+                            border: `1px solid ${colorConfig.surfaceAlt}`,
                         }}>
                             <div style={{
                                 width: 42,
                                 height: 42,
                                 borderRadius: "50%",
-                                background: "#143620",
-                                color: "#FFFFFF",
+                                background: colorConfig.primary,
+                                color: colorConfig.onPrimary,
                                 display: "flex",
                                 alignItems: "center",
                                 justifyContent: "center",
@@ -67,9 +68,10 @@ const Contact = (): ReactNode => {
                                 {member.name.split(" ").filter(n => !n.includes("(")).map(n => n[0]).join("").slice(0, 2)}
                             </div>
                             <div>
-                                <div style={{ fontWeight: 600, color: "#1a1a1a", fontSize: "0.9375rem" }}>{member.name}</div>
-                                <div style={{ color: "#5a5a5a", fontSize: "0.8125rem" }}>{member.role}</div>
+                                <div style={{ fontWeight: 600, color: colorConfig.text, fontSize: "0.9375rem" }}>{member.name}</div>
+                                <div style={{ color: colorConfig.textSecondary, fontSize: "0.8125rem" }}>{member.role}</div>
                                 {member.email && <a href={`mailto:${member.email}`} style={{ fontSize: "0.8125rem" }}>{member.email}</a>}
+                                <br/>
                                 {member.phone && <a href={`tel:${member.phone.replace(/\s/g, "")}`} style={{ fontSize: "0.8125rem" }}>{member.phone}</a>}
                             </div>
                         </div>

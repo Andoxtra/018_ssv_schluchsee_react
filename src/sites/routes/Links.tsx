@@ -4,6 +4,7 @@ import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
 import ArrowLink from "../../components/links/ArrowLink.tsx";
+import colorConfig from "../../config/colorConfig.ts";
 
 const linksGroups = [
     {title: "Sport und Verbände", links: [
@@ -38,10 +39,10 @@ const Links = (): ReactNode => {
                                 target="_blank"
                                 style={{
                                     padding: "10px 14px",
-                                    background: "#F8F8F4",
+                                    background: colorConfig.page,
                                     borderRadius: 8,
-                                    border: "1px solid #EDECE4",
-                                    color: "#9a6508",
+                                    border: `1px solid ${colorConfig.surfaceAlt}`,
+                                    color: colorConfig.link,
                                     fontWeight: 500,
                                     textDecoration: "underline",
                                 }}

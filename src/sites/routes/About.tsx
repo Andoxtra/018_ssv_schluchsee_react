@@ -5,6 +5,7 @@ import BigBox from "../../components/boxes/BigBox.tsx";
 import MediumBox from "../../components/boxes/MediumBox.tsx";
 import Heading from "../../components/texts/Heading.tsx";
 import ImagePlaceholder from "../../components/images/ImagePlaceholder.tsx";
+import colorConfig from "../../config/colorConfig.ts";
 
 const historySections: {title: string; content: string; imageAlt?: string}[] = [
     {
@@ -128,12 +129,12 @@ const About = (): ReactNode => {
                     {ehrenmitglieder.map((mitglied, i) => (
                         <div key={i} style={{
                             padding: 16,
-                            background: "#F8F8F4",
+                            background: colorConfig.page,
                             borderRadius: 8,
-                            border: "1px solid #EDECE4",
+                            border: `1px solid ${colorConfig.surfaceAlt}`,
                         }}>
-                            <div style={{ fontWeight: 600, color: "#143620", marginBottom: 6 }}>{mitglied.name}</div>
-                            <div style={{ color: "#5a5a5a", fontSize: "0.875rem", lineHeight: 1.6 }}>{mitglied.note}</div>
+                            <div style={{ fontWeight: 600, color: colorConfig.primaryText, marginBottom: 6 }}>{mitglied.name}</div>
+                            <div style={{ color: colorConfig.textSecondary, fontSize: "0.875rem", lineHeight: 1.6 }}>{mitglied.note}</div>
                         </div>
                     ))}
                 </div>

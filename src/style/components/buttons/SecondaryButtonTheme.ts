@@ -1,26 +1,23 @@
-import colorConfig from "../../../config/colorConfig.ts";
 import type {ThemeConfig} from "antd";
+import type {Palette} from "../../../config/palette.ts";
 
-const SecondaryButtonTheme: ThemeConfig = {
-    token : {
-        colorPrimary : colorConfig.secondary,
+export const createSecondaryButtonTheme = (palette: Palette): ThemeConfig => ({
+    token: {
+        colorPrimary: palette.secondary,
     },
     components: {
         Button: {
-            colorPrimary: colorConfig.secondary,
-            primaryColor: colorConfig.white,
-            defaultBg: colorConfig.secondary,
-            defaultColor: colorConfig.white,
-            defaultBorderColor: colorConfig.secondary,
-            defaultHoverBg: colorConfig.secondaryActive,
-            defaultHoverColor: colorConfig.white,
-            defaultHoverBorderColor: colorConfig.secondaryActive,
-            defaultActiveBg: colorConfig.primary,
-            defaultActiveColor: colorConfig.white,
+            colorPrimary: palette.secondary,
+            primaryColor: palette.onPrimary,
+            defaultBg: palette.secondary,
+            defaultColor: palette.onPrimary,
+            defaultBorderColor: palette.secondary,
+            defaultHoverBg: palette.secondaryHover,
+            defaultHoverColor: palette.onPrimary,
+            defaultHoverBorderColor: palette.secondaryHover,
+            defaultActiveBg: palette.primary,
+            defaultActiveColor: palette.onPrimary,
             borderRadius: 6,
         }
     }
-};
-
-
-export default SecondaryButtonTheme;
+});

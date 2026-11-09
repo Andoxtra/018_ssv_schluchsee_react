@@ -3,7 +3,7 @@ import colorConfig from "../../../config/colorConfig.ts";
 
 const CheckBoxGeneralStyle: CSSProperties = {
     fontSize: 14,
-    color: colorConfig.textPrimary,
+    color: colorConfig.text,
     margin: 4,
 };
 

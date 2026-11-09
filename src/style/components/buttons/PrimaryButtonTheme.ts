@@ -1,12 +1,8 @@
-import colorConfig from "../../../config/colorConfig.ts";
-
 import type {ThemeConfig} from "antd";
+import type {Palette} from "../../../config/palette.ts";
 
-const PrimaryButtonTheme: ThemeConfig = {
-    token : {
-        colorPrimary : colorConfig.primary,
+export const createPrimaryButtonTheme = (palette: Palette): ThemeConfig => ({
+    token: {
+        colorPrimary: palette.primary,
     }
-};
-
-
-export default PrimaryButtonTheme;
+});

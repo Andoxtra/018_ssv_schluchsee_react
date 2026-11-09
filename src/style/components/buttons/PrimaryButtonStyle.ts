@@ -5,7 +5,7 @@ import colorConfig from "../../../config/colorConfig.ts";
 const GeneralPrimaryButtonStyle: CSSProperties = {
     ...GeneralButtonStyle,
     backgroundColor: colorConfig.primary,
-    color: colorConfig.white,
+    color: colorConfig.onPrimary,
     borderRadius: 6,
     fontWeight: 600,
     transition: "all 0.3s ease",

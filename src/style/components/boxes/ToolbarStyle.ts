@@ -7,7 +7,7 @@ const ToolbarGeneral: CSSProperties = {
     left: 0,
     right: 0,
     zIndex: 1000,
-    background: "rgba(255, 255, 255, 0.97)",
+    background: colorConfig.headerBg,
     backdropFilter: "blur(12px)",
     borderBottom: `1px solid ${colorConfig.border}`,
     display: "flex",
@@ -15,7 +15,7 @@ const ToolbarGeneral: CSSProperties = {
     justifyContent: "space-between",
     padding: "0 32px",
     height: 68,
-    boxShadow: "0 1px 4px rgba(0, 0, 0, 0.04)",
+    boxShadow: colorConfig.shadowSm,
 };
 
 const ToolbarS: CSSProperties = {
