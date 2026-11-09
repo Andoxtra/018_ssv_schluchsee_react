@@ -7,7 +7,6 @@ var
 .env.*
 test-results
 playwright-report
-package-lock.json
 skills
 .claude
 .agents

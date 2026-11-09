@@ -10,7 +10,27 @@ export class HttpError extends Error {
     }
 }
 
+// Ant Design injects its CSS-in-JS as <style> elements, hence 'unsafe-inline' for styles only.
+// The Standort page embeds the OpenStreetMap iframe after the visitor opts in.
+export const CONTENT_SECURITY_POLICY = [
+    "default-src 'self'",
+    "script-src 'self'",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: blob:",
+    "font-src 'self' data:",
+    "connect-src 'self'",
+    "frame-src https://www.openstreetmap.org",
+    "frame-ancestors 'self'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "object-src 'none'",
+].join("; ");
+
+export const PERMISSIONS_POLICY = "camera=(), microphone=(), geolocation=(), payment=(), usb=()";
+
 export const applySecurityHeaders = (res: ServerResponse): void => {
+    res.setHeader("Content-Security-Policy", CONTENT_SECURITY_POLICY);
+    res.setHeader("Permissions-Policy", PERMISSIONS_POLICY);
     res.setHeader("X-Content-Type-Options", "nosniff");
     res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
     res.setHeader("X-Frame-Options", "SAMEORIGIN");

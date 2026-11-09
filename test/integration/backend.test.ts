@@ -64,6 +64,30 @@ describe('persistent club API', () => {
         expect((await request('/api/admin/news','POST',draft,true,'https://unrelated.example')).status).toBe(403);
         await request('/api/logout','POST'); expect((await request('/api/admin/messages')).status).toBe(401);
     });
+    test('rejects admin routes reached through empty path segments without a session', async () => {
+        await request('/api/contact','POST',{name:'Test',email:'test@example.com',subject:'Hallo',message:'Nachricht',consent:true},false);
+        for (const path of ['/api//admin/messages', '/api//admin/news', '/api/admin//messages', '/api/admin/messages/']) {
+            expect([401, 404], path).toContain((await request(path,'GET',undefined,false)).status);
+        }
+        expect(await (await request('//api/admin/messages','GET',undefined,false)).text()).not.toContain('test@example.com');
+        expect((await request('/api//admin/news','POST',draft,false)).status).not.toBe(201);
+        await login();
+        expect((await request('/api/admin/news')).status).toBe(200);
+    });
+    test('answers malformed path encodings with 404 instead of 500', async () => {
+        expect((await request('/%E0%A4%A','GET',undefined,false)).status).toBe(404);
+    });
+    test('expires the session cookie on logout', async () => {
+        await login();
+        const response = await request('/api/logout','POST');
+        expect(response.headers.get('set-cookie')).toContain('Max-Age=0');
+    });
+    test('sends a content security policy and permissions policy', async () => {
+        const response = await request('/');
+        expect(response.headers.get('content-security-policy')).toContain("default-src 'self'");
+        expect(response.headers.get('content-security-policy')).toContain("frame-ancestors 'self'");
+        expect(response.headers.get('permissions-policy')).toContain('camera=()');
+    });
     test('accepts configured local development aliases and the backend address', async () => {
         await stop(); await start({localDevelopment:true});
         for (const address of ['http://localhost:5173', 'http://127.0.0.1:5173', 'http://[::1]:5173', base]) {

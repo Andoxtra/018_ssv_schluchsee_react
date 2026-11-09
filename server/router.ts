@@ -6,26 +6,33 @@ export type Route = {
     method: HttpMethod;
     pattern: string;
     handler: Handler;
+    /** Requires an administrator session; enforced after matching so the guard follows the route, not the raw URL. */
+    auth?: true;
 };
 
 export type RouteMatch = {
     handler: Handler;
     params: Record<string, string>;
+    auth: boolean;
 };
 
 export const matchRoute = (routes: Route[], method: string, path: string): RouteMatch | undefined => {
     for (const route of routes) {
         if (route.method !== method) continue;
         const params = matchPath(route.pattern, path);
-        if (params) return {handler: route.handler, params};
+        if (params) return {handler: route.handler, params, auth: route.auth === true};
     }
     return undefined;
 };
 
+const segments = (path: string): string[] => path.split("/").slice(1);
+
+// Empty segments ("/api//admin") never match: otherwise a path could reach a route
+// while bypassing any check that inspects the raw URL.
 const matchPath = (pattern: string, path: string): Record<string, string> | null => {
-    const patternParts = pattern.split("/").filter(Boolean);
-    const pathParts = path.split("/").filter(Boolean);
-    if (patternParts.length !== pathParts.length) return null;
+    const patternParts = segments(pattern);
+    const pathParts = segments(path);
+    if (patternParts.length !== pathParts.length || pathParts.includes("")) return null;
     const params: Record<string, string> = {};
     for (let i = 0; i < patternParts.length; i++) {
         const part = patternParts[i];
