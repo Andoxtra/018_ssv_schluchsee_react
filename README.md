@@ -144,6 +144,7 @@ working-tree changes were preserved.
 - [x] Authenticated admin center with drafts, publishing, image uploads and inbox.
 - [x] Persistent SQLite storage, session authentication, request validation and tests.
 - [x] Provide a single-server Docker/Caddy deployment with persistent data and SPA routes.
+- [x] GitHub Actions CI on every push and a manual, SSH-based deploy workflow to the VPS (see [DEPLOYMENT.md](docs/DEPLOYMENT.md#automatic-deployment-github-actions)).
 - [ ] Select the actual hosting server/domain and publish after content approval.
 
 ### Components and layout
@@ -198,7 +199,7 @@ working-tree changes were preserved.
 
 ### Validation
 
-Validation completed: build and lint passed, all 15 Vitest tests and 10 Chromium
+Validation completed: build and lint passed, all 100 Vitest tests and 12 Chromium
 browser tests passed, and the Docker image built and passed a local startup smoke
 test. Compose configuration validation also passed. The existing bundle-size
 warning and Node SQLite experimental-feature notice remain nonblocking.
