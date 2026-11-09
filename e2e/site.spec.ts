@@ -98,3 +98,17 @@ test('unsaved article edits survive cancelled navigation and event dates are edi
     await expect(page).toHaveURL('/admin');await expect(page.getByLabel('Titel',{exact:true})).toHaveValue('Ungespeicherter Entwurf');
     await page.getByRole('link',{name:'SSV Schluchsee – Startseite'}).click();await page.getByRole('button',{name:'Verwerfen & weiter'}).click();await expect(page).toHaveURL('/');
 });
+
+test('the result-table filter search hides entries that do not match',async({page})=>{
+    await page.goto('/standrekorde');
+    const table=page.locator('main table').first();
+    await table.getByRole('columnheader',{name:/Schütze/}).getByRole('button').click();
+    const dropdown=page.locator('.ant-table-filter-dropdown:visible');
+    await dropdown.getByPlaceholder('In Filtern suchen').fill('neubron');
+    await expect(dropdown.getByText('Rainer Neubronner',{exact:true})).toBeVisible();
+    await expect(dropdown.getByText('Klaus Strübe',{exact:true})).toHaveCount(0);
+    await dropdown.getByText('Rainer Neubronner',{exact:true}).click();
+    await dropdown.getByRole('button',{name:'Ok'}).click();
+    await expect(table.locator('tbody tr.ant-table-row')).toHaveCount(3);
+    await expect(table.locator('tbody')).not.toContainText('Klaus Strübe');
+});

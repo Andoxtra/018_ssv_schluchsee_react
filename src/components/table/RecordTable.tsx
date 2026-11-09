@@ -7,6 +7,7 @@ import type {ColumnsType} from "antd/es/table";
 import tableTexts from "../../config/translations/tableTexts.ts";
 import TableStyle from "../../style/components/table/TableStyle";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle.ts";
+import {searchableFilter} from "./columnFilter.ts";
 
 const {
     recordTable
@@ -48,29 +49,11 @@ const RecordTable = ({tableData}: RecordTableProps): ReactNode => {
         timestamp: record.date.getUnixTimestamp()
     }));
 
-    const uniqueDisciplines = formattedTableData.map((formattedData) => {
-        return formattedData.discipline;
-    }).filter((discipline, index, self) => {
-        return self.indexOf(discipline) === index;
-    });
-
-    const uniqueShooter = formattedTableData.map((formattedData) => {
-        return formattedData.shooter;
-    }).filter((shooter, index, self) => {
-        return self.indexOf(shooter) === index;
-    });
-
     const columns: ColumnsType<RecordTableDataFormatted> = [
         {
             title: recordTable.discipline,
             dataIndex: 'discipline',
-            filterMode: 'tree',
-            filterSearch: true,
-            filters: uniqueDisciplines.map(discipline => ({
-                text: discipline,
-                value: discipline
-            })),
-            onFilter: (value, record) => record.discipline === value,
+            ...searchableFilter(formattedTableData, row => row.discipline),
         },
         {
             title: recordTable.points,
@@ -85,13 +68,7 @@ const RecordTable = ({tableData}: RecordTableProps): ReactNode => {
         {
             title: recordTable.shooter,
             dataIndex: 'shooter',
-            filterMode: 'tree',
-            filterSearch: true,
-            filters: uniqueShooter.map(shooter => ({
-                text: shooter,
-                value: shooter
-            })),
-            onFilter: (value, record) => record.shooter === value,
+            ...searchableFilter(formattedTableData, row => row.shooter),
         }
     ];
 
