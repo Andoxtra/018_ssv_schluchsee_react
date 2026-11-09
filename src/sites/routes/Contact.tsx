@@ -71,6 +71,7 @@ const Contact = (): ReactNode => {
                                 <div style={{ fontWeight: 600, color: colorConfig.text, fontSize: "0.9375rem" }}>{member.name}</div>
                                 <div style={{ color: colorConfig.textSecondary, fontSize: "0.8125rem" }}>{member.role}</div>
                                 {member.email && <a href={`mailto:${member.email}`} style={{ fontSize: "0.8125rem" }}>{member.email}</a>}
+                                <br/>
                                 {member.phone && <a href={`tel:${member.phone.replace(/\s/g, "")}`} style={{ fontSize: "0.8125rem" }}>{member.phone}</a>}
                             </div>
                         </div>
