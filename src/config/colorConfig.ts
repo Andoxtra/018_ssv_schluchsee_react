@@ -13,11 +13,16 @@ const colorConfig = {
     quaternaryHover: "rgba(148,160,156,0.5)",
     backgroundLight: "#F8F8F4",
     backgroundAlt: "#EDECE4",
+    // Light club green for selected list items; dark text on it stays above 12:1.
+    primaryTint: "#E3ECE5",
+    primaryTintHover: "#D3E1D6",
     border: "#D5D2C8",
     error: "#d43030",
     success:"#3abf3a",
     textPrimary: "#1a1a1a",
     textSecondary: "#5a5a5a",
+    // Quietest text colour that still reaches 4.5:1 on white and backgroundAlt.
+    textMuted: "#66665f",
     white: "#FFFFFF",
     darkBg: "#0d2215",
     darkBgLight: "#143620",
