@@ -112,3 +112,26 @@ test('the result-table filter search hides entries that do not match',async({pag
     await expect(table.locator('tbody tr.ant-table-row')).toHaveCount(3);
     await expect(table.locator('tbody')).not.toContainText('Klaus Strübe');
 });
+
+// WCAG contrast of an element's text against its first opaque background (no gradients).
+const textContrast=(element: Element, pseudo?: string): number=>{
+    const parse=(color: string)=>{const parts=color.match(/[\d.]+/g)!.map(Number);return {r:parts[0],g:parts[1],b:parts[2],a:parts[3]??1};};
+    const background=(start: Element|null)=>{for(let node=start;node;node=node.parentElement){const color=parse(getComputedStyle(node).backgroundColor);if(color.a>0)return color;}return {r:255,g:255,b:255,a:1};};
+    const luminance=({r,g,b}: {r:number;g:number;b:number})=>[r,g,b].map(value=>{value/=255;return value<=0.03928?value/12.92:((value+0.055)/1.055)**2.4;}).reduce((sum,value,index)=>sum+value*[0.2126,0.7152,0.0722][index],0);
+    const back=background(element);const front=parse(getComputedStyle(element,pseudo).color);
+    const blended={r:front.r*front.a+back.r*(1-front.a),g:front.g*front.a+back.g*(1-front.a),b:front.b*front.a+back.b*(1-front.a)};
+    const [light,dark]=[luminance(blended),luminance(back)].sort((a,b)=>b-a);
+    return (light+0.05)/(dark+0.05);
+};
+
+test('checked filter entries, input placeholders and image placeholders keep readable contrast',async({page})=>{
+    await page.goto('/standrekorde');
+    await page.locator('main table').first().getByRole('columnheader',{name:/Schütze/}).getByRole('button').click();
+    const dropdown=page.locator('.ant-table-filter-dropdown:visible');
+    const entry=dropdown.getByText('Rainer Neubronner',{exact:true});
+    await entry.click();await page.mouse.move(0,0);
+    expect(await entry.evaluate(textContrast)).toBeGreaterThanOrEqual(4.5);
+    expect(await dropdown.getByPlaceholder('In Filtern suchen').evaluate(textContrast,'::placeholder')).toBeGreaterThanOrEqual(4.5);
+    await page.goto('/');
+    expect(await page.getByText('Bild folgt').first().evaluate(textContrast)).toBeGreaterThanOrEqual(4.5);
+});

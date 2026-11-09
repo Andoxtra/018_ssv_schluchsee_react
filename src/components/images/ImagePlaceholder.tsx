@@ -1,4 +1,5 @@
 import type {CSSProperties} from "react";
+import colorConfig from "../../config/colorConfig.ts";
 
 type ImagePlaceholderProps = {
     src?: string;
@@ -18,7 +19,7 @@ const ImagePlaceholder = ({src, alt, label = "Bild folgt", aspectRatio = "4 / 3"
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            color: "#7a7a75",
+            color: colorConfig.textMuted,
             fontSize: "0.875rem",
             fontWeight: 500,
         }}>

@@ -15,7 +15,11 @@ const TableTheme : ThemeConfig = {
         colorLinkActive: colorConfig.secondaryActive,
 
         controlOutline: colorConfig.primary,
-        controlItemBgActive: colorConfig.primaryHover,
+        // Selected items in filters, selects and menus keep dark text, so they need a light background.
+        controlItemBgActive: colorConfig.primaryTint,
+        controlItemBgActiveHover: colorConfig.primaryTintHover,
+        // antd's default placeholder grey (25% black) is only 1.8:1 on white.
+        colorTextPlaceholder: colorConfig.textMuted,
     },
 
     components: {
