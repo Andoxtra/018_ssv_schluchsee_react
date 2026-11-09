@@ -4,6 +4,7 @@ import ArrowLink from "../links/ArrowLink.tsx";
 
 import tableTexts from "../../config/translations/tableTexts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle";
+import {searchableFilter} from "./columnFilter.ts";
 
 import TableStyle from "../../style/components/table/TableStyle";
 
@@ -28,26 +29,17 @@ export type RWKTableProps = {
 };
 
 const RWKTable = ({tableData}: RWKTableProps): ReactNode => {
-    const uniqueValues = (field: (row: RWKTableData) => string) =>
-        tableData.map(field).filter((value, index, self) => self.indexOf(value) === index);
-
     const columns: TableColumnsType<RWKTableData> = [
         {
             title: rwkTable.competition,
             dataIndex: 'wettkampf',
-            filterMode: 'tree',
-            filterSearch: true,
-            filters: uniqueValues(row => row.wettkampf).map(value => ({text: value, value})),
-            onFilter: (value, record) => record.wettkampf === value,
+            ...searchableFilter(tableData, row => row.wettkampf),
         },
         {
             title: rwkTable.season,
             dataIndex: 'saison',
             sorter: (a, b) => a.saison.localeCompare(b.saison),
-            filterMode: 'tree',
-            filterSearch: true,
-            filters: uniqueValues(row => row.saison).map(value => ({text: value, value})),
-            onFilter: (value, record) => record.saison === value,
+            ...searchableFilter(tableData, row => row.saison),
         },
         {
             title: rwkTable.results,

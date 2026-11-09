@@ -3,6 +3,7 @@ import type {ReactNode} from "react";
 
 import tableTexts from "../../config/translations/tableTexts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle";
+import {searchableFilter} from "./columnFilter.ts";
 
 import TableStyle from "../../style/components/table/TableStyle";
 
@@ -34,12 +35,6 @@ const placeRank = (place: string): number => {
 };
 
 const AchievementsTable = ({tableData}: AchievementsTableProps): ReactNode => {
-    const uniqueValues = (field: (row: AchievementsTableData) => string) =>
-        tableData.map(field).filter((value, index, self) => self.indexOf(value) === index);
-
-    const filterable = (field: (row: AchievementsTableData) => string) =>
-        uniqueValues(field).map(value => ({text: value, value}));
-
     const columns: TableColumnsType<AchievementsTableData> = [
         {
             title: achievementsTable.year,
@@ -49,26 +44,17 @@ const AchievementsTable = ({tableData}: AchievementsTableProps): ReactNode => {
         {
             title: achievementsTable.shooter,
             dataIndex: 'shooter',
-            filterMode: 'tree',
-            filterSearch: true,
-            filters: filterable(row => row.shooter),
-            onFilter: (value, record) => record.shooter === value,
+            ...searchableFilter(tableData, row => row.shooter),
         },
         {
             title: achievementsTable.category,
             dataIndex: 'category',
-            filterMode: 'tree',
-            filterSearch: true,
-            filters: filterable(row => row.category),
-            onFilter: (value, record) => record.category === value,
+            ...searchableFilter(tableData, row => row.category),
         },
         {
             title: achievementsTable.discipline,
             dataIndex: 'discipline',
-            filterMode: 'tree',
-            filterSearch: true,
-            filters: filterable(row => row.discipline),
-            onFilter: (value, record) => record.discipline === value,
+            ...searchableFilter(tableData, row => row.discipline),
         },
         {
             title: achievementsTable.place,

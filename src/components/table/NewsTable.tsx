@@ -6,6 +6,7 @@ import tableTexts from "../../config/translations/tableTexts";
 import getDynamicStyle from "../../logic/dynamicStyling/getDynamicStyle";
 
 import TableStyle from "../../style/components/table/TableStyle";
+import {searchableFilter} from "./columnFilter.ts";
 
 const {newsTable} = tableTexts;
 
@@ -43,11 +44,6 @@ const NewsTable = ({tableData}: NewsTableProps): ReactNode => {
         author: entry.author,
         timestamp: entry.date.getUnixTimestamp()
     }));
-    const uniqueAuthors = formattedTableData.map((formattedData) => {
-        return formattedData.author;
-    }).filter((author, index, self) => {
-        return self.indexOf(author) === index;
-    });
     const columns: TableColumnsType<NewsTableDataFormatted> = [
         {
             title: newsTable.title,
@@ -62,13 +58,7 @@ const NewsTable = ({tableData}: NewsTableProps): ReactNode => {
         {
             title: newsTable.author,
             dataIndex: 'author',
-            filterMode: 'tree',
-            filterSearch: true,
-            filters: uniqueAuthors.map(author => ({
-                text: author,
-                value: author
-            })),
-            onFilter: (value, record) => record.author === value,
+            ...searchableFilter(formattedTableData, row => row.author),
         }
     ];
 
